@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IELTS Reading Test 13</title>
+<style>
+:root{
+  --navy:#163a5f;--navy2:#0f2c49;--blue:#2563a6;--pale:#f4f7fa;--line:#d9e2ec;
+  --green:#137a43;--red:#b42318;--amber:#b7791f;--gray:#667085;--ink:#1d2939;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:#eef2f6;line-height:1.55}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #69a7e8;outline-offset:2px}
+.hidden{display:none!important}
+.screen{min-height:100vh}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 4px 18px rgba(16,24,40,.06)}
+.start-wrap{max-width:820px;margin:48px auto;padding:24px}
+.start-card{padding:34px}
+.kicker{font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--blue);text-transform:uppercase}
+h1{margin:.25rem 0 .25rem;color:var(--navy);font-size:34px;line-height:1.2}
+h2,h3{color:var(--navy)}
+.test-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:22px 0}
+.meta-pill{background:var(--pale);border:1px solid var(--line);border-radius:10px;padding:12px;text-align:center}
+.instructions{background:#f8fafc;border-left:4px solid var(--blue);padding:14px 18px;border-radius:8px;margin:18px 0}
+.instructions ul{margin:8px 0 0;padding-left:22px}
+.form-row{margin:20px 0}
+.form-row label{display:block;font-weight:700;margin-bottom:7px}
+.form-row input[type=text]{width:100%;padding:13px 14px;border:1px solid #98a2b3;border-radius:8px}
+.check-row{display:flex;gap:10px;align-items:flex-start}
+.primary{border:0;background:var(--navy);color:#fff;padding:12px 18px;border-radius:9px;font-weight:700}
+.primary:hover{background:var(--navy2)}
+.secondary{border:1px solid var(--navy);background:#fff;color:var(--navy);padding:10px 14px;border-radius:9px;font-weight:700}
+.danger{border:1px solid var(--red);background:#fff;color:var(--red);padding:10px 14px;border-radius:9px;font-weight:700}
+.big-btn{font-size:17px;padding:14px 22px;width:100%;margin-top:8px}
+.error{color:var(--red);font-weight:700;margin-top:8px}
+.topbar{position:sticky;top:0;z-index:20;background:var(--navy2);color:white;padding:9px 14px;box-shadow:0 3px 12px rgba(0,0,0,.18)}
+.topbar-inner{max-width:1600px;margin:auto;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.top-item{font-size:13px}
+.top-item strong{display:block;font-size:15px}
+.timer{font-variant-numeric:tabular-nums;font-size:22px;font-weight:800;letter-spacing:.04em}
+.timer.warn{color:#ffd166}
+.top-spacer{flex:1}
+.topbar button{padding:8px 11px;border-radius:7px;border:1px solid rgba(255,255,255,.5);background:transparent;color:white;font-weight:700}
+.topbar .submit-top{background:#fff;color:var(--navy2);border-color:#fff}
+.tabs-bar{position:sticky;top:64px;z-index:15;background:#fff;border-bottom:1px solid var(--line);padding:8px 14px}
+.tabs-inner{max-width:1600px;margin:auto;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.passage-tab{padding:9px 16px;border:1px solid var(--line);background:#fff;border-radius:8px;font-weight:700;color:var(--navy)}
+.passage-tab.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.status-summary{margin-left:auto;font-size:13px;color:#475467}
+.nav-wrap{max-width:1600px;margin:10px auto 0;padding:0 14px}
+.question-nav{display:flex;gap:5px;flex-wrap:wrap}
+.qnav{width:34px;height:34px;border-radius:7px;border:1px solid #cdd5df;background:#e4e7ec;color:#344054;font-weight:700;padding:0}
+.qnav.answered{background:#dbeafe;border-color:#60a5fa;color:#1e40af}
+.qnav.review{background:#fef3c7;border-color:#f59e0b;color:#92400e}
+.qnav.current{background:var(--navy);color:#fff;border-color:var(--navy)}
+.qnav.correct{background:#dcfce7;border-color:#22c55e;color:#166534}
+.qnav.wrong{background:#fee2e2;border-color:#ef4444;color:#991b1b}
+.qnav.blank{background:#d0d5dd;border-color:#98a2b3;color:#344054}
+.workspace{max-width:1600px;margin:12px auto;padding:0 14px 20px;display:grid;grid-template-columns:minmax(0,1.28fr) minmax(410px,.72fr);gap:12px;height:calc(100vh - 174px)}
+.pane{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:auto;min-height:0}
+.pane-head{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);padding:12px 18px;z-index:5}
+.pane-body{padding:22px 24px}
+.passage-title{text-align:center;font-family:Georgia,serif;font-size:28px;color:#9a5c1f;margin:4px 0 18px}
+.passage-subtitle{text-align:center;font-style:italic;font-weight:700;margin:-8px auto 20px;max-width:760px}
+.passage-para{font-family:Georgia,'Times New Roman',serif;font-size:18px;line-height:1.72;margin:0 0 18px;white-space:pre-line}
+.para-label{float:left;font-family:Arial,sans-serif;font-size:28px;font-weight:700;color:#d47b23;margin-right:13px;line-height:1.1}
+.student-highlight{background:#fff176;padding:1px 0}
+.evidence-flash{animation:flash 2.4s ease}
+@keyframes flash{0%,100%{background:transparent}25%,70%{background:#fff1b8}}
+.read-tools{display:flex;gap:7px;flex-wrap:wrap}
+.read-tools button{padding:7px 10px;border:1px solid #98a2b3;background:white;border-radius:7px}
+.qgroup{border:1px solid var(--line);border-radius:12px;padding:16px;margin:0 0 16px;background:#fff}
+.qgroup:focus-within{border-color:#6aa9e8;box-shadow:0 0 0 2px #dbeafe}
+.group-title{font-weight:800;color:var(--navy);font-size:18px;margin-bottom:5px}
+.group-instruction{font-size:14px;color:#475467;background:#f8fafc;padding:9px 11px;border-radius:7px;margin:8px 0 12px}
+.question-card{border-top:1px solid #e4e7ec;padding:14px 0 3px}
+.question-card:first-of-type{border-top:0}
+.qline{display:flex;gap:10px;align-items:flex-start}
+.qnum{min-width:31px;height:31px;border-radius:50%;background:var(--navy);color:white;display:inline-flex;align-items:center;justify-content:center;font-weight:800}
+.qtext{font-size:16px;font-weight:600;flex:1}
+.answer-area{margin:10px 0 4px 41px}
+.answer-area select,.answer-area input[type=text]{width:min(100%,540px);padding:10px;border:1px solid #98a2b3;border-radius:7px;background:white}
+.choice{display:flex;gap:9px;align-items:flex-start;margin:7px 0}
+.choice input{margin-top:5px}
+.review-btn{margin:8px 0 0 41px;border:1px solid #e0a12b;background:#fffaf0;color:#925d00;padding:6px 9px;border-radius:7px;font-size:13px;font-weight:700}
+.review-btn.marked{background:#fef3c7}
+.word-warning{font-size:12px;color:var(--red);font-weight:700;margin-top:4px}
+.mobile-jump{display:none}
+.save-line{font-size:12px;color:#667085}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);z-index:60;background:#101828;color:white;padding:10px 16px;border-radius:8px;box-shadow:0 5px 20px rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:.2s}
+.toast.show{opacity:1}
+.modal-backdrop{position:fixed;inset:0;background:rgba(16,24,40,.62);z-index:50;display:flex;align-items:center;justify-content:center;padding:18px}
+.modal{width:min(620px,100%);background:white;border-radius:14px;padding:24px;box-shadow:0 20px 50px rgba(0,0,0,.3)}
+.modal h2{margin-top:0}
+.modal-actions{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;margin-top:18px}
+.unanswered-list{max-height:110px;overflow:auto;background:#f8fafc;padding:9px;border-radius:7px}
+.results-wrap{max-width:1250px;margin:0 auto;padding:24px 16px 50px}
+.results-head{padding:24px}
+.results-head h1{font-size:28px}
+.summary-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}
+.metric{background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:13px}
+.metric b{display:block;font-size:23px;color:var(--navy)}
+.passage-scores{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}
+.score-card{padding:16px;text-align:center}
+.score-card b{font-size:24px;color:var(--navy)}
+.result-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}
+.result-actions button{min-height:48px}
+.filterbar{display:flex;gap:7px;flex-wrap:wrap;margin:15px 0}
+.filterbar button{border:1px solid #98a2b3;background:#fff;border-radius:20px;padding:7px 12px}
+.filterbar button.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.result-card{background:white;border:1px solid var(--line);border-left:6px solid #98a2b3;border-radius:10px;margin:10px 0;overflow:hidden}
+.result-card.correct{border-left-color:var(--green)}
+.result-card.wrong{border-left-color:var(--red)}
+.result-card.blank{border-left-color:#667085}
+.result-summary{padding:14px 16px;display:flex;gap:12px;align-items:flex-start}
+.status-badge{font-size:12px;font-weight:800;border-radius:16px;padding:4px 8px;white-space:nowrap}
+.status-badge.correct{color:#166534;background:#dcfce7}
+.status-badge.wrong{color:#991b1b;background:#fee2e2}
+.status-badge.blank{color:#344054;background:#e4e7ec}
+.result-q{font-weight:800;color:var(--navy);min-width:54px}
+.result-main{flex:1}
+.answer-compare{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.answer-box{background:#f8fafc;padding:9px;border-radius:7px}
+details.explain{border-top:1px solid var(--line);padding:0 16px 16px}
+details.explain summary{padding:12px 0;font-weight:800;color:var(--navy);cursor:pointer}
+.detail-block{margin:11px 0}
+.detail-block h4{margin:0 0 5px;color:#344054}
+.quote{background:#fff8e8;border-left:4px solid #e7a23b;padding:12px;white-space:pre-line;font-family:Georgia,serif}
+.explain-text{white-space:pre-line}
+.para-list{margin:5px 0;padding-left:20px}
+.location-btn{border:1px solid var(--blue);color:var(--blue);background:white;padding:8px 10px;border-radius:7px;font-weight:700}
+.review-passage-panel{padding:16px;margin:16px 0}
+.review-passage-content{max-height:430px;overflow:auto;border-top:1px solid var(--line);margin-top:10px;padding:16px}
+.paraphrase-section,.weakness-section{padding:20px;margin-top:16px}
+.para-item{padding:9px 0;border-bottom:1px solid #edf0f3}
+.weak-stat{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid #edf0f3}
+@media(max-width:1000px){
+  .workspace{grid-template-columns:1fr;height:auto}
+  .pane{max-height:none;overflow:visible}
+  .tabs-bar{top:95px}
+  .mobile-jump{display:flex;position:sticky;top:148px;z-index:14;background:#eef2f6;padding:6px 12px;gap:7px}
+  .mobile-jump button{flex:1;border:1px solid var(--navy);background:white;color:var(--navy);padding:8px;border-radius:7px;font-weight:700}
+  .test-meta,.summary-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:650px){
+  h1{font-size:27px}
+  .start-wrap{margin:12px auto;padding:10px}
+  .start-card{padding:20px}
+  .topbar-inner{gap:7px}
+  .top-item:nth-child(2),.top-item:nth-child(3){display:none}
+  .tabs-bar{top:91px}
+  .mobile-jump{top:144px}
+  .pane-body{padding:16px}
+  .answer-area,.review-btn{margin-left:0}
+  .passage-scores,.result-actions,.summary-grid{grid-template-columns:1fr}
+  .answer-compare{grid-template-columns:1fr}
+}
+@media print{
+  .topbar,.tabs-bar,.question-nav,.result-actions,.filterbar,.mobile-jump{display:none!important}
+  body{background:white}.card,.result-card{box-shadow:none;break-inside:avoid}
+}
+</style>
+
+<!-- IELTS_DUAL_PANE_PATCH_START -->
+<style id="ielts-dual-pane-layout-patch">
+/* =========================================================
+   IELTS READING – DUAL PANE / INDEPENDENT SCROLL PATCH
+   Desktop: 60/40
+   Mobile portrait (<768px): top/bottom, BOTH visible
+   Mobile landscape + tablet: 60/40
+   Body locked only while an exam/practice screen is active
+   ========================================================= */
+
+html.ielts-exam-active,
+body.ielts-exam-active{
+  height:100% !important;
+  max-height:100% !important;
+  overflow:hidden !important;
+  overscroll-behavior:none !important;
+}
+
+body.ielts-exam-active{
+  position:relative !important;
+}
+
+/* Prevent the exam/practice shell itself from becoming the scrolling surface. */
+body.ielts-exam-active .exam,
+body.ielts-exam-active .practice,
+body.ielts-exam-active #exam-screen{
+  min-height:0 !important;
+  overflow:hidden !important;
+}
+
+/* Common split containers */
+body.ielts-exam-active .workspace,
+body.ielts-exam-active .work{
+  min-height:0 !important;
+  overflow:hidden !important;
+}
+
+/* Every reading/question pane scrolls on its own. */
+body.ielts-exam-active .workspace > .pane,
+body.ielts-exam-active .workspace > .reading-pane,
+body.ielts-exam-active .workspace > .question-pane,
+body.ielts-exam-active .workspace > .passage-pane,
+body.ielts-exam-active .workspace > .passage,
+body.ielts-exam-active .workspace > .questions,
+body.ielts-exam-active .work > .pane,
+body.ielts-exam-active .work > .reading-pane,
+body.ielts-exam-active .work > .question-pane,
+body.ielts-exam-active .work > .passage-pane,
+body.ielts-exam-active .work > .passage,
+body.ielts-exam-active .work > .questions,
+body.ielts-exam-active #passage-pane,
+body.ielts-exam-active #question-pane{
+  min-height:0 !important;
+  overflow-y:auto !important;
+  overflow-x:hidden !important;
+  overscroll-behavior:contain !important;
+  -webkit-overflow-scrolling:touch !important;
+}
+
+/* The old "show only one pane" mobile controls are no longer needed. */
+body.ielts-exam-active .mobile-switch,
+body.ielts-exam-active .mobile-toggle,
+body.ielts-exam-active #show-reading,
+body.ielts-exam-active #show-questions{
+  display:none !important;
+}
+
+/* Never allow old mobile-state classes to hide one side. */
+body.ielts-exam-active .workspace.show-questions > .reading-pane,
+body.ielts-exam-active .workspace.show-questions > .passage-pane,
+body.ielts-exam-active .workspace.show-questions > .passage,
+body.ielts-exam-active .workspace:not(.show-questions) > .question-pane,
+body.ielts-exam-active .practice.show-passage .question-pane,
+body.ielts-exam-active .practice:not(.show-passage) .passage-pane,
+body.ielts-exam-active #passage-pane.mobile-hidden,
+body.ielts-exam-active #question-pane.mobile-hidden{
+  display:block !important;
+}
+
+/* Keep fixed-height practice shells inside the viewport. */
+body.ielts-exam-active .practice{
+  height:100vh !important;
+  height:100dvh !important;
+  max-height:100vh !important;
+  max-height:100dvh !important;
+}
+
+/* Matching Information-style shell: 44px global brand + exam below it. */
+body.ielts-exam-active .top-brand + .exam,
+body.ielts-exam-active .top-brand ~ .exam{
+  height:calc(100vh - 44px) !important;
+  height:calc(100dvh - 44px) !important;
+  min-height:0 !important;
+}
+
+/* ---------- DESKTOP + TABLET + MOBILE LANDSCAPE ---------- */
+@media (min-width:768px), (orientation:landscape){
+  body.ielts-exam-active .exam .workspace,
+  body.ielts-exam-active .exam .work,
+  body.ielts-exam-active .practice .workspace{
+    display:grid !important;
+    grid-template-columns:minmax(0,3fr) minmax(0,2fr) !important; /* 60 / 40 */
+    grid-template-rows:minmax(0,1fr) !important;
+    min-height:0 !important;
+    overflow:hidden !important;
+    position:relative !important;
+  }
+
+  /* Flex-based exam templates */
+  body.ielts-exam-active .exam .workspace,
+  body.ielts-exam-active .exam .work{
+    flex:1 1 auto !important;
+    height:auto !important;
+  }
+
+  /* YES/NO/NOT GIVEN-style fixed header = 46 + 42 = 88px */
+  body.ielts-exam-active .practice .workspace{
+    height:calc(100vh - 88px) !important;
+    height:calc(100dvh - 88px) !important;
+  }
+
+  body.ielts-exam-active .workspace > .pane,
+  body.ielts-exam-active .workspace > .reading-pane,
+  body.ielts-exam-active .workspace > .question-pane,
+  body.ielts-exam-active .workspace > .passage-pane,
+  body.ielts-exam-active .workspace > .passage,
+  body.ielts-exam-active .workspace > .questions,
+  body.ielts-exam-active .work > .pane,
+  body.ielts-exam-active .work > .reading-pane,
+  body.ielts-exam-active .work > .question-pane,
+  body.ielts-exam-active .work > .passage-pane,
+  body.ielts-exam-active .work > .passage,
+  body.ielts-exam-active .work > .questions{
+    display:block !important;
+    position:relative !important;
+    inset:auto !important;
+    height:auto !important;
+    max-height:none !important;
+    min-height:0 !important;
+    overflow-y:auto !important;
+  }
+
+  /* Restore divider between 60% passage and 40% questions */
+  body.ielts-exam-active .work > .passage,
+  body.ielts-exam-active .workspace > .reading-pane,
+  body.ielts-exam-active .workspace > .passage-pane{
+    border-right:1px solid var(--line, #d7dde4) !important;
+    border-bottom:0 !important;
+  }
+}
+
+/* ---------- MOBILE PORTRAIT ONLY ---------- */
+@media (max-width:767px) and (orientation:portrait){
+  /* Matching Information had height:auto + sticky header on mobile:
+     force the shell back into the viewport. */
+  body.ielts-exam-active .exam{
+    min-height:0 !important;
+    overflow:hidden !important;
+  }
+
+  body.ielts-exam-active .exam-head{
+    position:relative !important;
+    top:auto !important;
+    flex:0 0 auto !important;
+  }
+
+  body.ielts-exam-active .exam .workspace,
+  body.ielts-exam-active .exam .work,
+  body.ielts-exam-active .practice .workspace{
+    display:grid !important;
+    grid-template-columns:minmax(0,1fr) !important;
+    grid-template-rows:minmax(0,48%) minmax(0,52%) !important;
+    min-height:0 !important;
+    overflow:hidden !important;
+    position:relative !important;
+  }
+
+  /* Flex-based templates: workspace occupies exactly the remaining height. */
+  body.ielts-exam-active .exam .workspace,
+  body.ielts-exam-active .exam .work{
+    flex:1 1 auto !important;
+    height:auto !important;
+  }
+
+  /* Fixed 88px header templates */
+  body.ielts-exam-active .practice .workspace{
+    height:calc(100vh - 88px) !important;
+    height:calc(100dvh - 88px) !important;
+  }
+
+  body.ielts-exam-active .workspace > .pane,
+  body.ielts-exam-active .workspace > .reading-pane,
+  body.ielts-exam-active .workspace > .question-pane,
+  body.ielts-exam-active .workspace > .passage-pane,
+  body.ielts-exam-active .workspace > .passage,
+  body.ielts-exam-active .workspace > .questions,
+  body.ielts-exam-active .work > .pane,
+  body.ielts-exam-active .work > .reading-pane,
+  body.ielts-exam-active .work > .question-pane,
+  body.ielts-exam-active .work > .passage-pane,
+  body.ielts-exam-active .work > .passage,
+  body.ielts-exam-active .work > .questions{
+    display:block !important;
+    position:relative !important;
+    inset:auto !important;
+    height:auto !important;
+    max-height:none !important;
+    min-height:0 !important;
+    overflow-y:auto !important;
+    overflow-x:hidden !important;
+  }
+
+  /* Clear old "one pane at a time" rules with high specificity. */
+  body.ielts-exam-active .workspace.show-questions .reading-pane,
+  body.ielts-exam-active .workspace.show-questions .passage-pane,
+  body.ielts-exam-active .workspace.show-questions .passage,
+  body.ielts-exam-active .workspace.show-questions .question-pane,
+  body.ielts-exam-active .practice.show-passage .passage-pane,
+  body.ielts-exam-active .practice.show-passage .question-pane,
+  body.ielts-exam-active .practice .passage-pane,
+  body.ielts-exam-active .practice .question-pane{
+    display:block !important;
+  }
+
+  /* Horizontal divider between Passage (top) and Questions (bottom). */
+  body.ielts-exam-active .work > .passage,
+  body.ielts-exam-active .workspace > .reading-pane,
+  body.ielts-exam-active .workspace > .passage-pane{
+    border-right:0 !important;
+    border-bottom:2px solid var(--line, #d7dde4) !important;
+  }
+
+  /* Compact padding so both regions remain practical on small screens. */
+  body.ielts-exam-active .reading-pane,
+  body.ielts-exam-active .passage-pane,
+  body.ielts-exam-active .work > .passage{
+    padding-top:10px !important;
+    padding-bottom:18px !important;
+  }
+
+  body.ielts-exam-active .question-pane,
+  body.ielts-exam-active .work > .questions{
+    padding-top:9px !important;
+    padding-bottom:24px !important;
+  }
+}
+
+/* Print should remain normal and fully expandable. */
+@media print{
+  html.ielts-exam-active,
+  body.ielts-exam-active{
+    height:auto !important;
+    max-height:none !important;
+    overflow:visible !important;
+  }
+}
+</style>
+<!-- IELTS_DUAL_PANE_PATCH_END -->
+
+</head>
+<body>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<section id="startScreen" class="screen">
+  <div class="start-wrap">
+    <div class="start-card card">
+      <div class="kicker">Computer-based practice</div>
+      <h1>IELTS ACADEMIC READING TEST</h1>
+      <h2 style="margin-top:6px">READING TEST 13</h2>
+      <div class="test-meta">
+        <div class="meta-pill"><b>3</b><br>Passages</div>
+        <div class="meta-pill"><b>40</b><br>Câu hỏi</div>
+        <div class="meta-pill"><b>60 phút</b><br>Thời gian</div>
+        <div class="meta-pill"><b>1 điểm</b><br>Mỗi câu đúng</div>
+      </div>
+      <div class="instructions">
+        <strong>Hướng dẫn:</strong>
+        <ul>
+          <li>Không có thời gian chuyển đáp án riêng.</li>
+          <li>Câu trả lời được tự động lưu trên trình duyệt này.</li>
+          <li>Bài sẽ tự động nộp khi hết 60 phút.</li>
+          <li>Đáp án, bằng chứng, giải thích chi tiết và paraphrase chỉ xuất hiện sau khi nộp bài.</li>
+          <li>Questions 7–8 là nhóm <b>Choose TWO</b>: mỗi lựa chọn đúng được 1 điểm, thứ tự không ảnh hưởng.</li>
+        </ul>
+      </div>
+      <div class="form-row">
+        <label for="studentName">Họ và tên học sinh <span aria-hidden="true">*</span></label>
+        <input id="studentName" type="text" autocomplete="name" placeholder="Nhập họ và tên">
+      </div>
+      <div class="form-row check-row">
+        <input id="readyCheck" type="checkbox">
+        <label for="readyCheck">Tôi đã đọc hướng dẫn và sẵn sàng bắt đầu bài thi.</label>
+      </div>
+      <div id="startError" class="error" role="alert"></div>
+      <button id="startBtn" class="primary big-btn">BẮT ĐẦU LÀM BÀI</button>
+    </div>
+  </div>
+</section>
+
+<section id="examScreen" class="screen hidden">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="top-item">Học sinh<strong id="topName"></strong></div>
+      <div class="top-item">Passage<strong id="topPassage">1</strong></div>
+      <div class="top-item">Đã trả lời<strong id="topAnswered">0/40</strong></div>
+      <div class="top-spacer"></div>
+      <div class="top-item">Thời gian còn lại<strong id="timer" class="timer" aria-live="off">60:00</strong></div>
+      <button id="saveBtn">LƯU BÀI</button>
+      <button id="submitBtn" class="submit-top">NỘP BÀI</button>
+    </div>
+  </header>
+  <div class="tabs-bar">
+    <div class="tabs-inner">
+      <button class="passage-tab active" data-passage="1">PASSAGE 1</button>
+      <button class="passage-tab" data-passage="2">PASSAGE 2</button>
+      <button class="passage-tab" data-passage="3">PASSAGE 3</button>
+      <div id="statusSummary" class="status-summary"></div>
+      <div id="saveLine" class="save-line"></div>
+    </div>
+  </div>
+  <div class="nav-wrap"><div id="questionNav" class="question-nav" aria-label="Điều hướng câu hỏi"></div></div>
+  <div class="mobile-jump">
+    <button onclick="document.getElementById('readingPane').scrollIntoView({behavior:'smooth'})">BÀI ĐỌC</button>
+    <button onclick="document.getElementById('questionPane').scrollIntoView({behavior:'smooth'})">CÂU HỎI</button>
+  </div>
+  <main class="workspace">
+    <section id="readingPane" class="pane" aria-label="Bài đọc">
+      <div class="pane-head">
+        <div class="read-tools">
+          <button id="highlightBtn">ĐÁNH DẤU VÀNG</button>
+          <button id="unhighlightBtn">BỎ ĐÁNH DẤU</button>
+        </div>
+      </div>
+      <div id="passageBody" class="pane-body"></div>
+    </section>
+    <section id="questionPane" class="pane" aria-label="Câu hỏi">
+      <div id="questionBody" class="pane-body"></div>
+    </section>
+  </main>
+</section>
+
+<section id="resultsScreen" class="screen hidden">
+  <div class="results-wrap">
+    <div id="resultsHead" class="results-head card"></div>
+    <div id="passageScores" class="passage-scores"></div>
+    <div class="result-actions">
+      <button id="copyResultsBtn" class="primary">SAO CHÉP TOÀN BỘ KẾT QUẢ</button>
+      <button id="exportWordBtn" class="primary">XUẤT FILE WORD KẾT QUẢ</button>
+      <button id="retakeBtn" class="danger">LÀM LẠI BÀI THI</button>
+    </div>
+
+    <div id="reviewPassagePanel" class="review-passage-panel card hidden">
+      <div style="display:flex;justify-content:space-between;gap:10px;align-items:center">
+        <h3 id="reviewPassageTitle" style="margin:0">BÀI ĐỌC THAM CHIẾU</h3>
+        <button id="closeReviewPassage" class="secondary">ĐÓNG</button>
+      </div>
+      <div id="reviewPassageContent" class="review-passage-content"></div>
+    </div>
+
+    <div class="filterbar" aria-label="Lọc kết quả">
+      <button class="result-filter active" data-filter="all">TẤT CẢ</button>
+      <button class="result-filter" data-filter="wrong">CÂU SAI</button>
+      <button class="result-filter" data-filter="correct">CÂU ĐÚNG</button>
+      <button class="result-filter" data-filter="blank">BỎ TRỐNG</button>
+      <button class="result-filter" data-filter="review">ĐÁNH DẤU XEM LẠI</button>
+    </div>
+    <div id="resultCards"></div>
+    <div id="paraphraseSection" class="paraphrase-section card"></div>
+    <div id="weaknessSection" class="weakness-section card"></div>
+  </div>
+</section>
+
+<div id="submitModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="submitModalTitle">
+  <div class="modal">
+    <h2 id="submitModalTitle">Xác nhận nộp bài</h2>
+    <div id="submitModalBody"></div>
+    <div class="modal-actions">
+      <button id="continueBtn" class="secondary">TIẾP TỤC LÀM BÀI</button>
+      <button id="confirmSubmitBtn" class="primary">XÁC NHẬN NỘP BÀI</button>
+    </div>
+  </div>
+</div>
+
+<script>
+"use strict";
+const TEST_NO = 13;
+const STORAGE_KEY = "IELTS_READING_TEST_13_SINGLE_FILE_V2";
+const TOTAL_MS = 60*60*1000;
+const QUESTIONS = [{"number": 1, "passage": 1, "type": "matching-categories", "correct": "C", "sourceParagraph": "Đoạn 5", "sourceTarget": "5", "evidence": "Đoạn 5 - DECISIONAL ROLES:\n“Decisional roles require managers to plan strategy and utilise resources. There are four specific roles that are decisional. The entrepreneur role requires the manager to assign resources to develop innovative goods and services, or to expand a business.”", "explanation": "Câu hỏi nói về việc phát triển một “business scheme” - tức xây dựng hướng đi/kế hoạch phát triển kinh doanh. Ở nhóm DECISIONAL ROLES, nhà quản lý phải lập chiến lược, sử dụng nguồn lực và trong vai trò entrepreneur có thể phân bổ nguồn lực để phát triển sản phẩm/dịch vụ mới hoặc mở rộng doanh nghiệp. Đây là hành vi ra quyết định chiến lược, không phải giao tiếp con người hay truyền đạt thông tin. Vì vậy chọn C.\nBẫy / điểm cần chú ý: A và B đều có thể liên quan đến hoạt động quản lý, nhưng không trực tiếp bao quát việc xây dựng/triển khai kế hoạch phát triển doanh nghiệp.", "paraphrases": ["development of business scheme = plan strategy / expand a business", "using resources for development = assign resources to develop innovative goods and services", "DECISIONAL ROLES = vai trò liên quan lập chiến lược và phân bổ nguồn lực"], "text": "the development of business scheme", "options": [["A", "INTERPERSONAL ROLES"], ["B", "INFORMATIONAL ROLES"], ["C", "DECISIONAL ROLES"]]}, {"number": 2, "passage": 1, "type": "matching-categories", "correct": "A", "sourceParagraph": "Đoạn 3", "sourceTarget": "3", "evidence": "Đoạn 3 - INTERPERSONAL ROLES:\n“The figurehead is typically a top or middle manager. This manager may communicate future organisational goals or ethical guidelines to employees at company meetings. They also attend ribbon-cutting ceremonies, host receptions, presentations and other activities associated with the figurehead role.”", "explanation": "“Presiding at formal events” thuộc vai trò figurehead - một vai trò mang tính đại diện, nghi thức và tương tác với con người. Passage nêu các hoạt động như dự lễ cắt băng, chủ trì tiếp đón, thuyết trình và các hoạt động nghi thức khác. Figurehead nằm trong INTERPERSONAL ROLES nên đáp án là A.\nBẫy / điểm cần chú ý: Không chọn INFORMATIONAL chỉ vì có “presentations”; câu hỏi hỏi chức năng đại diện/chủ trì sự kiện, không hỏi truyền tải nội dung thông tin.", "paraphrases": ["presiding at formal events = attend ribbon-cutting ceremonies / host receptions / presentations", "formal representative = figurehead", "figurehead role = INTERPERSONAL ROLES"], "text": "presiding at formal events", "options": [["A", "INTERPERSONAL ROLES"], ["B", "INFORMATIONAL ROLES"], ["C", "DECISIONAL ROLES"]]}, {"number": 3, "passage": 1, "type": "matching-categories", "correct": "C", "sourceParagraph": "Đoạn 5", "sourceTarget": "5", "evidence": "Đoạn 5 - DECISIONAL ROLES:\n“Decisional roles require managers to plan strategy and utilise resources. ... The third decisional role, that of resource allocator, involves determining which work units will get which resources. Top managers are likely to make larger, overall budget decisions, while middle managers may make more specific allocations.”", "explanation": "“Employees and funds” đều là nguồn lực của tổ chức. Passage mô tả resource allocator thuộc DECISIONAL ROLES: nhà quản lý quyết định đơn vị nào nhận nguồn lực nào và cấp quản lý cao hơn đưa ra các quyết định ngân sách. Vì vậy “using employees and funds” chính là việc sử dụng/phân bổ nguồn lực và thuộc C.\nBẫy / điểm cần chú ý: INTERPERSONAL có làm việc với nhân viên, nhưng câu hỏi nhấn mạnh việc sử dụng cả nhân sự lẫn tiền - tức phân bổ resources.", "paraphrases": ["employees and funds = organisational resources", "using = utilise / allocate", "funds = budget decisions", "resource allocator = DECISIONAL ROLES"], "text": "using employees and funds", "options": [["A", "INTERPERSONAL ROLES"], ["B", "INFORMATIONAL ROLES"], ["C", "DECISIONAL ROLES"]]}, {"number": 4, "passage": 1, "type": "matching-categories", "correct": "B", "sourceParagraph": "Đoạn 4", "sourceTarget": "4", "evidence": "Đoạn 4 - INFORMATIONAL ROLES:\n“Informational roles are those in which managers obtain and transmit information. These roles have changed dramatically as technology has improved.”", "explanation": "Câu hỏi gần như paraphrase trực tiếp định nghĩa của INFORMATIONAL ROLES. “Getting” tương ứng với “obtain”, còn “passing message on” tương ứng với “transmit information”. Do đó đáp án B.\nBẫy / điểm cần chú ý: Đây là câu định nghĩa; không cần suy luận từ ví dụ cụ thể.", "paraphrases": ["getting = obtain", "passing message on = transmit information", "message = information", "related persons = những người cần nhận thông tin"], "text": "getting and passing message on to related persons", "options": [["A", "INTERPERSONAL ROLES"], ["B", "INFORMATIONAL ROLES"], ["C", "DECISIONAL ROLES"]]}, {"number": 5, "passage": 1, "type": "matching-categories", "correct": "B", "sourceParagraph": "Đoạn 4", "sourceTarget": "4", "evidence": "Đoạn 4 - INFORMATIONAL ROLES:\n“The role of disseminator requires that managers inform employees of changes that affect them and the organisation. They also communicate the company's vision and purpose.”", "explanation": "Vai trò disseminator thuộc nhóm INFORMATIONAL ROLES và nhiệm vụ của nó là truyền đạt thông tin cho nhân viên về những thay đổi ảnh hưởng đến họ và tổ chức, đồng thời truyền đạt tầm nhìn/mục đích công ty. Cụm “relating the information to employees and organisation” khớp trực tiếp với chức năng này.\nBẫy / điểm cần chú ý: Không chọn INTERPERSONAL chỉ vì có employees; điểm quyết định là hành động “inform/communicate”.", "paraphrases": ["relating the information = inform / communicate", "employees and organisation = employees ... and the organisation", "disseminator = vai trò truyền bá thông tin"], "text": "relating the information to employees and organisation", "options": [["A", "INTERPERSONAL ROLES"], ["B", "INFORMATIONAL ROLES"], ["C", "DECISIONAL ROLES"]]}, {"number": 6, "passage": 1, "type": "matching-categories", "correct": "A", "sourceParagraph": "Đoạn 3", "sourceTarget": "3", "evidence": "Đoạn 3 - INTERPERSONAL ROLES:\n“A leader acts as an example for other employees to follow, gives commands and directions to subordinates, makes decisions, and mobilises employee support. They are also responsible for the selection and training of employees.”", "explanation": "“Recruiting the staff” tương ứng với quá trình selection of employees. Trong passage, selection và training là trách nhiệm của vai trò leader, và leader thuộc INTERPERSONAL ROLES. Vì vậy chọn A.\nBẫy / điểm cần chú ý: Từ “makes decisions” xuất hiện trong đoạn leader không biến câu này thành DECISIONAL; nhiệm vụ cụ thể được hỏi là tuyển chọn nhân viên.", "paraphrases": ["recruiting the staff = selection of employees", "leader = quản lý con người trực tiếp", "leader role = INTERPERSONAL ROLES"], "text": "recruiting the staff", "options": [["A", "INTERPERSONAL ROLES"], ["B", "INFORMATIONAL ROLES"], ["C", "DECISIONAL ROLES"]]}, {"number": 7, "passage": 1, "type": "choose-two", "correct": "B", "sourceParagraph": "Đoạn 9 và Đoạn 10", "sourceTarget": "9", "evidence": "Đoạn 9 và Đoạn 10:\n“The first positive function is Mintzberg provided a useful functional approach to analyse management. And he used this approach to provide a clear concept of the role of manager to the researcher. ... Mintzberg’s definitions added clarity and precision to future research on the topic. The second positive function is Mintzberg’s research could be regarded as a good beginning to give a new insight to further research on this field in the future.”", "explanation": "Đây là dạng Choose TWO và hai số 7-8 tạo thành một bộ đáp án chung, không có thứ tự bắt buộc giữa B và E. Positive function thứ nhất là giúp định nghĩa rõ vai trò “manager”, khớp B. Positive function thứ hai là tạo một điểm khởi đầu/new insight cho nghiên cứu tiếp theo, khớp E. Passage không nói hệ thống phân loại là hoàn hảo tuyệt đối, không hướng nghiệp cho sinh viên mới tốt nghiệp và cũng không phải cẩm nang cải thiện cách quản lý hằng ngày.\nBẫy / điểm cần chú ý: A “waterproof categories” là cách nói tuyệt đối, trái với phần phê bình rằng mô hình chưa bao quát hết vai trò. C và D không phải hai lợi ích nghiên cứu được nêu ở hai đoạn cuối.", "paraphrases": ["provides a clear concept = provide a clear concept / clearly define what a manager is", "makes a fresh way for further research = a good beginning / give a new insight to further research", "positive functions = useful functional approach + good beginning for future research"], "text": "Which TWO positive functions about Mintberg’s research are mentioned in the last two paragraphs?", "options": [["A", "offers waterproof categories of managers"], ["B", "provides a clear concept to define the role of a manager"], ["C", "helps new graduates to design their career"], ["D", "suggests ways for managers to do their job better"], ["E", "makes a fresh way for further research"]]}, {"number": 8, "passage": 1, "type": "choose-two", "correct": "E", "sourceParagraph": "Đoạn 9 và Đoạn 10", "sourceTarget": "10", "evidence": "Đoạn 9 và Đoạn 10:\n“The first positive function is Mintzberg provided a useful functional approach to analyse management. And he used this approach to provide a clear concept of the role of manager to the researcher. ... Mintzberg’s definitions added clarity and precision to future research on the topic. The second positive function is Mintzberg’s research could be regarded as a good beginning to give a new insight to further research on this field in the future.”", "explanation": "Đây là dạng Choose TWO và hai số 7-8 tạo thành một bộ đáp án chung, không có thứ tự bắt buộc giữa B và E. Positive function thứ nhất là giúp định nghĩa rõ vai trò “manager”, khớp B. Positive function thứ hai là tạo một điểm khởi đầu/new insight cho nghiên cứu tiếp theo, khớp E. Passage không nói hệ thống phân loại là hoàn hảo tuyệt đối, không hướng nghiệp cho sinh viên mới tốt nghiệp và cũng không phải cẩm nang cải thiện cách quản lý hằng ngày.\nBẫy / điểm cần chú ý: A “waterproof categories” là cách nói tuyệt đối, trái với phần phê bình rằng mô hình chưa bao quát hết vai trò. C và D không phải hai lợi ích nghiên cứu được nêu ở hai đoạn cuối.", "paraphrases": ["provides a clear concept = provide a clear concept / clearly define what a manager is", "makes a fresh way for further research = a good beginning / give a new insight to further research", "positive functions = useful functional approach + good beginning for future research"], "text": "Which TWO positive functions about Mintberg’s research are mentioned in the last two paragraphs?", "options": [["A", "offers waterproof categories of managers"], ["B", "provides a clear concept to define the role of a manager"], ["C", "helps new graduates to design their career"], ["D", "suggests ways for managers to do their job better"], ["E", "makes a fresh way for further research"]]}, {"number": 9, "passage": 1, "type": "true-false-not-given", "correct": "FALSE", "sourceParagraph": "Đoạn 1", "sourceTarget": "1", "evidence": "Đoạn 1:\n“However, these promotions can be few and far between, leaving many young professionals unfamiliar with management experience.”", "explanation": "Statement nói người trẻ “can easily know management experience”, nhưng passage nói cơ hội thăng tiến có thể “few and far between”, khiến nhiều người trẻ “unfamiliar with management experience”. Đây là mâu thuẫn trực tiếp về mức độ dễ dàng/khả năng tiếp cận kinh nghiệm quản lý, nên FALSE.\nBẫy / điểm cần chú ý: Bẫy nằm ở từ “easily”: passage nói điều ngược lại.", "paraphrases": ["can easily know = dễ dàng có/biết kinh nghiệm quản lý", "few and far between = hiếm, không dễ có", "unfamiliar with management experience = chưa quen/thiếu kinh nghiệm quản lý"], "text": "Young professionals can easily know management experience in the workplace.", "options": [["TRUE", "TRUE"], ["FALSE", "FALSE"], ["NOT GIVEN", "NOT GIVEN"]]}, {"number": 10, "passage": 1, "type": "true-false-not-given", "correct": "TRUE", "sourceParagraph": "Đoạn 2", "sourceTarget": "2", "evidence": "Đoạn 2:\n“Many researchers have created a more scientific approach in studying these different approaches to managing. In the 1960s, researcher Henry Mintzberg created a seminal organisational model using three categories. These categories represent three major functional approaches, which are designated as interpersonal, informational and decisional.”", "explanation": "Passage mô tả mô hình của Mintzberg là “seminal” - có tính khai mở, nền tảng và tạo ảnh hưởng mới trong việc nghiên cứu các cách quản lý. Trong ngữ cảnh câu hỏi, điều này được diễn đạt lại thành việc phá vỡ/thách thức các quan niệm đã định hình trước đó về managing styles. Vì vậy đáp án intended là TRUE.\nBẫy / điểm cần chú ý: Câu hỏi dùng paraphrase mang tính khái quát; từ khóa quyết định là “seminal”, không phải một câu có từ “broke” nguyên văn.", "paraphrases": ["broke well-established notions = introduced a seminal organisational model", "managing styles = different approaches to managing", "theory = organisational model using three categories"], "text": "Mintzberg’s theory broke well-established notions about managing styles.", "options": [["TRUE", "TRUE"], ["FALSE", "FALSE"], ["NOT GIVEN", "NOT GIVEN"]]}, {"number": 11, "passage": 1, "type": "true-false-not-given", "correct": "NOT GIVEN", "sourceParagraph": "Đoạn 6-10", "sourceTarget": "6", "evidence": "Đoạn 6-10 (phần nói về nghiên cứu và đánh giá công trình):\n“Although Mintzberg’s initial research in 1960s helped categorise manager approaches, Mintzberg was still concerned about research involving other roles in the workplace. ... While Mintzberg's initial research was helpful in starting the conversation, there has since been criticism of his methods from other researchers.”", "explanation": "Passage nói nhiều về nội dung, giới hạn, phê bình và giá trị của nghiên cứu Mintzberg, nhưng không cung cấp thông tin nào về số tiền tài trợ ông nhận được. Vì thế không thể xác nhận cũng không thể phủ định “a large amount of research funds”. Đáp án là NOT GIVEN.\nBẫy / điểm cần chú ý: Không suy luận rằng nghiên cứu “seminal” thì chắc chắn được tài trợ lớn.", "paraphrases": ["research funds = funding/grants (không xuất hiện)", "for his contribution = do đóng góp của ông (không có thông tin tài chính)", "research = nội dung nghiên cứu được nhắc, nhưng tiền tài trợ không được nhắc"], "text": "Mintzberg got a large amount of research funds for his contribution.", "options": [["TRUE", "TRUE"], ["FALSE", "FALSE"], ["NOT GIVEN", "NOT GIVEN"]]}, {"number": 12, "passage": 1, "type": "true-false-not-given", "correct": "FALSE", "sourceParagraph": "Đoạn 1", "sourceTarget": "1", "evidence": "Đoạn 1:\n“Managers at different levels of the organisation engage in different amounts of time on the four managerial functions of planning, organising, leading, and controlling. However, as many professionals already know, managing styles can be very different depending on where you work.”", "explanation": "Statement dùng tuyệt đối “All managers do the same work”. Passage nói các cấp quản lý khác nhau dành lượng thời gian khác nhau cho bốn chức năng quản lý và phong cách quản lý cũng có thể rất khác nhau. Như vậy công việc/cách thực hiện nhiệm vụ không đồng nhất giữa mọi manager. FALSE.\nBẫy / điểm cần chú ý: Từ tuyệt đối “All” là tín hiệu cần kiểm tra kỹ; chỉ cần passage nêu sự khác biệt là statement bị bác bỏ.", "paraphrases": ["all managers do the same work = mọi quản lý làm giống nhau", "different levels ... different amounts of time = các cấp khác nhau phân bổ công việc khác nhau", "managing styles can be very different = phong cách quản lý có thể rất khác"], "text": "All managers do the same work.", "options": [["TRUE", "TRUE"], ["FALSE", "FALSE"], ["NOT GIVEN", "NOT GIVEN"]]}, {"number": 13, "passage": 1, "type": "true-false-not-given", "correct": "FALSE", "sourceParagraph": "Đoạn 8-10", "sourceTarget": "8", "evidence": "Đoạn 8-10:\n“However, even if the criticisms against Mintzberg's work are true, it does not mean that the original research from the 1960s is completely useless. Those researchers did not say Mintzberg’s research is invalid. His research has two positive functions to the further research.”", "explanation": "Passage nói thẳng rằng các nhà nghiên cứu phê bình không cho rằng nghiên cứu của Mintzberg “is invalid” và nó vẫn có hai chức năng tích cực cho nghiên cứu tiếp theo. Statement nói ngược lại - rằng lý thuyết không còn giá trị trong future studies. Vì vậy FALSE.\nBẫy / điểm cần chú ý: Đừng nhầm “có flaws/criticism” với “invalid”. Một nghiên cứu có hạn chế vẫn có thể hữu ích.", "paraphrases": ["is invalid = bị vô hiệu/không có giá trị", "did not say ... is invalid = không hề kết luận là vô hiệu", "future studies = further research", "two positive functions = vẫn hữu ích cho nghiên cứu sau"], "text": "Mintzberg's theory is invalid in the future studies.", "options": [["TRUE", "TRUE"], ["FALSE", "FALSE"], ["NOT GIVEN", "NOT GIVEN"]]}, {"number": 14, "passage": 2, "type": "matching-information", "correct": "D", "sourceParagraph": "Paragraph D", "sourceTarget": "D", "evidence": "Đoạn D:\n“The researchers presented groups of Koreans and Americans with very convincing arguments in support of a particular position. Both the Koreans and the Americans at first expressed strong support for that position.”", "explanation": "Câu hỏi hỏi thời điểm trong một thí nghiệm khi tất cả đối tượng đều đồng ý với một quan điểm. Đoạn D nói cả hai nhóm Koreans và Americans ban đầu đều “expressed strong support for that position”. Đây chính là thời điểm cả hai nhóm cùng nhất trí trước khi phản ứng khác nhau khi nghe lập luận đối lập.\nBẫy / điểm cần chú ý: Điểm “at first” rất quan trọng vì sau đó hai nhóm phản ứng khác nhau.", "paraphrases": ["all subjects agreed = both the Koreans and the Americans ... expressed strong support", "a particular point of view = a particular position", "the point during an experiment = at first"], "text": "the point during an experiment when all subjects agreed with a particular point of view", "options": [["A", "Paragraph A"], ["B", "Paragraph B"], ["C", "Paragraph C"], ["D", "Paragraph D"], ["E", "Paragraph E"], ["F", "Paragraph F"]]}, {"number": 15, "passage": 2, "type": "matching-information", "correct": "B", "sourceParagraph": "Paragraph B", "sourceTarget": "B", "evidence": "Đoạn B:\n“Actually researchers were not the first psychological researchers to propose that thought may be embedded in cultural assumptions. For example, Soviet psychologists of the 1930's posed logic problems to Uzbek peasants, arguing that intellectual tools were influenced by pragmatic circumstances.”", "explanation": "“Uzbek peasants” là nhóm người sống trong bối cảnh nông thôn, và nghiên cứu đặt các bài toán logic cho họ để xem hoàn cảnh thực tế có ảnh hưởng đến công cụ tư duy/lý luận hay không. Vì vậy đây là tham chiếu đến khả năng rural life/pragmatic circumstances tác động đến reasoning. Đáp án B.\nBẫy / điểm cần chú ý: Không chọn C: đoạn C là thí nghiệm cá dưới nước về chú ý bối cảnh, không phải cuộc sống nông thôn.", "paraphrases": ["rural life = Uzbek peasants", "people’s reasoning = logic problems / intellectual tools", "potential effect = were influenced by pragmatic circumstances"], "text": "reference to study on potential effect of a rural life on people’s reasoning", "options": [["A", "Paragraph A"], ["B", "Paragraph B"], ["C", "Paragraph C"], ["D", "Paragraph D"], ["E", "Paragraph E"], ["F", "Paragraph F"]]}, {"number": 16, "passage": 2, "type": "matching-information", "correct": "C", "sourceParagraph": "Paragraph C", "sourceTarget": "C", "evidence": "Đoạn C:\n“Asked to describe what they saw, the Japanese (or Eastern) subjects were much more likely to begin by setting the scene ... Americans (or Western), in contrast, tended to begin their descriptions with the largest fish, making statements like “There was what looked like a trout swimming to the right.””", "explanation": "Đoạn C mô tả cùng một cảnh hoạt hình dưới nước nhưng người Nhật chú ý bối cảnh (lake/pond, đáy, màu nước), còn người Mỹ tập trung vào con cá lớn. Đây là sự khác biệt trong cách hai nền văn hóa “view/describe the same scene”, nên đáp án C.\nBẫy / điểm cần chú ý: Câu này yêu cầu tìm mô tả cụ thể, không phải kết luận lý thuyết chung ở đoạn B.", "paraphrases": ["different cultures = Japanese/Eastern vs Americans/Western", "view the same scene = describe what they saw in the same underwater scene", "setting the scene vs largest fish = khác biệt chú ý bối cảnh và vật thể nổi bật"], "text": "a description of how different cultures might view the same scene", "options": [["A", "Paragraph A"], ["B", "Paragraph B"], ["C", "Paragraph C"], ["D", "Paragraph D"], ["E", "Paragraph E"], ["F", "Paragraph F"]]}, {"number": 17, "passage": 2, "type": "matching-information", "correct": "A", "sourceParagraph": "Paragraph A", "sourceTarget": "A", "evidence": "Đoạn A:\n“Cultural differences might dictate what people thought about. Teenage boys in remote areas of Africa, for example, might discuss cows with the same passion that New York teenagers reserved for sports cars.”", "explanation": "Đoạn A đưa hai ví dụ thanh thiếu niên ở hai bối cảnh địa lý rất khác: vùng xa xôi châu Phi nói về bò, còn thanh thiếu niên New York nói về xe thể thao. Đây là ví dụ trực tiếp cho nội dung “what young people think about in widely different geographical contexts”.\nBẫy / điểm cần chú ý: Từ “Teenage” xuất hiện hai lần giúp định vị rất nhanh.", "paraphrases": ["young people = teenage boys / New York teenagers", "widely different geographical contexts = remote areas of Africa vs New York", "what ... think about = discuss cows / sports cars"], "text": "examples of what young people think about in widely different geographical contexts", "options": [["A", "Paragraph A"], ["B", "Paragraph B"], ["C", "Paragraph C"], ["D", "Paragraph D"], ["E", "Paragraph E"], ["F", "Paragraph F"]]}, {"number": 18, "passage": 2, "type": "matching-information", "correct": "D", "sourceParagraph": "Paragraph D", "sourceTarget": "D", "evidence": "Đoạn D:\n“However, when the groups were then presented with arguments opposing the initial position, the Korean subjects generally modified and decreased their support for that position, while the Americans actually increased their original support.”", "explanation": "Khi quan điểm/lập luận thay đổi theo hướng đối lập với vị trí ban đầu, hai nhóm phản ứng khác nhau: người Hàn giảm/điều chỉnh mức ủng hộ, còn người Mỹ tăng mức ủng hộ ban đầu. Đây là minh họa trực tiếp cho “different reactions to a change in viewpoint”.\nBẫy / điểm cần chú ý: Q14 và Q18 cùng nằm ở D nhưng hỏi hai thời điểm khác nhau của cùng thí nghiệm.", "paraphrases": ["change in viewpoint = arguments opposing the initial position", "different reactions = Koreans decreased support / Americans increased support", "illustration = kết quả cụ thể của thí nghiệm"], "text": "an illustration of people’s different reactions to a change in viewpoint", "options": [["A", "Paragraph A"], ["B", "Paragraph B"], ["C", "Paragraph C"], ["D", "Paragraph D"], ["E", "Paragraph E"], ["F", "Paragraph F"]]}, {"number": 19, "passage": 2, "type": "matching-researchers", "correct": "B", "sourceParagraph": "Paragraph D", "sourceTarget": "D", "evidence": "Đoạn D - Dr. Nisbett & Dr. Incheol Choi:\n“However, when the groups were then presented with arguments opposing the initial position, the Korean subjects generally modified and decreased their support for that position, while the Americans actually increased their original support.”", "explanation": "Nhóm Americans/Westerners không giảm niềm tin khi gặp lập luận đối lập mà còn “increased their original support”. Điều này khớp với việc tiếp tục bám vào belief ngay cả trước contradictory evidence. Nghiên cứu này do Incheol Choi và Dr. Nisbett thực hiện, nên chọn B.\nBẫy / điểm cần chú ý: Không nhầm với nghiên cứu formal logic ở đoạn E; Q19 nói phản ứng trước lập luận đối lập của thí nghiệm đoạn D.", "paraphrases": ["Westerners = Americans", "adhere to their beliefs = increased their original support", "contradictory evidence = arguments opposing the initial position"], "text": "Westerners tend to adhere to their beliefs even when they are presented with contradictory evidence.", "options": [["A", "Takahiko Masuda and Dr. Nisbett"], ["B", "Incheol Choi and Dr. Nisbett"], ["C", "Ara Norenzayan and Dr. Nisbett"]]}, {"number": 20, "passage": 2, "type": "matching-researchers", "correct": "A", "sourceParagraph": "Paragraph C", "sourceTarget": "C", "evidence": "Đoạn C - Dr. Nisbett & Takahiko Masuda:\n“In one study, for example, by Dr. Nisbett and Takahiko Masuda ... students from Japan and the United States were shown an animated underwater scene ... Asked to describe what they saw, the Japanese ... were much more likely to begin by setting the scene ... Americans ... tended to begin their descriptions with the largest fish.”", "explanation": "Nghiên cứu dùng một hình ảnh/cảnh hoạt hình để làm lộ sự khác biệt trong cách chú ý và xử lý thông tin giữa hai nhóm văn hóa. Vì vậy statement về visual images revealing thought-process differences thuộc Takahiko Masuda và Dr. Nisbett, đáp án A.\nBẫy / điểm cần chú ý: Chi tiết “animated underwater scene” là dấu hiệu nhận diện nghiên cứu A.", "paraphrases": ["visual images = an animated underwater scene", "reveal differences = Japanese focused context / Americans focused focal fish", "thought processes = attention to context vs focal object"], "text": "Visual images can be used to reveal differences in people’s thought processes.", "options": [["A", "Takahiko Masuda and Dr. Nisbett"], ["B", "Incheol Choi and Dr. Nisbett"], ["C", "Ara Norenzayan and Dr. Nisbett"]]}, {"number": 21, "passage": 2, "type": "matching-researchers", "correct": "C", "sourceParagraph": "Paragraph E", "sourceTarget": "E", "evidence": "Đoạn E - Dr. Nisbett & Dr. Ara Norenzayan:\n“The Americans were more likely to accept the validity of the series of statements. They assumed the conclusion must be true because of the logical structure of the arguments. The Korean subjects, by contrast, more frequently judged the argument as invalid based on their own understanding that it was not actually true.”", "explanation": "Người Hàn/Easterners có thể bác bỏ một chuỗi lập luận có cấu trúc logic hợp lệ nếu kết luận trái với hiểu biết thực tế của họ. Điều này đúng với statement “reject a well-reasoned argument that they know to be false”. Nghiên cứu do Ara Norenzayan và Dr. Nisbett thực hiện, chọn C.\nBẫy / điểm cần chú ý: Đây là xung đột giữa formal logic và experiential knowledge, không phải thí nghiệm thay đổi quan điểm ở D.", "paraphrases": ["well-reasoned argument = logical structure of the arguments", "reject = judged the argument as invalid", "know to be false = based on their own understanding that it was not actually true"], "text": "Easterners are likely to reject a well-reasoned argument that they know to be false.", "options": [["A", "Takahiko Masuda and Dr. Nisbett"], ["B", "Incheol Choi and Dr. Nisbett"], ["C", "Ara Norenzayan and Dr. Nisbett"]]}, {"number": 22, "passage": 2, "type": "matching-researchers", "correct": "A", "sourceParagraph": "Paragraph C", "sourceTarget": "C", "evidence": "Đoạn C - Dr. Nisbett & Takahiko Masuda:\n“Shown the same larger fish swimming against a different, novel background, Japanese participants had more difficulty recognizing it than Americans. This indicated that the perception of the Japanese was closely dependent upon what they saw in the background.”", "explanation": "“The same larger fish” là vật quen thuộc, còn “a different, novel background” là hoàn cảnh mới. Người Nhật khó nhận ra con cá hơn người Mỹ. Đây chính xác là “find it hard to identify a familiar object in new circumstances”, nên đáp án A.\nBẫy / điểm cần chú ý: Câu 20 và 22 cùng thuộc nghiên cứu A nhưng kiểm tra hai kết quả khác nhau.", "paraphrases": ["familiar object = the same larger fish", "new circumstances = a different, novel background", "find it hard to identify = had more difficulty recognizing it"], "text": "Easterners may find it hard to identify a familiar object in new circumstances.", "options": [["A", "Takahiko Masuda and Dr. Nisbett"], ["B", "Incheol Choi and Dr. Nisbett"], ["C", "Ara Norenzayan and Dr. Nisbett"]]}, {"number": 23, "passage": 2, "type": "one-word-completion", "correct": "genes", "sourceParagraph": "Paragraph F", "sourceTarget": "F", "evidence": "Đoạn F:\n“And neither approach is written into the genes: many Asian-Americans, born in the United States, are indistinguishable in their modes of thought from European-Americans.”", "explanation": "Cụm “neither approach is written into the genes” phủ định việc khác biệt tư duy Đông-Tây do gene quyết định. Chỗ trống cần một danh từ số nhiều và phải lấy nguyên văn từ passage; “genes” đáp ứng cả nghĩa lẫn ngữ pháp và đúng giới hạn ONE WORD ONLY.\nBẫy / điểm cần chú ý: Không điền “culture” vì câu hỏi hỏi yếu tố mà Nisbett không tin là yếu tố kiểm soát cố định; passage nêu trực tiếp genes.", "paraphrases": ["control the differences = be written into / determine", "Oriental and Occidental thinking = East-West approaches/modes of thought", "genes = yếu tố di truyền"], "text": "Dr. Nisbett does not believe that ______ control the differences between Oriental and Occidental thinking.", "wordLimit": 1}, {"number": 24, "passage": 2, "type": "one-word-completion", "correct": "qualitative", "sourceParagraph": "Paragraph F", "sourceTarget": "F", "evidence": "Đoạn F:\n“Anthropology Dr. Alan Fiske says, “In my field we discuss the way these different groups talk and interact. But these description are qualitative in nature rather than being controlled as an experiment would be, so Dr. Nisbett’s research is a valuable complement to our work.””", "explanation": "Fiske đối lập mô tả của anthropology vốn “qualitative in nature” với nghiên cứu Nisbett được kiểm soát như thí nghiệm. Vì vậy nếu nghiên cứu “consists of experiments”, nó không phải purely qualitative. Từ duy nhất xuất hiện trong passage và phù hợp chỗ trống là “qualitative”.\nBẫy / điểm cần chú ý: Cần lấy đúng ONE WORD từ passage; không dùng “controlled” vì cấu trúc “is not controlled” sẽ đảo nghĩa.", "paraphrases": ["consists of experiments = controlled as an experiment would be", "therefore is not qualitative = đối lập với descriptions are qualitative in nature", "valuable = a valuable complement"], "text": "Dr. Fiske says that Dr. Nisbett’s work is valuable because it consists of experiments and therefore is not ______.", "wordLimit": 1}, {"number": 25, "passage": 2, "type": "one-word-completion", "correct": "experience", "sourceParagraph": "Paragraph F", "sourceTarget": "F", "evidence": "Đoạn F:\n“Psychologist Dr. Patricia Cheng finds some of the findings matched some of her personal experience. But she says, “I think that some differences -- the Asian tolerance for contradiction, for example -- are purely social.””", "explanation": "Cheng ủng hộ một phần kết quả vì chúng “matched some of her personal experience”. Chỗ trống sau “own” cần danh từ; “experience” là từ nguyên văn trong passage và phù hợp với động từ số ít “has led”.\nBẫy / điểm cần chú ý: Giữ dạng số ít “experience” đúng nguyên văn passage và đúng ngữ pháp với “has led”.", "paraphrases": ["own ______ = her personal experience", "has led her to support = findings matched ... experience", "some of Dr. Nisbett’s ideas = some of the findings"], "text": "Dr. Cheng’s own ______ has led her to support some of Dr. Nisbett’s ideas.", "wordLimit": 1}, {"number": 26, "passage": 2, "type": "one-word-completion", "correct": "social", "sourceParagraph": "Paragraph F", "sourceTarget": "F", "evidence": "Đoạn F:\n“But she says, “I think that some differences -- the Asian tolerance for contradiction, for example -- are purely social.””", "explanation": "“Asian tolerance for contradiction” tương ứng trực tiếp với việc contradictions được chấp nhận dễ hơn trong Eastern cultures. Cheng nói sự khác biệt đó là “purely social”, nên từ cần điền là “social”. Đây là tính từ đứng trước “explanation” và đúng yêu cầu ONE WORD ONLY.\nBẫy / điểm cần chú ý: Không dùng “cultural” vì từ passage gắn trực tiếp với ví dụ này là social.", "paraphrases": ["contradictions are accepted more readily = Asian tolerance for contradiction", "explanation = source/cause of the difference", "social explanation = are purely social"], "text": "Dr. Cheng believe that there is a clear ______ explanation for the fact that contradictions are accepted more readily in Eastern cultures.", "wordLimit": 1}, {"number": 27, "passage": 3, "type": "multiple-choice", "correct": "D", "sourceParagraph": "Đoạn A", "sourceTarget": "A", "evidence": "Đoạn A:\n“One example was history critic Balfour, who in 1901 portrayed Stevenson’s family as ministering angels to the dying genius during his final illness. Similarly, the biographer Crouch absurdly overstated Stevenson’s significance by placing him in the same company as those most revered natures in English literature Shakespeare and Keats.”", "explanation": "Tác giả dùng từ đánh giá mạnh “absurdly overstated Stevenson’s significance” để cho thấy Crouch đã nâng tầm Stevenson quá mức; phần trước cũng mô tả quá trình gia đình/bạn bè “fashion the legend”. Vì vậy ý chung là các biographer đã nâng Stevenson lên trên vị thế thực tế của ông như một nhà văn. Chọn D.\nBẫy / điểm cần chú ý: A/B/C không phản ánh đánh giá “overstated significance”.", "paraphrases": ["elevated ... above his true status = overstated Stevenson’s significance", "biographers Balfour and Crouch = portrayals contributing to the legend", "same company as Shakespeare and Keats = đặt ông ngang hàng với các tên tuổi cực kỳ được tôn kính"], "text": "In the opinion of the writer, the biographers Balfour and Crouch", "options": [["A", "Understated the role played by Stevenson’s family"], ["B", "Misunderstood Stevenson’s religious belief"], ["C", "Overestimated other writer influence on Stevenson"], ["D", "Elevated Stevenson above his true status as a writer"]]}, {"number": 28, "passage": 3, "type": "multiple-choice", "correct": "C", "sourceParagraph": "Đoạn B", "sourceTarget": "B", "evidence": "Đoạn B:\n“First is the allegation that Stevenson was a mere master of linguistic fireworks who lacked moral depth. Some critics accused him of being a literary charlatan of juggling words very prettily to strike effects which overawed an ignorant public, and served to distract from the inadequacy of his ideas.”", "explanation": "Ý chính đoạn B là một nhóm critic cho rằng Stevenson dùng kỹ thuật ngôn ngữ đẹp mắt như “linguistic fireworks” để gây ấn tượng và làm người đọc không chú ý tới “the inadequacy of his ideas”. Đó chính là “his style covered up his faults”. Chọn C.\nBẫy / điểm cần chú ý: D là bẫy gần nghĩa vì đoạn có “lacked moral depth”, nhưng trọng tâm lập luận là phong cách ngôn ngữ che lấp sự yếu kém của ý tưởng, không phải “ethical nature of his stories” nói chung.", "paraphrases": ["style = linguistic fireworks / juggling words very prettily", "covered up = served to distract from", "faults = inadequacy of his ideas / lacked moral depth"], "text": "What is the writer’s main point about Stevenson in the Second paragraph", "options": [["A", "the public judges him more fairly than the critics"], ["B", "recent criticism of him has been justified"], ["C", "critics argued that his style covered up his faults"], ["D", "the ethical nature of his stories was often criticized"]]}, {"number": 29, "passage": 3, "type": "multiple-choice", "correct": "B", "sourceParagraph": "Đoạn C", "sourceTarget": "C", "evidence": "Đoạn C:\n“Then there has been a prejudice against the adventure story as the proper medium for deep moral seriousness ... It seems that we can accept that an adventure film can successfully express profound moral truths, but we reject the same idea for a book. The absurdity of this becomes apparent when we think of writers like Joseph Conrad and Graham Greene.”", "explanation": "Tác giả bác bỏ định kiến rằng adventure story không thể chứa nội dung đạo đức sâu sắc. Ông chỉ ra rằng ta chấp nhận phim phiêu lưu truyền tải “profound moral truths” thì không có lý do hợp lý để phủ nhận khả năng tương tự của sách, đồng thời viện dẫn Conrad và Greene. Vì vậy B.\nBẫy / điểm cần chú ý: A đảo chiều so sánh book/film; C không nói xu hướng thời trang; D sai vì chính Stevenson viết adventure stories.", "paraphrases": ["tell moral stories = express profound moral truths", "adventure story = proper medium for deep moral seriousness", "writer’s position = calls the opposing bias absurd"], "text": "According to the writer, the adventure story", "options": [["A", "is more appropriate for books than film"], ["B", "can be used by writers to tell moral stories"], ["C", "is more fashionable today than in the past"], ["D", "has been used by other writers but not Stevenson"]]}, {"number": 30, "passage": 3, "type": "multiple-choice", "correct": "A", "sourceParagraph": "Đoạn C", "sourceTarget": "C", "evidence": "Đoạn C:\n“A further problem is that Stevenson has often not found favour in the land of his birth because his conservatism so often collides with the strong radical tradition in Scotland. His many escapist stories and preference for living abroad have led to accusations that he camouflaged Scotland’s real problems.”", "explanation": "“His conservatism ... collides with the strong radical tradition in Scotland” cho thấy quan điểm/tư tưởng của Stevenson đối lập với một truyền thống tư tưởng mạnh ở Scotland. Điều này được paraphrase thành “His ideas contrasted with those of many Scots”. Chọn A.\nBẫy / điểm cần chú ý: B nói ngược; C sai vì ông sinh ở Scotland; D không có chi tiết “angered many Scots”.", "paraphrases": ["his ideas = his conservatism", "contrasted with = collides with", "those of many Scots = the strong radical tradition in Scotland"], "text": "What point does the writer make about Stevenson and Scotland", "options": [["A", "His ideas contrasted with those of many Scots"], ["B", "His demonstrated great sympathy for Scotland’s problems"], ["C", "He was not considered a true Scot as he was not born there"], ["D", "His unflattering stories about Scotland angered many Scot"]]}, {"number": 31, "passage": 3, "type": "multiple-choice", "correct": "C", "sourceParagraph": "Đoạn C", "sourceTarget": "C", "evidence": "Đoạn C:\n“Lastly, the high adventure of Stevenson’s own lifestyle has sometimes obscured his output. His globe-trotting, and above all the final phase of his life in Samoa, tended to make his own life a greater story than any he could devise. This was precisely what his friends feared would happen towards the end of his short life: his art might be overwhelmed by the drama of life in Samoa.”", "explanation": "Passage nói đời sống phiêu lưu của Stevenson “obscured his output” và cuộc đời ông trở thành câu chuyện lớn hơn chính tác phẩm ông viết. Nghĩa là lifestyle thu hút/chiếm sự chú ý nhiều hơn books/output. Dù đề dùng từ “attrition” có vẻ là lỗi biên soạn, ý intended của C là “attention”.\nBẫy / điểm cần chú ý: Không có bằng chứng về envy, nguyên nhân tử vong hay việc thiếu chuẩn bị cho Samoa.", "paraphrases": ["lifestyle attracted more attention = own life a greater story / obscured his output", "books = output / art", "overwhelmed by the drama of life = đời sống lấn át tác phẩm"], "text": "According to the writer, Stevenson’s own lifestyle", "options": [["A", "was envied by his friends"], ["B", "was responsible for his early death"], ["C", "attracted more attrition than his books"], ["D", "did not prepare his for living in Samoa"]]}, {"number": 32, "passage": 3, "type": "yes-no-not-given", "correct": "YES", "sourceParagraph": "Đoạn D", "sourceTarget": "D", "evidence": "Đoạn D:\n“The writer and poet Oscar Wilde was deeply influenced by Stevenson, even though he declared that Stevenson would have produced better work if he had lived in London rather than Samoa.”", "explanation": "Wilde được ghi rõ là tin Stevenson “would have produced better work” trong điều kiện sống ở London thay vì Samoa. Statement diễn đạt lại khá vụng bằng “can write better novel”, nhưng cùng cốt lõi là Wilde tin Stevenson có thể tạo ra tác phẩm tốt hơn. Vì vậy YES.\nBẫy / điểm cần chú ý: Không để từ “novel” làm lệch ý: source nói “better work” rộng hơn, nhưng statement intended khẳng định cùng đánh giá của Wilde.", "paraphrases": ["believed = declared", "can write better novel/work = would have produced better work", "Oscar Wilde = the writer and poet Oscar Wilde"], "text": "Oscar wilder believed Robert can write better novel", "options": [["YES", "YES"], ["NO", "NO"], ["NOT GIVEN", "NOT GIVEN"]]}, {"number": 33, "passage": 3, "type": "yes-no-not-given", "correct": "NOT GIVEN", "sourceParagraph": "Đoạn D", "sourceTarget": "D", "evidence": "Đoạn D:\n“Stevenson tends to stick in the throat even of those writers who would like to spit him out, such as Shaw, who claimed to have learnt from him that the romantic hero is always mocked by reality.”", "explanation": "Passage chỉ nói Shaw cho rằng ông đã học được một ý từ Stevenson. Không có thông tin rằng Stevenson “asked Shaw to keep writing”, khuyến khích Shaw bắt đầu/tiếp tục viết, hay đưa ra yêu cầu nào đối với Shaw. Do đó NOT GIVEN.\nBẫy / điểm cần chú ý: Không suy luận từ “influence/learnt from him” thành một lời yêu cầu trực tiếp.", "paraphrases": ["Shaw learned from Stevenson = claimed to have learnt from him", "asked Shaw to keep writing = không xuất hiện", "influence ≠ direct request"], "text": "Robert asked Shaw to keep writing", "options": [["YES", "YES"], ["NO", "NO"], ["NOT GIVEN", "NOT GIVEN"]]}, {"number": 34, "passage": 3, "type": "yes-no-not-given", "correct": "NOT GIVEN", "sourceParagraph": "Đoạn D", "sourceTarget": "D", "evidence": "Đoạn D:\n“One consequence of this has been that Stevenson’s influence on other writers has too often been neglected. ... Stevenson tends to stick in the throat even of those writers who would like to spit him out ... Likewise, the writer Galsworthy, who being a determined critic, later changed his mind ...”", "explanation": "Đoạn D khẳng định ảnh hưởng của Stevenson thường bị bỏ qua và đưa ví dụ các nhà văn vừa có thái độ phê phán/vướng mắc vừa chịu ảnh hưởng. Tuy nhiên, tác giả không trực tiếp kết luận rằng “his influence ... can be controversial” theo đúng nghĩa statement. Không đủ thông tin để xác nhận hay phủ định tính “controversial” như một đặc điểm của influence. Vì vậy NOT GIVEN.\nBẫy / điểm cần chú ý: Đây là bẫy suy diễn: thái độ trái chiều của một số người không tự động cho phép gắn nhãn “controversial” nếu tác giả không nêu.", "paraphrases": ["influence on other writers = influence on other writers", "neglected = bị bỏ qua, không đồng nghĩa controversial", "critics changing minds = ví dụ phản ứng phức tạp nhưng không phải khẳng định trực tiếp “controversial”"], "text": "Robert’s influence on other writers can be controversial", "options": [["YES", "YES"], ["NO", "NO"], ["NOT GIVEN", "NOT GIVEN"]]}, {"number": 35, "passage": 3, "type": "yes-no-not-given", "correct": "YES", "sourceParagraph": "Đoạn D", "sourceTarget": "D", "evidence": "Đoạn D:\n“Likewise, the writer Galsworthy, who being a determined critic, later changed his mind and said that the superiority of Stevenson over the novelist Hardy was that Stevenson was all life and Hardy, all death.”", "explanation": "Galsworthy nói thẳng về “the superiority of Stevenson over ... Hardy”, tức đánh giá Stevenson vượt trội hơn Hardy. Statement paraphrase ý này thành “Robert’s work is better than writer Hardy”. Vì vậy YES.\nBẫy / điểm cần chú ý: Chú ý Galsworthy “later changed his mind”; statement chỉ hỏi quan điểm sau cùng được nêu trong passage.", "paraphrases": ["Robert’s work is better than Hardy = the superiority of Stevenson over the novelist Hardy", "Galsworthy think = Galsworthy ... said", "Stevenson was all life / Hardy all death = lý do cho đánh giá vượt trội"], "text": "Galsworthy think Robert’s work is better than writer Hardy", "options": [["YES", "YES"], ["NO", "NO"], ["NOT GIVEN", "NOT GIVEN"]]}, {"number": 36, "passage": 3, "type": "yes-no-not-given", "correct": "NO", "sourceParagraph": "Đoạn E", "sourceTarget": "E", "evidence": "Đoạn E (kết bài):\n“Even if we do not see a revival of critical interest in this great Scottish writer, it is to be hoped that readers go back to Robert Louis Stevenson’s magnificent stories and reassess this neglected genius.”", "explanation": "Giọng điệu kết bài rõ ràng tích cực và bênh vực Stevenson: tác giả gọi ông là “this great Scottish writer”, tác phẩm là “magnificent stories” và chính ông là “this neglected genius”. Vì vậy statement cho rằng tác giả “is critical” (có thái độ phê phán/tiêu cực) trái với quan điểm của bài. Đáp án NO.\nBẫy / điểm cần chú ý: Đừng nhầm việc tác giả thuật lại các lời phê bình của người khác với quan điểm của chính tác giả.", "paraphrases": ["author is critical = thái độ phê phán/tiêu cực", "great Scottish writer / magnificent stories = đánh giá tích cực", "neglected genius = thiên tài bị bỏ quên"], "text": "In this paper, the author is critical for Robert Louis Stevenson", "options": [["YES", "YES"], ["NO", "NO"], ["NOT GIVEN", "NOT GIVEN"]]}, {"number": 37, "passage": 3, "type": "table-matching", "correct": "B", "sourceParagraph": "Đoạn E", "sourceTarget": "E", "evidence": "Đoạn E:\n“However, this is not the same thing at all as inherent talent: by way of comparison one may take the example of the two great Russian composers Shostakovich and Prokofiev, of whom the former had learned more precise skills of execution but the latter’s intrinsic genius was greater, and so it seems to be with Scott and Stevenson.”", "explanation": "Bảng đối chiếu Scott và Stevenson: Scott thắng về craftsmanship/precision/technical execution, còn Stevenson được so với người có “intrinsic genius” lớn hơn. “Inherent talent / intrinsic genius” tương ứng với “natural ability”. Vì vậy 37 = B.\nBẫy / điểm cần chú ý: F English usage và C neglected genius xuất hiện ở passage nhưng không phù hợp vị trí so sánh năng lực tự nhiên này.", "paraphrases": ["natural ability = inherent talent / intrinsic genius", "Stevenson = người được ví với “latter” có intrinsic genius greater", "contrast with Scott = technical skill vs natural talent"], "text": "Robert Louis Stevenson: 37 ______", "options": [["A", "determined critic"], ["B", "natural ability"], ["C", "neglected genius"], ["D", "detailed style"], ["E", "human nature"], ["F", "English usage"], ["G", "escapist stories"], ["H", "story telling"]]}, {"number": 38, "passage": 3, "type": "table-matching", "correct": "E", "sourceParagraph": "Đoạn E", "sourceTarget": "E", "evidence": "Đoạn E:\n“And Stevenson was also the shrewder judge of behaviour and psychology. For example, his compelling description of a man with a split personality in the Strange case of Dr. Jekyll and Mr. Hyde have proved so accessible and accurate that the expression “Jekyll and Hyde” has entered common English usage.”", "explanation": "“Depth into ___” trong bảng cần một đối tượng mà Stevenson hiểu sâu. Passage nói ông là người phán đoán sắc sảo hơn về “behaviour and psychology”, tức hiểu sâu bản chất con người. Trong danh sách, “human nature” là lựa chọn tương ứng tốt nhất. Vì vậy 38 = E.\nBẫy / điểm cần chú ý: F English usage là kết quả của sức ảnh hưởng cụm “Jekyll and Hyde”, không phải nội dung Stevenson có “depth into”.", "paraphrases": ["human nature = behaviour and psychology", "depth into = shrewder judge / compelling and accurate description", "Jekyll and Hyde = ví dụ về hiểu biết tâm lý con người"], "text": "Robert Louis Stevenson: Depth into 38 ______", "options": [["A", "determined critic"], ["B", "natural ability"], ["C", "neglected genius"], ["D", "detailed style"], ["E", "human nature"], ["F", "English usage"], ["G", "escapist stories"], ["H", "story telling"]]}, {"number": 39, "passage": 3, "type": "table-matching", "correct": "D", "sourceParagraph": "Đoạn E", "sourceTarget": "E", "evidence": "Đoạn E:\n“Admittedly, Scott’s detailed style does permit his stories to explore levels of tragedy that are beyond Stevenson’s reach, but in this regard they have the musty smell of the museum, somehow artificial and removed from modern day reality.”", "explanation": "Passage gắn trực tiếp khả năng khai thác những tầng bi kịch sâu hơn với “Scott’s detailed style”. Vì vậy chỗ trống 39 phải là D. detailed style.\nBẫy / điểm cần chú ý: B natural ability thuộc Stevenson; G escapist stories là đặc điểm khác ở đoạn C.", "paraphrases": ["when it comes to tragic story = explore levels of tragedy", "his ______ = Scott’s detailed style", "permit ... beyond Stevenson’s reach = lợi thế của phong cách chi tiết"], "text": "Sir Walter Scott: When it comes to tragic story, his 39 ______", "options": [["A", "determined critic"], ["B", "natural ability"], ["C", "neglected genius"], ["D", "detailed style"], ["E", "human nature"], ["F", "English usage"], ["G", "escapist stories"], ["H", "story telling"]]}, {"number": 40, "passage": 3, "type": "table-matching", "correct": "H", "sourceParagraph": "Đoạn E", "sourceTarget": "E", "evidence": "Đoạn E:\n“On the other hand, Stevenson’s skill with plotting and narrative give his books a timeless quality, so that they still live today.”", "explanation": "“Kept in an unlimited time” là cách biên soạn vụng để diễn đạt “a timeless quality”. Passage nói chất lượng vượt thời gian đến từ “plotting and narrative”. Trong danh sách, “story telling” paraphrase cho “narrative”. Vì vậy 40 = H.\nBẫy / điểm cần chú ý: F English usage chỉ nói cụm “Jekyll and Hyde” đi vào ngôn ngữ Anh; không phải nguyên nhân khiến toàn bộ sách có timeless quality.", "paraphrases": ["kept in an unlimited time = a timeless quality / still live today", "plotting and story telling = plotting and narrative", "story telling = narrative"], "text": "Robert Louis Stevenson: kept in an unlimited time due to plotting and 40 ______", "options": [["A", "determined critic"], ["B", "natural ability"], ["C", "neglected genius"], ["D", "detailed style"], ["E", "human nature"], ["F", "English usage"], ["G", "escapist stories"], ["H", "story telling"]]}];
+const PASSAGES = {"1": {"title": "What the managers Really Do?", "subtitle": "", "paragraphs": [["1", "When students graduate and first enter the workforce, the most common choice is to find an entry-level position. This can be a job such as an unpaid internship, an assistant, a secretary, or a junior partner position. Traditionally, we start with simpler jobs and work our way up. Young professionals with a plan to become senior partners, associates, or even managers of a workplace. However, these promotions can be few and far between, leaving many young professionals unfamiliar with management experience. An important step is understanding the role and responsibilities of a person in a managing position. Managers are organisational members who are responsible for the work performance of other organisational members. Managers have formal authority to use organisational resources and to make decisions. Managers at different levels of the organisation engage in different amounts of time on the four managerial functions of planning, organising, leading, and controlling."], ["2", "However, as many professionals already know, managing styles can be very different depending on where you work. Some managing styles are strictly hierarchical. Other managing styles can be more casual and relaxed, where the manager may act more like a team member rather than a strict boss. Many researchers have created a more scientific approach in studying these different approaches to managing. In the 1960s, researcher Henry Mintzberg created a seminal organisational model using three categories. These categories represent three major functional approaches, which are designated as interpersonal, informational and decisional."], ["3", "Introduced Category 1: INTERPERSONAL ROLES. Interpersonal roles require managers to direct and supervise employees and the organisation. The figurehead is typically a top or middle manager. This manager may communicate future organisational goals or ethical guidelines to employees at company meetings. They also attend ribbon-cutting ceremonies, host receptions, presentations and other activities associated with the figurehead role. A leader acts as an example for other employees to follow, gives commands and directions to subordinates, makes decisions, and mobilises employee support. They are also responsible for the selection and training of employees. Managers must be leaders at all levels of the organisation; often lower-level managers look to top management for this leadership example. In the role of liaison, a manager must coordinate the work of others in different work units, establish alliances between others, and work to share resources. This role is particularly critical for middle managers, who must often compete with other managers for important resources, yet must maintain successful working relationships with them for long time periods."], ["4", "Introduced Category 2: INFORMATIONAL ROLES. Informational roles are those in which managers obtain and transmit information. These roles have changed dramatically as technology has improved. The monitor evaluates the performance of others and takes corrective action to improve that performance. Monitors also watch for changes in the environment and within the company that may affect individual and organisational performance. Monitoring occurs at all levels of management. The role of disseminator requires that managers inform employees of changes that affect them and the organisation. They also communicate the company's vision and purpose."], ["5", "Introduced Category 3: DECISIONAL ROLES. Decisional roles require managers to plan strategy and utilise resources. There are four specific roles that are decisional. The entrepreneur role requires the manager to assign resources to develop innovative goods and services, or to expand a business. The disturbance handler corrects unanticipated problems facing the organisation from the internal or external environment. The third decisional role, that of resource allocator, involves determining which work units will get which resources. Top managers are likely to make larger, overall budget decisions, while middle managers may make more specific allocations. Finally, the negotiator works with others, such as suppliers, distributors, or labor unions, to reach agreements regarding products and services."], ["6", "Although Mintzberg’s initial research in 1960s helped categorise manager approaches, Mintzberg was still concerned about research involving other roles in the workplace. Mintzberg considered expanding his research to other roles, such as the role of disseminator, figurehead, liaison and spokesperson. Each role would have different special characteristics, and a new categorisation system would have to be made for each role to understand it properly."], ["7", "While Mintzberg's initial research was helpful in starting the conversation, there has since been criticism of his methods from other researchers. Some criticisms of the work were that even though there were multiple categories, the role of manager is still more complex. There are still many manager roles that are not as traditional and are not captured in Mintzberg’s original three categories. In addition, sometimes, Mintzberg's research was not always effective. The research, when applied to real-life situations, did not always improve the management process in real-life practice."], ["8", "These two criticisms against Mintzberg's research method raised some questions about whether or not the research was useful to how we understand \"managers\" in today's world. However, even if the criticisms against Mintzberg's work are true, it does not mean that the original research from the 1960s is completely useless. Those researchers did not say Mintzberg’s research is invalid. His research has two positive functions to the further research."], ["9", "The first positive function is Mintzberg provided a useful functional approach to analyse management. And he used this approach to provide a clear concept of the role of manager to the researcher. When researching human behavior, it is important to be concise about the subject of the research. Mintzberg’s research has helped other researchers clearly define what a “manager” is, because in real-life situations, the “manager” is not always the same position title. Mintzberg’s definitions added clarity and precision to future research on the topic."], ["10", "The second positive function is Mintzberg's research could be regarded as a good beginning to give a new insight to further research on this field in the future. Scientific research is always a gradual process. Just because Mintzberg’s initial research had certain flaws, does not mean it is useless to other researchers. Researchers who are interested in studying the workplace in a systematic way have older research to look back on. A researcher doesn't have to start from the very beginning—older research like Mintzberg's have shown what methods work well and what methods are not as appropriate for workplace dynamics. As more young professionals enter the job market, this research will continue to study and change the way we think about the modern workplace."]]}, "2": {"title": "The link between Culture and Thought", "subtitle": "", "paragraphs": [["A", "For more than a century, Western philosophers and psychologists have based their discussions of thought patterns on one basic principle: that the same processes underlie all human thought, whether in the mountains of Tibet or the grasslands of Africa. Cultural differences might dictate what people thought about. Teenage boys in remote areas of Africa, for example, might discuss cows with the same passion that New York teenagers reserved for sports cars. But the strategies people adopted in processing information and making sense of the world around them -- were, Western scholars assumed, the same for everyone."], ["B", "However, recent work by a social psychologist at the University of Michigan, is turning this long-held view of mental functioning upside down. In a series of studies comparing European Americans (representing ‘Westerners’) to East Asians (representing ‘Easterners’), Dr. Richard Nisbett and his colleagues have found that people who grow up in different cultures do not just think about different things: they think differently.\n\nActually researchers were not the first psychological researchers to propose that thought may be embedded in cultural assumptions. For example, Soviet psychologists of the 1930's posed logic problems to Uzbek peasants, arguing that intellectual tools were influenced by pragmatic circumstances.\n\nBut University of Michigan work has been of interest in academic circles because it tries to define and elaborate on cultural differences through a series of tightly controlled, empirical laboratory experiments. In the broadest sense, the Michigan studies carried out in the United States, Japan, China and Korea -- document a basic contrast between East and West, and in doing so they raise questions about the assumptions of cognitive psychology that have been made for the past half a century."], ["C", "In one study, for example, by Dr. Nisbett and Takahiko Masuda, a graduate student at Michigan, students from Japan and the United States were shown an animated underwater scene, in which one larger \"focal\" fish swam among smaller fishes and other aquatic life. Asked to describe what they saw, the Japanese (or Eastern) subjects were much more likely to begin by setting the scene, saying for example, \"There was a lake or pond\" or \"The bottom was rocky,\" or \"The water was green.\" Americans (or Western), in contrast, tended to begin their descriptions with the largest fish, making statements like \"There was what looked like a trout swimming to the right.\" Overall, Japanese subjects in the study made 70 percent more statements about aspects of the background environment than Americans, and twice as many statements about the relationships between animate and inanimate objects. A Japanese subject might note, for example, that \"The big fish swam past the gray seaweed.\"\n\nAnd, the greater attention paid by Easterners to context and relationship was more than just superficial, the researchers found. Shown the same larger fish swimming against a different, novel background, Japanese participants had more difficulty recognizing it than Americans. This indicated that the perception of the Japanese was closely dependent upon what they saw in the background."], ["D", "In another study, Dr. Nisbett and Dr. Incheol Choi found that Easterners were more likely than Westerners to appreciate both sides of an argument. The researchers presented groups of Koreans and Americans with very convincing arguments in support of a particular position. Both the Koreans and the Americans at first expressed strong support for that position. However, when the groups were then presented with arguments opposing the initial position, the Korean subjects generally modified and decreased their support for that position, while the Americans actually increased their original support."], ["E", "In yet another study, again focusing on Americans and Koreans, Dr. Nisbett and Dr. Ara Norenzayan found indications that when logic and experiential knowledge are in conflict, Westerners are more likely than Easterners to stick to the rules of formal logic. For example, presented with a logical sequence like, \"All animals with fur hibernate. Rabbits have fur. Therefore rabbits hibernate.\" The Americans were more likely to accept the validity of the series of statements. They assumed the conclusion must be true because of the logical structure of the arguments. The Korean subjects, by contrast, more frequently judged the argument as invalid based on their own understanding that it was not actually true -- not all animals with fur do in fact hibernate."], ["F", "While the cultural disparities traced in the researchers' work are substantial, their origins are much less clear. Historical evidence suggests that a divide between Oriental and Occidental thinking has existed since ancient times. How much of this East-West difference is a result of differing social and religious practices, different languages or even different geography is anyone's guess. But both styles, Dr. Nisbett said, have advantages, and both have limitations. And neither approach is written into the genes: many Asian-Americans, born in the United States, are indistinguishable in their modes of thought from European-Americans.\n\nAnthropology Dr. Alan Fiske says, “In my field we discuss the way these different groups talk and interact. But these description are qualitative in nature rather than being controlled as an experiment would be, so Dr. Nisbett’s research is a valuable complement to our work.” Yet not everyone agrees that all Dr. Nisbett’s findings reflect fundamental differences in psychological process. Psychologist Dr. Patricia Cheng finds some of the findings matched some of her personal experience. But she says, “I think that some differences -- the Asian tolerance for contradiction, for example -- are purely social.” Still, to the extent that the studies reflect real differences in thinking and perception, psychologists may have to develop new models of mental process that take cultural influences into account."]]}, "3": {"title": "Robert Louis Stevenson", "subtitle": "The writer of some of the best known stories in the English language, include Treasure Island and the strange case of Dr. Jekyll and Mr. Hyde", "paragraphs": [["A", "It is more than 100 years since the death of the Scotland writer Robert Louis Stevenson on the South Pacific island of Samoa. And it seems that time has not been kind to Stevenson’s memory. Immediately after his death, his family and friends set to work to fashion the legend of Robert Louis Stevenson, or R.L.S as he became known – one of the few writers familiar from his initials alone. Subsequent works of biography then turned him in to a writer of almost religious importance. One example was history critic Balfour, who in 1901 portrayed Stevenson’s family as ministering angels to the dying genius during his final illness. Similarly, the biographer Crouch absurdly overstated Stevenson’s significance by placing him in the same company as those most revered natures in English literature Shakespeare and Keats. The reaction to this nonsense was a number of highly critical assessments of Stevenson’s legacy in the 1920s."], ["B", "Normally, the critical pendulum can be relies on to swing back again, but there are several aspects of Stevenson’s work that have, until recently acted against a more balanced appraisal. First is the allegation that Stevenson was a mere master of linguistic fireworks who lacked moral depth. Some critics accused him of being a literary charlatan of juggling words very prettily to strike effects which overawed an ignorant public, and served to distract from the inadequacy of his ideas."], ["C", "Then there has been a prejudice against the adventure story as the proper medium for deep moral seriousness, a prejudice which is still extremely influential today. It seems that we can accept that an adventure film can successfully express profound moral truths, but we reject the same idea for a book. The absurdity of this becomes apparent when we think of writers like Joseph Conrad and Graham Greene, but it is no use pretending that this bias against adventure stories is not part of our high culture. A further problem is that Stevenson has often not found favour in the land of his birth because his conservatism so often collides with the strong radical tradition in Scotland. His many escapist stories and preference for living abroad have led to accusations that he camouflaged Scotland’s real problems. Lastly, the high adventure of Stevenson’s own lifestyle has sometimes obscured his output. His globe-trotting, and above all the final phase of his life in Samoa, tended to make his own life a greater story than any he could devise. This was precisely what his friends feared would happen towards the end of his short life: his art might be overwhelmed by the drama of life in Samoa."], ["D", "One consequence of this has been that Stevenson’s influence on other writers has too often been neglected. The writer and poet Oscar Wilde was deeply influenced by Stevenson, even though he declared that Stevenson would have produced better work if he had lived in London rather than Samoa. Stevenson tends to stick in the throat even of those writers who would like to spit him out, such as Shaw, who claimed to have learnt from him that the romantic hero is always mocked by reality. Likewise, the writer Galsworthy, who being a determined critic, later changed his mind and said that the superiority of Stevenson over the novelist Hardy was that Stevenson was all life and Hardy, all death. The influence on the novelist Chesterton would also repay detailed study, for it was through him that Stevenson has managed to cross the ages emerging as an influence on the modernist movement and our own contemporary Latin American school of magical realism."], ["E", "When making an assessment of his life and work, one question must inevitably be asked: was Robert Louis Stevenson Scotland’s greatest writer of English prose? For most commentators this honour falls to Sir Walter Scott, author of Ivanhoe among many other classic novels, and it is true that in terms of craftsmanship, precision and the ability to minutely regulate language to create the desired effect, Scott takes the prize. However, this is not the same thing at all as inherent talent: by way of comparison one may take the example of the two great Russian composers Shostakovich and Prokofiev, of whom the former had learned more precise skills of execution but the latter’s intrinsic genius was greater, and so it seems to be with Scott and Stevenson. Admittedly, Scott’s detailed style does permit his stories to explore levels of tragedy that are beyond Stevenson’s reach, but in this regard they have the musty smell of the museum, somehow artificial and removed from modern day reality. On the other hand, Stevenson’s skill with plotting and narrative give his books a timeless quality, so that they still live today.\n\nAnd Stevenson was also the shrewder judge of behaviour and psychology. For example, his compelling description of a man with a split personality in the Strange case of Dr. Jekyll and Mr. Hyde have proved so accessible and accurate that the expression ‘Jekyll and Hyde’ has entered common English usage. Even if we do not see a revival of critical interest in this great Scottish writer, it is to be hoped that readers go back to Robert Louis Stevenson’s magnificent stories and reassess this neglected genius."]]}};
+
+const GROUP_78_OPTIONS = ["A","B","C","D","E"];
+const GROUP_78_CORRECT = new Set(["B","E"]);
+let timerInterval=null, saveTimer=null, lastFocusBeforeModal=null;
+let storageOK=true;
+let state = {
+  studentName:"",started:false,submitted:false,startTime:null,endTime:null,submitTime:null,
+  answers:{},reviewMarks:{},passage:1,currentQuestion:1,notes:{1:"",2:"",3:""},
+  passageHtml:{},lastSaved:null,result:null,warnings:{}
+};
+
+function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));}
+function nl2br(s){return esc(s).replace(/\n/g,"<br>");}
+function normalizeText(s){
+  return String(s??"").trim().replace(/\s+/g," ").replace(/[‘’]/g,"'").replace(/\s*-\s*/g,"-").toLowerCase();
+}
+function safeGet(){
+  try{
+    const raw=localStorage.getItem(STORAGE_KEY);
+    if(!raw)return null;
+    const obj=JSON.parse(raw);
+    return obj && typeof obj==="object" ? obj : null;
+  }catch(e){storageOK=false;return null;}
+}
+function safeSet(){
+  state.lastSaved=Date.now();
+  try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state));}
+  catch(e){storageOK=false;}
+  updateSaveLine();
+}
+function safeRemove(){
+  try{localStorage.removeItem(STORAGE_KEY);}catch(e){storageOK=false;}
+}
+function debounceSave(){clearTimeout(saveTimer);saveTimer=setTimeout(safeSet,250);}
+function showToast(msg){const t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2200);}
+function formatClock(ms){ms=Math.max(0,ms);const sec=Math.floor(ms/1000),m=Math.floor(sec/60),s=sec%60;return String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");}
+function fmtTime(ts){if(!ts)return "—";return new Date(ts).toLocaleTimeString("vi-VN",{hour:"2-digit",minute:"2-digit",second:"2-digit"});}
+function fmtDate(ts){if(!ts)return "—";return new Date(ts).toLocaleDateString("vi-VN");}
+function durationText(ms){const sec=Math.max(0,Math.round(ms/1000));const h=Math.floor(sec/3600),m=Math.floor((sec%3600)/60),s=sec%60;return (h? h+" giờ ":"")+m+" phút "+s+" giây";}
+function currentRemaining(){return state.endTime ? Math.max(0,state.endTime-Date.now()) : TOTAL_MS;}
+
+function questionByNumber(n){return QUESTIONS.find(q=>q.number===Number(n));}
+function passageQuestions(p){return QUESTIONS.filter(q=>q.passage===Number(p));}
+function answerFor(n){
+  if(n===7||n===8) return Array.isArray(state.answers["7-8"])?state.answers["7-8"]:[];
+  return state.answers[String(n)] ?? "";
+}
+function isAnswered(n){
+  if(n===7) return answerFor(7).length>=1;
+  if(n===8) return answerFor(8).length>=2;
+  const a=answerFor(n);
+  return Array.isArray(a)?a.length>0:normalizeText(a)!=="";
+}
+function answeredCount(){let c=0;for(let n=1;n<=40;n++)if(isAnswered(n))c++;return c;}
+function unansweredNumbers(){const arr=[];for(let n=1;n<=40;n++)if(!isAnswered(n))arr.push(n);return arr;}
+function reviewCount(){return Object.values(state.reviewMarks).filter(Boolean).length;}
+function updateSaveLine(){
+  const el=document.getElementById("saveLine");
+  if(!el)return;
+  el.textContent=storageOK?(state.lastSaved?"Đã lưu lúc "+fmtTime(state.lastSaved):""):"Cảnh báo: localStorage không hoạt động; bài vẫn có thể tiếp tục trong phiên này.";
+}
+function updateStatus(){
+  const a=answeredCount(),u=40-a,r=reviewCount();
+  const top=document.getElementById("topAnswered");if(top)top.textContent=a+"/40";
+  const ss=document.getElementById("statusSummary");if(ss)ss.textContent=`Đã trả lời: ${a} · Chưa trả lời: ${u} · Xem lại: ${r}`;
+  updateNav();
+}
+
+function renderPassageHTML(p){
+  const data=PASSAGES[String(p)];
+  let h=`<article data-passage="${p}"><h2 class="passage-title">${esc(data.title)}</h2>`;
+  if(data.subtitle) h+=`<div class="passage-subtitle">${esc(data.subtitle)}</div>`;
+  for(const [label,text] of data.paragraphs){
+    const parts=String(text).split(/\n\s*\n/);
+    h+=`<section id="passage-${p}-par-${esc(label)}" class="passage-para passage-source" data-par="${esc(label)}"><span class="para-label">${esc(label)}</span>`;
+    parts.forEach((part,i)=>{h+=(i?`<br><br>`:"")+esc(part);});
+    h+=`</section>`;
+  }
+  h+=`</article>`;
+  return h;
+}
+function displayPassage(p){
+  const body=document.getElementById("passageBody");
+  const saved=state.passageHtml[String(p)];
+  body.innerHTML=saved || renderPassageHTML(p);
+}
+
+const GROUPS = {
+  1:[
+    {nums:[1,2,3,4,5,6],title:"Questions 1–6",instruction:"Look at the following descriptions or deeds (Questions 1–6) and the list of categories below. Match each description or deed with the correct category, A, B or C. Write the correct letter, A, B, or C. NB You may use any letter more than once."},
+    {nums:[7,8],title:"Questions 7–8",instruction:"Choose TWO letters, A–E. Which TWO positive functions about Mintberg’s research are mentioned in the last two paragraphs? Each correct choice is worth one point; order does not matter."},
+    {nums:[9,10,11,12,13],title:"Questions 9–13",instruction:"Do the following statements agree with the information given in Reading Passage 1? Choose TRUE, FALSE or NOT GIVEN."}
+  ],
+  2:[
+    {nums:[14,15,16,17,18],title:"Questions 14–18",instruction:"Reading Passage 2 has six paragraphs A–F. Which paragraph contains the following information? Write the correct letter, A–F. NB You may use any letter more than once."},
+    {nums:[19,20,21,22],title:"Questions 19–22",instruction:"Match each statement with the correct researchers, A, B or C. NB You may use any letter more than once."},
+    {nums:[23,24,25,26],title:"Questions 23–26",instruction:"Complete the sentences below. Choose ONE WORD ONLY from the passage for each answer."}
+  ],
+  3:[
+    {nums:[27,28,29,30,31],title:"Questions 27–31",instruction:"Choose the correct letter, A, B, C or D. (The source page misprints the heading immediately above this group as “Questions 37–40”, while the instruction itself says boxes 27–31.)"},
+    {nums:[32,33,34,35,36],title:"Questions 32–36",instruction:"Do the following statements agree with the information given in Reading Passage 3? Choose YES, NO or NOT GIVEN."},
+    {nums:[37,38,39,40],title:"Questions 37–40 — Table filling blank",instruction:"Choose from the list of words A–H to complete the comparison table."}
+  ]
+};
+function selectHtml(q){
+  const val=String(answerFor(q.number)||"");
+  let out=`<select aria-label="Câu ${q.number}" data-answer="${q.number}"><option value="">— Chọn —</option>`;
+  for(const [v,label] of q.options)out+=`<option value="${esc(v)}"${val===v?" selected":""}>${esc(v)} — ${esc(label)}</option>`;
+  return out+`</select>`;
+}
+function radiosHtml(q){
+  const val=String(answerFor(q.number)||"");
+  return q.options.map(([v,label])=>`<label class="choice"><input type="radio" name="q${q.number}" value="${esc(v)}" data-answer="${q.number}" ${val===v?"checked":""}><span><b>${esc(v)}</b>${label===v?"":" — "+esc(label)}</span></label>`).join("");
+}
+function textInputHtml(q){
+  const val=String(answerFor(q.number)||"");
+  return `<input type="text" data-answer="${q.number}" value="${esc(val)}" aria-label="Câu ${q.number}, ONE WORD ONLY" autocomplete="off"><div class="word-warning" id="wordwarn-${q.number}"></div>`;
+}
+function renderQuestionSingle(q){
+  let ans="";
+  if(["matching-categories","matching-information","matching-researchers","table-matching"].includes(q.type))ans=selectHtml(q);
+  else if(["true-false-not-given","yes-no-not-given","multiple-choice"].includes(q.type))ans=radiosHtml(q);
+  else if(q.type==="one-word-completion")ans=textInputHtml(q);
+  const marked=!!state.reviewMarks[String(q.number)];
+  return `<div class="question-card" id="qcard-${q.number}" tabindex="-1" data-q="${q.number}">
+    <div class="qline"><span class="qnum">${q.number}</span><div class="qtext">${esc(q.text)}</div></div>
+    <div class="answer-area">${ans}</div>
+    <button class="review-btn ${marked?"marked":""}" data-review="${q.number}">${marked?"ĐÃ ĐÁNH DẤU XEM LẠI":"ĐÁNH DẤU XEM LẠI"}</button>
+  </div>`;
+}
+function renderGroup78(){
+  const selected=answerFor(7);
+  const opts=questionByNumber(7).options;
+  let choices=opts.map(([v,label])=>`<label class="choice"><input type="checkbox" data-group78="${v}" value="${v}" ${selected.includes(v)?"checked":""}><span><b>${v}</b> — ${esc(label)}</span></label>`).join("");
+  const m7=!!state.reviewMarks["7"],m8=!!state.reviewMarks["8"];
+  return `<div class="question-card" id="qcard-7" tabindex="-1" data-q="7">
+    <div class="qline"><span class="qnum">7–8</span><div class="qtext">${esc(questionByNumber(7).text)}</div></div>
+    <div class="answer-area">${choices}<div id="group78warning" class="word-warning"></div></div>
+    <button class="review-btn ${m7&&m8?"marked":""}" data-review-group="7-8">${m7&&m8?"ĐÃ ĐÁNH DẤU XEM LẠI":"ĐÁNH DẤU XEM LẠI (7–8)"}</button>
+  </div>`;
+}
+function renderQuestions(p){
+  let h="";
+  for(const g of GROUPS[p]){
+    h+=`<section class="qgroup"><div class="group-title">${esc(g.title)}</div><div class="group-instruction">${esc(g.instruction)}</div>`;
+    if(g.nums[0]===7) h+=renderGroup78();
+    else g.nums.forEach(n=>h+=renderQuestionSingle(questionByNumber(n)));
+    h+=`</section>`;
+  }
+  document.getElementById("questionBody").innerHTML=h;
+  bindQuestionEvents();
+}
+function bindQuestionEvents(){
+  document.querySelectorAll("[data-answer]").forEach(el=>{
+    const event=el.tagName==="INPUT"&&el.type==="text"?"input":"change";
+    el.addEventListener(event,e=>{
+      const n=Number(el.dataset.answer);
+      state.answers[String(n)]=el.value;
+      state.currentQuestion=n;
+      if(questionByNumber(n).type==="one-word-completion"){
+        const words=normalizeText(el.value).split(" ").filter(Boolean);
+        const warn=document.getElementById("wordwarn-"+n);
+        warn.textContent=words.length>1?"Vượt quá giới hạn ONE WORD ONLY.":"";
+      }
+      debounceSave();updateStatus();updateNav();
+    });
+  });
+  document.querySelectorAll("[data-group78]").forEach(el=>el.addEventListener("change",()=>{
+    let selected=[...document.querySelectorAll("[data-group78]:checked")].map(x=>x.value);
+    if(selected.length>2){
+      el.checked=false;selected=selected.filter(x=>x!==el.value);
+      document.getElementById("group78warning").textContent="Chỉ được chọn tối đa TWO letters.";
+      setTimeout(()=>{const w=document.getElementById("group78warning");if(w)w.textContent="";},2200);
+    }
+    state.answers["7-8"]=selected;state.currentQuestion=selected.length<2?7:8;debounceSave();updateStatus();
+  }));
+  document.querySelectorAll("[data-review]").forEach(btn=>btn.addEventListener("click",()=>{
+    const n=btn.dataset.review;state.reviewMarks[n]=!state.reviewMarks[n];debounceSave();renderQuestions(state.passage);updateStatus();
+  }));
+  document.querySelectorAll("[data-review-group]").forEach(btn=>btn.addEventListener("click",()=>{
+    const on=!(state.reviewMarks["7"]&&state.reviewMarks["8"]);state.reviewMarks["7"]=on;state.reviewMarks["8"]=on;debounceSave();renderQuestions(state.passage);updateStatus();
+  }));
+}
+function renderNav(){
+  const nav=document.getElementById("questionNav");let h="";
+  for(let n=1;n<=40;n++)h+=`<button class="qnav" data-navq="${n}" aria-label="Câu ${n}">${n}</button>`;
+  nav.innerHTML=h;
+  nav.querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>gotoQuestion(Number(b.dataset.navq))));
+  updateNav();
+}
+function updateNav(){
+  const result=state.submitted?state.result:null;
+  document.querySelectorAll(".qnav").forEach(b=>{
+    const n=Number(b.dataset.navq);b.className="qnav";
+    if(result){
+      const r=result.perQuestion[String(n)];
+      if(r)b.classList.add(r.status);
+    }else{
+      if(isAnswered(n))b.classList.add("answered");
+      if(state.reviewMarks[String(n)])b.classList.add("review");
+      if(n===state.currentQuestion)b.classList.add("current");
+    }
+  });
+}
+function gotoQuestion(n){
+  const q=questionByNumber(n);switchPassage(q.passage,false);state.currentQuestion=n;debounceSave();updateNav();
+  setTimeout(()=>{
+    const id=(n===8)?"qcard-7":"qcard-"+n;const el=document.getElementById(id);if(el){el.scrollIntoView({behavior:"smooth",block:"center"});el.focus({preventScroll:true});}
+  },60);
+}
+function switchPassage(p,saveCurrent=true){
+  p=Number(p);
+  if(saveCurrent)persistPassageHTML();
+  state.passage=p;
+  document.getElementById("topPassage").textContent=p;
+  document.querySelectorAll(".passage-tab").forEach(b=>b.classList.toggle("active",Number(b.dataset.passage)===p));
+  displayPassage(p);renderQuestions(p);debounceSave();updateNav();
+}
+function persistPassageHTML(){
+  const body=document.getElementById("passageBody");
+  if(body && !document.getElementById("examScreen").classList.contains("hidden")) state.passageHtml[String(state.passage)]=body.innerHTML;
+}
+
+function startExam(){
+  const name=document.getElementById("studentName").value.trim(),ready=document.getElementById("readyCheck").checked;
+  const err=document.getElementById("startError");err.textContent="";
+  if(!name){err.textContent="Vui lòng nhập họ và tên học sinh.";document.getElementById("studentName").focus();return;}
+  if(!ready){err.textContent="Vui lòng tích xác nhận đã đọc hướng dẫn.";document.getElementById("readyCheck").focus();return;}
+  const now=Date.now();
+  state={studentName:name,started:true,submitted:false,startTime:now,endTime:now+TOTAL_MS,submitTime:null,answers:{},reviewMarks:{},passage:1,currentQuestion:1,notes:{1:"",2:"",3:""},passageHtml:{},lastSaved:now,result:null,warnings:{}};
+  safeSet();showExam();startTimer();
+}
+function showExam(){
+  document.getElementById("startScreen").classList.add("hidden");document.getElementById("resultsScreen").classList.add("hidden");document.getElementById("examScreen").classList.remove("hidden");
+  document.getElementById("topName").textContent=state.studentName;
+  renderNav();switchPassage(state.passage||1,false);updateStatus();updateSaveLine();
+}
+function startTimer(){
+  clearInterval(timerInterval);updateTimer();timerInterval=setInterval(updateTimer,1000);
+}
+function updateTimer(){
+  const rem=currentRemaining(),el=document.getElementById("timer");if(!el)return;
+  el.textContent=formatClock(rem);el.classList.toggle("warn",rem<=10*60*1000);
+  const mins=Math.ceil(rem/60000);
+  if(rem<=10*60*1000 && rem>9*60*1000 && !state.warnings.w10){state.warnings.w10=true;showToast("Bạn còn 10 phút.");safeSet();}
+  if(rem<=5*60*1000 && rem>4*60*1000 && !state.warnings.w5){state.warnings.w5=true;showToast("Bạn còn 5 phút. Hãy hoàn thành các câu còn lại.");safeSet();}
+  if(rem<=60*1000 && rem>0 && !state.warnings.w1){state.warnings.w1=true;showToast("Bạn còn 1 phút. Bài sẽ tự động nộp khi hết giờ.");safeSet();}
+  if(rem<=0){clearInterval(timerInterval);submitExam(true);}
+}
+function manualSave(){persistPassageHTML();safeSet();showToast(storageOK?"Đã lưu bài.":"Không thể lưu localStorage; bài vẫn còn trong phiên hiện tại.");}
+
+function openSubmitModal(){
+  const un=unansweredNumbers(),rem=currentRemaining();
+  document.getElementById("submitModalBody").innerHTML=`
+    <p><b>Thời gian còn lại:</b> ${formatClock(rem)}</p>
+    <p><b>Đã trả lời:</b> ${40-un.length}/40 &nbsp; · &nbsp; <b>Chưa trả lời:</b> ${un.length} &nbsp; · &nbsp; <b>Đánh dấu xem lại:</b> ${reviewCount()}</p>
+    <div><b>Câu chưa trả lời:</b><div class="unanswered-list">${un.length?un.join(", "):"Không có"}</div></div>
+    <p style="color:#b42318;font-weight:700">Sau khi nộp, bài sẽ bị khóa và không thể sửa đáp án.</p>`;
+  lastFocusBeforeModal=document.activeElement;
+  const bd=document.getElementById("submitModal");bd.classList.remove("hidden");document.getElementById("continueBtn").focus();
+}
+function closeSubmitModal(){
+  document.getElementById("submitModal").classList.add("hidden");if(lastFocusBeforeModal)lastFocusBeforeModal.focus();
+}
+function trapModal(e){
+  const modal=document.getElementById("submitModal");if(modal.classList.contains("hidden"))return;
+  if(e.key==="Escape"){e.preventDefault();closeSubmitModal();return;}
+  if(e.key==="Tab"){
+    const els=[...modal.querySelectorAll('button:not([disabled]),[href],input,select,textarea,[tabindex]:not([tabindex="-1"])')].filter(x=>x.offsetParent!==null);
+    if(!els.length)return;const first=els[0],last=els[els.length-1];
+    if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+    else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+  }
+}
+
+function group78Score(){
+  const sel=new Set(answerFor(7));let score=0;GROUP_78_CORRECT.forEach(x=>{if(sel.has(x))score++;});return score;
+}
+function grade(){
+  let correctCount=0;const perQuestion={};const groupScore=group78Score(),gSel=answerFor(7);
+  for(let n=1;n<=40;n++){
+    const q=questionByNumber(n);let status="wrong",student="",ok=false;
+    if(n===7||n===8){
+      student=gSel.join(", ");
+      const hasAny=gSel.length>0;
+      if(!hasAny)status="blank";
+      else {
+        ok=(n===7?groupScore>=1:groupScore>=2);
+        status=ok?"correct":"wrong";
+      }
+    }else{
+      student=String(answerFor(n)||"");
+      if(normalizeText(student)==="")status="blank";
+      else if(q.type==="one-word-completion"){
+        const words=normalizeText(student).split(" ").filter(Boolean);
+        ok=words.length<=1 && normalizeText(student)===normalizeText(q.correct);
+        status=ok?"correct":"wrong";
+      }else{
+        ok=normalizeText(student)===normalizeText(q.correct);status=ok?"correct":"wrong";
+      }
+    }
+    if(status==="correct")correctCount++;
+    perQuestion[String(n)]={status,studentAnswer:student,correctAnswer:(n===7||n===8)?"B, E":q.correct};
+  }
+  const byPassage={1:{correct:0,total:13},2:{correct:0,total:13},3:{correct:0,total:14}};
+  for(let n=1;n<=40;n++)if(perQuestion[String(n)].status==="correct")byPassage[questionByNumber(n).passage].correct++;
+  const blank=Object.values(perQuestion).filter(x=>x.status==="blank").length;
+  return {correct:correctCount,wrong:40-correctCount-blank,blank,percent:Math.round(correctCount/40*1000)/10,band:bandFor(correctCount),perQuestion,byPassage};
+}
+function bandFor(c){
+  if(c>=39)return 9.0;if(c>=37)return 8.5;if(c>=35)return 8.0;if(c>=33)return 7.5;if(c>=30)return 7.0;if(c>=27)return 6.5;if(c>=23)return 6.0;if(c>=19)return 5.5;if(c>=15)return 5.0;if(c>=13)return 4.5;if(c>=10)return 4.0;if(c>=8)return 3.5;if(c>=6)return 3.0;if(c>=4)return 2.5;if(c===3)return 2.0;if(c===2)return 1.5;if(c===1)return 1.0;return 0;
+}
+function submitExam(auto=false){
+  if(state.submitted)return;
+  persistPassageHTML();
+  if(!auto)closeSubmitModal();
+  clearInterval(timerInterval);
+  state.submitted=true;state.submitTime=Date.now();state.result=grade();safeSet();showResults();
+}
+function showResults(){
+  clearInterval(timerInterval);
+  document.getElementById("startScreen").classList.add("hidden");document.getElementById("examScreen").classList.add("hidden");document.getElementById("resultsScreen").classList.remove("hidden");
+  const r=state.result||grade();state.result=r;
+  const used=(state.submitTime||Date.now())-state.startTime;
+  document.getElementById("resultsHead").innerHTML=`
+    <div class="kicker">IELTS ACADEMIC READING TEST</div>
+    <h1>READING TEST 13 — KẾT QUẢ</h1>
+    <p><b>Họ và tên:</b> ${esc(state.studentName)}</p>
+    <div class="summary-grid">
+      <div class="metric">Ngày làm bài<b>${fmtDate(state.startTime)}</b></div>
+      <div class="metric">Bắt đầu<b>${fmtTime(state.startTime)}</b></div>
+      <div class="metric">Nộp bài<b>${fmtTime(state.submitTime)}</b></div>
+      <div class="metric">Thời lượng<b>${durationText(used)}</b></div>
+      <div class="metric">Số câu đúng<b>${r.correct}/40</b></div>
+      <div class="metric">Sai / Bỏ trống<b>${r.wrong} / ${r.blank}</b></div>
+      <div class="metric">Độ chính xác<b>${r.percent}%</b></div>
+      <div class="metric">Band ước lượng<b>${r.band.toFixed(1)}</b></div>
+    </div>
+    <p style="font-size:13px;color:#667085;margin-bottom:0">Band Reading là mức ước lượng. Bảng quy đổi trong kỳ thi thực tế có thể thay đổi nhẹ theo độ khó của đề.</p>`;
+  let ps="";
+  for(let p=1;p<=3;p++)ps+=`<div class="score-card card"><div>PASSAGE ${p}</div><b>${r.byPassage[p].correct}/${r.byPassage[p].total}</b></div>`;
+  document.getElementById("passageScores").innerHTML=ps;
+  renderResultCards("all");renderParaphraseSection();renderWeaknessSection();
+  safeSet();
+}
+function statusLabel(s){return s==="correct"?"ĐÚNG":s==="wrong"?"SAI":"BỎ TRỐNG";}
+function optionsText(q){
+  if(!q.options)return "";
+  return q.options.map(x=>x[0]+". "+x[1]).join("\n");
+}
+function resultQuestionHTML(n){
+  const q=questionByNumber(n),rr=state.result.perQuestion[String(n)],marked=!!state.reviewMarks[String(n)];
+  let qtext=q.text+(q.options&&q.type==="multiple-choice"?"\n"+optionsText(q):"");
+  return `<article class="result-card ${rr.status}" data-status="${rr.status}" data-review="${marked?"1":"0"}">
+    <div class="result-summary">
+      <div class="result-q">Câu ${n}</div>
+      <div class="result-main"><b>Passage ${q.passage} · ${esc(q.type)}</b><div style="white-space:pre-line;margin-top:4px">${esc(qtext)}</div>
+        <div class="answer-compare">
+          <div class="answer-box"><small>Câu trả lời của học sinh</small><br><b>${esc(rr.studentAnswer||"—")}</b></div>
+          <div class="answer-box"><small>Đáp án đúng</small><br><b>${esc(rr.correctAnswer)}</b></div>
+        </div>
+      </div>
+      <span class="status-badge ${rr.status}">${statusLabel(rr.status)}</span>
+    </div>
+    <details class="explain" ${rr.status!=="correct"?"open":""}>
+      <summary>GIẢI THÍCH CHI TIẾT</summary>
+      <div class="detail-block"><h4>Đoạn chứa câu trả lời</h4><div>${esc(q.sourceParagraph)}</div></div>
+      <div class="detail-block"><h4>Bằng chứng nguyên văn</h4><div class="quote">${esc(q.evidence)}</div></div>
+      <div class="detail-block"><h4>Giải thích tiếng Việt</h4><div class="explain-text">${esc(q.explanation)}</div></div>
+      <div class="detail-block"><h4>Cụm paraphrase</h4><ul class="para-list">${q.paraphrases.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>
+      <button class="location-btn" data-locate="${n}">XEM VỊ TRÍ TRONG BÀI ĐỌC</button>
+    </details>
+  </article>`;
+}
+function resultGroup78HTML(){
+  const score=group78Score(),status=score===2?"correct":answerFor(7).length?"wrong":"blank",marked=!!state.reviewMarks["7"]||!!state.reviewMarks["8"];
+  const q=questionByNumber(7);return `<article class="result-card ${status}" data-status="${status}" data-review="${marked?"1":"0"}">
+    <div class="result-summary">
+      <div class="result-q">Câu 7–8</div><div class="result-main"><b>Passage 1 · choose-two</b><div>${esc(q.text)}</div>
+      <div class="answer-compare"><div class="answer-box"><small>Bộ đáp án học sinh đã chọn</small><br><b>${esc(answerFor(7).join(", ")||"—")}</b></div>
+      <div class="answer-box"><small>Bộ đáp án đúng</small><br><b>B, E</b></div></div><div style="margin-top:7px"><b>Điểm nhóm: ${score}/2</b> — mỗi lựa chọn đúng được 1 điểm, thứ tự không ảnh hưởng.</div></div>
+      <span class="status-badge ${status}">${score===2?"ĐÚNG 2/2":score===1?"1/2 ĐIỂM":"0/2 ĐIỂM"}</span>
+    </div>
+    <details class="explain" ${score<2?"open":""}><summary>GIẢI THÍCH CHI TIẾT</summary>
+      <div class="detail-block"><h4>Đoạn chứa câu trả lời</h4><div>${esc(q.sourceParagraph)}</div></div>
+      <div class="detail-block"><h4>Bằng chứng nguyên văn</h4><div class="quote">${esc(q.evidence)}</div></div>
+      <div class="detail-block"><h4>Giải thích tiếng Việt</h4><div class="explain-text">${esc(q.explanation)}</div></div>
+      <div class="detail-block"><h4>Cụm paraphrase</h4><ul class="para-list">${q.paraphrases.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>
+      <button class="location-btn" data-locate="7">XEM VỊ TRÍ TRONG BÀI ĐỌC</button>
+    </details>
+  </article>`;
+}
+function renderResultCards(filter){
+  let h="";
+  for(let n=1;n<=40;n++){
+    if(n===7){h+=resultGroup78HTML();n=8;continue;}
+    h+=resultQuestionHTML(n);
+  }
+  const box=document.getElementById("resultCards");box.innerHTML=h;
+  box.querySelectorAll("[data-locate]").forEach(b=>b.addEventListener("click",()=>showEvidence(Number(b.dataset.locate))));
+  applyResultFilter(filter);
+}
+function applyResultFilter(filter){
+  document.querySelectorAll(".result-filter").forEach(b=>b.classList.toggle("active",b.dataset.filter===filter));
+  document.querySelectorAll(".result-card").forEach(c=>{
+    let show=filter==="all"||c.dataset.status===filter||(filter==="review"&&c.dataset.review==="1");
+    c.classList.toggle("hidden",!show);
+  });
+}
+function showEvidence(n){
+  const q=questionByNumber(n),p=q.passage;
+  const panel=document.getElementById("reviewPassagePanel"),content=document.getElementById("reviewPassageContent");
+  panel.classList.remove("hidden");document.getElementById("reviewPassageTitle").textContent=`BÀI ĐỌC THAM CHIẾU — PASSAGE ${p}`;
+  content.innerHTML=renderPassageHTML(p);
+  const target=content.querySelector(`#passage-${p}-par-${CSS.escape(String(q.sourceTarget))}`);
+  if(target){target.classList.add("evidence-flash");setTimeout(()=>target.scrollIntoView({behavior:"smooth",block:"center"}),50);}
+  panel.scrollIntoView({behavior:"smooth",block:"start"});
+}
+function renderParaphraseSection(){
+  const seen=new Set();let items=[];
+  QUESTIONS.forEach(q=>{
+    if(q.number===8)return;
+    q.paraphrases.forEach(pp=>{
+      const key=q.passage+"|"+pp;if(!seen.has(key)){seen.add(key);items.push({p:q.passage,q:q.number,text:pp});}
+    });
+  });
+  let h=`<h2>CỤM PARAPHRASE CẦN GHI NHỚ</h2><div class="filterbar">
+    <button class="para-filter active" data-pf="all">TẤT CẢ</button><button class="para-filter" data-pf="1">PASSAGE 1</button>
+    <button class="para-filter" data-pf="2">PASSAGE 2</button><button class="para-filter" data-pf="3">PASSAGE 3</button>
+    <button class="para-filter" data-pf="wrong">CHỈ CỤM TỪ Ở CÂU SAI</button></div><div id="paraItems">`;
+  items.forEach(it=>{const wrong=state.result.perQuestion[String(it.q)].status!=="correct";h+=`<div class="para-item" data-p="${it.p}" data-wrong="${wrong?"1":"0"}"><b>Câu ${it.q} · Passage ${it.p}</b><br>${esc(it.text).replace(" = "," ↔ ")}</div>`;});
+  h+=`</div>`;
+  const sec=document.getElementById("paraphraseSection");sec.innerHTML=h;
+  sec.querySelectorAll(".para-filter").forEach(b=>b.addEventListener("click",()=>{
+    const f=b.dataset.pf;sec.querySelectorAll(".para-filter").forEach(x=>x.classList.toggle("active",x===b));
+    sec.querySelectorAll(".para-item").forEach(x=>x.classList.toggle("hidden",!(f==="all"||x.dataset.p===f||(f==="wrong"&&x.dataset.wrong==="1"))));
+  }));
+}
+function typeStats(){
+  const stats={};
+  QUESTIONS.forEach(q=>{
+    const key=q.type;if(!stats[key])stats[key]={correct:0,total:0};
+    stats[key].total++;if(state.result.perQuestion[String(q.number)].status==="correct")stats[key].correct++;
+  });
+  return stats;
+}
+function renderWeaknessSection(){
+  const stats=typeStats();
+  let h=`<h2>ÔN LẠI CÁC CÂU CẦN CHÚ Ý</h2>`;
+  const attention=[];for(let n=1;n<=40;n++){const st=state.result.perQuestion[String(n)].status;if(st!=="correct"||state.reviewMarks[String(n)])attention.push(n);}
+  h+=`<p><b>Câu sai / bỏ trống / đã đánh dấu xem lại:</b> ${attention.length?attention.join(", "):"Không có"}</p><h3>Thống kê theo dạng bài</h3>`;
+  Object.entries(stats).forEach(([k,v])=>h+=`<div class="weak-stat"><span>${esc(k)}</span><b>${v.correct}/${v.total}</b></div>`);
+  const weakest=Object.entries(stats).map(([k,v])=>({k,...v,rate:v.correct/v.total})).sort((a,b)=>a.rate-b.rate)[0];
+  if(weakest && weakest.correct<weakest.total){
+    let advice=`Dạng ${weakest.k}: ${weakest.correct}/${weakest.total}.`;
+    if(weakest.k.includes("not-given")) advice+=" Cần phân biệt thông tin trái ngược với thông tin không được đề cập.";
+    else if(weakest.k.includes("matching")) advice+=" Cần định vị đúng đối tượng/đoạn và kiểm tra paraphrase thay vì chỉ dựa vào một từ khóa.";
+    else if(weakest.k.includes("completion")) advice+=" Cần giữ đúng giới hạn ONE WORD ONLY và kiểm tra dạng từ/ngữ pháp quanh chỗ trống.";
+    else if(weakest.k.includes("multiple-choice")) advice+=" Cần đối chiếu từng distractor với bằng chứng trong passage.";
+    h+=`<p><b>Dạng cần ưu tiên ôn:</b> ${esc(advice)}</p>`;
+  }
+  document.getElementById("weaknessSection").innerHTML=h;
+}
+
+function buildPlainReport(){
+  const r=state.result,used=(state.submitTime||Date.now())-state.startTime;
+  let lines=[
+    "IELTS ACADEMIC READING TEST","READING TEST 13",
+    "Họ và tên: "+state.studentName,"Ngày làm bài: "+fmtDate(state.startTime),
+    "Thời gian bắt đầu: "+fmtTime(state.startTime),"Thời gian nộp: "+fmtTime(state.submitTime),
+    "Thời lượng: "+durationText(used),"Tổng số câu: 40","Số câu đúng: "+r.correct,
+    "Số câu sai: "+r.wrong,"Số câu bỏ trống: "+r.blank,"Phần trăm chính xác: "+r.percent+"%",
+    "Band Reading ước lượng: "+r.band.toFixed(1),
+    "Passage 1: "+r.byPassage[1].correct+"/13","Passage 2: "+r.byPassage[2].correct+"/13","Passage 3: "+r.byPassage[3].correct+"/14",
+    "","CHI TIẾT TỪNG CÂU"
+  ];
+  for(let n=1;n<=40;n++){
+    const q=questionByNumber(n),rr=r.perQuestion[String(n)];
+    lines.push("",`Câu ${n} — Passage ${q.passage} — ${statusLabel(rr.status)}`,q.text,
+      "Câu trả lời học sinh: "+(rr.studentAnswer||"BỎ TRỐNG"),"Đáp án đúng: "+rr.correctAnswer,
+      "Đoạn chứa bằng chứng: "+q.sourceParagraph,"Bằng chứng: "+q.evidence,
+      "Giải thích: "+q.explanation,"Paraphrase: "+(q.paraphrases.join(" | ")||"—"));
+  }
+  const stats=typeStats();lines.push("","TỔNG HỢP DẠNG BÀI");
+  Object.entries(stats).forEach(([k,v])=>lines.push(`${k}: ${v.correct}/${v.total}`));
+  return lines.join("\n");
+}
+async function copyResults(){
+  const text=buildPlainReport();
+  try{
+    if(navigator.clipboard && navigator.clipboard.writeText){await navigator.clipboard.writeText(text);showToast("Đã sao chép toàn bộ kết quả.");return;}
+  }catch(e){}
+  const ta=document.createElement("textarea");ta.value=text;ta.style.position="fixed";ta.style.opacity="0";document.body.appendChild(ta);ta.select();
+  try{const ok=document.execCommand("copy");showToast(ok?"Đã sao chép toàn bộ kết quả.":"Không thể tự động sao chép. Vui lòng chọn và sao chép nội dung thủ công.");}
+  catch(e){showToast("Không thể tự động sao chép. Vui lòng chọn và sao chép nội dung thủ công.");}
+  ta.remove();
+}
+
+/* Minimal offline DOCX writer: Office Open XML in an uncompressed ZIP. */
+function crc32Table(){let t=[];for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=(c&1)?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0;}return t;}
+const CRC_TABLE=crc32Table();
+function crc32(bytes){let c=0xFFFFFFFF;for(const b of bytes)c=CRC_TABLE[(c^b)&255]^(c>>>8);return (c^0xFFFFFFFF)>>>0;}
+function u16(n){return new Uint8Array([n&255,(n>>>8)&255]);}
+function u32(n){return new Uint8Array([n&255,(n>>>8)&255,(n>>>16)&255,(n>>>24)&255]);}
+function concat(arrs){let len=arrs.reduce((s,a)=>s+a.length,0),o=new Uint8Array(len),p=0;for(const a of arrs){o.set(a,p);p+=a.length;}return o;}
+function zipStore(files){
+  const enc=new TextEncoder(),locals=[],centrals=[];let offset=0;
+  for(const f of files){
+    const name=enc.encode(f.name),data=typeof f.data==="string"?enc.encode(f.data):f.data,crc=crc32(data);
+    const local=concat([u32(0x04034b50),u16(20),u16(0),u16(0),u16(0),u16(0),u32(crc),u32(data.length),u32(data.length),u16(name.length),u16(0),name,data]);
+    locals.push(local);
+    const central=concat([u32(0x02014b50),u16(20),u16(20),u16(0),u16(0),u16(0),u16(0),u32(crc),u32(data.length),u32(data.length),u16(name.length),u16(0),u16(0),u16(0),u16(0),u32(0),u32(offset),name]);
+    centrals.push(central);offset+=local.length;
+  }
+  const centralBlob=concat(centrals),localBlob=concat(locals);
+  const end=concat([u32(0x06054b50),u16(0),u16(0),u16(files.length),u16(files.length),u32(centralBlob.length),u32(localBlob.length),u16(0)]);
+  return concat([localBlob,centralBlob,end]);
+}
+function xmlEsc(s){return String(s??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&apos;");}
+function docxParagraph(text,style){
+  const st=style?`<w:pPr><w:pStyle w:val="${style}"/></w:pPr>`:"";
+  return `<w:p>${st}<w:r><w:t xml:space="preserve">${xmlEsc(text)}</w:t></w:r></w:p>`;
+}
+function exportWord(){
+  const report=buildPlainReport().split("\n");
+  let paras="";report.forEach((line,i)=>{
+    let style="";
+    if(i===0||line==="CHI TIẾT TỪNG CÂU"||line==="TỔNG HỢP DẠNG BÀI")style="Heading1";
+    else if(/^Câu \d+/.test(line))style="Heading2";
+    paras+=docxParagraph(line||" ",style);
+  });
+  const documentXml=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body>${paras}<w:sectPr><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="1134" w:right="1134" w:bottom="1134" w:left="1134"/></w:sectPr></w:body></w:document>`;
+  const styles=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:styles xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:style w:type="paragraph" w:default="1" w:styleId="Normal"><w:name w:val="Normal"/><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="24"/></w:rPr></w:style><w:style w:type="paragraph" w:styleId="Heading1"><w:name w:val="heading 1"/><w:basedOn w:val="Normal"/><w:rPr><w:b/><w:sz w:val="32"/></w:rPr></w:style><w:style w:type="paragraph" w:styleId="Heading2"><w:name w:val="heading 2"/><w:basedOn w:val="Normal"/><w:rPr><w:b/><w:sz w:val="27"/></w:rPr></w:style></w:styles>`;
+  const types=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/><Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/></Types>`;
+  const rels=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>`;
+  const docrels=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rIdStyles" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>`;
+  const zip=zipStore([{name:"[Content_Types].xml",data:types},{name:"_rels/.rels",data:rels},{name:"word/document.xml",data:documentXml},{name:"word/styles.xml",data:styles},{name:"word/_rels/document.xml.rels",data:docrels}]);
+  const blob=new Blob([zip],{type:"application/vnd.openxmlformats-officedocument.wordprocessingml.document"});
+  const safeName=(state.studentName||"HOC SINH").trim().replace(/[<>:"/\\|?*\x00-\x1F]/g,"_").replace(/\s+/g," ");
+  const filename=`${safeName} READING TEST ${TEST_NO}.docx`;
+  const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1200);
+  showToast("Đã tạo file Word kết quả: "+filename);
+}
+
+function highlightSelection(){
+  const body=document.getElementById("passageBody"),sel=window.getSelection();if(!sel||sel.rangeCount===0||sel.isCollapsed){showToast("Hãy bôi đen một đoạn văn trước.");return;}
+  const range=sel.getRangeAt(0);if(!body.contains(range.commonAncestorContainer)){showToast("Chỉ có thể highlight trong bài đọc.");return;}
+  let node=range.commonAncestorContainer.nodeType===1?range.commonAncestorContainer:range.commonAncestorContainer.parentElement;
+  const para=node.closest(".passage-source");if(!para || !para.contains(range.startContainer) || !para.contains(range.endContainer)){showToast("Vui lòng chỉ chọn văn bản trong cùng một đoạn.");return;}
+  try{const mark=document.createElement("mark");mark.className="student-highlight";range.surroundContents(mark);}
+  catch(e){const mark=document.createElement("mark");mark.className="student-highlight";mark.appendChild(range.extractContents());range.insertNode(mark);}
+  sel.removeAllRanges();persistPassageHTML();debounceSave();
+}
+function unhighlightSelection(){
+  const body=document.getElementById("passageBody"),sel=window.getSelection();let marks=[...body.querySelectorAll("mark.student-highlight")];
+  if(sel&&sel.rangeCount&&!sel.isCollapsed){const r=sel.getRangeAt(0);marks=marks.filter(m=>{try{return r.intersectsNode(m);}catch(e){return false;}});}
+  if(!marks.length){showToast("Không tìm thấy phần highlight để bỏ.");return;}
+  marks.forEach(m=>{const p=m.parentNode;while(m.firstChild)p.insertBefore(m.firstChild,m);p.removeChild(m);p.normalize();});
+  if(sel)sel.removeAllRanges();persistPassageHTML();debounceSave();
+}
+function retake(){
+  if(!confirm("Bạn có chắc chắn muốn xóa toàn bộ bài làm và kết quả để làm lại từ đầu không?"))return;
+  safeRemove();location.reload();
+}
+
+function init(){
+  const restored=safeGet();
+  if(restored){
+    state={...state,...restored,answers:restored.answers||{},reviewMarks:restored.reviewMarks||{},notes:restored.notes||{1:"",2:"",3:""},passageHtml:restored.passageHtml||{},warnings:restored.warnings||{}};
+  }
+  if(state.submitted && state.result){showResults();}
+  else if(state.started){
+    if(Date.now()>=state.endTime){state.submitted=true;state.submitTime=state.endTime;state.result=grade();safeSet();showResults();}
+    else{showExam();startTimer();}
+  }else{
+    document.getElementById("studentName").value=state.studentName||"";
+    if(!storageOK)document.getElementById("startError").textContent="Cảnh báo: trình duyệt đang chặn localStorage. Bạn vẫn có thể làm bài nhưng không nên refresh trang.";
+  }
+}
+document.getElementById("startBtn").addEventListener("click",startExam);
+document.getElementById("saveBtn").addEventListener("click",manualSave);
+document.getElementById("submitBtn").addEventListener("click",openSubmitModal);
+document.getElementById("continueBtn").addEventListener("click",closeSubmitModal);
+document.getElementById("confirmSubmitBtn").addEventListener("click",()=>submitExam(false));
+document.addEventListener("keydown",trapModal);
+document.querySelectorAll(".passage-tab").forEach(b=>b.addEventListener("click",()=>switchPassage(b.dataset.passage)));
+document.getElementById("highlightBtn").addEventListener("click",highlightSelection);
+document.getElementById("unhighlightBtn").addEventListener("click",unhighlightSelection);
+document.getElementById("copyResultsBtn").addEventListener("click",copyResults);
+document.getElementById("exportWordBtn").addEventListener("click",exportWord);
+document.getElementById("retakeBtn").addEventListener("click",retake);
+document.getElementById("closeReviewPassage").addEventListener("click",()=>document.getElementById("reviewPassagePanel").classList.add("hidden"));
+document.querySelectorAll(".result-filter").forEach(b=>b.addEventListener("click",()=>applyResultFilter(b.dataset.filter)));
+window.addEventListener("beforeunload",()=>{if(state.started&&!state.submitted){persistPassageHTML();safeSet();}});
+init();
+</script>
+
+<!-- IELTS_DUAL_PANE_PATCH_SCRIPT_START -->
+<script id="ielts-dual-pane-layout-runtime">
+(function(){
+  function visible(el){
+    if(!el) return false;
+    if(el.classList && el.classList.contains('hidden')) return false;
+    const s = window.getComputedStyle(el);
+    if(s.display === 'none' || s.visibility === 'hidden') return false;
+    return !!(el.offsetWidth || el.offsetHeight || el.getClientRects().length);
+  }
+
+  function syncExamLock(){
+    const candidates = Array.from(document.querySelectorAll('.exam,.practice,#exam-screen'));
+    const active = candidates.some(visible);
+    document.documentElement.classList.toggle('ielts-exam-active', active);
+    if(document.body) document.body.classList.toggle('ielts-exam-active', active);
+  }
+
+  function start(){
+    syncExamLock();
+    const obs = new MutationObserver(syncExamLock);
+    obs.observe(document.documentElement,{
+      subtree:true,
+      childList:true,
+      attributes:true,
+      attributeFilter:['class','style','hidden']
+    });
+    window.addEventListener('resize', syncExamLock, {passive:true});
+    window.addEventListener('orientationchange', syncExamLock, {passive:true});
+    document.addEventListener('click', function(){ setTimeout(syncExamLock,0); }, {passive:true});
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', start, {once:true});
+  }else{
+    start();
+  }
+})();
+</script>
+<!-- IELTS_DUAL_PANE_PATCH_SCRIPT_END -->
+
+</body>
+</html>

@@ -1,0 +1,1294 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>IELTS Academic Reading – Test 1</title>
+<style>
+:root{
+  --navy:#123c69;--navy2:#0b2948;--blue:#eaf3fb;--line:#cbd7e3;--bg:#f3f6f9;
+  --text:#1f2933;--muted:#5b6773;--green:#15803d;--red:#c62828;--yellow:#f5b700;
+  --white:#fff;--shadow:0 8px 28px rgba(15,40,65,.12);--radius:12px;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--text);background:var(--bg)}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+.hidden{display:none!important}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+:focus-visible{outline:3px solid #ffbf47;outline-offset:2px}
+.start-screen{min-height:100%;display:grid;place-items:center;padding:24px}
+.start-card{width:min(760px,100%);background:#fff;border-radius:18px;box-shadow:var(--shadow);padding:34px}
+.start-card h1{color:var(--navy);margin:0 0 8px;font-size:clamp(28px,5vw,44px)}
+.test-code{font-weight:700;color:var(--navy2);margin-bottom:22px}
+.info-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:20px 0}
+.info-item{background:var(--blue);padding:12px 14px;border-radius:10px}
+.field{margin-top:18px}
+.field label{display:block;font-weight:700;margin-bottom:7px}
+.field input[type=text]{width:100%;padding:13px;border:1px solid #9fb1c2;border-radius:9px}
+.confirm-row{display:flex;align-items:flex-start;gap:10px;margin:18px 0}
+.confirm-row input{width:20px;height:20px;flex:0 0 auto}
+.primary,.secondary,.danger,.ghost{border:0;border-radius:9px;padding:11px 16px;font-weight:700}
+.primary{background:var(--navy);color:#fff}
+.primary:hover{background:var(--navy2)}
+.secondary{background:#e4edf5;color:var(--navy2)}
+.danger{background:#b91c1c;color:#fff}
+.ghost{background:transparent;color:var(--navy);border:1px solid #9fb1c2}
+.error-text{color:var(--red);font-weight:700;min-height:1.3em}
+.topbar{position:sticky;top:0;z-index:30;background:var(--navy2);color:#fff;display:flex;align-items:center;gap:12px;padding:10px 14px;box-shadow:0 3px 12px rgba(0,0,0,.2)}
+.topbar .identity{font-weight:700;min-width:150px}
+.topbar .stats{display:flex;align-items:center;gap:14px;flex:1;flex-wrap:wrap}
+.timer{font-size:1.35rem;font-weight:800;font-variant-numeric:tabular-nums;background:#fff;color:var(--navy2);padding:6px 10px;border-radius:8px}
+.timer.warning{background:#fff3cd;color:#7a4b00}
+.timer.urgent{background:#ffe0e0;color:#991b1b}
+.top-actions{display:flex;gap:8px}
+.top-actions button{padding:8px 12px}
+.exam-shell{height:100%;display:flex;flex-direction:column}
+.exam-nav{background:#fff;border-bottom:1px solid var(--line);padding:10px 14px}
+.passage-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.passage-tab{border:1px solid var(--line);background:#fff;color:var(--navy);border-radius:8px;padding:9px 14px;font-weight:700}
+.passage-tab.active{background:var(--navy);color:#fff}
+.question-nav{display:flex;gap:6px;flex-wrap:wrap}
+.qnav{width:34px;height:34px;border:1px solid #adb9c5;background:#e7ebef;border-radius:7px;font-weight:700}
+.qnav.answered{background:#bfe1f8;border-color:#3584b8}
+.qnav.review{background:#ffe082;border-color:#c99a00}
+.qnav.current{background:var(--navy);color:#fff}
+.qnav.correct{background:#bde5c8;border-color:#2f8d4e}
+.qnav.wrong{background:#ffd0d0;border-color:#c33}
+.qnav.blank{background:#9ca3af;color:#fff}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;min-height:0;flex:1}
+.pane{background:#fff;overflow:auto;min-height:0;height:calc(100vh - 178px)}
+.passage-pane{border-right:1px solid var(--line);padding:22px 28px}
+.question-pane{padding:22px}
+.pane-head{position:sticky;top:0;background:#fff;z-index:4;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.pane-head h2{margin:0;color:var(--navy)}
+.passage-subtitle{font-style:italic;color:var(--muted);margin-top:6px}
+.passage-tools{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.passage-tools button{padding:7px 10px}
+.passage-content{font-family:Georgia,'Times New Roman',serif;font-size:18px;line-height:1.72;padding-bottom:80px}
+.passage-paragraph{scroll-margin-top:90px;padding:6px 8px;border-radius:8px}
+.par-label{font-family:Arial,sans-serif;font-weight:800;color:var(--navy);margin-right:8px}
+.passage-paragraph.evidence-focus{background:#fff1a8;box-shadow:0 0 0 3px #f5b700 inset}
+mark.user-highlight{background:#fff08a;padding:0 1px}
+mark.selected-mark{outline:2px solid #b36b00}
+.notes-box{margin-top:14px}
+.notes-box textarea{width:100%;min-height:90px;padding:10px;border:1px solid var(--line);border-radius:8px}
+.instruction{background:#eef5fb;border-left:5px solid var(--navy);padding:13px 15px;border-radius:8px;margin-bottom:16px;line-height:1.5}
+.question-card{border:1px solid var(--line);border-radius:var(--radius);padding:16px;margin:0 0 14px;background:#fff;scroll-margin-top:24px}
+.question-card.current-question{box-shadow:0 0 0 3px rgba(18,60,105,.18)}
+.qhead{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+.qnum{display:inline-grid;place-items:center;background:var(--navy);color:#fff;border-radius:50%;width:34px;height:34px;font-weight:800}
+.review-btn{border:1px solid #c8a100;background:#fff7ce;border-radius:8px;padding:7px 10px}
+.review-btn.active{background:#f5b700;color:#332700}
+.qtext{font-size:1.03rem;line-height:1.55;margin-bottom:12px}
+.option-list{display:grid;gap:8px}
+.option{display:flex;align-items:flex-start;gap:10px;border:1px solid #d5dde5;border-radius:8px;padding:10px}
+.option:hover{background:#f6f9fc}
+.option input{margin-top:3px;width:18px;height:18px}
+.answer-input,.answer-select{width:100%;padding:11px 12px;border:1px solid #9aa9b8;border-radius:8px;background:#fff}
+.word-warning{font-size:.9rem;color:var(--red);font-weight:700;margin-top:6px}
+.group-title{color:var(--navy);margin:0 0 8px}
+.mobile-switch{display:none;background:#fff;padding:8px;gap:8px;border-bottom:1px solid var(--line)}
+.mobile-switch button{flex:1}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#172b3a;color:#fff;padding:11px 16px;border-radius:9px;z-index:100;box-shadow:var(--shadow)}
+.live-region{position:fixed;top:80px;left:50%;transform:translateX(-50%);z-index:80;background:#fff4c2;border:2px solid #d09a00;padding:12px 18px;border-radius:9px;font-weight:700;box-shadow:var(--shadow)}
+.modal-backdrop{position:fixed;inset:0;background:rgba(5,18,32,.58);z-index:90;display:grid;place-items:center;padding:20px}
+.modal{background:#fff;width:min(650px,100%);max-height:90vh;overflow:auto;border-radius:14px;padding:24px;box-shadow:var(--shadow)}
+.modal h2{color:var(--navy);margin-top:0}
+.modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:20px;flex-wrap:wrap}
+.results-screen{min-height:100%;background:var(--bg)}
+.results-header{background:linear-gradient(135deg,var(--navy2),var(--navy));color:#fff;padding:28px}
+.results-header-inner{max-width:1200px;margin:auto}
+.results-header h1{margin:0 0 6px}
+.result-meta{display:flex;gap:18px;flex-wrap:wrap;opacity:.95}
+.results-main{max-width:1200px;margin:auto;padding:22px}
+.score-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:18px}
+.score-card{background:#fff;border-radius:12px;padding:16px;box-shadow:0 3px 12px rgba(15,40,65,.08)}
+.score-card strong{display:block;color:var(--navy);font-size:1.65rem;margin-top:4px}
+.passage-score-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:20px}
+.result-toolbar{display:flex;gap:8px;flex-wrap:wrap;background:#fff;padding:12px;border-radius:10px;margin-bottom:16px}
+.filter-btn.active{background:var(--navy);color:#fff}
+.result-question{background:#fff;border-left:7px solid #9ca3af;border-radius:10px;padding:15px;margin-bottom:13px}
+.result-question.correct{border-left-color:var(--green)}
+.result-question.wrong{border-left-color:var(--red)}
+.result-question.blank{border-left-color:#6b7280}
+.status-label{font-weight:800}
+.correct .status-label{color:var(--green)}
+.wrong .status-label{color:var(--red)}
+.answer-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+.answer-box{background:#f5f7f9;padding:10px;border-radius:8px}
+details{margin-top:10px}
+details summary{font-weight:800;color:var(--navy);cursor:pointer}
+.explain-section{margin-top:12px;line-height:1.55}
+.evidence{font-family:Georgia,'Times New Roman',serif;background:#fff8d9;border-left:4px solid #e0aa00;padding:10px 12px;border-radius:6px}
+.paraphrase-section,.review-section{background:#fff;border-radius:12px;padding:18px;margin-top:20px}
+.para-card{border-bottom:1px solid var(--line);padding:10px 0}
+.result-actions{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}
+.badge{display:inline-block;border-radius:999px;padding:4px 9px;background:#e9eef3;font-size:.88rem;font-weight:700}
+.review-badge{background:#ffe082}
+.storage-warning{background:#ffe5e5;color:#8a1010;padding:10px 14px;font-weight:700}
+@media(max-width:900px){
+  .layout{display:block}
+  .pane{height:calc(100vh - 236px)}
+  .passage-pane{border-right:0}
+  .mobile-switch{display:flex}
+  .pane.mobile-hidden{display:none}
+  .score-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .topbar{align-items:flex-start;flex-wrap:wrap}
+  .topbar .identity{min-width:0}
+}
+@media(max-width:580px){
+  .start-card{padding:22px}
+  .info-grid,.score-grid,.passage-score-grid,.answer-grid{grid-template-columns:1fr}
+  .passage-pane,.question-pane{padding:16px}
+  .passage-content{font-size:17px}
+  .top-actions{width:100%}
+  .top-actions button{flex:1}
+  .qnav{width:32px;height:32px}
+}
+@media print{
+  .topbar,.exam-nav,.mobile-switch,.result-toolbar,.result-actions,.review-btn,.passage-tools{display:none!important}
+  .results-main{max-width:none}
+  .result-question{break-inside:avoid}
+}
+</style>
+
+<!-- IELTS_DUAL_PANE_PATCH_START -->
+<style id="ielts-dual-pane-layout-patch">
+/* =========================================================
+   IELTS READING – DUAL PANE / INDEPENDENT SCROLL PATCH
+   Desktop: 60/40
+   Mobile portrait (<768px): top/bottom, BOTH visible
+   Mobile landscape + tablet: 60/40
+   Body locked only while an exam/practice screen is active
+   ========================================================= */
+
+html.ielts-exam-active,
+body.ielts-exam-active{
+  height:100% !important;
+  max-height:100% !important;
+  overflow:hidden !important;
+  overscroll-behavior:none !important;
+}
+
+body.ielts-exam-active{
+  position:relative !important;
+}
+
+/* Prevent the exam/practice shell itself from becoming the scrolling surface. */
+body.ielts-exam-active .exam,
+body.ielts-exam-active .practice,
+body.ielts-exam-active #exam-screen{
+  min-height:0 !important;
+  overflow:hidden !important;
+}
+
+/* Common split containers */
+body.ielts-exam-active .workspace,
+body.ielts-exam-active .work{
+  min-height:0 !important;
+  overflow:hidden !important;
+}
+
+/* Every reading/question pane scrolls on its own. */
+body.ielts-exam-active .workspace > .pane,
+body.ielts-exam-active .workspace > .reading-pane,
+body.ielts-exam-active .workspace > .question-pane,
+body.ielts-exam-active .workspace > .passage-pane,
+body.ielts-exam-active .workspace > .passage,
+body.ielts-exam-active .workspace > .questions,
+body.ielts-exam-active .work > .pane,
+body.ielts-exam-active .work > .reading-pane,
+body.ielts-exam-active .work > .question-pane,
+body.ielts-exam-active .work > .passage-pane,
+body.ielts-exam-active .work > .passage,
+body.ielts-exam-active .work > .questions,
+body.ielts-exam-active #passage-pane,
+body.ielts-exam-active #question-pane{
+  min-height:0 !important;
+  overflow-y:auto !important;
+  overflow-x:hidden !important;
+  overscroll-behavior:contain !important;
+  -webkit-overflow-scrolling:touch !important;
+}
+
+/* The old "show only one pane" mobile controls are no longer needed. */
+body.ielts-exam-active .mobile-switch,
+body.ielts-exam-active .mobile-toggle,
+body.ielts-exam-active #show-reading,
+body.ielts-exam-active #show-questions{
+  display:none !important;
+}
+
+/* Never allow old mobile-state classes to hide one side. */
+body.ielts-exam-active .workspace.show-questions > .reading-pane,
+body.ielts-exam-active .workspace.show-questions > .passage-pane,
+body.ielts-exam-active .workspace.show-questions > .passage,
+body.ielts-exam-active .workspace:not(.show-questions) > .question-pane,
+body.ielts-exam-active .practice.show-passage .question-pane,
+body.ielts-exam-active .practice:not(.show-passage) .passage-pane,
+body.ielts-exam-active #passage-pane.mobile-hidden,
+body.ielts-exam-active #question-pane.mobile-hidden{
+  display:block !important;
+}
+
+/* Keep fixed-height practice shells inside the viewport. */
+body.ielts-exam-active .practice{
+  height:100vh !important;
+  height:100dvh !important;
+  max-height:100vh !important;
+  max-height:100dvh !important;
+}
+
+/* Matching Information-style shell: 44px global brand + exam below it. */
+body.ielts-exam-active .top-brand + .exam,
+body.ielts-exam-active .top-brand ~ .exam{
+  height:calc(100vh - 44px) !important;
+  height:calc(100dvh - 44px) !important;
+  min-height:0 !important;
+}
+
+/* ---------- DESKTOP + TABLET + MOBILE LANDSCAPE ---------- */
+@media (min-width:768px), (orientation:landscape){
+  body.ielts-exam-active .exam .workspace,
+  body.ielts-exam-active .exam .work,
+  body.ielts-exam-active .practice .workspace{
+    display:grid !important;
+    grid-template-columns:minmax(0,3fr) minmax(0,2fr) !important; /* 60 / 40 */
+    grid-template-rows:minmax(0,1fr) !important;
+    min-height:0 !important;
+    overflow:hidden !important;
+    position:relative !important;
+  }
+
+  /* Flex-based exam templates */
+  body.ielts-exam-active .exam .workspace,
+  body.ielts-exam-active .exam .work{
+    flex:1 1 auto !important;
+    height:auto !important;
+  }
+
+  /* YES/NO/NOT GIVEN-style fixed header = 46 + 42 = 88px */
+  body.ielts-exam-active .practice .workspace{
+    height:calc(100vh - 88px) !important;
+    height:calc(100dvh - 88px) !important;
+  }
+
+  body.ielts-exam-active .workspace > .pane,
+  body.ielts-exam-active .workspace > .reading-pane,
+  body.ielts-exam-active .workspace > .question-pane,
+  body.ielts-exam-active .workspace > .passage-pane,
+  body.ielts-exam-active .workspace > .passage,
+  body.ielts-exam-active .workspace > .questions,
+  body.ielts-exam-active .work > .pane,
+  body.ielts-exam-active .work > .reading-pane,
+  body.ielts-exam-active .work > .question-pane,
+  body.ielts-exam-active .work > .passage-pane,
+  body.ielts-exam-active .work > .passage,
+  body.ielts-exam-active .work > .questions{
+    display:block !important;
+    position:relative !important;
+    inset:auto !important;
+    height:auto !important;
+    max-height:none !important;
+    min-height:0 !important;
+    overflow-y:auto !important;
+  }
+
+  /* Restore divider between 60% passage and 40% questions */
+  body.ielts-exam-active .work > .passage,
+  body.ielts-exam-active .workspace > .reading-pane,
+  body.ielts-exam-active .workspace > .passage-pane{
+    border-right:1px solid var(--line, #d7dde4) !important;
+    border-bottom:0 !important;
+  }
+}
+
+/* ---------- MOBILE PORTRAIT ONLY ---------- */
+@media (max-width:767px) and (orientation:portrait){
+  /* Matching Information had height:auto + sticky header on mobile:
+     force the shell back into the viewport. */
+  body.ielts-exam-active .exam{
+    min-height:0 !important;
+    overflow:hidden !important;
+  }
+
+  body.ielts-exam-active .exam-head{
+    position:relative !important;
+    top:auto !important;
+    flex:0 0 auto !important;
+  }
+
+  body.ielts-exam-active .exam .workspace,
+  body.ielts-exam-active .exam .work,
+  body.ielts-exam-active .practice .workspace{
+    display:grid !important;
+    grid-template-columns:minmax(0,1fr) !important;
+    grid-template-rows:minmax(0,48%) minmax(0,52%) !important;
+    min-height:0 !important;
+    overflow:hidden !important;
+    position:relative !important;
+  }
+
+  /* Flex-based templates: workspace occupies exactly the remaining height. */
+  body.ielts-exam-active .exam .workspace,
+  body.ielts-exam-active .exam .work{
+    flex:1 1 auto !important;
+    height:auto !important;
+  }
+
+  /* Fixed 88px header templates */
+  body.ielts-exam-active .practice .workspace{
+    height:calc(100vh - 88px) !important;
+    height:calc(100dvh - 88px) !important;
+  }
+
+  body.ielts-exam-active .workspace > .pane,
+  body.ielts-exam-active .workspace > .reading-pane,
+  body.ielts-exam-active .workspace > .question-pane,
+  body.ielts-exam-active .workspace > .passage-pane,
+  body.ielts-exam-active .workspace > .passage,
+  body.ielts-exam-active .workspace > .questions,
+  body.ielts-exam-active .work > .pane,
+  body.ielts-exam-active .work > .reading-pane,
+  body.ielts-exam-active .work > .question-pane,
+  body.ielts-exam-active .work > .passage-pane,
+  body.ielts-exam-active .work > .passage,
+  body.ielts-exam-active .work > .questions{
+    display:block !important;
+    position:relative !important;
+    inset:auto !important;
+    height:auto !important;
+    max-height:none !important;
+    min-height:0 !important;
+    overflow-y:auto !important;
+    overflow-x:hidden !important;
+  }
+
+  /* Clear old "one pane at a time" rules with high specificity. */
+  body.ielts-exam-active .workspace.show-questions .reading-pane,
+  body.ielts-exam-active .workspace.show-questions .passage-pane,
+  body.ielts-exam-active .workspace.show-questions .passage,
+  body.ielts-exam-active .workspace.show-questions .question-pane,
+  body.ielts-exam-active .practice.show-passage .passage-pane,
+  body.ielts-exam-active .practice.show-passage .question-pane,
+  body.ielts-exam-active .practice .passage-pane,
+  body.ielts-exam-active .practice .question-pane{
+    display:block !important;
+  }
+
+  /* Horizontal divider between Passage (top) and Questions (bottom). */
+  body.ielts-exam-active .work > .passage,
+  body.ielts-exam-active .workspace > .reading-pane,
+  body.ielts-exam-active .workspace > .passage-pane{
+    border-right:0 !important;
+    border-bottom:2px solid var(--line, #d7dde4) !important;
+  }
+
+  /* Compact padding so both regions remain practical on small screens. */
+  body.ielts-exam-active .reading-pane,
+  body.ielts-exam-active .passage-pane,
+  body.ielts-exam-active .work > .passage{
+    padding-top:10px !important;
+    padding-bottom:18px !important;
+  }
+
+  body.ielts-exam-active .question-pane,
+  body.ielts-exam-active .work > .questions{
+    padding-top:9px !important;
+    padding-bottom:24px !important;
+  }
+}
+
+/* Print should remain normal and fully expandable. */
+@media print{
+  html.ielts-exam-active,
+  body.ielts-exam-active{
+    height:auto !important;
+    max-height:none !important;
+    overflow:visible !important;
+  }
+}
+</style>
+<!-- IELTS_DUAL_PANE_PATCH_END -->
+
+</head>
+<body>
+<div id="storage-warning" class="storage-warning hidden"></div>
+
+<section id="start-screen" class="start-screen">
+  <div class="start-card">
+    <h1>IELTS ACADEMIC READING TEST</h1>
+    <div class="test-code">TEST 1</div>
+    <p>Bài thi gồm 3 passages và 40 câu hỏi. Đồng hồ bắt đầu sau khi bạn nhấn nút bắt đầu.</p>
+    <div class="info-grid" aria-label="Thông tin bài thi">
+      <div class="info-item"><strong>Thời gian</strong><br>60 phút</div>
+      <div class="info-item"><strong>Số câu</strong><br>40 câu</div>
+      <div class="info-item"><strong>Chấm điểm</strong><br>1 điểm/câu</div>
+      <div class="info-item"><strong>Lưu bài</strong><br>Tự động trên thiết bị</div>
+    </div>
+    <ul>
+      <li>Không có thời gian chuyển đáp án riêng.</li>
+      <li>Bài sẽ tự động nộp khi hết giờ.</li>
+      <li>Đáp án, bằng chứng và giải thích chỉ xuất hiện sau khi nộp.</li>
+    </ul>
+    <div class="field">
+      <label for="candidate-name">Họ và tên học sinh <span aria-hidden="true">*</span></label>
+      <input id="candidate-name" type="text" autocomplete="name" maxlength="100">
+    </div>
+    <label class="confirm-row">
+      <input id="ready-confirm" type="checkbox">
+      <span>Tôi đã đọc hướng dẫn và sẵn sàng bắt đầu bài thi.</span>
+    </label>
+    <div id="start-error" class="error-text" role="alert"></div>
+    <button id="start-btn" class="primary" type="button">BẮT ĐẦU LÀM BÀI</button>
+  </div>
+</section>
+
+<section id="exam-screen" class="exam-shell hidden">
+  <header class="topbar">
+    <div class="identity" id="top-name"></div>
+    <div class="stats">
+      <span id="top-passage">Passage 1</span>
+      <span><strong id="answered-count">0</strong>/40 câu đã trả lời</span>
+      <span id="save-status">Chưa lưu</span>
+    </div>
+    <div id="timer" class="timer" aria-label="Thời gian còn lại">60:00</div>
+    <div class="top-actions">
+      <button id="back-results-btn" class="secondary hidden" type="button">QUAY LẠI KẾT QUẢ</button>
+      <button id="save-btn" class="secondary" type="button">LƯU BÀI</button>
+      <button id="submit-btn" class="danger" type="button">NỘP BÀI</button>
+    </div>
+  </header>
+
+  <div class="exam-nav">
+    <div id="passage-tabs" class="passage-tabs" aria-label="Chọn passage"></div>
+    <div id="question-nav" class="question-nav" aria-label="Điều hướng câu hỏi"></div>
+  </div>
+
+  <div class="mobile-switch">
+    <button id="show-reading" class="primary" type="button">BÀI ĐỌC</button>
+    <button id="show-questions" class="secondary" type="button">CÂU HỎI</button>
+  </div>
+
+  <main class="layout">
+    <section id="passage-pane" class="pane passage-pane" aria-label="Bài đọc">
+      <div class="pane-head">
+        <h2 id="passage-title"></h2>
+        <div id="passage-subtitle" class="passage-subtitle"></div>
+        <div class="passage-tools">
+          <button id="highlight-btn" class="secondary" type="button">TÔ VÀNG ĐOẠN CHỌN</button>
+          <button id="remove-highlight-btn" class="ghost" type="button">BỎ ĐÁNH DẤU</button>
+        </div>
+      </div>
+      <article id="passage-content" class="passage-content"></article>
+      <div class="notes-box">
+        <label for="my-notes"><strong>GHI CHÚ CỦA TÔI</strong></label>
+        <textarea id="my-notes" placeholder="Ghi chú riêng cho passage này..."></textarea>
+      </div>
+    </section>
+
+    <section id="question-pane" class="pane question-pane" aria-label="Câu hỏi">
+      <div id="question-content"></div>
+    </section>
+  </main>
+</section>
+
+<section id="results-screen" class="results-screen hidden">
+  <header class="results-header">
+    <div class="results-header-inner">
+      <h1>IELTS ACADEMIC READING TEST</h1>
+      <div class="test-code" style="color:#fff">TEST 1 — KẾT QUẢ</div>
+      <div id="result-meta" class="result-meta"></div>
+    </div>
+  </header>
+  <main class="results-main">
+    <div id="score-grid" class="score-grid"></div>
+    <div id="passage-score-grid" class="passage-score-grid"></div>
+
+    <div class="result-actions">
+      <button id="copy-results-btn" class="primary" type="button">SAO CHÉP TOÀN BỘ KẾT QUẢ</button>
+      <button id="retake-btn" class="danger" type="button">LÀM LẠI BÀI THI</button>
+    </div>
+
+    <div id="result-toolbar" class="result-toolbar" aria-label="Lọc kết quả">
+      <button class="filter-btn secondary active" data-filter="all" type="button">TẤT CẢ</button>
+      <button class="filter-btn secondary" data-filter="wrong" type="button">CÂU SAI</button>
+      <button class="filter-btn secondary" data-filter="correct" type="button">CÂU ĐÚNG</button>
+      <button class="filter-btn secondary" data-filter="blank" type="button">BỎ TRỐNG</button>
+      <button class="filter-btn secondary" data-filter="review" type="button">ĐÁNH DẤU XEM LẠI</button>
+    </div>
+
+    <section id="result-questions"></section>
+
+    <section class="paraphrase-section">
+      <h2>CỤM PARAPHRASE CẦN GHI NHỚ</h2>
+      <div class="result-toolbar">
+        <button class="para-filter secondary active" data-passage="all" type="button">TẤT CẢ</button>
+        <button class="para-filter secondary" data-passage="1" type="button">PASSAGE 1</button>
+        <button class="para-filter secondary" data-passage="2" type="button">PASSAGE 2</button>
+        <button class="para-filter secondary" data-passage="3" type="button">PASSAGE 3</button>
+        <button class="para-filter secondary" data-passage="wrong" type="button">CHỈ CỤM TỪ Ở CÂU SAI</button>
+      </div>
+      <div id="paraphrase-list"></div>
+    </section>
+
+    <section class="review-section">
+      <h2>ÔN LẠI CÁC CÂU CẦN CHÚ Ý</h2>
+      <div id="review-summary"></div>
+    </section>
+  </main>
+</section>
+
+<div id="modal-backdrop" class="modal-backdrop hidden" role="presentation">
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <h2 id="modal-title"></h2>
+    <div id="modal-body"></div>
+    <div id="modal-actions" class="modal-actions"></div>
+  </div>
+</div>
+
+<div id="toast" class="toast hidden" role="status"></div>
+<div id="live-region" class="live-region hidden" role="alert" aria-live="assertive"></div>
+
+<script>
+"use strict";
+const PASSAGES = {"1": {"title": "Fishbourne Roman Palace", "subtitle": "The largest Roman villa in Britain", "paragraphs": [{"label": "1", "text": "Fishbourne Roman Palace is in the village of Fishbourne in West Sussex, England. This large palace was built in the 1st century AD, around thirty years after the Roman conquest of Britain, on the site of Roman army grain stores which had been established after the invasion, in the reign of the Roman Emperor Claudius in 43 AD. The rectangular palace was built around formal gardens, the northern half of which have been reconstructed. There were extensive alterations in the 2nd and 3rd centuries AD, with many of the original black and white mosaic floors being overlaid with more sophisticated coloured ones, including a perfectly preserved mosaic of a dolphin in the north wing. More alterations were in progress when the palace burnt down in around 270 AD, after which it was abandoned."}, {"label": "2", "text": "Local people had long believed that a Roman palace once existed in the area. However, it was not until 1960 that the archaeologist Barry Cunliffe, of Oxford University, first systematically excavated the site, after workmen had accidentally uncovered a wall while they were laying a water main. The Roman villa excavated by Cunliffe's team was so grand that it became known as Fishbourne Roman Palace, and a museum was erected to preserve some of the remains. This is administered by the Sussex Archaeological Society."}, {"label": "3", "text": "In its day, the completed palace would have comprised four large wings with colonnaded fronts. The north and east wings consisted of suites of private rooms built around courtyards, with a monumental entrance in the middle of the east wing. In the north-east corner there was an assembly hall. The west wing contained state rooms, a large ceremonial reception room, and a gallery. The south wing contained the owner's private apartments. The palace included as many as 50 mosaic floors, under-floor central heating and a bathhouse. In size, Fishbourne Palace would have been approximately equivalent to some of the great Roman palaces of Italy, and was by far the largest known Roman residence north of the European Alps, at about 500 feet (150 m) square. A team of volunteers and professional archaeologists are involved in an ongoing archaeological excavation on the site of nearby, possibly military, buildings."}, {"label": "4", "text": "The first buildings to be erected on the site were constructed in the early part of the conquest in 43 AD. Later, two timber buildings were constructed, one with clay and mortar floors and plaster walls, which appears to have been a house of some comfort. These buildings were demolished in the 60s AD and replaced by a substantial stone house, which included colonnades and a bath suite. It has been suggested that the palace itself, incorporating the previous house in its south-east corner, was constructed around 73–75 AD. However, Dr Miles Russell, of Bournemouth University, reinterpreted the ground plan and the collection of objects found and has suggested that, given the extremely close parallels with the imperial palace of Domitian in Rome, its construction may more plausibly date to after 92 AD."}, {"label": "5", "text": "With regard to who lived in Fishbourne Palace, there are a number of theories; for example, one proposed by Professor Cunliffe is that, in its early phase, the palace was the residence of Tiberius Claudius Cogidubnus, a local chieftain who supported the Romans, and who may have been installed as king of a number of territories following the first stage of the conquest. Cogidubnus is known from a reference to his loyalty in Agricola, a work by the Roman writer Tacitus, and from an inscription commemorating a temple dedicated to the gods Neptune and Minerva found in the nearby city of Chichester. Another theory is that it was built for Sallustius Lucullus, a Roman governor of Britain of the late 1st century, who may have been the son of the British prince Adminius. Two inscriptions recording the presence of Lucullus have been found in Chichester, and the redating by Miles Russell of the palace was designed for Lucullus, then it may have only been in use for a few years, as the Roman historian Suetonius records that Lucullus was executed by the Emperor Domitian in or shortly after 93 AD."}, {"label": "6", "text": "Additional theories suggest that either Verica, a British king of the Roman Empire in the years preceding the Claudian invasion, was owner of the palace, or Tiberius Claudius Catuarus, following the recent discovery of a gold ring belonging to him. The palace outlasted the original owner, whoever he was, and was extensively re-planned early in the 2nd century AD, and subdivided into a series of lesser apartments. Further redevelopment was begun in the late 3rd century AD, but these alterations were incomplete when the north wing was destroyed in a fire in around 270 AD. The damage was too great to repair, and the palace was abandoned and later dismantled."}, {"label": "7", "text": "A modern museum had been built by the Sussex Archaeological Society, incorporating most of the visible remains, including one wing of the palace. The gardens have been re-planted using authentic plants from the Roman period."}]}, "2": {"title": "Insect decision-making", "subtitle": "", "paragraphs": [{"label": "A", "text": "It has long been held that decisions made collectively by large groups of people are more likely to turn out to be accurate than decisions made by individuals. The idea goes back to the ‘jury theorem’ of Nicolas de Condorcet, an 18th-century French philosopher who was one of the first to apply mathematics to the social sciences. Condorcet's theory describes collective decisions, outlining how democratic decisions tend to outperform dictatorial ones. If, for example, each member of a jury has only partial information, the majority decision is more likely to be correct than a decision arrived at by a single juror. Moreover, the probability of a correct decision increases with the size of the jury."}, {"label": "B", "text": "Now it is becoming clear that group decisions are also extremely valuable for the success of social animals, such as ants, bees, birds and dolphins. Bees make collective decisions, and they do it rather well, according to Christian List of the London School of Economics, who has studied group decision-making in humans and animals. Researchers led by Dr List looked at colonies once the original colony reaches a certain size. The queen goes off with about two-thirds of the worker bees to live in a new home or nest, leaving a daughter queen in the old nest with the remaining workers. Among the bees that depart are some that have searched for and found some new nest sites, and reported back using a characteristic body movement known as a ‘waggle dance’ to indicate to the other bees the suitable places they have located. The longer the dance, the better the site. After a while, other bees start to visit the sites signalled by their companions to see for themselves and, on their return, also perform more waggle dances. The process eventually leads to a consensus on the best site and the breakaway swarm migrates. The decision is remarkably reliable, with the bees choosing the best site even when there are only small differences between alternative sites."}, {"label": "C", "text": "But exactly how do bees reach such a robust consensus? To find out, Dr List and his colleagues used a computer-generated model of the decision-making process. By experimenting with it they found that, when bees in the model were very good at finding nesting sites but did not share their information, this dramatically slowed down the migration, leaving the swarm homeless and vulnerable. Conversely, bees in the model blindly following the waggle dances of others without first checking. The researchers concluded that the ability of bees to identify successfully and quickly the best site depends on both the bees’ interdependence in communicating the whereabouts of the best site, and their independence in confirming this information for themselves."}, {"label": "D", "text": "Another situation in which collective decisions are taken occurs when animals are either isolated from crucial sources of information or dominated by other members of the group. José Halloy of the Free University of Brussels in Belgium used robotic cockroaches to subvert the behaviour of living cockroaches and control their decision-making process. In his experiment, the artificial bugs were introduced to the live ones and soon became sufficiently socially integrated that they were perceived by the real cockroaches as equals. By manipulating the robots, which were in the minority, Halloy was able to persuade the living cockroaches to choose an inappropriate shelter—even one which they had rejected before being infiltrated by the robots."}, {"label": "E", "text": "The way insects put into effect collective decisions can be complex and as important as the decisions themselves. At the University of Bristol, in the UK, Nigel Franks and his colleagues studied how a species of ant establishes a new nest. Franks and his associates reported how the insects reduce the problems associated with making a necessarily swift choice. If the ants’ existing nest becomes suddenly threatened, the insects choose certain ants to act as scouts to find a new nest. How quickly they accomplish the transfer to a new home depends not only on how soon the best available site is found, but also on how quickly the migration there can be achieved."}, {"label": "F", "text": "Once the suitable new nest is identified, the chosen ants begin to lead others, which have made it to the new site or which may simply be in the vicinity, back to the original threatened nest. In this way, those ants which are familiar with the route can help transport, for example, the queen and young ants to the new site, and simultaneously show the way to those ants which have been left behind to guard the old nest. In this way moving processes are accomplished faster and more efficiently. Thus the dynamics of collective decision-making are closely related to the efficient implementation of those decisions. How this might apply to choices that humans make is, as yet, unclear. But it does suggest, even for humans, the importance of recruiting dynamic leaders to a cause, because the most important thing about collective decision-making, as shown by these insect experiments, is to get others to follow."}]}, "3": {"title": "Fear of the Unknown", "subtitle": "American companies fear that innovation is the secret of success—and that they cannot innovate", "paragraphs": [{"label": "A", "text": "In the small Umagic office in midtown Manhattan, a team of 30 computer programmers are working on setting up websites that will allow subscribers to feed in details about themselves and their problems and to receive advice from ‘virtual’ versions of personalities regarded as experts in their fields: for example, a well-known dietician, a celebrity fitness trainer, a psychologist well known in the media for her work on parent-child relationships. Umagic Systems is a young firm and it’s hard to predict how far they’ll go. In ten years’ time, consulting a computer about your diet problems might seem natural or it might seem absurd. But the company and others like it are beginning to seriously worry large American firms, who see such half-crazy new and innovative ideas as a threat to their own future success."}, {"label": "B", "text": "Innovation has become a major concern of American management. Firms have found that it is increasingly difficult to redesign existing products or to produce them more economically. The stars of American business tend today to be innovators such as Amazon (the internet bookstore) and Wal-Mart (the supermarket chain), which have produced completely new ideas or products that have changed their industries."}, {"label": "C", "text": "Over the past 15 years, the firms which have achieved the greatest profits have been the ones which have had the most innovations. But such profits aren’t easy to come by. One of the reasons for the increasing number of mergers between companies is a desperate search for new ideas. And a fortune is spent nowadays on identifying and protecting intellectual property: other people’s ideas. According to the Pasadena-based Patent & License Exchange in the United States, trading in intangible assets such as intellectual property rose from $15 billion in 1990 to $100 billion in 1998, with an increasing proportion of the rewards going to small firms and individuals."}, {"label": "D", "text": "And therein lies the terror for big companies: that innovation seems to work best outside them. Many of the large established companies have been struggling to come up with new products recently. ‘In the management of creativity, size is your enemy,’ argues Peter Chernin, who runs Fox TV and film empire for News Corporation. ‘One person managing 20 movies is never going to be as involved as one doing five movies.’ He has thus tried to break down the studio into smaller units, even at the risk of incurring higher costs."}, {"label": "E", "text": "It is easier for ideas to develop outside big firms these days. In the past, if a clever scientist had an idea he wanted to commercialise, he would take it first to a big company. Now, with the banks encouraging individuals to set up new businesses through offering special loans, innovators are more likely to set up on their own. Umagic has already raised $5 million and is about to raise $25 million more. Even in capital-intensive businesses such as pharmaceuticals, entrepreneurs can conduct profitable, early-stage research, selling out to the big firms when they reach expensive, risky clinical trials."}, {"label": "F", "text": "Some giants, including General Electric and Cisco, have been remarkably successful at buying up and integrating scores of small companies. But many others worry about the prices they have to pay and the difficulty in keeping hold of the people who dreamt up the ideas. Everybody would like to develop more ideas in-house. Procter & Gamble is now changing the entire direction of its business from global expansion to product development; one of its new aims is to get innovations accepted across the company. Elsewhere, the search for innovation has led to a craze for ‘intrapreneurship’—giving more power to individuals in the company and setting up internal ideas-factories so that talented staff will not leave."}, {"label": "G", "text": "And yet innovation does not happen just because the chief executive wills it. Indeed, it is extremely difficult to come up with new ideas year in, year out, especially brilliant ones. Underneath all experts’ diagrams, lists and charts, most of the available answers seem to focus on two strengths that are difficult to impose: a culture that looks for new ideas, and leaders who know which ones to back. Companies have to discredit the widespread view that jobs working on new products are for ‘those who can’t cope in the real business’. They have to change the culture by introducing hard incentives, such as giving more generous bonuses to those who come up with successful new ideas and, particularly, not punishing those whose experiments fail."}, {"label": "H", "text": "Will all this reorganization and culture tweaking make big firms more creative? David Post, the founder of Umagic, isn’t so sure. He also recalls with glee the looks of total incomprehension when he tried to sell his ‘virtual experts’ idea three years ago to firms such as IBM, though, as he cheerfully adds, ‘of course, they could have been right’. Apparently, innovation—unlike diet, fitness and parenting—is one area where a computer cannot tell you what to do."}]}};
+const QUESTIONS = [{"number": 1, "passage": 1, "questionType": "tfng", "typeLabel": "TRUE/FALSE/NOT GIVEN", "questionText": "Fishbourne Palace was the first structure to be built on its site.", "options": {"TRUE": "TRUE", "FALSE": "FALSE", "NOT GIVEN": "NOT GIVEN"}, "correctAnswer": "FALSE", "correctAnswerFull": "FALSE", "acceptedVariants": ["FALSE"], "maxWords": null, "sourceParagraph": "Đoạn 1 và đoạn 4", "evidenceQuote": "...on the site of Roman army grain stores which had been established after the invasion...” / “The first buildings to be erected on the site were constructed in the early part of the conquest in 43 AD.", "explanationVi": "Câu hỏi nói cung điện Fishbourne là công trình đầu tiên trên địa điểm này. Tuy nhiên, trước khi cung điện được xây, khu đất đã có kho lương của quân đội La Mã và các công trình ban đầu khác. Thông tin trong câu hỏi trái ngược trực tiếp với bài đọc, nên chọn FALSE.", "paraphrase": "the first structure = the earliest building; was built on the site of existing grain stores = đã có công trình trước đó.", "trap": "Dễ thấy cụm “The first buildings” rồi nhầm đó là cung điện. Bài đọc phân biệt rõ các công trình đầu tiên với palace được xây về sau.", "incorrectOptionExplanations": "", "note": ""}, {"number": 2, "passage": 1, "questionType": "tfng", "typeLabel": "TRUE/FALSE/NOT GIVEN", "questionText": "Fishbourne Palace was renovated more than once.", "options": {"TRUE": "TRUE", "FALSE": "FALSE", "NOT GIVEN": "NOT GIVEN"}, "correctAnswer": "TRUE", "correctAnswerFull": "TRUE", "acceptedVariants": ["TRUE"], "maxWords": null, "sourceParagraph": "Đoạn 1 và đoạn 6", "evidenceQuote": "There were extensive alterations in the 2nd and 3rd centuries AD...” / “The palace ... was extensively re-planned early in the 2nd century AD... Further redevelopment was begun in the late 3rd century AD.", "explanationVi": "Bài đọc nêu nhiều đợt thay đổi: cải tạo trong thế kỷ 2 và 3, tái quy hoạch đầu thế kỷ 2 và tiếp tục tái phát triển cuối thế kỷ 3. Như vậy cung điện được sửa đổi nhiều hơn một lần.", "paraphrase": "renovated more than once = extensive alterations + re-planned + further redevelopment.", "trap": "Không cần tìm đúng từ “renovated”; các từ alterations, re-planned và redevelopment đều diễn đạt việc cải tạo.", "incorrectOptionExplanations": "", "note": ""}, {"number": 3, "passage": 1, "questionType": "tfng", "typeLabel": "TRUE/FALSE/NOT GIVEN", "questionText": "Fishbourne Palace was large in comparison with Roman palaces in Italy.", "options": {"TRUE": "TRUE", "FALSE": "FALSE", "NOT GIVEN": "NOT GIVEN"}, "correctAnswer": "FALSE", "correctAnswerFull": "FALSE", "acceptedVariants": ["FALSE"], "maxWords": null, "sourceParagraph": "Đoạn 3", "evidenceQuote": "In size, Fishbourne Palace would have been approximately equivalent to some of the great Roman palaces of Italy...", "explanationVi": "“Large in comparison with” hàm ý cung điện Fishbourne lớn hơn khi so với các cung điện ở Ý. Bài đọc chỉ nói kích thước của nó xấp xỉ tương đương với một số cung điện lớn ở Ý, không phải lớn hơn. Vì vậy câu này mâu thuẫn với bài đọc.", "paraphrase": "large in comparison with = larger than; approximately equivalent to = gần tương đương.", "trap": "Bẫy so sánh: “equivalent to” không đồng nghĩa với “larger than”.", "incorrectOptionExplanations": "", "note": ""}, {"number": 4, "passage": 1, "questionType": "tfng", "typeLabel": "TRUE/FALSE/NOT GIVEN", "questionText": "Research is continuing in the area close to Fishbourne Palace.", "options": {"TRUE": "TRUE", "FALSE": "FALSE", "NOT GIVEN": "NOT GIVEN"}, "correctAnswer": "TRUE", "correctAnswerFull": "TRUE", "acceptedVariants": ["TRUE"], "maxWords": null, "sourceParagraph": "Đoạn 3", "evidenceQuote": "A team of volunteers and professional archaeologists are involved in an ongoing archaeological excavation on the site of nearby, possibly military, buildings.", "explanationVi": "“Ongoing archaeological excavation” cho biết hoạt động khai quật/nghiên cứu vẫn đang tiếp diễn. “Nearby buildings” tương ứng với khu vực gần cung điện.", "paraphrase": "research is continuing = ongoing archaeological excavation; close to = nearby.", "trap": "Đề không yêu cầu nghiên cứu diễn ra ngay bên trong cung điện; “in the area close to” khớp với “nearby”.", "incorrectOptionExplanations": "", "note": ""}, {"number": 5, "passage": 1, "questionType": "tfng", "typeLabel": "TRUE/FALSE/NOT GIVEN", "questionText": "Researchers agree on the identity of the person for whom Fishbourne Palace was constructed.", "options": {"TRUE": "TRUE", "FALSE": "FALSE", "NOT GIVEN": "NOT GIVEN"}, "correctAnswer": "FALSE", "correctAnswerFull": "FALSE", "acceptedVariants": ["FALSE"], "maxWords": null, "sourceParagraph": "Đoạn 5 và đoạn 6", "evidenceQuote": "With regard to who lived in Fishbourne Palace, there are a number of theories...” / “Additional theories suggest that either Verica ... or Tiberius Claudius Catuarus...", "explanationVi": "Bài đọc đưa ra nhiều giả thuyết về chủ nhân/người được xây cung điện cho: Cogidubnus, Lucullus, Verica hoặc Catuarus. Vì tồn tại nhiều giả thuyết nên các nhà nghiên cứu không thống nhất.", "paraphrase": "agree on the identity = có đồng thuận về danh tính; a number of/additional theories = nhiều giả thuyết khác nhau.", "trap": "Không được suy diễn rằng một giả thuyết được nêu đầu tiên là kết luận chính thức.", "incorrectOptionExplanations": "", "note": ""}, {"number": 6, "passage": 1, "questionType": "tfng", "typeLabel": "TRUE/FALSE/NOT GIVEN", "questionText": "Fishbourne Palace was burnt down by local people.", "options": {"TRUE": "TRUE", "FALSE": "FALSE", "NOT GIVEN": "NOT GIVEN"}, "correctAnswer": "NOT GIVEN", "correctAnswerFull": "NOT GIVEN", "acceptedVariants": ["NOT GIVEN"], "maxWords": null, "sourceParagraph": "Đoạn 1 và đoạn 6", "evidenceQuote": "...the palace burnt down in around 270 AD...” / “...the north wing was destroyed in a fire in around 270 AD.", "explanationVi": "Bài đọc xác nhận có hỏa hoạn nhưng không cho biết ai gây ra vụ cháy. Không có thông tin rằng người dân địa phương đốt cung điện, cũng không có thông tin phủ định điều đó. Vì vậy chọn NOT GIVEN.", "paraphrase": "was burnt down = was destroyed in a fire; by local people = tác nhân gây cháy, nhưng bài không nêu.", "trap": "Có từ khóa “burnt down/fire” nhưng phần quyết định là “by local people”. Thiếu tác nhân nên không thể chọn TRUE hay FALSE.", "incorrectOptionExplanations": "", "note": ""}, {"number": 7, "passage": 1, "questionType": "text", "typeLabel": "Note Completion", "questionText": "The first buildings on the site contained food for the ________.", "options": {}, "correctAnswer": "Roman army", "correctAnswerFull": "Roman army", "acceptedVariants": ["Roman army"], "maxWords": 2, "sourceParagraph": "Đoạn 1", "evidenceQuote": "...on the site of Roman army grain stores which had been established after the invasion...", "explanationVi": "“Grain stores” là kho chứa ngũ cốc/thực phẩm. Các kho này thuộc về “Roman army”, vì vậy cụm cần điền là Roman army.", "paraphrase": "contained food for = grain stores for; the Roman army = quân đội La Mã.", "trap": "Không điền “grain stores” vì chỗ trống đứng sau “for the”, cần đối tượng được cung cấp thực phẩm.", "incorrectOptionExplanations": "", "note": ""}, {"number": 8, "passage": 1, "questionType": "text", "typeLabel": "Note Completion", "questionText": "The palace building surrounded ________.", "options": {}, "correctAnswer": "gardens", "correctAnswerFull": "gardens", "acceptedVariants": ["gardens", "formal gardens"], "maxWords": 2, "sourceParagraph": "Đoạn 1", "evidenceQuote": "The rectangular palace was built around formal gardens...", "explanationVi": "“Built around” nghĩa là được xây bao quanh. Danh từ nằm sau cụm này là “formal gardens”; đáp án ngắn gọn đúng giới hạn là gardens.", "paraphrase": "surrounded = was built around; gardens = formal gardens.", "trap": "Không thêm “formal” cũng vẫn đúng nghĩa và đúng đáp án; đáp án chính thức dùng “gardens”.", "incorrectOptionExplanations": "", "note": ""}, {"number": 9, "passage": 1, "questionType": "text", "typeLabel": "Note Completion", "questionText": "In the 2nd and 3rd centuries colour was added to the ________ of the palace.", "options": {}, "correctAnswer": "floors", "correctAnswerFull": "floors", "acceptedVariants": ["floors"], "maxWords": 2, "sourceParagraph": "Đoạn 1", "evidenceQuote": "...many of the original black and white mosaic floors being overlaid with more sophisticated coloured ones...", "explanationVi": "Các sàn khảm đen trắng ban đầu được phủ bằng những mẫu có màu. Vì vậy màu sắc được thêm vào các “floors”.", "paraphrase": "colour was added to = black-and-white floors were overlaid with coloured ones.", "trap": "“Mosaic” là từ mô tả loại sàn; từ cần điền sau “the ... of the palace” là danh từ chính “floors”.", "incorrectOptionExplanations": "", "note": ""}, {"number": 10, "passage": 1, "questionType": "text", "typeLabel": "Note Completion", "questionText": "The first part of the palace to be found was part of a ________.", "options": {}, "correctAnswer": "wall", "correctAnswerFull": "wall", "acceptedVariants": ["wall"], "maxWords": 2, "sourceParagraph": "Đoạn 2", "evidenceQuote": "...workmen had accidentally uncovered a wall while they were laying a water main.", "explanationVi": "Phần đầu tiên được phát hiện tình cờ là một bức tường. Vì vậy điền “wall”.", "paraphrase": "the first part ... to be found = workmen accidentally uncovered; a wall = bức tường.", "trap": "", "incorrectOptionExplanations": "", "note": ""}, {"number": 11, "passage": 1, "questionType": "text", "typeLabel": "Note Completion", "questionText": "Sallustius Lucullus – he may have lived there until approximately ________ AD.", "options": {}, "correctAnswer": "93", "correctAnswerFull": "93", "acceptedVariants": ["93"], "maxWords": 2, "sourceParagraph": "Đoạn 5", "evidenceQuote": "...Lucullus was executed by the Emperor Domitian in or shortly after 93 AD.", "explanationVi": "Nếu cung điện được xây cho Lucullus, ông có thể sử dụng nó cho đến khi bị xử tử vào hoặc ngay sau năm 93 sau Công nguyên. Số cần điền là 93.", "paraphrase": "until approximately 93 AD = in or shortly after 93 AD.", "trap": "Không điền “92” (năm được đề xuất cho thời điểm xây dựng); câu hỏi hỏi thời điểm ông có thể sống ở đó đến khi nào.", "incorrectOptionExplanations": "", "note": ""}, {"number": 12, "passage": 1, "questionType": "text", "typeLabel": "Note Completion", "questionText": "Catuarus – his ________ was found there.", "options": {}, "correctAnswer": "gold ring", "correctAnswerFull": "gold ring", "acceptedVariants": ["gold ring"], "maxWords": 2, "sourceParagraph": "Đoạn 6", "evidenceQuote": "...following the recent discovery of a gold ring belonging to him.", "explanationVi": "“Belonging to him” cho biết vật được tìm thấy thuộc về Catuarus. Vật đó là một chiếc nhẫn vàng.", "paraphrase": "his = belonging to him; gold ring = chiếc nhẫn vàng.", "trap": "Phải giữ đủ hai từ “gold ring”; chỉ viết “ring” có thể thiếu thông tin đặc trưng của vật chứng.", "incorrectOptionExplanations": "", "note": ""}, {"number": 13, "passage": 1, "questionType": "text", "typeLabel": "Note Completion", "questionText": "A ________ has been built on the site to help protect it.", "options": {}, "correctAnswer": "modern museum", "correctAnswerFull": "modern museum", "acceptedVariants": ["modern museum"], "maxWords": 2, "sourceParagraph": "Đoạn 2 và đoạn 7", "evidenceQuote": "...a museum was erected to preserve some of the remains.” / “A modern museum had been built ... incorporating most of the visible remains...", "explanationVi": "Công trình được xây để bảo tồn các phần còn lại là một bảo tàng hiện đại. “To preserve” tương ứng với “to help protect”.", "paraphrase": "has been built = had been built/was erected; help protect = preserve; modern museum = bảo tàng hiện đại.", "trap": "Đáp án phải là danh từ chỉ công trình, không phải tổ chức “Sussex Archaeological Society”.", "incorrectOptionExplanations": "", "note": ""}, {"number": 14, "passage": 2, "questionType": "select", "typeLabel": "Matching Headings", "questionText": "Paragraph A", "options": {"i": "The effect of man-made imitations on insects", "ii": "The need to instruct additional insect guides", "iii": "Signals used by certain insects to indicate a discovery", "iv": "How urgency can affect the process of finding a new home", "v": "The use of trained insects in testing scientific theories", "vi": "The use of virtual scenarios in the study of insect behaviour", "vii": "How the number of decision-makers affects the decision"}, "correctAnswer": "vii", "correctAnswerFull": "vii – How the number of decision-makers affects the decision", "acceptedVariants": ["vii"], "maxWords": null, "sourceParagraph": "Đoạn A", "evidenceQuote": "Moreover, the probability of a correct decision increases with the size of the jury.", "explanationVi": "Đoạn A trình bày định lý bồi thẩm đoàn của Condorcet: quyết định của đa số thường chính xác hơn quyết định của một cá nhân, và xác suất đúng tăng khi số người tham gia tăng. Ý trung tâm chính là tác động của số lượng người ra quyết định.", "paraphrase": "the number of decision-makers = the size of the jury; affects the decision = probability of a correct decision increases.", "trap": "", "incorrectOptionExplanations": "Các heading về tín hiệu, mô hình máy tính, robot hoặc tình huống khẩn cấp không xuất hiện trong đoạn A.", "note": ""}, {"number": 15, "passage": 2, "questionType": "select", "typeLabel": "Matching Headings", "questionText": "Paragraph B", "options": {"i": "The effect of man-made imitations on insects", "ii": "The need to instruct additional insect guides", "iii": "Signals used by certain insects to indicate a discovery", "iv": "How urgency can affect the process of finding a new home", "v": "The use of trained insects in testing scientific theories", "vi": "The use of virtual scenarios in the study of insect behaviour", "vii": "How the number of decision-makers affects the decision"}, "correctAnswer": "iii", "correctAnswerFull": "iii – Signals used by certain insects to indicate a discovery", "acceptedVariants": ["iii"], "maxWords": null, "sourceParagraph": "Đoạn B", "evidenceQuote": "...reported back using a characteristic body movement known as a ‘waggle dance’ to indicate to the other bees the suitable places they had located.", "explanationVi": "Đoạn B tập trung vào cách ong báo cho đồng loại về vị trí tổ mới bằng “waggle dance”. Đây là tín hiệu cơ thể dùng để thông báo một phát hiện.", "paraphrase": "signals = waggle dance/body movement; indicate a discovery = report suitable places they have located.", "trap": "", "incorrectOptionExplanations": "Đoạn có nhắc quyết định tập thể nhưng trọng tâm cụ thể là cơ chế báo hiệu nơi ở mới, không phải số lượng người ra quyết định.", "note": ""}, {"number": 16, "passage": 2, "questionType": "select", "typeLabel": "Matching Headings", "questionText": "Paragraph C", "options": {"i": "The effect of man-made imitations on insects", "ii": "The need to instruct additional insect guides", "iii": "Signals used by certain insects to indicate a discovery", "iv": "How urgency can affect the process of finding a new home", "v": "The use of trained insects in testing scientific theories", "vi": "The use of virtual scenarios in the study of insect behaviour", "vii": "How the number of decision-makers affects the decision"}, "correctAnswer": "vi", "correctAnswerFull": "vi – The use of virtual scenarios in the study of insect behaviour", "acceptedVariants": ["vi"], "maxWords": null, "sourceParagraph": "Đoạn C", "evidenceQuote": "Dr List and his colleagues used a computer-generated model of the decision-making process. By experimenting with it...", "explanationVi": "Các nhà nghiên cứu không trực tiếp thay đổi đàn ong thật mà dùng mô hình tạo bằng máy tính để thử các kịch bản khác nhau. Vì vậy heading về “virtual scenarios” là phù hợp nhất.", "paraphrase": "virtual scenarios = computer-generated model; study of insect behaviour = experimenting with the decision-making process.", "trap": "", "incorrectOptionExplanations": "Heading v nói dùng côn trùng được huấn luyện, trong khi đoạn này dùng mô hình máy tính chứ không huấn luyện côn trùng thật.", "note": ""}, {"number": 17, "passage": 2, "questionType": "select", "typeLabel": "Matching Headings", "questionText": "Paragraph D", "options": {"i": "The effect of man-made imitations on insects", "ii": "The need to instruct additional insect guides", "iii": "Signals used by certain insects to indicate a discovery", "iv": "How urgency can affect the process of finding a new home", "v": "The use of trained insects in testing scientific theories", "vi": "The use of virtual scenarios in the study of insect behaviour", "vii": "How the number of decision-makers affects the decision"}, "correctAnswer": "i", "correctAnswerFull": "i – The effect of man-made imitations on insects", "acceptedVariants": ["i"], "maxWords": null, "sourceParagraph": "Đoạn D", "evidenceQuote": "José Halloy ... used robotic cockroaches to subvert the behaviour of living cockroaches and control their decision-making process.", "explanationVi": "“Robotic cockroaches” là các bản mô phỏng nhân tạo. Chúng tác động đến gián sống và khiến đàn gián chọn nơi trú ẩn không phù hợp. Đây chính là ảnh hưởng của vật mô phỏng do con người tạo ra lên côn trùng.", "paraphrase": "man-made imitations = robotic/artificial cockroaches; effect on insects = subvert/control the behaviour of living cockroaches.", "trap": "", "incorrectOptionExplanations": "Không phải côn trùng được huấn luyện; robot được lập trình để tác động đến côn trùng thật.", "note": ""}, {"number": 18, "passage": 2, "questionType": "select", "typeLabel": "Matching Headings", "questionText": "Paragraph E", "options": {"i": "The effect of man-made imitations on insects", "ii": "The need to instruct additional insect guides", "iii": "Signals used by certain insects to indicate a discovery", "iv": "How urgency can affect the process of finding a new home", "v": "The use of trained insects in testing scientific theories", "vi": "The use of virtual scenarios in the study of insect behaviour", "vii": "How the number of decision-makers affects the decision"}, "correctAnswer": "iv", "correctAnswerFull": "iv – How urgency can affect the process of finding a new home", "acceptedVariants": ["iv"], "maxWords": null, "sourceParagraph": "Đoạn E", "evidenceQuote": "If the ants’ existing nest becomes suddenly threatened, the insects choose certain ants to act as scouts to find a new nest.", "explanationVi": "Đoạn E mô tả tổ cũ bất ngờ bị đe dọa, buộc kiến phải đưa ra lựa chọn nhanh và cử trinh sát tìm tổ mới. Trọng tâm là tính khẩn cấp ảnh hưởng đến quá trình chuyển nhà.", "paraphrase": "urgency = suddenly threatened / necessarily swift choice; finding a new home = scouts find a new nest.", "trap": "", "incorrectOptionExplanations": "Đoạn chưa tập trung vào việc tuyển thêm người dẫn đường; nội dung đó được phát triển rõ hơn ở đoạn F.", "note": ""}, {"number": 19, "passage": 2, "questionType": "select", "typeLabel": "Matching Headings", "questionText": "Paragraph F", "options": {"i": "The effect of man-made imitations on insects", "ii": "The need to instruct additional insect guides", "iii": "Signals used by certain insects to indicate a discovery", "iv": "How urgency can affect the process of finding a new home", "v": "The use of trained insects in testing scientific theories", "vi": "The use of virtual scenarios in the study of insect behaviour", "vii": "How the number of decision-makers affects the decision"}, "correctAnswer": "ii", "correctAnswerFull": "ii – The need to instruct additional insect guides", "acceptedVariants": ["ii"], "maxWords": null, "sourceParagraph": "Đoạn F", "evidenceQuote": "...the chosen ants begin to lead others ... back to the original threatened nest... It does suggest ... the importance of recruiting dynamic leaders...", "explanationVi": "Sau khi tìm được tổ mới, những con kiến biết đường quay lại dẫn thêm kiến khác. Đoạn kết khái quát rằng cần tuyển các “dynamic leaders” để người khác đi theo. Vì vậy heading ii phù hợp.", "paraphrase": "additional insect guides = chosen ants/dynamic leaders that lead others; instruct = show the route.", "trap": "", "incorrectOptionExplanations": "Heading iv phù hợp với đoạn E vì nhấn mạnh sự đe dọa và lựa chọn nhanh; đoạn F nhấn mạnh khâu dẫn dắt và thực thi quyết định.", "note": ""}, {"number": 20, "passage": 2, "questionType": "select", "typeLabel": "Matching Academics", "questionText": "Certain members can influence the rest of the group to alter a previous decision.", "options": {"A": "Nicolas de Condorcet", "B": "Christian List and colleagues", "C": "José Halloy", "D": "Nigel Franks and colleagues"}, "correctAnswer": "C", "correctAnswerFull": "C – José Halloy", "acceptedVariants": ["C"], "maxWords": null, "sourceParagraph": "Đoạn D", "evidenceQuote": "By manipulating the robots, which were in the minority, Halloy was able to persuade the living cockroaches to choose an inappropriate shelter—even one which they had rejected before...", "explanationVi": "Halloy cho thấy một nhóm robot thiểu số vẫn có thể khiến cả đàn gián thay đổi lựa chọn trước đó và chọn nơi trú ẩn từng bị từ chối.", "paraphrase": "certain members = robotic cockroaches in the minority; alter a previous decision = choose a shelter rejected before.", "trap": "", "incorrectOptionExplanations": "A nói về kích thước bồi thẩm đoàn; B nghiên cứu ong; D nghiên cứu kiến và quá trình chuyển tổ.", "note": ""}, {"number": 21, "passage": 2, "questionType": "select", "typeLabel": "Matching Academics", "questionText": "Individual verification of a proposed choice is important for a successful decision outcome.", "options": {"A": "Nicolas de Condorcet", "B": "Christian List and colleagues", "C": "José Halloy", "D": "Nigel Franks and colleagues"}, "correctAnswer": "B", "correctAnswerFull": "B – Christian List and colleagues", "acceptedVariants": ["B"], "maxWords": null, "sourceParagraph": "Đoạn C", "evidenceQuote": "...the ability of bees to identify successfully and quickly the best site depends on ... their independence in confirming this information for themselves.", "explanationVi": "Nhóm của Christian List kết luận rằng ong cần tự kiểm tra lại địa điểm được đề xuất, chứ không chỉ mù quáng làm theo điệu nhảy của con khác. Sự xác minh độc lập giúp quyết định thành công.", "paraphrase": "individual verification = confirming the information for themselves; successful decision outcome = identify successfully and quickly the best site.", "trap": "", "incorrectOptionExplanations": "A/Condorcet nói số lượng người ra quyết định; C nói robot làm thay đổi lựa chọn; D nói kiến triển khai quyết định.", "note": "Ảnh đáp án ghi “A”, nhưng bằng chứng trực tiếp trong bài đọc xác nhận đáp án đúng là B. Tài liệu này ưu tiên đáp án đã kiểm chứng từ passage."}, {"number": 22, "passage": 2, "questionType": "select", "typeLabel": "Matching Academics", "questionText": "The more individuals taking part in a decision, the better the decision will be.", "options": {"A": "Nicolas de Condorcet", "B": "Christian List and colleagues", "C": "José Halloy", "D": "Nigel Franks and colleagues"}, "correctAnswer": "A", "correctAnswerFull": "A – Nicolas de Condorcet", "acceptedVariants": ["A"], "maxWords": null, "sourceParagraph": "Đoạn A", "evidenceQuote": "Moreover, the probability of a correct decision increases with the size of the jury.", "explanationVi": "Đây là nội dung cốt lõi của “jury theorem” do Condorcet đưa ra: bồi thẩm đoàn càng đông thì xác suất quyết định đúng càng cao.", "paraphrase": "more individuals = larger jury; better decision = higher probability of a correct decision.", "trap": "", "incorrectOptionExplanations": "B, C và D đều là các nghiên cứu thực nghiệm về ong, gián và kiến, không phải định lý về quy mô nhóm.", "note": ""}, {"number": 23, "passage": 2, "questionType": "select", "typeLabel": "Matching Academics", "questionText": "The decision-making process of certain insects produces excellent results even when fine distinctions are required.", "options": {"A": "Nicolas de Condorcet", "B": "Christian List and colleagues", "C": "José Halloy", "D": "Nigel Franks and colleagues"}, "correctAnswer": "B", "correctAnswerFull": "B – Christian List and colleagues", "acceptedVariants": ["B"], "maxWords": null, "sourceParagraph": "Đoạn B", "evidenceQuote": "The decision is remarkably reliable, with the bees choosing the best site even when there are only small differences between alternative sites.", "explanationVi": "Nghiên cứu về ong của Christian List cho thấy đàn ong vẫn chọn được địa điểm tốt nhất dù các phương án chỉ khác nhau rất ít. Điều này đúng với “fine distinctions”.", "paraphrase": "excellent results = remarkably reliable; fine distinctions = only small differences between alternatives.", "trap": "", "incorrectOptionExplanations": "Condorcet bàn về con người; Halloy về thao túng quyết định của gián; Franks về tốc độ chuyển tổ của kiến.", "note": ""}, {"number": 24, "passage": 2, "questionType": "text", "typeLabel": "Summary Completion", "questionText": "A Bristol University study looked at how insects make decisions when their home has been ________.", "options": {}, "correctAnswer": "threatened", "correctAnswerFull": "threatened", "acceptedVariants": ["threatened"], "maxWords": 1, "sourceParagraph": "Đoạn E", "evidenceQuote": "If the ants’ existing nest becomes suddenly threatened...", "explanationVi": "Summary dùng “home” thay cho “nest”. Từ đứng sau “has been” phải là quá khứ phân từ/tính từ; “threatened” phù hợp cả ngữ pháp và nội dung.", "paraphrase": "home = nest; has been threatened = becomes suddenly threatened.", "trap": "Không điền “destroyed” vì bài chỉ nói tổ bị đe dọa, chưa bị phá hủy.", "incorrectOptionExplanations": "", "note": ""}, {"number": 25, "passage": 2, "questionType": "text", "typeLabel": "Summary Completion", "questionText": "The ants in the experiment relied on the use of individuals called ________ to find a new nest and efficiently direct the others to go there.", "options": {}, "correctAnswer": "scouts", "correctAnswerFull": "scouts", "acceptedVariants": ["scouts"], "maxWords": 1, "sourceParagraph": "Đoạn E", "evidenceQuote": "...the insects choose certain ants to act as scouts to find a new nest.", "explanationVi": "Những cá thể được giao nhiệm vụ tìm tổ mới được gọi là “scouts” (kiến trinh sát). Từ này khớp nguyên văn và đúng số nhiều sau “individuals called”.", "paraphrase": "individuals called scouts = certain ants chosen to act as scouts.", "trap": "Không dùng “ants” vì câu hỏi yêu cầu tên vai trò của các cá thể, không phải tên loài.", "incorrectOptionExplanations": "", "note": ""}, {"number": 26, "passage": 2, "questionType": "text", "typeLabel": "Summary Completion", "questionText": "The study emphasized the necessity, for people as well as insects, of having active ________ in order to execute decisions successfully.", "options": {}, "correctAnswer": "leaders", "correctAnswerFull": "leaders", "acceptedVariants": ["leaders"], "maxWords": 1, "sourceParagraph": "Đoạn F", "evidenceQuote": "...the importance of recruiting dynamic leaders to a cause, because ... the most important thing ... is to get others to follow.", "explanationVi": "“Active” trong summary paraphrase cho “dynamic”; danh từ đi kèm là “leaders”. Những người dẫn dắt năng động giúp người khác thực hiện quyết định.", "paraphrase": "active = dynamic; execute decisions successfully = get others to follow / efficient implementation.", "trap": "“Followers” không đúng vì bài nhấn mạnh cần người lãnh đạo để khiến người khác đi theo.", "incorrectOptionExplanations": "", "note": ""}, {"number": 27, "passage": 3, "questionType": "select", "typeLabel": "Matching Information", "questionText": "the methods some companies use to try to keep their most creative employees", "options": {"A": "Paragraph A", "B": "Paragraph B", "C": "Paragraph C", "D": "Paragraph D", "E": "Paragraph E", "F": "Paragraph F", "G": "Paragraph G", "H": "Paragraph H"}, "correctAnswer": "F", "correctAnswerFull": "F", "acceptedVariants": ["F"], "maxWords": null, "sourceParagraph": "Đoạn F", "evidenceQuote": "...the search for innovation had led to a craze for ‘intrapreneurship’—giving more power to individuals in the company and setting up internal ideas-factories so that talented staff will not leave.", "explanationVi": "Đoạn F nêu hai cách giữ nhân sự sáng tạo: trao thêm quyền cho cá nhân trong công ty và lập “nhà máy ý tưởng” nội bộ để nhân viên tài năng không rời đi.", "paraphrase": "keep creative employees = so that talented staff will not leave; methods = intrapreneurship + internal ideas-factories.", "trap": "Câu hỏi hỏi biện pháp giữ người, không chỉ việc mua lại công ty nhỏ ở đầu đoạn.", "incorrectOptionExplanations": "", "note": ""}, {"number": 28, "passage": 3, "questionType": "select", "typeLabel": "Matching Information", "questionText": "a new way of getting help with your personal difficulties", "options": {"A": "Paragraph A", "B": "Paragraph B", "C": "Paragraph C", "D": "Paragraph D", "E": "Paragraph E", "F": "Paragraph F", "G": "Paragraph G", "H": "Paragraph H"}, "correctAnswer": "A", "correctAnswerFull": "A", "acceptedVariants": ["A"], "maxWords": null, "sourceParagraph": "Đoạn A", "evidenceQuote": "...websites that will allow subscribers to feed in details about themselves and their problems and to receive advice from ‘virtual’ versions of personalities regarded as experts...", "explanationVi": "UMagic cung cấp một hình thức mới: người dùng nhập thông tin và vấn đề cá nhân để nhận lời khuyên từ các chuyên gia ảo như chuyên gia dinh dưỡng, huấn luyện viên hay nhà tâm lý học.", "paraphrase": "getting help = receive advice; personal difficulties = their problems; a new way = virtual versions of experts.", "trap": "Không chỉ là hỗ trợ kỹ thuật; ví dụ trong đoạn đều liên quan chế độ ăn, thể chất, quan hệ cha mẹ–con cái.", "incorrectOptionExplanations": "", "note": ""}, {"number": 29, "passage": 3, "questionType": "select", "typeLabel": "Matching Information", "questionText": "how much investment goes into safeguarding the ideas of individuals", "options": {"A": "Paragraph A", "B": "Paragraph B", "C": "Paragraph C", "D": "Paragraph D", "E": "Paragraph E", "F": "Paragraph F", "G": "Paragraph G", "H": "Paragraph H"}, "correctAnswer": "C", "correctAnswerFull": "C", "acceptedVariants": ["C"], "maxWords": null, "sourceParagraph": "Đoạn C", "evidenceQuote": "A fortune is spent nowadays on identifying and protecting intellectual property: other people’s ideas... from $15 billion in 1990 to $100 billion in 1998...", "explanationVi": "Đoạn C đưa số tiền cụ thể dành cho việc xác định và bảo vệ tài sản trí tuệ, tức ý tưởng của người khác/cá nhân.", "paraphrase": "investment = a fortune / $15 billion to $100 billion; safeguarding ideas = identifying and protecting intellectual property.", "trap": "Các con số 5 triệu và 25 triệu ở đoạn E là vốn UMagic huy động, không phải chi phí bảo vệ ý tưởng.", "incorrectOptionExplanations": "", "note": ""}, {"number": 30, "passage": 3, "questionType": "select", "typeLabel": "Matching Information", "questionText": "two examples of companies which have succeeded through being innovative", "options": {"A": "Paragraph A", "B": "Paragraph B", "C": "Paragraph C", "D": "Paragraph D", "E": "Paragraph E", "F": "Paragraph F", "G": "Paragraph G", "H": "Paragraph H"}, "correctAnswer": "B", "correctAnswerFull": "B", "acceptedVariants": ["B"], "maxWords": null, "sourceParagraph": "Đoạn B", "evidenceQuote": "The stars of American business tend today to be innovators such as Amazon ... and Wal-Mart ... which have produced completely new ideas or products...", "explanationVi": "Amazon và Wal-Mart được nêu như hai doanh nghiệp thành công nhờ đổi mới và tạo ra ý tưởng/sản phẩm mới làm thay đổi ngành.", "paraphrase": "companies which have succeeded = stars of American business; through being innovative = produced completely new ideas or products.", "trap": "General Electric và Cisco ở đoạn F thành công trong việc mua và tích hợp công ty nhỏ, nhưng câu hỏi nhấn mạnh hai ví dụ thành công nhờ bản thân đổi mới.", "incorrectOptionExplanations": "", "note": ""}, {"number": 31, "passage": 3, "questionType": "select", "typeLabel": "Matching Information", "questionText": "how some innovators manage to avoid spending large sums of money on testing out their ideas", "options": {"A": "Paragraph A", "B": "Paragraph B", "C": "Paragraph C", "D": "Paragraph D", "E": "Paragraph E", "F": "Paragraph F", "G": "Paragraph G", "H": "Paragraph H"}, "correctAnswer": "E", "correctAnswerFull": "E", "acceptedVariants": ["E"], "maxWords": null, "sourceParagraph": "Đoạn E", "evidenceQuote": "Even in capital-intensive businesses such as pharmaceuticals, entrepreneurs can conduct profitable, early-stage research, selling out to the big firms when they reach expensive, risky clinical trials.", "explanationVi": "Các doanh nhân chỉ làm nghiên cứu giai đoạn đầu, sau đó bán dự án cho công ty lớn trước giai đoạn thử nghiệm lâm sàng tốn kém và rủi ro. Nhờ vậy họ tránh phải tự chi khoản tiền lớn để thử nghiệm.", "paraphrase": "avoid spending large sums = sell out before expensive trials; testing out ideas = risky clinical trials.", "trap": "“Capital-intensive” không có nghĩa họ tự trả toàn bộ chi phí; chính việc bán trước giai đoạn đắt đỏ giúp họ tránh khoản chi đó.", "incorrectOptionExplanations": "", "note": ""}, {"number": 32, "passage": 3, "questionType": "select", "typeLabel": "Matching Information", "questionText": "a commonly held opinion about product designers that needs to be proved wrong", "options": {"A": "Paragraph A", "B": "Paragraph B", "C": "Paragraph C", "D": "Paragraph D", "E": "Paragraph E", "F": "Paragraph F", "G": "Paragraph G", "H": "Paragraph H"}, "correctAnswer": "G", "correctAnswerFull": "G", "acceptedVariants": ["G"], "maxWords": null, "sourceParagraph": "Đoạn G", "evidenceQuote": "Companies have to discredit the widespread view that jobs working on new products are for ‘those who can’t cope in the real business’.", "explanationVi": "Đoạn G nói doanh nghiệp phải bác bỏ quan điểm phổ biến rằng người làm sản phẩm mới là những người không thể thích nghi với hoạt động kinh doanh thực tế.", "paraphrase": "commonly held opinion = widespread view; needs to be proved wrong = have to discredit; product designers = those working on new products.", "trap": "“Discredit” là từ khóa thể hiện quan điểm cần bị bác bỏ, không phải tác giả đồng tình với quan điểm đó.", "incorrectOptionExplanations": "", "note": ""}, {"number": 33, "passage": 3, "questionType": "select", "typeLabel": "Matching Information", "questionText": "the target of one large company that has changed its business focus", "options": {"A": "Paragraph A", "B": "Paragraph B", "C": "Paragraph C", "D": "Paragraph D", "E": "Paragraph E", "F": "Paragraph F", "G": "Paragraph G", "H": "Paragraph H"}, "correctAnswer": "F", "correctAnswerFull": "F", "acceptedVariants": ["F"], "maxWords": null, "sourceParagraph": "Đoạn F", "evidenceQuote": "Procter & Gamble is now changing the entire direction of its business from global expansion to product development; one of its new aims is to get innovations accepted across the company.", "explanationVi": "P&G thay đổi trọng tâm từ mở rộng toàn cầu sang phát triển sản phẩm. Mục tiêu mới là khiến các đổi mới được chấp nhận trong toàn công ty.", "paraphrase": "changed its business focus = changing the entire direction from global expansion to product development; target = new aim.", "trap": "Câu hỏi hỏi “target/aim”, vì vậy cần lấy phần sau dấu chấm phẩy, không chỉ nêu việc đổi hướng.", "incorrectOptionExplanations": "", "note": ""}, {"number": 34, "passage": 3, "questionType": "tfng", "typeLabel": "TRUE/FALSE/NOT GIVEN", "questionText": "Umagic Systems is an example of a new innovative company.", "options": {"TRUE": "TRUE", "FALSE": "FALSE", "NOT GIVEN": "NOT GIVEN"}, "correctAnswer": "TRUE", "correctAnswerFull": "TRUE", "acceptedVariants": ["TRUE"], "maxWords": null, "sourceParagraph": "Đoạn A", "evidenceQuote": "Umagic Systems is a young firm ... others ... see such half-crazy new and innovative ideas as a threat to their own future success.", "explanationVi": "UMagic được mô tả là công ty trẻ với ý tưởng mới và sáng tạo, đến mức các công ty lớn coi đó là mối đe dọa. Câu hỏi phù hợp với thông tin bài đọc.", "paraphrase": "new company = a young firm; innovative = new and innovative ideas.", "trap": "“Young firm” không chỉ nói tuổi công ty mà kết hợp với phần mô tả ý tưởng sáng tạo để xác nhận đầy đủ câu.", "incorrectOptionExplanations": "", "note": ""}, {"number": 35, "passage": 3, "questionType": "tfng", "typeLabel": "TRUE/FALSE/NOT GIVEN", "questionText": "Amazon and Wal-Mart have exchanged successful ideas on innovation.", "options": {"TRUE": "TRUE", "FALSE": "FALSE", "NOT GIVEN": "NOT GIVEN"}, "correctAnswer": "NOT GIVEN", "correctAnswerFull": "NOT GIVEN", "acceptedVariants": ["NOT GIVEN"], "maxWords": null, "sourceParagraph": "Đoạn B", "evidenceQuote": "...innovators such as Amazon ... and Wal-Mart ... which have produced completely new ideas or products...", "explanationVi": "Bài chỉ nói cả Amazon và Wal-Mart đều tạo ra ý tưởng/sản phẩm mới. Không có thông tin hai công ty trao đổi ý tưởng với nhau. Vì vậy chọn NOT GIVEN.", "paraphrase": "have exchanged ideas = chia sẻ/trao đổi ý tưởng với nhau; passage only says each company produced innovations.", "trap": "Việc hai tên công ty xuất hiện trong cùng một câu không chứng minh có quan hệ trao đổi giữa họ.", "incorrectOptionExplanations": "", "note": ""}, {"number": 36, "passage": 3, "questionType": "tfng", "typeLabel": "TRUE/FALSE/NOT GIVEN", "questionText": "Using financial rewards to encourage innovation is an outdated practice.", "options": {"TRUE": "TRUE", "FALSE": "FALSE", "NOT GIVEN": "NOT GIVEN"}, "correctAnswer": "FALSE", "correctAnswerFull": "FALSE", "acceptedVariants": ["FALSE"], "maxWords": null, "sourceParagraph": "Đoạn G", "evidenceQuote": "They have to change the culture by introducing hard incentives, such as giving more generous bonuses to those who come up with successful new ideas...", "explanationVi": "Bài đọc đề xuất doanh nghiệp nên sử dụng các khuyến khích cụ thể, bao gồm tiền thưởng lớn hơn, để thúc đẩy ý tưởng mới. Điều này trái với nhận định rằng phần thưởng tài chính đã lỗi thời.", "paraphrase": "financial rewards = generous bonuses; encourage innovation = incentives for successful new ideas; outdated = trái với khuyến nghị hiện tại.", "trap": "Từ “have to” cho thấy đây là biện pháp được khuyến nghị, không phải một tập quán cũ cần bỏ.", "incorrectOptionExplanations": "", "note": ""}, {"number": 37, "passage": 3, "questionType": "tfng", "typeLabel": "TRUE/FALSE/NOT GIVEN", "questionText": "IBM failed to understand David Post’s ‘virtual experts’ idea.", "options": {"TRUE": "TRUE", "FALSE": "FALSE", "NOT GIVEN": "NOT GIVEN"}, "correctAnswer": "TRUE", "correctAnswerFull": "TRUE", "acceptedVariants": ["TRUE"], "maxWords": null, "sourceParagraph": "Đoạn H", "evidenceQuote": "He also recalls with glee the looks of total incomprehension when he tried to sell his ‘virtual experts’ idea three years ago to firms such as IBM...", "explanationVi": "“Looks of total incomprehension” nghĩa là họ hoàn toàn không hiểu ý tưởng. IBM được nêu trực tiếp là một trong các công ty phản ứng như vậy.", "paraphrase": "failed to understand = total incomprehension; tried to sell the idea to firms such as IBM.", "trap": "Đoạn sau nói “they could have been right”, nhưng đó là đánh giá về tính đúng đắn của ý tưởng, không phủ định việc IBM đã không hiểu nó.", "incorrectOptionExplanations": "", "note": ""}, {"number": 38, "passage": 3, "questionType": "mcq", "typeLabel": "Multiple Choice", "questionText": "What point does the writer make about intellectual property?", "options": {"A": "It can be lost when firms merge.", "B": "It tends to belong to companies rather than individuals.", "C": "It is valued more than it used to be.", "D": "It is not usually owned by small companies."}, "correctAnswer": "C", "correctAnswerFull": "C – It is valued more than it used to be.", "acceptedVariants": ["C"], "maxWords": null, "sourceParagraph": "Đoạn C", "evidenceQuote": "...trading in intangible assets such as intellectual property rose from $15 billion in 1990 to $100 billion in 1998...", "explanationVi": "Giá trị giao dịch tài sản trí tuệ tăng rất mạnh từ 15 tỷ lên 100 tỷ USD, cho thấy nó được coi trọng/định giá cao hơn trước.", "paraphrase": "valued more than it used to be = trading value rose dramatically over time.", "trap": "", "incorrectOptionExplanations": "A: bài không nói IP bị mất khi sáp nhập. B: bài gọi IP là “other people’s ideas”, không nói chủ yếu thuộc công ty. D: bài nói phần thưởng ngày càng đến với công ty nhỏ và cá nhân, nên không thể kết luận IP thường không thuộc công ty nhỏ.", "note": ""}, {"number": 39, "passage": 3, "questionType": "mcq", "typeLabel": "Multiple Choice", "questionText": "Peter Chernin is an example of someone who has realized that...", "options": {"A": "large companies are less innovative than small ones.", "B": "other businesses are more innovative than the film business.", "C": "his employees need more experience of innovation.", "D": "he is the best person to encourage innovation."}, "correctAnswer": "A", "correctAnswerFull": "A – large companies are less innovative than small ones.", "acceptedVariants": ["A"], "maxWords": null, "sourceParagraph": "Đoạn D", "evidenceQuote": "In the management of creativity, size is your enemy... One person managing 20 movies is never going to be as involved as one doing five movies.", "explanationVi": "Chernin nhận ra quy mô lớn cản trở sự sáng tạo nên chia studio thành các đơn vị nhỏ hơn, dù chi phí vận hành tăng. Điều này cho thấy công ty/đơn vị lớn kém linh hoạt và kém sáng tạo hơn đơn vị nhỏ.", "paraphrase": "large companies are less innovative = size is your enemy; small units allow greater involvement.", "trap": "", "incorrectOptionExplanations": "B: không so sánh ngành phim với ngành khác. C: không nói nhân viên thiếu kinh nghiệm. D: ông là nhà quản lý khuyến khích đổi mới, nhưng ý chính của ví dụ là bất lợi của quy mô lớn.", "note": ""}, {"number": 40, "passage": 3, "questionType": "mcq", "typeLabel": "Multiple Choice", "questionText": "In conclusion, the writer suggests that...", "options": {"A": "computer-based industries cannot be innovative.", "B": "big firms are right to be cautious about innovation.", "C": "small firms should not worry about early failures.", "D": "innovation will always involve some uncertainty."}, "correctAnswer": "D", "correctAnswerFull": "D – innovation will always involve some uncertainty.", "acceptedVariants": ["D"], "maxWords": null, "sourceParagraph": "Đoạn H", "evidenceQuote": "Will all this reorganization and culture tweaking make big firms more creative? David Post ... isn’t so sure... ‘of course, they could have been right.’", "explanationVi": "Kết bài đặt câu hỏi liệu việc tái tổ chức có thực sự làm công ty lớn sáng tạo hơn và thừa nhận IBM có thể đã đúng khi nghi ngờ ý tưởng UMagic. Điều này nhấn mạnh kết quả của đổi mới không thể chắc chắn hoàn toàn.", "paraphrase": "involve some uncertainty = isn’t so sure / they could have been right.", "trap": "", "incorrectOptionExplanations": "A: bài không nói ngành máy tính không thể đổi mới. B: không kết luận công ty lớn đúng khi thận trọng nói chung. C: không đưa lời khuyên riêng cho công ty nhỏ về thất bại ban đầu.", "note": ""}];
+const TOTAL_SECONDS = 60 * 60;
+const STORAGE_KEY = "ielts_reading_test_1_single_file_v1";
+
+const defaultState = () => ({
+  name: "", started: false, submitted: false,
+  startTime: null, endTime: null, submittedTime: null,
+  answers: {}, reviews: {}, notes: {}, highlights: {},
+  passage: 1, currentQuestion: 1, lastSaved: null,
+  warned: {}, result: null
+});
+let state = defaultState();
+let timerHandle = null;
+let saveTimer = null;
+let storageAvailable = true;
+let reviewMode = false;
+let lastFocusedBeforeModal = null;
+
+const $ = (s) => document.querySelector(s);
+const $$ = (s) => [...document.querySelectorAll(s)];
+
+function escapeHtml(value){
+  return String(value ?? "").replace(/[&<>"']/g, ch => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+  })[ch]);
+}
+function formatDateTime(ts){
+  if(!ts) return "—";
+  return new Date(ts).toLocaleString("vi-VN");
+}
+function formatClock(seconds){
+  const s = Math.max(0, Math.floor(seconds));
+  return String(Math.floor(s/60)).padStart(2,"0") + ":" + String(s%60).padStart(2,"0");
+}
+function durationText(ms){
+  const total = Math.max(0, Math.round(ms/1000));
+  const m = Math.floor(total/60), s = total%60;
+  return `${m} phút ${s} giây`;
+}
+function normalizeText(value){
+  return String(value ?? "")
+    .trim().toLowerCase()
+    .replace(/[‘’]/g,"'")
+    .replace(/\s*-\s*/g,"-")
+    .replace(/\s+/g," ");
+}
+function wordCount(value){
+  const cleaned = String(value ?? "").trim();
+  if(!cleaned) return 0;
+  return cleaned.split(/\s+/).filter(Boolean).length;
+}
+function isAnswered(q){
+  const a = state.answers[q.number];
+  if(Array.isArray(a)) return a.length > 0;
+  return String(a ?? "").trim() !== "";
+}
+function getQuestion(n){ return QUESTIONS.find(q => q.number === Number(n)); }
+function answeredCount(){ return QUESTIONS.filter(isAnswered).length; }
+function reviewCount(){ return Object.values(state.reviews).filter(Boolean).length; }
+
+function testStorage(){
+  try{
+    localStorage.setItem("__ielts_test__","1");
+    localStorage.removeItem("__ielts_test__");
+    return true;
+  }catch(e){ return false; }
+}
+function loadState(){
+  storageAvailable = testStorage();
+  if(!storageAvailable){
+    $("#storage-warning").textContent = "Cảnh báo: Trình duyệt không cho phép lưu cục bộ. Bạn vẫn có thể làm bài, nhưng dữ liệu có thể không được khôi phục sau khi tải lại trang.";
+    $("#storage-warning").classList.remove("hidden");
+    return;
+  }
+  try{
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if(raw){
+      const parsed = JSON.parse(raw);
+      state = Object.assign(defaultState(), parsed);
+    }
+  }catch(e){
+    $("#storage-warning").textContent = "Dữ liệu lưu trước đó bị hỏng. Hệ thống đã mở bài ở trạng thái an toàn và không xóa nội dung hiện có trong trang.";
+    $("#storage-warning").classList.remove("hidden");
+  }
+}
+function saveState(immediate=false){
+  if(!storageAvailable) return;
+  const doSave = () => {
+    try{
+      state.lastSaved = Date.now();
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      $("#save-status").textContent = "Đã lưu lúc " + new Date(state.lastSaved).toLocaleTimeString("vi-VN");
+    }catch(e){
+      storageAvailable = false;
+      $("#storage-warning").textContent = "Không thể tiếp tục lưu cục bộ. Bài làm đang có trên trang vẫn được giữ nguyên.";
+      $("#storage-warning").classList.remove("hidden");
+    }
+  };
+  if(immediate){ clearTimeout(saveTimer); doSave(); }
+  else{
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(doSave, 250);
+  }
+}
+function showToast(text){
+  const el=$("#toast"); el.textContent=text; el.classList.remove("hidden");
+  setTimeout(()=>el.classList.add("hidden"),2200);
+}
+function announce(text){
+  const el=$("#live-region"); el.textContent=text; el.classList.remove("hidden");
+  setTimeout(()=>el.classList.add("hidden"),4500);
+}
+
+function startTest(){
+  const name=$("#candidate-name").value.trim();
+  const ready=$("#ready-confirm").checked;
+  if(!name){ $("#start-error").textContent="Vui lòng nhập họ và tên học sinh."; $("#candidate-name").focus(); return; }
+  if(!ready){ $("#start-error").textContent="Vui lòng tích xác nhận đã đọc hướng dẫn."; $("#ready-confirm").focus(); return; }
+  state = defaultState();
+  state.name=name; state.started=true;
+  state.startTime=Date.now(); state.endTime=state.startTime+TOTAL_SECONDS*1000;
+  saveState(true);
+  openExam();
+}
+
+function openExam(){
+  $("#start-screen").classList.add("hidden");
+  $("#results-screen").classList.add("hidden");
+  $("#exam-screen").classList.remove("hidden");
+  $("#top-name").textContent=state.name;
+  $("#candidate-name").value=state.name;
+  renderTabsAndNav();
+  showPassage(state.passage || 1, false);
+  restoreAnswers();
+  updateCounts();
+  if(state.submitted){
+    lockQuestions();
+    $("#save-btn").classList.add("hidden");
+    $("#submit-btn").classList.add("hidden");
+  }else{
+    startTimer();
+  }
+}
+
+function renderQuestionsForPassage(p){
+  const groups = p===1 ? [
+    {from:1,to:6,title:"Questions 1–6",body:"Do the following statements agree with the information given in Reading Passage 1?<br>Choose <strong>TRUE</strong> if the statement agrees, <strong>FALSE</strong> if it contradicts the information, or <strong>NOT GIVEN</strong> if there is no information."},
+    {from:7,to:13,title:"Questions 7–13",body:"Complete the notes. Choose <strong>NO MORE THAN TWO WORDS AND/OR A NUMBER</strong> from the passage for each answer."}
+  ] : p===2 ? [
+    {from:14,to:19,title:"Questions 14–19",body:"Reading Passage 2 has six paragraphs, A–F. Choose the correct heading for each paragraph from the list of headings."},
+    {from:20,to:23,title:"Questions 20–23",body:"Match each finding with the correct academic, A–D. <strong>You may use any letter more than once.</strong>"},
+    {from:24,to:26,title:"Questions 24–26",body:"Complete the summary. Choose <strong>ONE WORD ONLY</strong> from the passage for each answer."}
+  ] : [
+    {from:27,to:33,title:"Questions 27–33",body:"Reading Passage 3 has eight paragraphs, A–H. Which paragraph contains the following information? <strong>You may use any letter more than once.</strong>"},
+    {from:34,to:37,title:"Questions 34–37",body:"Do the following statements agree with the information given in Reading Passage 3? Choose TRUE, FALSE or NOT GIVEN."},
+    {from:38,to:40,title:"Questions 38–40",body:"Choose the correct letter, A, B, C or D."}
+  ];
+  return groups.map(g =>
+    `<h3 class="group-title">${g.title}</h3><div class="instruction">${g.body}</div>` +
+    QUESTIONS.filter(q=>q.number>=g.from && q.number<=g.to).map(renderQuestion).join("")
+  ).join("");
+}
+
+function renderTabsAndNav(){
+  $("#passage-tabs").innerHTML=[1,2,3].map(p =>
+    `<button class="passage-tab ${state.passage===p?"active":""}" data-passage="${p}" type="button">PASSAGE ${p}</button>`
+  ).join("");
+  $("#question-nav").innerHTML=QUESTIONS.map(q =>
+    `<button class="qnav" id="qnav-${q.number}" data-q="${q.number}" type="button" aria-label="Câu ${q.number}">${q.number}</button>`
+  ).join("");
+  $$(".passage-tab").forEach(btn=>btn.addEventListener("click",()=>showPassage(Number(btn.dataset.passage))));
+  $$(".qnav").forEach(btn=>btn.addEventListener("click",()=>goToQuestion(Number(btn.dataset.q))));
+  updateNavigator();
+}
+
+function passageHtml(p){
+  return PASSAGES[p].paragraphs.map(par =>
+    `<p class="passage-paragraph" id="passage-${p}-paragraph-${escapeHtml(par.label)}" data-label="${escapeHtml(par.label)}"><span class="par-label">${escapeHtml(par.label)}</span>${escapeHtml(par.text)}</p>`
+  ).join("");
+}
+
+function showPassage(p, saveCurrent=true){
+  if(saveCurrent && state.passage){
+    state.notes[state.passage]=$("#my-notes").value;
+    state.highlights[state.passage]=$("#passage-content").innerHTML;
+  }
+  state.passage=p;
+  $("#top-passage").textContent=`Passage ${p}`;
+  $("#passage-title").textContent=PASSAGES[p].title;
+  $("#passage-subtitle").textContent=PASSAGES[p].subtitle || "";
+  $("#passage-content").innerHTML=state.highlights[p] || passageHtml(p);
+  $("#my-notes").value=state.notes[p] || "";
+  $("#question-content").innerHTML=renderQuestionsForPassage(p);
+  restoreAnswers();
+  bindQuestionEvents();
+  $$(".passage-tab").forEach(b=>b.classList.toggle("active",Number(b.dataset.passage)===p));
+  updateCounts();
+  bindMarkClicks();
+  if(saveCurrent) saveState();
+}
+
+function renderQuestion(q){
+  let control="";
+  const disabled=state.submitted?"disabled":"";
+  if(q.questionType==="tfng" || q.questionType==="mcq"){
+    control=`<div class="option-list">`+Object.entries(q.options).map(([key,label]) =>
+      `<label class="option"><input type="radio" name="q${q.number}" value="${escapeHtml(key)}" ${disabled}><span><strong>${escapeHtml(key)}</strong>${label!==key?` — ${escapeHtml(label)}`:""}</span></label>`
+    ).join("")+`</div>`;
+  }else if(q.questionType==="select"){
+    control=`<select class="answer-select" data-answer-q="${q.number}" aria-label="Trả lời câu ${q.number}" ${disabled}>
+      <option value="">— Chọn đáp án —</option>
+      ${Object.entries(q.options).map(([key,label])=>`<option value="${escapeHtml(key)}">${escapeHtml(key)} — ${escapeHtml(label)}</option>`).join("")}
+    </select>`;
+  }else{
+    control=`<input class="answer-input" data-answer-q="${q.number}" type="text" autocomplete="off" aria-label="Trả lời câu ${q.number}" ${disabled}>
+      <div class="word-warning hidden" id="word-warning-${q.number}"></div>`;
+  }
+  return `<article class="question-card" id="question-${q.number}" data-q="${q.number}">
+    <div class="qhead"><span class="qnum">${q.number}</span>
+      <button class="review-btn ${state.reviews[q.number]?"active":""}" data-review-q="${q.number}" type="button" ${disabled}>${state.reviews[q.number]?"ĐÃ ĐÁNH DẤU":"ĐÁNH DẤU XEM LẠI"}</button>
+    </div>
+    <div class="qtext">${escapeHtml(q.questionText)}</div>
+    ${control}
+  </article>`;
+}
+
+function bindQuestionEvents(){
+  $$("[data-answer-q]").forEach(el=>{
+    el.addEventListener("input",handleAnswer);
+    el.addEventListener("change",handleAnswer);
+    el.addEventListener("focus",()=>setCurrentQuestion(Number(el.dataset.answerQ)));
+  });
+  $$('input[type="radio"][name^="q"]').forEach(el=>{
+    el.addEventListener("change",handleRadio);
+    el.addEventListener("focus",()=>setCurrentQuestion(Number(el.name.slice(1))));
+  });
+  $$("[data-review-q]").forEach(btn=>btn.addEventListener("click",()=>{
+    const n=Number(btn.dataset.reviewQ);
+    state.reviews[n]=!state.reviews[n];
+    btn.classList.toggle("active",!!state.reviews[n]);
+    btn.textContent=state.reviews[n]?"ĐÃ ĐÁNH DẤU":"ĐÁNH DẤU XEM LẠI";
+    updateCounts(); saveState();
+  }));
+}
+function restoreAnswers(){
+  QUESTIONS.filter(q=>q.passage===state.passage).forEach(q=>{
+    const val=state.answers[q.number] ?? "";
+    if(q.questionType==="tfng" || q.questionType==="mcq"){
+      const radio=document.querySelector(`input[name="q${q.number}"][value="${CSS.escape(String(val))}"]`);
+      if(radio) radio.checked=true;
+    }else{
+      const el=document.querySelector(`[data-answer-q="${q.number}"]`);
+      if(el) el.value=val;
+    }
+  });
+}
+function handleRadio(e){
+  const n=Number(e.target.name.slice(1));
+  state.answers[n]=e.target.value; setCurrentQuestion(n); updateCounts(); saveState();
+}
+function handleAnswer(e){
+  const n=Number(e.target.dataset.answerQ);
+  state.answers[n]=e.target.value;
+  const q=getQuestion(n);
+  if(q.maxWords){
+    const count=wordCount(e.target.value);
+    const warn=$(`#word-warning-${n}`);
+    if(count>q.maxWords){
+      warn.textContent=`Bạn đã nhập ${count} từ, vượt quá giới hạn ${q.maxWords} từ.`;
+      warn.classList.remove("hidden");
+    }else warn.classList.add("hidden");
+  }
+  setCurrentQuestion(n); updateCounts(); saveState();
+}
+function setCurrentQuestion(n){
+  state.currentQuestion=n;
+  $$(".question-card").forEach(c=>c.classList.toggle("current-question",Number(c.dataset.q)===n));
+  updateNavigator();
+}
+function goToQuestion(n){
+  const q=getQuestion(n);
+  if(state.passage!==q.passage) showPassage(q.passage);
+  state.currentQuestion=n;
+  setTimeout(()=>{
+    const card=$(`#question-${n}`);
+    if(card){ card.scrollIntoView({behavior:"smooth",block:"start"}); card.querySelector("input,select,button")?.focus({preventScroll:true}); }
+  },20);
+  saveState();
+}
+function updateCounts(){
+  $("#answered-count").textContent=answeredCount();
+  updateNavigator();
+}
+function updateNavigator(){
+  QUESTIONS.forEach(q=>{
+    const b=$(`#qnav-${q.number}`);
+    if(!b) return;
+    b.className="qnav";
+    if(state.submitted && state.result){
+      const r=state.result.items.find(x=>x.number===q.number);
+      b.classList.add(r.status);
+    }else{
+      if(isAnswered(q)) b.classList.add("answered");
+      if(state.reviews[q.number]) b.classList.add("review");
+      if(state.currentQuestion===q.number) b.classList.add("current");
+    }
+  });
+}
+function lockQuestions(){
+  $$("#question-content input,#question-content select,#question-content button").forEach(el=>el.disabled=true);
+}
+
+function startTimer(){
+  clearInterval(timerHandle);
+  const tick=()=>{
+    const remaining=Math.ceil((state.endTime-Date.now())/1000);
+    $("#timer").textContent=formatClock(remaining);
+    $("#timer").classList.toggle("warning",remaining<=600 && remaining>60);
+    $("#timer").classList.toggle("urgent",remaining<=60);
+    [[600,"Bạn còn 10 phút."],[300,"Bạn còn 5 phút. Hãy hoàn thành các câu còn lại."],[60,"Bạn còn 1 phút. Bài sẽ tự động nộp khi hết giờ."]].forEach(([t,msg])=>{
+      if(remaining<=t && !state.warned[t]){
+        state.warned[t]=true; announce(msg); saveState(true);
+      }
+    });
+    if(remaining<=0){
+      clearInterval(timerHandle);
+      submitTest(true);
+    }
+  };
+  tick(); timerHandle=setInterval(tick,1000);
+}
+
+function openSubmitModal(){
+  state.notes[state.passage]=$("#my-notes").value;
+  state.highlights[state.passage]=$("#passage-content").innerHTML;
+  saveState(true);
+  const unanswered=QUESTIONS.filter(q=>!isAnswered(q)).map(q=>q.number);
+  const remaining=Math.max(0,Math.ceil((state.endTime-Date.now())/1000));
+  showModal("Xác nhận nộp bài",
+    `<p><strong>Thời gian còn lại:</strong> ${formatClock(remaining)}</p>
+     <p><strong>Đã trả lời:</strong> ${answeredCount()}/40</p>
+     <p><strong>Chưa trả lời:</strong> ${unanswered.length}${unanswered.length?` — Câu ${unanswered.join(", ")}`:""}</p>
+     <p><strong>Đánh dấu xem lại:</strong> ${reviewCount()}</p>
+     <p style="color:#a31515;font-weight:700">Sau khi nộp, bài sẽ bị khóa và không thể sửa đáp án.</p>`,
+    [
+      {text:"TIẾP TỤC LÀM BÀI",className:"secondary",action:closeModal},
+      {text:"XÁC NHẬN NỘP BÀI",className:"danger",action:()=>{closeModal();submitTest(false);}}
+    ]);
+}
+function submitTest(auto){
+  if(state.submitted) return;
+  if(!auto && !state.started) return;
+  if(!$("#exam-screen").classList.contains("hidden")){
+    state.notes[state.passage]=$("#my-notes").value;
+    state.highlights[state.passage]=$("#passage-content").innerHTML;
+  }
+  clearInterval(timerHandle);
+  state.submitted=true;
+  state.submittedTime=Date.now();
+  state.result=calculateResults();
+  saveState(true);
+  showResults();
+}
+function evaluateQuestion(q){
+  const raw=state.answers[q.number] ?? "";
+  const blank=String(raw).trim()==="";
+  if(blank) return {number:q.number,status:"blank",userAnswer:"",correct:q.correctAnswer};
+  let correct=false;
+  if(q.questionType==="text"){
+    const norm=normalizeText(raw);
+    const within=!q.maxWords || wordCount(raw)<=q.maxWords;
+    correct=within && q.acceptedVariants.some(v=>normalizeText(v)===norm);
+  }else{
+    correct=String(raw)===String(q.correctAnswer);
+  }
+  return {number:q.number,status:correct?"correct":"wrong",userAnswer:String(raw),correct:q.correctAnswer};
+}
+function bandFromScore(score){
+  const bands=[[39,9],[37,8.5],[35,8],[33,7.5],[30,7],[27,6.5],[23,6],[19,5.5],[15,5],[13,4.5],[10,4],[8,3.5],[6,3],[4,2.5],[3,2],[2,1.5],[1,1],[0,0]];
+  return bands.find(([min])=>score>=min)[1];
+}
+function calculateResults(){
+  const items=QUESTIONS.map(evaluateQuestion);
+  const correct=items.filter(x=>x.status==="correct").length;
+  const wrong=items.filter(x=>x.status==="wrong").length;
+  const blank=items.filter(x=>x.status==="blank").length;
+  const passageScores={};
+  [1,2,3].forEach(p=>{
+    const qs=QUESTIONS.filter(q=>q.passage===p);
+    const nums=new Set(qs.map(q=>q.number));
+    passageScores[p]={correct:items.filter(x=>nums.has(x.number)&&x.status==="correct").length,total:qs.length};
+  });
+  return {items,correct,wrong,blank,percent:Math.round(correct/40*1000)/10,band:bandFromScore(correct),passageScores};
+}
+
+function showResults(){
+  reviewMode=false;
+  $("#exam-screen").classList.add("hidden");
+  $("#start-screen").classList.add("hidden");
+  $("#results-screen").classList.remove("hidden");
+  const r=state.result || calculateResults();
+  state.result=r;
+  $("#result-meta").innerHTML=`
+    <span><strong>Họ tên:</strong> ${escapeHtml(state.name)}</span>
+    <span><strong>Bắt đầu:</strong> ${escapeHtml(formatDateTime(state.startTime))}</span>
+    <span><strong>Nộp:</strong> ${escapeHtml(formatDateTime(state.submittedTime))}</span>
+    <span><strong>Thời lượng:</strong> ${escapeHtml(durationText(state.submittedTime-state.startTime))}</span>`;
+  $("#score-grid").innerHTML=`
+    <div class="score-card">Số câu đúng<strong>${r.correct}/40</strong></div>
+    <div class="score-card">Số câu sai<strong>${r.wrong}</strong></div>
+    <div class="score-card">Bỏ trống<strong>${r.blank}</strong></div>
+    <div class="score-card">Band ước lượng<strong>${r.band.toFixed(1)}</strong><small>${r.percent}% chính xác</small></div>`;
+  $("#passage-score-grid").innerHTML=[1,2,3].map(p=>
+    `<div class="score-card"><span>PASSAGE ${p}</span><strong>${r.passageScores[p].correct}/${r.passageScores[p].total}</strong></div>`
+  ).join("");
+  renderResultQuestions("all");
+  renderParaphrases("all");
+  renderReviewSummary();
+  bindResultFilters();
+}
+function displayAnswer(q,value){
+  if(!value) return "—";
+  const label=q.options?.[value];
+  return label && label!==value ? `${value} — ${label}` : value;
+}
+function renderResultQuestions(filter){
+  const r=state.result;
+  let items=r.items;
+  if(filter==="review") items=items.filter(x=>state.reviews[x.number]);
+  else if(filter!=="all") items=items.filter(x=>x.status===filter);
+  $("#result-questions").innerHTML=items.map(item=>{
+    const q=getQuestion(item.number);
+    const statusText=item.status==="correct"?"ĐÚNG":item.status==="wrong"?"SAI":"BỎ TRỐNG";
+    const open=item.status!=="correct"?"open":"";
+    return `<article class="result-question ${item.status}" data-status="${item.status}">
+      <div class="qhead">
+        <div><span class="qnum">${q.number}</span> <strong>Passage ${q.passage}</strong> <span class="badge">${escapeHtml(q.typeLabel)}</span> ${state.reviews[q.number]?'<span class="badge review-badge">Xem lại</span>':""}</div>
+        <span class="status-label">${statusText}</span>
+      </div>
+      <div class="qtext">${escapeHtml(q.questionText)}</div>
+      <div class="answer-grid">
+        <div class="answer-box"><strong>Câu trả lời của học sinh</strong><br>${escapeHtml(displayAnswer(q,item.userAnswer))}</div>
+        <div class="answer-box"><strong>Đáp án đúng</strong><br>${escapeHtml(q.correctAnswerFull)}</div>
+      </div>
+      <details ${open}>
+        <summary>Xem giải thích chi tiết</summary>
+        <div class="explain-section"><strong>Đoạn chứa câu trả lời:</strong> ${escapeHtml(q.sourceParagraph)}</div>
+        <div class="explain-section evidence"><strong>Bằng chứng:</strong><br>“${escapeHtml(q.evidenceQuote)}”</div>
+        <div class="explain-section"><strong>Giải thích:</strong> ${escapeHtml(q.explanationVi)}</div>
+        ${q.note?`<div class="explain-section"><strong>Lưu ý kiểm chứng:</strong> ${escapeHtml(q.note)}</div>`:""}
+        ${q.incorrectOptionExplanations?`<div class="explain-section"><strong>Phân tích phương án sai:</strong> ${escapeHtml(q.incorrectOptionExplanations)}</div>`:""}
+        <div class="explain-section"><strong>Paraphrase:</strong> ${escapeHtml(q.paraphrase)}</div>
+        ${q.trap?`<div class="explain-section"><strong>Bẫy IELTS:</strong> ${escapeHtml(q.trap)}</div>`:""}
+        <div class="explain-section"><button class="secondary locate-btn" data-locate="${q.number}" type="button">XEM VỊ TRÍ TRONG BÀI ĐỌC</button></div>
+      </details>
+    </article>`;
+  }).join("") || `<p>Không có câu nào trong bộ lọc này.</p>`;
+  $$(".locate-btn").forEach(btn=>btn.addEventListener("click",()=>locateEvidence(Number(btn.dataset.locate))));
+}
+function bindResultFilters(){
+  $$(".filter-btn").forEach(btn=>btn.onclick=()=>{
+    $$(".filter-btn").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active"); renderResultQuestions(btn.dataset.filter);
+  });
+  $$(".para-filter").forEach(btn=>btn.onclick=()=>{
+    $$(".para-filter").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active"); renderParaphrases(btn.dataset.passage);
+  });
+}
+function renderParaphrases(filter){
+  const wrongSet=new Set(state.result.items.filter(x=>x.status!=="correct").map(x=>x.number));
+  let qs=QUESTIONS;
+  if(filter==="wrong") qs=qs.filter(q=>wrongSet.has(q.number));
+  else if(filter!=="all") qs=qs.filter(q=>q.passage===Number(filter));
+  $("#paraphrase-list").innerHTML=qs.map(q=>`
+    <div class="para-card" data-passage="${q.passage}">
+      <strong>Câu ${q.number} — Passage ${q.passage}</strong><br>
+      ${escapeHtml(q.paraphrase)}
+    </div>`).join("");
+}
+function renderReviewSummary(){
+  const items=state.result.items;
+  const attention=items.filter(x=>x.status!=="correct" || state.reviews[x.number]).map(x=>x.number);
+  const stats={};
+  QUESTIONS.forEach(q=>{
+    if(!stats[q.typeLabel]) stats[q.typeLabel]={correct:0,total:0};
+    stats[q.typeLabel].total++;
+    if(items.find(x=>x.number===q.number).status==="correct") stats[q.typeLabel].correct++;
+  });
+  const weakest=Object.entries(stats).sort((a,b)=>(a[1].correct/a[1].total)-(b[1].correct/b[1].total))[0];
+  let insights=[];
+  const ngWrong=items.filter(x=>[1,2,3,4,5,6,34,35,36,37].includes(x.number)&&x.status!=="correct").length;
+  const headingWrong=items.filter(x=>x.number>=14&&x.number<=19&&x.status!=="correct").length;
+  const completionOver=QUESTIONS.filter(q=>q.questionType==="text" && wordCount(state.answers[q.number]||"")>(q.maxWords||999)).length;
+  if(ngWrong) insights.push(`Bạn sai hoặc bỏ trống ${ngWrong} câu TRUE/FALSE/NOT GIVEN. Hãy phân biệt thông tin trái ngược với thông tin không được đề cập.`);
+  if(headingWrong) insights.push(`Bạn sai hoặc bỏ trống ${headingWrong} câu Matching Headings. Cần chọn ý bao quát toàn đoạn thay vì một chi tiết nhỏ.`);
+  if(completionOver) insights.push(`${completionOver} đáp án Completion vượt quá giới hạn từ.`);
+  if(!insights.length) insights.push("Kết quả không cho thấy lỗi nổi bật theo nhóm câu hỏi; hãy xem lại các câu đã đánh dấu để củng cố cách suy luận.");
+  $("#review-summary").innerHTML=`
+    <p><strong>Câu cần chú ý:</strong> ${attention.length?attention.join(", "):"Không có"}</p>
+    <p><strong>Dạng bài có tỷ lệ đúng thấp nhất:</strong> ${escapeHtml(weakest[0])} — ${weakest[1].correct}/${weakest[1].total}</p>
+    <ul>${Object.entries(stats).map(([name,s])=>`<li>${escapeHtml(name)}: ${s.correct}/${s.total}</li>`).join("")}</ul>
+    <ul>${insights.map(x=>`<li>${escapeHtml(x)}</li>`).join("")}</ul>`;
+}
+function locateEvidence(n){
+  const q=getQuestion(n);
+  reviewMode=true;
+  state.passage=q.passage;
+  $("#results-screen").classList.add("hidden");
+  $("#exam-screen").classList.remove("hidden");
+  $("#back-results-btn").classList.remove("hidden");
+  $("#save-btn").classList.add("hidden");
+  $("#submit-btn").classList.add("hidden");
+  renderTabsAndNav();
+  showPassage(q.passage,false);
+  lockQuestions();
+  const labels=[...q.sourceParagraph.matchAll(/(?:Đoạn|Paragraph)\s*([A-H]|\d+)/gi)].map(m=>m[1].toUpperCase());
+  const targetLabel=labels[0] || (q.passage===1?"1":"A");
+  setTimeout(()=>{
+    $$(".passage-paragraph").forEach(p=>p.classList.remove("evidence-focus"));
+    const target=$(`#passage-${q.passage}-paragraph-${CSS.escape(targetLabel)}`);
+    if(target){ target.classList.add("evidence-focus"); target.scrollIntoView({behavior:"smooth",block:"center"}); }
+  },50);
+}
+
+function copyResults(){
+  const r=state.result;
+  const lines=[
+    "IELTS ACADEMIC READING TEST – TEST 1",
+    `Họ và tên: ${state.name}`,
+    `Ngày làm bài: ${formatDateTime(state.startTime)}`,
+    `Thời gian bắt đầu: ${formatDateTime(state.startTime)}`,
+    `Thời gian nộp: ${formatDateTime(state.submittedTime)}`,
+    `Thời lượng: ${durationText(state.submittedTime-state.startTime)}`,
+    `Tổng số câu: 40`,
+    `Đúng: ${r.correct} | Sai: ${r.wrong} | Bỏ trống: ${r.blank}`,
+    `Độ chính xác: ${r.percent}%`,
+    `Band Reading ước lượng: ${r.band.toFixed(1)}`,
+    `Passage 1: ${r.passageScores[1].correct}/${r.passageScores[1].total}`,
+    `Passage 2: ${r.passageScores[2].correct}/${r.passageScores[2].total}`,
+    `Passage 3: ${r.passageScores[3].correct}/${r.passageScores[3].total}`,
+    "",
+    "CHI TIẾT TỪNG CÂU"
+  ];
+  r.items.forEach(item=>{
+    const q=getQuestion(item.number);
+    lines.push(
+      "",
+      `Câu ${q.number} – Passage ${q.passage} – ${q.typeLabel}`,
+      `Câu hỏi: ${q.questionText}`,
+      `Bài làm: ${displayAnswer(q,item.userAnswer)}`,
+      `Đáp án đúng: ${q.correctAnswerFull}`,
+      `Trạng thái: ${item.status==="correct"?"ĐÚNG":item.status==="wrong"?"SAI":"BỎ TRỐNG"}`,
+      `Vị trí: ${q.sourceParagraph}`,
+      `Bằng chứng: ${q.evidenceQuote}`,
+      `Giải thích: ${q.explanationVi}`,
+      q.incorrectOptionExplanations?`Phương án sai: ${q.incorrectOptionExplanations}`:"",
+      `Paraphrase: ${q.paraphrase}`,
+      q.trap?`Bẫy IELTS: ${q.trap}`:""
+    );
+  });
+  lines.push("","Band Reading là mức ước lượng. Bảng quy đổi trong kỳ thi thực tế có thể thay đổi nhẹ theo độ khó của đề.");
+  const text=lines.filter(x=>x!==undefined).join("\n");
+  if(navigator.clipboard?.writeText){
+    navigator.clipboard.writeText(text).then(()=>showToast("Đã sao chép toàn bộ kết quả.")).catch(()=>fallbackCopy(text));
+  }else fallbackCopy(text);
+}
+function fallbackCopy(text){
+  const ta=document.createElement("textarea"); ta.value=text; ta.style.position="fixed"; ta.style.opacity="0";
+  document.body.appendChild(ta); ta.select();
+  try{
+    if(document.execCommand("copy")) showToast("Đã sao chép toàn bộ kết quả.");
+    else throw new Error();
+  }catch(e){
+    showModal("Không thể tự động sao chép","<p>Không thể tự động sao chép. Vui lòng chọn và sao chép nội dung thủ công.</p><textarea style='width:100%;min-height:300px'></textarea>",[{text:"ĐÓNG",className:"secondary",action:closeModal}]);
+    $("#modal-body textarea").value=text;
+  }finally{ ta.remove(); }
+}
+
+function retake(){
+  showModal("Làm lại bài thi","<p>Bạn có chắc chắn muốn xóa toàn bộ bài làm và kết quả để làm lại từ đầu không?</p>",[
+    {text:"HỦY",className:"secondary",action:closeModal},
+    {text:"XÓA VÀ LÀM LẠI",className:"danger",action:()=>{
+      closeModal(); clearInterval(timerHandle);
+      if(storageAvailable) localStorage.removeItem(STORAGE_KEY);
+      state=defaultState();
+      $("#results-screen").classList.add("hidden");
+      $("#exam-screen").classList.add("hidden");
+      $("#start-screen").classList.remove("hidden");
+      $("#candidate-name").value="";
+      $("#ready-confirm").checked=false;
+    }}
+  ]);
+}
+
+function applyHighlight(){
+  const sel=window.getSelection();
+  if(!sel || sel.rangeCount===0 || sel.isCollapsed){ showToast("Hãy chọn một đoạn văn trước."); return; }
+  const range=sel.getRangeAt(0);
+  const container=$("#passage-content");
+  if(!container.contains(range.commonAncestorContainer)){ showToast("Chỉ có thể tô đoạn văn trong bài đọc."); return; }
+  try{
+    const mark=document.createElement("mark");
+    mark.className="user-highlight";
+    range.surroundContents(mark);
+    sel.removeAllRanges();
+    state.highlights[state.passage]=container.innerHTML; saveState();
+    bindMarkClicks();
+  }catch(e){ showToast("Hãy chọn đoạn văn nằm trong cùng một đoạn để đánh dấu."); }
+}
+function bindMarkClicks(){
+  $$("mark.user-highlight").forEach(mark=>mark.onclick=()=>{
+    $$("mark.user-highlight").forEach(m=>m.classList.remove("selected-mark"));
+    mark.classList.add("selected-mark");
+  });
+}
+function removeHighlight(){
+  const selected=$$("mark.user-highlight.selected-mark");
+  if(!selected.length){ showToast("Nhấp vào phần đã tô vàng rồi chọn BỎ ĐÁNH DẤU."); return; }
+  selected.forEach(mark=>{
+    const parent=mark.parentNode;
+    while(mark.firstChild) parent.insertBefore(mark.firstChild,mark);
+    mark.remove(); parent.normalize();
+  });
+  state.highlights[state.passage]=$("#passage-content").innerHTML; saveState();
+}
+
+function showModal(title,body,actions){
+  lastFocusedBeforeModal=document.activeElement;
+  $("#modal-title").textContent=title;
+  $("#modal-body").innerHTML=body;
+  $("#modal-actions").innerHTML="";
+  actions.forEach(a=>{
+    const b=document.createElement("button"); b.type="button"; b.textContent=a.text; b.className=a.className;
+    b.addEventListener("click",a.action); $("#modal-actions").appendChild(b);
+  });
+  $("#modal-backdrop").classList.remove("hidden");
+  setTimeout(()=>$("#modal").querySelector("button,input,textarea,select")?.focus(),0);
+}
+function closeModal(){
+  $("#modal-backdrop").classList.add("hidden");
+  lastFocusedBeforeModal?.focus?.();
+}
+function trapModalFocus(e){
+  if($("#modal-backdrop").classList.contains("hidden")) return;
+  if(e.key==="Escape"){ closeModal(); return; }
+  if(e.key!=="Tab") return;
+  const focusable=$$("#modal button,#modal input,#modal textarea,#modal select").filter(x=>!x.disabled);
+  if(!focusable.length) return;
+  const first=focusable[0],last=focusable[focusable.length-1];
+  if(e.shiftKey && document.activeElement===first){e.preventDefault();last.focus();}
+  else if(!e.shiftKey && document.activeElement===last){e.preventDefault();first.focus();}
+}
+
+function initialize(){
+  loadState();
+  $("#start-btn").addEventListener("click",startTest);
+  $("#save-btn").addEventListener("click",()=>{
+    state.notes[state.passage]=$("#my-notes").value;
+    state.highlights[state.passage]=$("#passage-content").innerHTML;
+    saveState(true); showToast("Đã lưu bài.");
+  });
+  $("#submit-btn").addEventListener("click",openSubmitModal);
+  $("#back-results-btn").addEventListener("click",showResults);
+  $("#copy-results-btn").addEventListener("click",copyResults);
+  $("#retake-btn").addEventListener("click",retake);
+  $("#highlight-btn").addEventListener("click",applyHighlight);
+  $("#remove-highlight-btn").addEventListener("click",removeHighlight);
+  $("#my-notes").addEventListener("input",()=>{state.notes[state.passage]=$("#my-notes").value;saveState();});
+  $("#show-reading").addEventListener("click",()=>{
+    $("#passage-pane").classList.remove("mobile-hidden");$("#question-pane").classList.add("mobile-hidden");
+    $("#show-reading").className="primary";$("#show-questions").className="secondary";
+  });
+  $("#show-questions").addEventListener("click",()=>{
+    $("#question-pane").classList.remove("mobile-hidden");$("#passage-pane").classList.add("mobile-hidden");
+    $("#show-questions").className="primary";$("#show-reading").className="secondary";
+  });
+  document.addEventListener("keydown",trapModalFocus);
+  window.addEventListener("beforeunload",()=>{
+    if(state.started && !state.submitted && !$("#exam-screen").classList.contains("hidden")){
+      state.notes[state.passage]=$("#my-notes").value;
+      state.highlights[state.passage]=$("#passage-content").innerHTML;
+      saveState(true);
+    }
+  });
+
+  if(state.started){
+    if(state.submitted) showResults();
+    else if(state.endTime && Date.now()>=state.endTime){ submitTest(true); }
+    else openExam();
+  }
+}
+initialize();
+</script>
+
+<!-- IELTS_DUAL_PANE_PATCH_SCRIPT_START -->
+<script id="ielts-dual-pane-layout-runtime">
+(function(){
+  function visible(el){
+    if(!el) return false;
+    if(el.classList && el.classList.contains('hidden')) return false;
+    const s = window.getComputedStyle(el);
+    if(s.display === 'none' || s.visibility === 'hidden') return false;
+    return !!(el.offsetWidth || el.offsetHeight || el.getClientRects().length);
+  }
+
+  function syncExamLock(){
+    const candidates = Array.from(document.querySelectorAll('.exam,.practice,#exam-screen'));
+    const active = candidates.some(visible);
+    document.documentElement.classList.toggle('ielts-exam-active', active);
+    if(document.body) document.body.classList.toggle('ielts-exam-active', active);
+  }
+
+  function start(){
+    syncExamLock();
+    const obs = new MutationObserver(syncExamLock);
+    obs.observe(document.documentElement,{
+      subtree:true,
+      childList:true,
+      attributes:true,
+      attributeFilter:['class','style','hidden']
+    });
+    window.addEventListener('resize', syncExamLock, {passive:true});
+    window.addEventListener('orientationchange', syncExamLock, {passive:true});
+    document.addEventListener('click', function(){ setTimeout(syncExamLock,0); }, {passive:true});
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', start, {once:true});
+  }else{
+    start();
+  }
+})();
+</script>
+<!-- IELTS_DUAL_PANE_PATCH_SCRIPT_END -->
+
+</body>
+</html>
