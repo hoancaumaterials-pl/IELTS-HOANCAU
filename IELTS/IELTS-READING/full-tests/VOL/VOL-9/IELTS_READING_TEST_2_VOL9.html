@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IELTS Reading Test 2</title>
+<style>
+:root{
+  --navy:#163a5f;--navy2:#0f2c49;--blue:#2563a6;--pale:#f4f7fa;--line:#d9e2ec;
+  --green:#137a43;--red:#b42318;--amber:#b7791f;--gray:#667085;--ink:#1d2939;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:#eef2f6;line-height:1.55}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #69a7e8;outline-offset:2px}
+.hidden{display:none!important}
+.screen{min-height:100vh}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 4px 18px rgba(16,24,40,.06)}
+.start-wrap{max-width:820px;margin:48px auto;padding:24px}
+.start-card{padding:34px}
+.kicker{font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--blue);text-transform:uppercase}
+h1{margin:.25rem 0 .25rem;color:var(--navy);font-size:34px;line-height:1.2}
+h2,h3{color:var(--navy)}
+.test-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:22px 0}
+.meta-pill{background:var(--pale);border:1px solid var(--line);border-radius:10px;padding:12px;text-align:center}
+.instructions{background:#f8fafc;border-left:4px solid var(--blue);padding:14px 18px;border-radius:8px;margin:18px 0}
+.instructions ul{margin:8px 0 0;padding-left:22px}
+.form-row{margin:20px 0}
+.form-row label{display:block;font-weight:700;margin-bottom:7px}
+.form-row input[type=text]{width:100%;padding:13px 14px;border:1px solid #98a2b3;border-radius:8px}
+.check-row{display:flex;gap:10px;align-items:flex-start}
+.primary{border:0;background:var(--navy);color:#fff;padding:12px 18px;border-radius:9px;font-weight:700}
+.primary:hover{background:var(--navy2)}
+.secondary{border:1px solid var(--navy);background:#fff;color:var(--navy);padding:10px 14px;border-radius:9px;font-weight:700}
+.danger{border:1px solid var(--red);background:#fff;color:var(--red);padding:10px 14px;border-radius:9px;font-weight:700}
+.big-btn{font-size:17px;padding:14px 22px;width:100%;margin-top:8px}
+.error{color:var(--red);font-weight:700;margin-top:8px}
+.topbar{position:sticky;top:0;z-index:20;background:var(--navy2);color:white;padding:5px 10px;box-shadow:0 2px 8px rgba(0,0,0,.16)}
+.topbar-inner{max-width:1800px;margin:auto;display:flex;gap:8px;align-items:center;flex-wrap:nowrap}
+.top-item{font-size:11px;display:flex;align-items:baseline;gap:5px;white-space:nowrap}
+.top-item strong{display:inline;font-size:13px}
+.timer{font-variant-numeric:tabular-nums;font-size:18px;font-weight:800;letter-spacing:.03em}
+.timer.warn{color:#ffd166}
+.top-spacer{flex:1}
+.topbar button{padding:5px 9px;border-radius:6px;border:1px solid rgba(255,255,255,.5);background:transparent;color:white;font-weight:700;font-size:12px}
+.topbar .submit-top{background:#fff;color:var(--navy2);border-color:#fff}
+.tabs-bar{position:sticky;top:43px;z-index:15;background:#fff;border-bottom:1px solid var(--line);padding:5px 10px}
+.tabs-inner{max-width:1800px;margin:auto;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.passage-tab{padding:6px 12px;border:1px solid var(--line);background:#fff;border-radius:7px;font-weight:700;color:var(--navy);font-size:13px}
+.passage-tab.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.status-summary{margin-left:auto;font-size:13px;color:#475467}
+.nav-wrap{max-width:1800px;margin:6px auto 0;padding:0 10px}
+.question-nav{display:flex;gap:5px;flex-wrap:wrap}
+.qnav{width:30px;height:30px;border-radius:6px;border:1px solid #cdd5df;background:#e4e7ec;color:#344054;font-weight:700;padding:0;font-size:12px}
+.qnav.answered{background:#dbeafe;border-color:#60a5fa;color:#1e40af}
+.qnav.review{background:#fef3c7;border-color:#f59e0b;color:#92400e}
+.qnav.current{background:var(--navy);color:#fff;border-color:var(--navy)}
+.qnav.correct{background:#dcfce7;border-color:#22c55e;color:#166534}
+.qnav.wrong{background:#fee2e2;border-color:#ef4444;color:#991b1b}
+.qnav.blank{background:#d0d5dd;border-color:#98a2b3;color:#344054}
+.workspace{max-width:1800px;margin:8px auto;padding:0 10px 14px;display:grid;grid-template-columns:minmax(0,3fr) minmax(400px,2fr);gap:10px;height:calc(100vh - 126px)}
+.pane{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:auto;min-height:0}
+.pane-head{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);padding:8px 14px;z-index:5}
+.pane-body{padding:18px 20px}
+.passage-title{text-align:center;font-family:Georgia,serif;font-size:28px;color:#9a5c1f;margin:4px 0 18px}
+.passage-subtitle{text-align:center;font-style:italic;font-weight:700;margin:-8px auto 20px;max-width:760px}
+.passage-para{font-family:Georgia,'Times New Roman',serif;font-size:18px;line-height:1.72;margin:0 0 18px;white-space:pre-line}
+.para-label{float:left;font-family:Arial,sans-serif;font-size:28px;font-weight:700;color:#d47b23;margin-right:13px;line-height:1.1}
+.student-highlight{background:#fff176;padding:1px 0}
+.evidence-flash{animation:flash 2.4s ease}
+@keyframes flash{0%,100%{background:transparent}25%,70%{background:#fff1b8}}
+.read-tools{display:flex;gap:7px;flex-wrap:wrap}
+.read-tools button{padding:5px 9px;border:1px solid #98a2b3;background:white;border-radius:6px;font-size:12px}
+.qgroup{border:1px solid var(--line);border-radius:10px;padding:13px;margin:0 0 12px;background:#fff}
+.qgroup:focus-within{border-color:#6aa9e8;box-shadow:0 0 0 2px #dbeafe}
+.group-title{font-weight:800;color:var(--navy);font-size:17px;margin-bottom:4px}
+.group-instruction{font-size:13px;color:#475467;background:#f8fafc;padding:7px 9px;border-radius:7px;margin:6px 0 10px}
+.question-card{border-top:1px solid #e4e7ec;padding:11px 0 2px}
+.question-card:first-of-type{border-top:0}
+.qline{display:flex;gap:10px;align-items:flex-start}
+.qnum{min-width:31px;height:31px;border-radius:50%;background:var(--navy);color:white;display:inline-flex;align-items:center;justify-content:center;font-weight:800}
+.qtext{font-size:15.5px;font-weight:600;flex:1}
+.answer-area{margin:10px 0 4px 41px}
+.answer-area select,.answer-area input[type=text]{width:min(100%,540px);padding:10px;border:1px solid #98a2b3;border-radius:7px;background:white}
+.choice{display:flex;gap:9px;align-items:flex-start;margin:7px 0}
+.choice input{margin-top:5px}
+.review-btn{margin:8px 0 0 41px;border:1px solid #e0a12b;background:#fffaf0;color:#925d00;padding:6px 9px;border-radius:7px;font-size:13px;font-weight:700}
+.review-btn.marked{background:#fef3c7}
+.word-warning{font-size:12px;color:var(--red);font-weight:700;margin-top:4px}
+.mobile-jump{display:none}
+.save-line{font-size:12px;color:#667085}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);z-index:60;background:#101828;color:white;padding:10px 16px;border-radius:8px;box-shadow:0 5px 20px rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:.2s}
+.toast.show{opacity:1}
+.modal-backdrop{position:fixed;inset:0;background:rgba(16,24,40,.62);z-index:50;display:flex;align-items:center;justify-content:center;padding:18px}
+.modal{width:min(620px,100%);background:white;border-radius:14px;padding:24px;box-shadow:0 20px 50px rgba(0,0,0,.3)}
+.modal h2{margin-top:0}
+.modal-actions{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;margin-top:18px}
+.unanswered-list{max-height:110px;overflow:auto;background:#f8fafc;padding:9px;border-radius:7px}
+.results-wrap{max-width:1250px;margin:0 auto;padding:24px 16px 50px}
+.results-head{padding:24px}
+.results-head h1{font-size:28px}
+.summary-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}
+.metric{background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:13px}
+.metric b{display:block;font-size:23px;color:var(--navy)}
+.passage-scores{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}
+.score-card{padding:16px;text-align:center}
+.score-card b{font-size:24px;color:var(--navy)}
+.result-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}
+.result-actions button{min-height:48px}
+.filterbar{display:flex;gap:7px;flex-wrap:wrap;margin:15px 0}
+.filterbar button{border:1px solid #98a2b3;background:#fff;border-radius:20px;padding:7px 12px}
+.filterbar button.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.result-card{background:white;border:1px solid var(--line);border-left:6px solid #98a2b3;border-radius:10px;margin:10px 0;overflow:hidden}
+.result-card.correct{border-left-color:var(--green)}
+.result-card.wrong{border-left-color:var(--red)}
+.result-card.blank{border-left-color:#667085}
+.result-summary{padding:14px 16px;display:flex;gap:12px;align-items:flex-start}
+.status-badge{font-size:12px;font-weight:800;border-radius:16px;padding:4px 8px;white-space:nowrap}
+.status-badge.correct{color:#166534;background:#dcfce7}
+.status-badge.wrong{color:#991b1b;background:#fee2e2}
+.status-badge.blank{color:#344054;background:#e4e7ec}
+.result-q{font-weight:800;color:var(--navy);min-width:54px}
+.result-main{flex:1}
+.answer-compare{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.answer-box{background:#f8fafc;padding:9px;border-radius:7px}
+details.explain{border-top:1px solid var(--line);padding:0 16px 16px}
+details.explain summary{padding:12px 0;font-weight:800;color:var(--navy);cursor:pointer}
+.detail-block{margin:11px 0}
+.detail-block h4{margin:0 0 5px;color:#344054}
+.quote{background:#fff8e8;border-left:4px solid #e7a23b;padding:12px;white-space:pre-line;font-family:Georgia,serif}
+.explain-text{white-space:pre-line}
+.para-list{margin:5px 0;padding-left:20px}
+.location-btn{border:1px solid var(--blue);color:var(--blue);background:white;padding:8px 10px;border-radius:7px;font-weight:700}
+.review-passage-panel{padding:16px;margin:16px 0}
+.review-passage-content{max-height:430px;overflow:auto;border-top:1px solid var(--line);margin-top:10px;padding:16px}
+.paraphrase-section,.weakness-section{padding:20px;margin-top:16px}
+.para-item{padding:9px 0;border-bottom:1px solid #edf0f3}
+.weak-stat{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid #edf0f3}
+@media(max-width:1000px){
+  .workspace{grid-template-columns:1fr;height:auto}
+  .pane{max-height:none;overflow:visible}
+  .tabs-bar{top:72px}
+  .mobile-jump{display:flex;position:sticky;top:112px;z-index:14;background:#eef2f6;padding:6px 12px;gap:7px}
+  .mobile-jump button{flex:1;border:1px solid var(--navy);background:white;color:var(--navy);padding:8px;border-radius:7px;font-weight:700}
+  .test-meta,.summary-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:650px){
+  h1{font-size:27px}
+  .start-wrap{margin:12px auto;padding:10px}
+  .start-card{padding:20px}
+  .topbar-inner{gap:7px}
+  .top-item:nth-child(2),.top-item:nth-child(3){display:none}
+  .tabs-bar{top:68px}
+  .mobile-jump{top:108px}
+  .pane-body{padding:16px}
+  .answer-area,.review-btn{margin-left:0}
+  .passage-scores,.result-actions,.summary-grid{grid-template-columns:1fr}
+  .answer-compare{grid-template-columns:1fr}
+}
+@media print{
+  .topbar,.tabs-bar,.question-nav,.result-actions,.filterbar,.mobile-jump{display:none!important}
+  body{background:white}.card,.result-card{box-shadow:none;break-inside:avoid}
+}
+</style>
+
+<!-- IELTS_DUAL_PANE_PATCH_START -->
+<style id="ielts-dual-pane-layout-patch">
+/* =========================================================
+   IELTS READING – DUAL PANE / INDEPENDENT SCROLL PATCH
+   Desktop: 60/40
+   Mobile portrait (<768px): top/bottom, BOTH visible
+   Mobile landscape + tablet: 60/40
+   Body locked only while an exam/practice screen is active
+   ========================================================= */
+
+html.ielts-exam-active,
+body.ielts-exam-active{
+  height:100% !important;
+  max-height:100% !important;
+  overflow:hidden !important;
+  overscroll-behavior:none !important;
+}
+
+body.ielts-exam-active{
+  position:relative !important;
+}
+
+/* Prevent the exam/practice shell itself from becoming the scrolling surface. */
+body.ielts-exam-active .exam,
+body.ielts-exam-active .practice,
+body.ielts-exam-active #exam-screen{
+  min-height:0 !important;
+  overflow:hidden !important;
+}
+
+/* Common split containers */
+body.ielts-exam-active .workspace,
+body.ielts-exam-active .work{
+  min-height:0 !important;
+  overflow:hidden !important;
+}
+
+/* Every reading/question pane scrolls on its own. */
+body.ielts-exam-active .workspace > .pane,
+body.ielts-exam-active .workspace > .reading-pane,
+body.ielts-exam-active .workspace > .question-pane,
+body.ielts-exam-active .workspace > .passage-pane,
+body.ielts-exam-active .workspace > .passage,
+body.ielts-exam-active .workspace > .questions,
+body.ielts-exam-active .work > .pane,
+body.ielts-exam-active .work > .reading-pane,
+body.ielts-exam-active .work > .question-pane,
+body.ielts-exam-active .work > .passage-pane,
+body.ielts-exam-active .work > .passage,
+body.ielts-exam-active .work > .questions,
+body.ielts-exam-active #passage-pane,
+body.ielts-exam-active #question-pane{
+  min-height:0 !important;
+  overflow-y:auto !important;
+  overflow-x:hidden !important;
+  overscroll-behavior:contain !important;
+  -webkit-overflow-scrolling:touch !important;
+}
+
+/* The old "show only one pane" mobile controls are no longer needed. */
+body.ielts-exam-active .mobile-switch,
+body.ielts-exam-active .mobile-toggle,
+body.ielts-exam-active #show-reading,
+body.ielts-exam-active #show-questions{
+  display:none !important;
+}
+
+/* Never allow old mobile-state classes to hide one side. */
+body.ielts-exam-active .workspace.show-questions > .reading-pane,
+body.ielts-exam-active .workspace.show-questions > .passage-pane,
+body.ielts-exam-active .workspace.show-questions > .passage,
+body.ielts-exam-active .workspace:not(.show-questions) > .question-pane,
+body.ielts-exam-active .practice.show-passage .question-pane,
+body.ielts-exam-active .practice:not(.show-passage) .passage-pane,
+body.ielts-exam-active #passage-pane.mobile-hidden,
+body.ielts-exam-active #question-pane.mobile-hidden{
+  display:block !important;
+}
+
+/* Keep fixed-height practice shells inside the viewport. */
+body.ielts-exam-active .practice{
+  height:100vh !important;
+  height:100dvh !important;
+  max-height:100vh !important;
+  max-height:100dvh !important;
+}
+
+/* Matching Information-style shell: 44px global brand + exam below it. */
+body.ielts-exam-active .top-brand + .exam,
+body.ielts-exam-active .top-brand ~ .exam{
+  height:calc(100vh - 44px) !important;
+  height:calc(100dvh - 44px) !important;
+  min-height:0 !important;
+}
+
+/* ---------- DESKTOP + TABLET + MOBILE LANDSCAPE ---------- */
+@media (min-width:768px), (orientation:landscape){
+  body.ielts-exam-active .exam .workspace,
+  body.ielts-exam-active .exam .work,
+  body.ielts-exam-active .practice .workspace{
+    display:grid !important;
+    grid-template-columns:minmax(0,3fr) minmax(0,2fr) !important; /* 60 / 40 */
+    grid-template-rows:minmax(0,1fr) !important;
+    min-height:0 !important;
+    overflow:hidden !important;
+    position:relative !important;
+  }
+
+  /* Flex-based exam templates */
+  body.ielts-exam-active .exam .workspace,
+  body.ielts-exam-active .exam .work{
+    flex:1 1 auto !important;
+    height:auto !important;
+  }
+
+  /* YES/NO/NOT GIVEN-style fixed header = 46 + 42 = 88px */
+  body.ielts-exam-active .practice .workspace{
+    height:calc(100vh - 88px) !important;
+    height:calc(100dvh - 88px) !important;
+  }
+
+  body.ielts-exam-active .workspace > .pane,
+  body.ielts-exam-active .workspace > .reading-pane,
+  body.ielts-exam-active .workspace > .question-pane,
+  body.ielts-exam-active .workspace > .passage-pane,
+  body.ielts-exam-active .workspace > .passage,
+  body.ielts-exam-active .workspace > .questions,
+  body.ielts-exam-active .work > .pane,
+  body.ielts-exam-active .work > .reading-pane,
+  body.ielts-exam-active .work > .question-pane,
+  body.ielts-exam-active .work > .passage-pane,
+  body.ielts-exam-active .work > .passage,
+  body.ielts-exam-active .work > .questions{
+    display:block !important;
+    position:relative !important;
+    inset:auto !important;
+    height:auto !important;
+    max-height:none !important;
+    min-height:0 !important;
+    overflow-y:auto !important;
+  }
+
+  /* Restore divider between 60% passage and 40% questions */
+  body.ielts-exam-active .work > .passage,
+  body.ielts-exam-active .workspace > .reading-pane,
+  body.ielts-exam-active .workspace > .passage-pane{
+    border-right:1px solid var(--line, #d7dde4) !important;
+    border-bottom:0 !important;
+  }
+}
+
+/* ---------- MOBILE PORTRAIT ONLY ---------- */
+@media (max-width:767px) and (orientation:portrait){
+  /* Matching Information had height:auto + sticky header on mobile:
+     force the shell back into the viewport. */
+  body.ielts-exam-active .exam{
+    min-height:0 !important;
+    overflow:hidden !important;
+  }
+
+  body.ielts-exam-active .exam-head{
+    position:relative !important;
+    top:auto !important;
+    flex:0 0 auto !important;
+  }
+
+  body.ielts-exam-active .exam .workspace,
+  body.ielts-exam-active .exam .work,
+  body.ielts-exam-active .practice .workspace{
+    display:grid !important;
+    grid-template-columns:minmax(0,1fr) !important;
+    grid-template-rows:minmax(0,48%) minmax(0,52%) !important;
+    min-height:0 !important;
+    overflow:hidden !important;
+    position:relative !important;
+  }
+
+  /* Flex-based templates: workspace occupies exactly the remaining height. */
+  body.ielts-exam-active .exam .workspace,
+  body.ielts-exam-active .exam .work{
+    flex:1 1 auto !important;
+    height:auto !important;
+  }
+
+  /* Fixed 88px header templates */
+  body.ielts-exam-active .practice .workspace{
+    height:calc(100vh - 88px) !important;
+    height:calc(100dvh - 88px) !important;
+  }
+
+  body.ielts-exam-active .workspace > .pane,
+  body.ielts-exam-active .workspace > .reading-pane,
+  body.ielts-exam-active .workspace > .question-pane,
+  body.ielts-exam-active .workspace > .passage-pane,
+  body.ielts-exam-active .workspace > .passage,
+  body.ielts-exam-active .workspace > .questions,
+  body.ielts-exam-active .work > .pane,
+  body.ielts-exam-active .work > .reading-pane,
+  body.ielts-exam-active .work > .question-pane,
+  body.ielts-exam-active .work > .passage-pane,
+  body.ielts-exam-active .work > .passage,
+  body.ielts-exam-active .work > .questions{
+    display:block !important;
+    position:relative !important;
+    inset:auto !important;
+    height:auto !important;
+    max-height:none !important;
+    min-height:0 !important;
+    overflow-y:auto !important;
+    overflow-x:hidden !important;
+  }
+
+  /* Clear old "one pane at a time" rules with high specificity. */
+  body.ielts-exam-active .workspace.show-questions .reading-pane,
+  body.ielts-exam-active .workspace.show-questions .passage-pane,
+  body.ielts-exam-active .workspace.show-questions .passage,
+  body.ielts-exam-active .workspace.show-questions .question-pane,
+  body.ielts-exam-active .practice.show-passage .passage-pane,
+  body.ielts-exam-active .practice.show-passage .question-pane,
+  body.ielts-exam-active .practice .passage-pane,
+  body.ielts-exam-active .practice .question-pane{
+    display:block !important;
+  }
+
+  /* Horizontal divider between Passage (top) and Questions (bottom). */
+  body.ielts-exam-active .work > .passage,
+  body.ielts-exam-active .workspace > .reading-pane,
+  body.ielts-exam-active .workspace > .passage-pane{
+    border-right:0 !important;
+    border-bottom:2px solid var(--line, #d7dde4) !important;
+  }
+
+  /* Compact padding so both regions remain practical on small screens. */
+  body.ielts-exam-active .reading-pane,
+  body.ielts-exam-active .passage-pane,
+  body.ielts-exam-active .work > .passage{
+    padding-top:10px !important;
+    padding-bottom:18px !important;
+  }
+
+  body.ielts-exam-active .question-pane,
+  body.ielts-exam-active .work > .questions{
+    padding-top:9px !important;
+    padding-bottom:24px !important;
+  }
+}
+
+/* Print should remain normal and fully expandable. */
+@media print{
+  html.ielts-exam-active,
+  body.ielts-exam-active{
+    height:auto !important;
+    max-height:none !important;
+    overflow:visible !important;
+  }
+}
+</style>
+<!-- IELTS_DUAL_PANE_PATCH_END -->
+
+</head>
+<body>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<section id="startScreen" class="screen">
+  <div class="start-wrap">
+    <div class="start-card card">
+      <div class="kicker">Computer-based practice</div>
+      <h1>IELTS ACADEMIC READING TEST</h1>
+      <h2 style="margin-top:6px">READING TEST 2</h2>
+      <div class="test-meta">
+        <div class="meta-pill"><b>3</b><br>Passages</div>
+        <div class="meta-pill"><b>40</b><br>Câu hỏi</div>
+        <div class="meta-pill"><b>60 phút</b><br>Thời gian</div>
+        <div class="meta-pill"><b>1 điểm</b><br>Mỗi câu đúng</div>
+      </div>
+      <div class="instructions">
+        <strong>Hướng dẫn:</strong>
+        <ul>
+          <li>Không có thời gian chuyển đáp án riêng.</li>
+          <li>Câu trả lời được tự động lưu trên trình duyệt này.</li>
+          <li>Bài sẽ tự động nộp khi hết 60 phút.</li>
+          <li>Đáp án, bằng chứng, giải thích chi tiết và paraphrase chỉ xuất hiện sau khi nộp bài.</li>
+        </ul>
+      </div>
+      <div class="form-row">
+        <label for="studentName">Họ và tên học sinh <span aria-hidden="true">*</span></label>
+        <input id="studentName" type="text" autocomplete="name" placeholder="Nhập họ và tên">
+      </div>
+      <div class="form-row check-row">
+        <input id="readyCheck" type="checkbox">
+        <label for="readyCheck">Tôi đã đọc hướng dẫn và sẵn sàng bắt đầu bài thi.</label>
+      </div>
+      <div id="startError" class="error" role="alert"></div>
+      <button id="startBtn" class="primary big-btn">BẮT ĐẦU LÀM BÀI</button>
+    </div>
+  </div>
+</section>
+
+<section id="examScreen" class="screen hidden">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="top-item">Học sinh<strong id="topName"></strong></div>
+      <div class="top-item">Passage<strong id="topPassage">1</strong></div>
+      <div class="top-item">Đã trả lời<strong id="topAnswered">0/40</strong></div>
+      <div class="top-spacer"></div>
+      <div class="top-item">Thời gian còn lại<strong id="timer" class="timer" aria-live="off">60:00</strong></div>
+      <button id="saveBtn">LƯU BÀI</button>
+      <button id="submitBtn" class="submit-top">NỘP BÀI</button>
+    </div>
+  </header>
+  <div class="tabs-bar">
+    <div class="tabs-inner">
+      <button class="passage-tab active" data-passage="1">PASSAGE 1</button>
+      <button class="passage-tab" data-passage="2">PASSAGE 2</button>
+      <button class="passage-tab" data-passage="3">PASSAGE 3</button>
+      <div id="statusSummary" class="status-summary"></div>
+      <div id="saveLine" class="save-line"></div>
+    </div>
+  </div>
+  <div class="nav-wrap"><div id="questionNav" class="question-nav" aria-label="Điều hướng câu hỏi"></div></div>
+  <div class="mobile-jump">
+    <button onclick="document.getElementById('readingPane').scrollIntoView({behavior:'smooth'})">BÀI ĐỌC</button>
+    <button onclick="document.getElementById('questionPane').scrollIntoView({behavior:'smooth'})">CÂU HỎI</button>
+  </div>
+  <main class="workspace">
+    <section id="readingPane" class="pane" aria-label="Bài đọc">
+      <div class="pane-head">
+        <div class="read-tools">
+          <button id="highlightBtn">ĐÁNH DẤU VÀNG</button>
+          <button id="unhighlightBtn">BỎ ĐÁNH DẤU</button>
+        </div>
+      </div>
+      <div id="passageBody" class="pane-body"></div>
+    </section>
+    <section id="questionPane" class="pane" aria-label="Câu hỏi">
+      <div id="questionBody" class="pane-body"></div>
+    </section>
+  </main>
+</section>
+
+<section id="resultsScreen" class="screen hidden">
+  <div class="results-wrap">
+    <div id="resultsHead" class="results-head card"></div>
+    <div id="passageScores" class="passage-scores"></div>
+    <div class="result-actions">
+      <button id="copyResultsBtn" class="primary">SAO CHÉP TOÀN BỘ KẾT QUẢ</button>
+      <button id="exportWordBtn" class="primary">XUẤT FILE WORD KẾT QUẢ</button>
+      <button id="retakeBtn" class="danger">LÀM LẠI BÀI THI</button>
+    </div>
+
+    <div id="reviewPassagePanel" class="review-passage-panel card hidden">
+      <div style="display:flex;justify-content:space-between;gap:10px;align-items:center">
+        <h3 id="reviewPassageTitle" style="margin:0">BÀI ĐỌC THAM CHIẾU</h3>
+        <button id="closeReviewPassage" class="secondary">ĐÓNG</button>
+      </div>
+      <div id="reviewPassageContent" class="review-passage-content"></div>
+    </div>
+
+    <div class="filterbar" aria-label="Lọc kết quả">
+      <button class="result-filter active" data-filter="all">TẤT CẢ</button>
+      <button class="result-filter" data-filter="wrong">CÂU SAI</button>
+      <button class="result-filter" data-filter="correct">CÂU ĐÚNG</button>
+      <button class="result-filter" data-filter="blank">BỎ TRỐNG</button>
+      <button class="result-filter" data-filter="review">ĐÁNH DẤU XEM LẠI</button>
+    </div>
+    <div id="resultCards"></div>
+    <div id="paraphraseSection" class="paraphrase-section card"></div>
+    <div id="weaknessSection" class="weakness-section card"></div>
+  </div>
+</section>
+
+<div id="submitModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="submitModalTitle">
+  <div class="modal">
+    <h2 id="submitModalTitle">Xác nhận nộp bài</h2>
+    <div id="submitModalBody"></div>
+    <div class="modal-actions">
+      <button id="continueBtn" class="secondary">TIẾP TỤC LÀM BÀI</button>
+      <button id="confirmSubmitBtn" class="primary">XÁC NHẬN NỘP BÀI</button>
+    </div>
+  </div>
+</div>
+
+<script>
+"use strict";
+const TEST_NO = 2;
+const STORAGE_KEY = "IELTS_READING_TEST_2_SINGLE_FILE_60_40";
+const TOTAL_MS = 60*60*1000;
+const QUESTIONS = [{"number":1,"passage":1,"sourceParagraph":"Đoạn 2:","sourceTarget":"2","evidence":"Đoạn 2:\n“With the invention of weaning machines, William Carnegie’s job disappeared, and eventually the family was forced into poverty. In 1848 the family left Scotland and settled in Pittsburgh, Pennsylvania, in the USA. William found a job in a cotton factory, but he soon quit to return to his home handloom, making linens and trying to sell them door-to-door. Andrew Carnegie also worked in the cotton factory, but after his father died in 1855, his strong desire to help take care of the family pushed him to educate himself. He became an avid reader, a theatergoer, and a lover of music.”","explanation":"Từ/cụm 'father' xuất hiện trong phần thông tin tương ứng và hoàn tất câu đúng cả về nghĩa lẫn ngữ pháp. Cần giữ nguyên từ trong passage và tuân thủ giới hạn số từ của đề.\nBẫy chính: không đổi dạng từ, không thêm từ thừa và không chọn một từ gần nghĩa nếu đề yêu cầu lấy nguyên văn từ passage.","paraphrases":["Question: • found employment in the same workplace as his __________","Passage: With the invention of weaning machines, William Carnegie’s job disappeared, and eventually the family was forced into poverty. In 1848 the family left Scotland and settled in Pitts","Key answer: father"],"text":"• found employment in the same workplace as his __________","type":"completion","options":[],"correct":"father","wordLimit":1,"wordRule":"ONE WORD ONLY"},{"number":2,"passage":1,"sourceParagraph":"Đoạn 2:","sourceTarget":"2","evidence":"Đoạn 2:\n“With the invention of weaning machines, William Carnegie’s job disappeared, and eventually the family was forced into poverty. In 1848 the family left Scotland and settled in Pittsburgh, Pennsylvania, in the USA. William found a job in a cotton factory, but he soon quit to return to his home handloom, making linens and trying to sell them door-to-door. Andrew Carnegie also worked in the cotton factory, but after his father died in 1855, his strong desire to help take care of the family pushed him to educate himself. He became an avid reader, a theatergoer, and a lover of music.”","explanation":"Từ/cụm 'music' xuất hiện trong phần thông tin tương ứng và hoàn tất câu đúng cả về nghĩa lẫn ngữ pháp. Cần giữ nguyên từ trong passage và tuân thủ giới hạn số từ của đề.\nBẫy chính: không đổi dạng từ, không thêm từ thừa và không chọn một từ gần nghĩa nếu đề yêu cầu lấy nguyên văn từ passage.","paraphrases":["Question: • educated himself through books, theatrical performances and __________","Passage: With the invention of weaning machines, William Carnegie’s job disappeared, and eventually the family was forced into poverty. In 1848 the family left Scotland and settled in Pitts","Key answer: music"],"text":"• educated himself through books, theatrical performances and __________","type":"completion","options":[],"correct":"music","wordLimit":1,"wordRule":"ONE WORD ONLY"},{"number":3,"passage":1,"sourceParagraph":"Đoạn 3:","sourceTarget":"3","evidence":"Đoạn 3:\n“Andrew Carnegie became a messenger boy in a telegraph office and later became a telegraph operator. Thomas A. Scott, superintendent of the western division of the Pennsylvania Railroad, made the eighteen-year-old his secretary. Carnegie was soon earning enough to buy a house for his mother. During the Civil War in the United States (1861-65), he helped organize the military telegraph system, but soon returned to Pittsburgh to take Scott’s old job with the railroad.”","explanation":"Từ/cụm 'secretary' xuất hiện trong phần thông tin tương ứng và hoàn tất câu đúng cả về nghĩa lẫn ngữ pháp. Cần giữ nguyên từ trong passage và tuân thủ giới hạn số từ của đề.\nBẫy chính: không đổi dạng từ, không thêm từ thừa và không chọn một từ gần nghĩa nếu đề yêu cầu lấy nguyên văn từ passage.","paraphrases":["Question: • became __________ to Thomas A Scott at Pennsylvania Railroad","Passage: Andrew Carnegie became a messenger boy in a telegraph office and later became a telegraph operator. Thomas A. Scott, superintendent of the western division of the Pennsylvania Rail","Key answer: secretary"],"text":"• became __________ to Thomas A Scott at Pennsylvania Railroad","type":"completion","options":[],"correct":"secretary","wordLimit":1,"wordRule":"ONE WORD ONLY"},{"number":4,"passage":1,"sourceParagraph":"Đoạn 1:","sourceTarget":"1","evidence":"Đoạn 1:\n“The Scottish-born American industrialist and philanthropist Andrew Carnegie, who was the leader of the American steel industry from 1873 to 1901, donated large sums of his fortune to educational, cultural, and scientific institutions. He was born in 1835 in Scotland, the son of William Carnegie, a weaver, and Margaret Morrison Carnegie.”","explanation":"Từ/cụm 'steel' xuất hiện trong phần thông tin tương ứng và hoàn tất câu đúng cả về nghĩa lẫn ngữ pháp. Cần giữ nguyên từ trong passage và tuân thủ giới hạn số từ của đề.\nBẫy chính: không đổi dạng từ, không thêm từ thừa và không chọn một từ gần nghĩa nếu đề yêu cầu lấy nguyên văn từ passage.","paraphrases":["Question: • realised that changing engineering needs would require a greater demand for __________","Passage: The Scottish-born American industrialist and philanthropist Andrew Carnegie, who was the leader of the American steel industry from 1873 to 1901, donated large sums of his fortune","Key answer: steel"],"text":"• realised that changing engineering needs would require a greater demand for __________","type":"completion","options":[],"correct":"steel","wordLimit":1,"wordRule":"ONE WORD ONLY"},{"number":5,"passage":1,"sourceParagraph":"Đoạn 4:","sourceTarget":"4","evidence":"Đoạn 4:\n“Between 1865 and 1870 Carnegie made money through investments in several small iron mills and factories. He also traveled throughout England, selling the bonds of small United States railroads and bridge companies. Carnegie began to see that steel was eventually going to replace iron for the manufacture of rails, structural shapes, pipe, and wire. In 1873 he organized a steel rail company and continued building by cutting prices, driving out competitors, shaking off weak partners, and putting earnings back into the company. He never went public (sold shares of his company in order to raise money). Instead he obtained capital from profit, and when necessary from banks, and he kept on growing, making heavy steel alone.”","explanation":"Từ/cụm 'prices' xuất hiện trong phần thông tin tương ứng và hoàn tất câu đúng cả về nghĩa lẫn ngữ pháp. Cần giữ nguyên từ trong passage và tuân thủ giới hạn số từ của đề.\nBẫy chính: không đổi dạng từ, không thêm từ thừa và không chọn một từ gần nghĩa nếu đề yêu cầu lấy nguyên văn từ passage.","paraphrases":["Question: + reducing __________","Passage: Between 1865 and 1870 Carnegie made money through investments in several small iron mills and factories. He also traveled throughout England, selling the bonds of small United Stat","Key answer: prices"],"text":"+ reducing __________","type":"completion","options":[],"correct":"prices","wordLimit":1,"wordRule":"ONE WORD ONLY"},{"number":6,"passage":1,"sourceParagraph":"Đoạn 4:","sourceTarget":"4","evidence":"Đoạn 4:\n“Between 1865 and 1870 Carnegie made money through investments in several small iron mills and factories. He also traveled throughout England, selling the bonds of small United States railroads and bridge companies. Carnegie began to see that steel was eventually going to replace iron for the manufacture of rails, structural shapes, pipe, and wire. In 1873 he organized a steel rail company and continued building by cutting prices, driving out competitors, shaking off weak partners, and putting earnings back into the company. He never went public (sold shares of his company in order to raise money). Instead he obtained capital from profit, and when necessary from banks, and he kept on growing, making heavy steel alone.”","explanation":"Từ/cụm 'banks' xuất hiện trong phần thông tin tương ứng và hoàn tất câu đúng cả về nghĩa lẫn ngữ pháp. Cần giữ nguyên từ trong passage và tuân thủ giới hạn số từ của đề.\nBẫy chính: không đổi dạng từ, không thêm từ thừa và không chọn một từ gần nghĩa nếu đề yêu cầu lấy nguyên văn từ passage.","paraphrases":["Question: + reinvesting profit and sometimes borrowing money from __________","Passage: Between 1865 and 1870 Carnegie made money through investments in several small iron mills and factories. He also traveled throughout England, selling the bonds of small United Stat","Key answer: banks"],"text":"+ reinvesting profit and sometimes borrowing money from __________","type":"completion","options":[],"correct":"banks","wordLimit":1,"wordRule":"ONE WORD ONLY"},{"number":7,"passage":1,"sourceParagraph":"Đoạn 5:","sourceTarget":"5","evidence":"Đoạn 5:\n“In the 1880s Carnegie’s purchases included a majority stake in the H C Frick Company in Pennsylvania that had vast coal interests, and also the Homestead mills business. Frick became his partner and eventually chairman of the Carnegie Company. Carnegie had moved to New York City in 1867 to be close to the marketing centers for steel products, while Frick stayed in Pennsylvania as the general manager. They made a good team, Behind the scenes, Carnegie planned new projects and the improvement of existing plants; Frick was the working director who watched over the mass-production programs that helped keep price down.”","explanation":"Từ/cụm 'projects' xuất hiện trong phần thông tin tương ứng và hoàn tất câu đúng cả về nghĩa lẫn ngữ pháp. Cần giữ nguyên từ trong passage và tuân thủ giới hạn số từ của đề.\nBẫy chính: không đổi dạng từ, không thêm từ thừa và không chọn một từ gần nghĩa nếu đề yêu cầu lấy nguyên văn từ passage.","paraphrases":["Question: + arranging future __________ and innovations for factories","Passage: In the 1880s Carnegie’s purchases included a majority stake in the H C Frick Company in Pennsylvania that had vast coal interests, and also the Homestead mills business. Frick beca","Key answer: projects"],"text":"+ arranging future __________ and innovations for factories","type":"completion","options":[],"correct":"projects","wordLimit":1,"wordRule":"ONE WORD ONLY"},{"number":8,"passage":1,"sourceParagraph":"Đoạn 6:","sourceTarget":"6","evidence":"Đoạn 6:\n“Carnegie spent his leisure time traveling. He also wrote several books, including Triumphant Democracy (1886), which pointed out what he thought were the advantages of life in the United States over the unequal societies of Britain and other European countries. To Carnegie, access to education was the key to America’s political stability and industrial accomplishments. In 1889 he published an article, ‘Wealth’, stating his belief that the rich had a duty to use their money to improve the welfare of the community. Carnegie remained a bachelor until his mother died in 1886. A year Inter he married Louise Whitfield and they had one child together. The couple began to spend six months each year in Scotland, though Carnegie kept an eye on business developments and problems.”","explanation":"Thông tin trong câu hỏi được passage xác nhận theo cùng ý nghĩa.\nBẫy chính: phân biệt “không được nói” với “bị nói ngược”, và chú ý các từ tuyệt đối/so sánh như all, only, always, more, most.","paraphrases":["Question: Carnegie believed that the USA offered more opportunities than European countries did.","Passage: Carnegie spent his leisure time traveling. He also wrote several books, including Triumphant Democracy (1886), which pointed out what he thought were the advantages of life in the","Key answer: TRUE"],"text":"Carnegie believed that the USA offered more opportunities than European countries did.","type":"true-false-not-given","options":[["TRUE","TRUE"],["FALSE","FALSE"],["NOT GIVEN","NOT GIVEN"]],"correct":"TRUE"},{"number":9,"passage":1,"sourceParagraph":"Đoạn 7:","sourceTarget":"7","evidence":"Đoạn 7:\n“Carnegie’s absence from the United States was a factor in the Homestead mills strike of 1892. After acquiring Homestead, Carnegie had invested in new plants and equipment, increased production, and automated many of the mill’s operations, cutting down the number of workers that were needed. Carnegie believed that workers had a right to join unions and to bargain with management through their unions. He also recognized the right to strike, as long as the action was conducted peacefully. He viewed strikes as trials of strength, with peaceful discussion resolving the conflict. In contract talks during 1892, Frick wanted to lower the minimum wage because of the need for fewer workers. The union representing his workers would not accept this and organized a strike.”","explanation":"Thông tin trong câu hỏi được passage xác nhận theo cùng ý nghĩa.\nBẫy chính: phân biệt “không được nói” với “bị nói ngược”, và chú ý các từ tuyệt đối/so sánh như all, only, always, more, most.","paraphrases":["Question: A smaller workforce was required at the Homestead factory after Carnegie took control.","Passage: Carnegie’s absence from the United States was a factor in the Homestead mills strike of 1892. After acquiring Homestead, Carnegie had invested in new plants and equipment, increase","Key answer: TRUE"],"text":"A smaller workforce was required at the Homestead factory after Carnegie took control.","type":"true-false-not-given","options":[["TRUE","TRUE"],["FALSE","FALSE"],["NOT GIVEN","NOT GIVEN"]],"correct":"TRUE"},{"number":10,"passage":1,"sourceParagraph":"Đoạn 7:","sourceTarget":"7","evidence":"Đoạn 7:\n“Carnegie’s absence from the United States was a factor in the Homestead mills strike of 1892. After acquiring Homestead, Carnegie had invested in new plants and equipment, increased production, and automated many of the mill’s operations, cutting down the number of workers that were needed. Carnegie believed that workers had a right to join unions and to bargain with management through their unions. He also recognized the right to strike, as long as the action was conducted peacefully. He viewed strikes as trials of strength, with peaceful discussion resolving the conflict. In contract talks during 1892, Frick wanted to lower the minimum wage because of the need for fewer workers. The union representing his workers would not accept this and organized a strike.”","explanation":"Câu hỏi đưa ra ý trái với thông tin trong passage; đây là mâu thuẫn trực tiếp chứ không phải thiếu thông tin.\nBẫy chính: phân biệt “không được nói” với “bị nói ngược”, và chú ý các từ tuyệt đối/so sánh như all, only, always, more, most.","paraphrases":["Question: Carnegie prevented his workers from joining unions.","Passage: Carnegie’s absence from the United States was a factor in the Homestead mills strike of 1892. After acquiring Homestead, Carnegie had invested in new plants and equipment, increase","Key answer: FALSE"],"text":"Carnegie prevented his workers from joining unions.","type":"true-false-not-given","options":[["TRUE","TRUE"],["FALSE","FALSE"],["NOT GIVEN","NOT GIVEN"]],"correct":"FALSE"},{"number":11,"passage":1,"sourceParagraph":"Đoạn 7:","sourceTarget":"7","evidence":"Đoạn 7:\n“Carnegie’s absence from the United States was a factor in the Homestead mills strike of 1892. After acquiring Homestead, Carnegie had invested in new plants and equipment, increased production, and automated many of the mill’s operations, cutting down the number of workers that were needed. Carnegie believed that workers had a right to join unions and to bargain with management through their unions. He also recognized the right to strike, as long as the action was conducted peacefully. He viewed strikes as trials of strength, with peaceful discussion resolving the conflict. In contract talks during 1892, Frick wanted to lower the minimum wage because of the need for fewer workers. The union representing his workers would not accept this and organized a strike.”","explanation":"Passage có đề cập chủ đề liên quan nhưng không cung cấp chi tiết đủ để xác nhận hoặc phủ định mệnh đề trong câu hỏi, nên phải chọn NOT GIVEN.\nBẫy chính: phân biệt “không được nói” với “bị nói ngược”, và chú ý các từ tuyệt đối/so sánh như all, only, always, more, most.","paraphrases":["Question: Carnegie blamed Frick for the violent workers strike in 1892.","Passage: Carnegie’s absence from the United States was a factor in the Homestead mills strike of 1892. After acquiring Homestead, Carnegie had invested in new plants and equipment, increase","Key answer: NOT GIVEN"],"text":"Carnegie blamed Frick for the violent workers strike in 1892.","type":"true-false-not-given","options":[["TRUE","TRUE"],["FALSE","FALSE"],["NOT GIVEN","NOT GIVEN"]],"correct":"NOT GIVEN"},{"number":12,"passage":1,"sourceParagraph":"Đoạn 8:","sourceTarget":"8","evidence":"Đoạn 8:\n“Following a violent confrontation that resulted in the death of eight workers, soldiers were sent in to restore order and Carnegie was criticized for his lack of action. In the 1890s Carnegie also began to meet with tougher competition from newer, bigger companies who were interested in controlled prices and sharing the market. Companies that he had sold to for years threatened to cut down their purchases unless be agreed to cooperate. These threats made him decide to fight back. He refused to enter into any agreements with other companies. Moreover, he decided to invade their territories by making similar products and by expanding his sales activities into the west of the country. Eventually, though, he decided to sell his company to the newly formed U.S. Steel Corporation in 1901 for almost $500 million. Carnegie’s personal share was $225 million.”","explanation":"Câu hỏi đưa ra ý trái với thông tin trong passage; đây là mâu thuẫn trực tiếp chứ không phải thiếu thông tin. Key gốc ghi 'TRUE', nhưng khi đối chiếu trực tiếp với passage, đáp án đó không khớp; vì vậy đáp án đã được sửa thành 'FALSE'.\nBẫy chính: phân biệt “không được nói” với “bị nói ngược”, và chú ý các từ tuyệt đối/so sánh như all, only, always, more, most.","paraphrases":["Question: In the 1890s Carnegie negotiated with his competitors.","Passage: Following a violent confrontation that resulted in the death of eight workers, soldiers were sent in to restore order and Carnegie was criticized for his lack of action. In the 189","Key answer: FALSE"],"text":"In the 1890s Carnegie negotiated with his competitors.","type":"true-false-not-given","options":[["TRUE","TRUE"],["FALSE","FALSE"],["NOT GIVEN","NOT GIVEN"]],"correct":"FALSE"},{"number":13,"passage":1,"sourceParagraph":"Đoạn 7:","sourceTarget":"7","evidence":"Đoạn 7:\n“Carnegie’s absence from the United States was a factor in the Homestead mills strike of 1892. After acquiring Homestead, Carnegie had invested in new plants and equipment, increased production, and automated many of the mill’s operations, cutting down the number of workers that were needed. Carnegie believed that workers had a right to join unions and to bargain with management through their unions. He also recognized the right to strike, as long as the action was conducted peacefully. He viewed strikes as trials of strength, with peaceful discussion resolving the conflict. In contract talks during 1892, Frick wanted to lower the minimum wage because of the need for fewer workers. The union representing his workers would not accept this and organized a strike.”","explanation":"Câu hỏi đưa ra ý trái với thông tin trong passage; đây là mâu thuẫn trực tiếp chứ không phải thiếu thông tin. Key gốc ghi 'TRUE', nhưng khi đối chiếu trực tiếp với passage, đáp án đó không khớp; vì vậy đáp án đã được sửa thành 'FALSE'.\nBẫy chính: phân biệt “không được nói” với “bị nói ngược”, và chú ý các từ tuyệt đối/so sánh như all, only, always, more, most.","paraphrases":["Question: Carriage’s provision of funds for libraries was limited to those in the United States.","Passage: Carnegie’s absence from the United States was a factor in the Homestead mills strike of 1892. After acquiring Homestead, Carnegie had invested in new plants and equipment, increase","Key answer: FALSE"],"text":"Carriage’s provision of funds for libraries was limited to those in the United States.","type":"true-false-not-given","options":[["TRUE","TRUE"],["FALSE","FALSE"],["NOT GIVEN","NOT GIVEN"]],"correct":"FALSE"},{"number":14,"passage":2,"sourceParagraph":"Đoạn E:","sourceTarget":"E","evidence":"Đoạn E:\n“On the other hand, there are many kinds of inexact equivalence, any of which can be successful at a certain level of practical functioning. It therefore follows that there is no such thing as a best translation. The success of translation depends on the purpose for which it was made, which in turn reflects the needs of the people for whom it was made. A rough and-ready translation of a letter can suffice to inform a firm of the nature of an enquiry. A translation of a scientific article requires careful attention to meaning but little attention to stylistic features. The provision of a dubbed film script will warrant scrupulous care over the synchronisation of lip movements, often at the expense of content. Literary work requires a sensitive consideration of form as well as content, and may prompt several translations, each of which emphasises a different aspect of the original. It is easy to see what might be 'best' for one set of circumstances may be entirely unsuitable for another.”","explanation":"Thông tin cần tìm nằm ở Đoạn E. Các từ khóa trong câu hỏi được diễn đạt lại trong đoạn này, vì vậy đáp án là E.\nBẫy chính: không chọn đoạn chỉ nhắc cùng chủ đề; phải có đúng chi tiết/quan hệ mà câu hỏi yêu cầu.","paraphrases":["Question: the effect that a client's requirements have on the nature of a translation.","Passage: On the other hand, there are many kinds of inexact equivalence, any of which can be successful at a certain level of practical functioning. It therefore follows that there is no su","Key answer: E"],"text":"the effect that a client's requirements have on the nature of a translation.","type":"multiple-choice","options":[["A","A"],["B","B"],["C","C"],["D","D"],["E","E"],["F","F"],["G","G"],["H","H"],["I","I"],["J","J"],["K","K"]],"correct":"E"},{"number":15,"passage":2,"sourceParagraph":"Đoạn H:","sourceTarget":"H","evidence":"Đoạn H:\n“Translators aim to produce a text that is as faithful to the original as circumstances require or permit, and yet that reads as if it were written originally in the target language. They aim to be \"invisible people\" - transferring content without drawing attention to the considerable artistic and technical skills involved in the process. The complexity of the task is apparent, but its importance is often underestimated, and its practitioners' social status and legal rights undervalued. Some countries view translation as a menial, clerical task, and pay their translators accordingly, while others regard it as a major intellectual discipline in its own right. The question of status is currently much debated, particularly in Europe, where demand for translators is rocketing, especially in relation to the European Union.”","explanation":"Thông tin cần tìm nằm ở Đoạn H. Các từ khóa trong câu hỏi được diễn đạt lại trong đoạn này, vì vậy đáp án là H.\nBẫy chính: không chọn đoạn chỉ nhắc cùng chủ đề; phải có đúng chi tiết/quan hệ mà câu hỏi yêu cầu.","paraphrases":["Question: contrasting attitudes towards translators.","Passage: Translators aim to produce a text that is as faithful to the original as circumstances require or permit, and yet that reads as if it were written originally in the target language","Key answer: H"],"text":"contrasting attitudes towards translators.","type":"multiple-choice","options":[["A","A"],["B","B"],["C","C"],["D","D"],["E","E"],["F","F"],["G","G"],["H","H"],["I","I"],["J","J"],["K","K"]],"correct":"H"},{"number":16,"passage":2,"sourceParagraph":"Đoạn C:","sourceTarget":"C","evidence":"Đoạn C:\n“The aim of translation is to provide semantic equivalence between source and target language. This is what makes translation different from other linguistic activities, such as adapting, precise writing, and abstracting. However, there are many problems hidden within this apparently simple statement, all to do with what standards of 'equivalence' should be expected and accepted.”","explanation":"Từ/cụm 'semantic equivalence' xuất hiện trong phần thông tin tương ứng và hoàn tất câu đúng cả về nghĩa lẫn ngữ pháp. Cần giữ nguyên từ trong passage và tuân thủ giới hạn số từ của đề.\nBẫy chính: không đổi dạng từ, không thêm từ thừa và không chọn một từ gần nghĩa nếu đề yêu cầu lấy nguyên văn từ passage.","paraphrases":["Question: Translation is an attempt to create a text in the target language which displays __________ with a source text It is inevitable that not all informati","Passage: The aim of translation is to provide semantic equivalence between source and target language. This is what makes translation different from other linguistic activities, such as ada","Key answer: semantic equivalence"],"text":"Translation is an attempt to create a text in the target language which displays __________ with a source text It is inevitable that not all information can be conveyed, however, so translations are best judged according to their 17_________, for example, the translator of a business letter or scientific text does not need to consider its 18_________ aspects while someone dubbing a film may give a relatively low value to 19_________.","type":"completion","options":[],"correct":"semantic equivalence","wordLimit":4,"wordRule":""},{"number":17,"passage":2,"sourceParagraph":"Đoạn E:","sourceTarget":"E","evidence":"Đoạn E:\n“On the other hand, there are many kinds of inexact equivalence, any of which can be successful at a certain level of practical functioning. It therefore follows that there is no such thing as a best translation. The success of translation depends on the purpose for which it was made, which in turn reflects the needs of the people for whom it was made. A rough and-ready translation of a letter can suffice to inform a firm of the nature of an enquiry. A translation of a scientific article requires careful attention to meaning but little attention to stylistic features. The provision of a dubbed film script will warrant scrupulous care over the synchronisation of lip movements, often at the expense of content. Literary work requires a sensitive consideration of form as well as content, and may prompt several translations, each of which emphasises a different aspect of the original. It is easy to see what might be 'best' for one set of circumstances may be entirely unsuitable for another.”","explanation":"Từ/cụm 'purpose' xuất hiện trong phần thông tin tương ứng và hoàn tất câu đúng cả về nghĩa lẫn ngữ pháp. Cần giữ nguyên từ trong passage và tuân thủ giới hạn số từ của đề.\nBẫy chính: không đổi dạng từ, không thêm từ thừa và không chọn một từ gần nghĩa nếu đề yêu cầu lấy nguyên văn từ passage.","paraphrases":["Question: Translation is an attempt to create a text in the target language which displays 16_________ with a source text It is inevitable that not all informat","Passage: On the other hand, there are many kinds of inexact equivalence, any of which can be successful at a certain level of practical functioning. It therefore follows that there is no su","Key answer: purpose"],"text":"Translation is an attempt to create a text in the target language which displays 16_________ with a source text It is inevitable that not all information can be conveyed, however, so translations are best judged according to their __________, for example, the translator of a business letter or scientific text does not need to consider its 18_________ aspects while someone dubbing a film may give a relatively low value to 19_________.","type":"completion","options":[],"correct":"purpose","wordLimit":4,"wordRule":""},{"number":18,"passage":2,"sourceParagraph":"Đoạn E:","sourceTarget":"E","evidence":"Đoạn E:\n“On the other hand, there are many kinds of inexact equivalence, any of which can be successful at a certain level of practical functioning. It therefore follows that there is no such thing as a best translation. The success of translation depends on the purpose for which it was made, which in turn reflects the needs of the people for whom it was made. A rough and-ready translation of a letter can suffice to inform a firm of the nature of an enquiry. A translation of a scientific article requires careful attention to meaning but little attention to stylistic features. The provision of a dubbed film script will warrant scrupulous care over the synchronisation of lip movements, often at the expense of content. Literary work requires a sensitive consideration of form as well as content, and may prompt several translations, each of which emphasises a different aspect of the original. It is easy to see what might be 'best' for one set of circumstances may be entirely unsuitable for another.”","explanation":"Từ/cụm 'stylistic features' xuất hiện trong phần thông tin tương ứng và hoàn tất câu đúng cả về nghĩa lẫn ngữ pháp. Cần giữ nguyên từ trong passage và tuân thủ giới hạn số từ của đề.\nBẫy chính: không đổi dạng từ, không thêm từ thừa và không chọn một từ gần nghĩa nếu đề yêu cầu lấy nguyên văn từ passage.","paraphrases":["Question: Translation is an attempt to create a text in the target language which displays 16_________ with a source text It is inevitable that not all informat","Passage: On the other hand, there are many kinds of inexact equivalence, any of which can be successful at a certain level of practical functioning. It therefore follows that there is no su","Key answer: stylistic features"],"text":"Translation is an attempt to create a text in the target language which displays 16_________ with a source text It is inevitable that not all information can be conveyed, however, so translations are best judged according to their 17_________, for example, the translator of a business letter or scientific text does not need to consider its __________ aspects while someone dubbing a film may give a relatively low value to 19_________.","type":"completion","options":[],"correct":"stylistic features","wordLimit":4,"wordRule":""},{"number":19,"passage":2,"sourceParagraph":"Đoạn E:","sourceTarget":"E","evidence":"Đoạn E:\n“On the other hand, there are many kinds of inexact equivalence, any of which can be successful at a certain level of practical functioning. It therefore follows that there is no such thing as a best translation. The success of translation depends on the purpose for which it was made, which in turn reflects the needs of the people for whom it was made. A rough and-ready translation of a letter can suffice to inform a firm of the nature of an enquiry. A translation of a scientific article requires careful attention to meaning but little attention to stylistic features. The provision of a dubbed film script will warrant scrupulous care over the synchronisation of lip movements, often at the expense of content. Literary work requires a sensitive consideration of form as well as content, and may prompt several translations, each of which emphasises a different aspect of the original. It is easy to see what might be 'best' for one set of circumstances may be entirely unsuitable for another.”","explanation":"Từ/cụm 'content' xuất hiện trong phần thông tin tương ứng và hoàn tất câu đúng cả về nghĩa lẫn ngữ pháp. Cần giữ nguyên từ trong passage và tuân thủ giới hạn số từ của đề.\nBẫy chính: không đổi dạng từ, không thêm từ thừa và không chọn một từ gần nghĩa nếu đề yêu cầu lấy nguyên văn từ passage.","paraphrases":["Question: Translation is an attempt to create a text in the target language which displays 16_________ with a source text It is inevitable that not all informat","Passage: On the other hand, there are many kinds of inexact equivalence, any of which can be successful at a certain level of practical functioning. It therefore follows that there is no su","Key answer: content"],"text":"Translation is an attempt to create a text in the target language which displays 16_________ with a source text It is inevitable that not all information can be conveyed, however, so translations are best judged according to their 17_________, for example, the translator of a business letter or scientific text does not need to consider its 18_________ aspects while someone dubbing a film may give a relatively low value to __________.","type":"completion","options":[],"correct":"content","wordLimit":4,"wordRule":""},{"number":20,"passage":2,"sourceParagraph":"Đoạn F:","sourceTarget":"F","evidence":"Đoạn F:\n“Several different kinds of translation have been proposed to allow for this range of possibilities. A pragmatic translation emphasises accuracy and knowledge of the subject, required for instruction manuals and much scientific research. In an aesthetic translation, important for literary material, the focus is on preserving the emotional as well as the cognitive content of the work, and on maintaining some level of stylistic equivalence. Ethnographic or sociolinguistic translations aim to pay full attention to the cultural backgrounds of the authors and the recipients, and take into account differences between source and target language, and the ways of life in which they are embedded. And there are various kinds of linguistic translation, where the aim is to convey the structural flavour of the original text, often in quite a literal manner, emphasising such features as archaisms, dialecticisms, and levels of formality. Most translations, of course, are mixtures of these theoretical types, reflecting the complex reality of language in use.”","explanation":"Đáp án E — pragmatic khớp với phát biểu vì passage gắn chính ý này với đối tượng đó.\nBẫy chính: nhiều tên/nhóm xuất hiện gần nhau; cần nối phát biểu với người/nhóm thực sự đưa ra ý đó, không chỉ với tên được nhắc gần nhất.","paraphrases":["Question: focuses on reproducing the content accurately.","Passage: Several different kinds of translation have been proposed to allow for this range of possibilities. A pragmatic translation emphasises accuracy and knowledge of the subject, requir","Key answer: E"],"text":"focuses on reproducing the content accurately.","type":"multiple-choice","options":[["A","A"],["B","B"],["C","C"],["D","D"],["E","E"],["F","F"],["G","G"],["H","H"],["I","I"],["J","J"],["K","K"]],"correct":"E"},{"number":21,"passage":2,"sourceParagraph":"Đoạn F:","sourceTarget":"F","evidence":"Đoạn F:\n“Several different kinds of translation have been proposed to allow for this range of possibilities. A pragmatic translation emphasises accuracy and knowledge of the subject, required for instruction manuals and much scientific research. In an aesthetic translation, important for literary material, the focus is on preserving the emotional as well as the cognitive content of the work, and on maintaining some level of stylistic equivalence. Ethnographic or sociolinguistic translations aim to pay full attention to the cultural backgrounds of the authors and the recipients, and take into account differences between source and target language, and the ways of life in which they are embedded. And there are various kinds of linguistic translation, where the aim is to convey the structural flavour of the original text, often in quite a literal manner, emphasising such features as archaisms, dialecticisms, and levels of formality. Most translations, of course, are mixtures of these theoretical types, reflecting the complex reality of language in use.”","explanation":"Đáp án B — ethnographic khớp với phát biểu vì passage gắn chính ý này với đối tượng đó.\nBẫy chính: nhiều tên/nhóm xuất hiện gần nhau; cần nối phát biểu với người/nhóm thực sự đưa ra ý đó, không chỉ với tên được nhắc gần nhất.","paraphrases":["Question: looks at important cultural aspects of language use.","Passage: Several different kinds of translation have been proposed to allow for this range of possibilities. A pragmatic translation emphasises accuracy and knowledge of the subject, requir","Key answer: B"],"text":"looks at important cultural aspects of language use.","type":"multiple-choice","options":[["A","A"],["B","B"],["C","C"],["D","D"],["E","E"],["F","F"],["G","G"],["H","H"],["I","I"],["J","J"],["K","K"]],"correct":"B"},{"number":22,"passage":2,"sourceParagraph":"Đoạn G:","sourceTarget":"G","evidence":"Đoạn G:\n“At another level, in a word-for-word translation each word in the source language is translated by a word in the target language. The result often makes no sense, especially when idiomatic constructions are used. In a literal translation the linguistic structure of the source text is followed, but is normalised according to the rules of the target language. In a free translation the linguistic structure of the source language is ignored, and an equivalent is found based on the meaning it conveys.”","explanation":"Đáp án D — literal khớp với phát biểu vì passage gắn chính ý này với đối tượng đó.\nBẫy chính: nhiều tên/nhóm xuất hiện gần nhau; cần nối phát biểu với người/nhóm thực sự đưa ra ý đó, không chỉ với tên được nhắc gần nhất.","paraphrases":["Question: follows the original grammatical structures as required by the target language.","Passage: At another level, in a word-for-word translation each word in the source language is translated by a word in the target language. The result often makes no sense, especially when i","Key answer: D"],"text":"follows the original grammatical structures as required by the target language.","type":"multiple-choice","options":[["A","A"],["B","B"],["C","C"],["D","D"],["E","E"],["F","F"],["G","G"],["H","H"],["I","I"],["J","J"],["K","K"]],"correct":"D"},{"number":23,"passage":2,"sourceParagraph":"Đoạn G:","sourceTarget":"G","evidence":"Đoạn G:\n“At another level, in a word-for-word translation each word in the source language is translated by a word in the target language. The result often makes no sense, especially when idiomatic constructions are used. In a literal translation the linguistic structure of the source text is followed, but is normalised according to the rules of the target language. In a free translation the linguistic structure of the source language is ignored, and an equivalent is found based on the meaning it conveys.”","explanation":"Đáp án C — free khớp với phát biểu vì passage gắn chính ý này với đối tượng đó.\nBẫy chính: nhiều tên/nhóm xuất hiện gần nhau; cần nối phát biểu với người/nhóm thực sự đưa ra ý đó, không chỉ với tên được nhắc gần nhất.","paraphrases":["Question: focuses on meaning without necessarily using the original grammatical structures.","Passage: At another level, in a word-for-word translation each word in the source language is translated by a word in the target language. The result often makes no sense, especially when i","Key answer: C"],"text":"focuses on meaning without necessarily using the original grammatical structures.","type":"multiple-choice","options":[["A","A"],["B","B"],["C","C"],["D","D"],["E","E"],["F","F"],["G","G"],["H","H"],["I","I"],["J","J"],["K","K"]],"correct":"C"},{"number":24,"passage":2,"sourceParagraph":"Đoạn A:","sourceTarget":"A","evidence":"Đoạn A:\n“The term 'translation' is used for all cases where the meaning of expressions in one language (the 'source' language) is turned into the meaning in another (the target language), whether the medium is spoken, written, or signed. In specific professional contexts, however, a distinction is drawn between work with the spoken or signed language (interpreting), and work with the written language (translating), although certain tasks blur this distinction.”","explanation":"Đây là dạng chọn nhiều đáp án. Bộ đáp án đúng là B, D, E; mỗi lựa chọn đúng đều được passage đề cập hoặc hỗ trợ rõ ràng. Key gốc ghi 'A', nhưng khi đối chiếu trực tiếp với passage, đáp án đó không khớp; vì vậy đáp án đã được sửa thành 'B'.\nBẫy chính: phải chọn đúng số lượng đáp án; một lựa chọn có vẻ hợp lý nhưng thêm từ tuyệt đối hoặc chi tiết ngoài bài vẫn phải loại.","paraphrases":["Question: Which THREE of the following points are mentioned by the writer of the passage?","Passage: The term 'translation' is used for all cases where the meaning of expressions in one language (the 'source' language) is turned into the meaning in another (the target language), w","Key answer: B"],"text":"Which THREE of the following points are mentioned by the writer of the passage?","type":"matching-features","options":[["A","The objectives of translating are always clearly different from those of interpreting."],["B","A translator may need to consider the culture of the target language."],["C","Translation is an activity which requires professional training."],["D","It is difficult to specify what constitutes a very good translation."],["E","The skill required for translation is increasingly gaining recognition."]],"correct":"B, D, E"},{"number":25,"passage":2,"sourceParagraph":"Đoạn A:","sourceTarget":"A","evidence":"Đoạn A:\n“The term 'translation' is used for all cases where the meaning of expressions in one language (the 'source' language) is turned into the meaning in another (the target language), whether the medium is spoken, written, or signed. In specific professional contexts, however, a distinction is drawn between work with the spoken or signed language (interpreting), and work with the written language (translating), although certain tasks blur this distinction.”","explanation":"Đây là dạng chọn nhiều đáp án. Bộ đáp án đúng là B, D, E; mỗi lựa chọn đúng đều được passage đề cập hoặc hỗ trợ rõ ràng. Key gốc ghi 'B', nhưng khi đối chiếu trực tiếp với passage, đáp án đó không khớp; vì vậy đáp án đã được sửa thành 'D'.\nBẫy chính: phải chọn đúng số lượng đáp án; một lựa chọn có vẻ hợp lý nhưng thêm từ tuyệt đối hoặc chi tiết ngoài bài vẫn phải loại.","paraphrases":["Question: Which THREE of the following points are mentioned by the writer of the passage?","Passage: The term 'translation' is used for all cases where the meaning of expressions in one language (the 'source' language) is turned into the meaning in another (the target language), w","Key answer: D"],"text":"Which THREE of the following points are mentioned by the writer of the passage?","type":"matching-features","options":[["A","The objectives of translating are always clearly different from those of interpreting."],["B","A translator may need to consider the culture of the target language."],["C","Translation is an activity which requires professional training."],["D","It is difficult to specify what constitutes a very good translation."],["E","The skill required for translation is increasingly gaining recognition."]],"correct":"B, D, E"},{"number":26,"passage":2,"sourceParagraph":"Đoạn A:","sourceTarget":"A","evidence":"Đoạn A:\n“The term 'translation' is used for all cases where the meaning of expressions in one language (the 'source' language) is turned into the meaning in another (the target language), whether the medium is spoken, written, or signed. In specific professional contexts, however, a distinction is drawn between work with the spoken or signed language (interpreting), and work with the written language (translating), although certain tasks blur this distinction.”","explanation":"Đây là dạng chọn nhiều đáp án. Bộ đáp án đúng là B, D, E; mỗi lựa chọn đúng đều được passage đề cập hoặc hỗ trợ rõ ràng. Key gốc ghi 'D', nhưng khi đối chiếu trực tiếp với passage, đáp án đó không khớp; vì vậy đáp án đã được sửa thành 'E'.\nBẫy chính: phải chọn đúng số lượng đáp án; một lựa chọn có vẻ hợp lý nhưng thêm từ tuyệt đối hoặc chi tiết ngoài bài vẫn phải loại.","paraphrases":["Question: Which THREE of the following points are mentioned by the writer of the passage?","Passage: The term 'translation' is used for all cases where the meaning of expressions in one language (the 'source' language) is turned into the meaning in another (the target language), w","Key answer: E"],"text":"Which THREE of the following points are mentioned by the writer of the passage?","type":"matching-features","options":[["A","The objectives of translating are always clearly different from those of interpreting."],["B","A translator may need to consider the culture of the target language."],["C","Translation is an activity which requires professional training."],["D","It is difficult to specify what constitutes a very good translation."],["E","The skill required for translation is increasingly gaining recognition."]],"correct":"B, D, E"},{"number":27,"passage":3,"sourceParagraph":"Đoạn 1:","sourceTarget":"1","evidence":"Đoạn 1:\n“The giant stone statues of Easter Island in the Pacific Ocean have perplexed archaeologists ever since European explorers first witnessed them three centuries ago. Jacob Roggeveen, the Dutch seaman who gave the island its name in 1722, was amazed by the statues, each of which clearly weighed several tonnes. But as there were no forests on the island, he could not comprehend how people devoid of heavy timber could build and erect something that size. It was also remarkable considering the absence of metal objects for carving and cutting, and the reliance on mere human strength as no draught animals could be seen either. Roggeveen was equally amazed as to how the islanders could have come to colonise such a remote place. Their canoes were leaky and frail, not the sort of ocean-going craft that could survive a three-week sea journey. At the time of his visit, it seemed evident the islanders were living in extremely poor conditions and that there was no cultivation of crops.”","explanation":"Phần kết D wood — wood tạo thành câu hoàn chỉnh và khớp trực tiếp với thông tin trong passage.\nBẫy chính: kiểm tra cả nghĩa và ngữ pháp của câu sau khi ghép; một ending có từ khóa giống bài vẫn có thể sai quan hệ logic.","paraphrases":["Question: Firstly, it was clear that they were immensely heavy, and there was no __________ around, which would have helped with their construction.","Passage: The giant stone statues of Easter Island in the Pacific Ocean have perplexed archaeologists ever since European explorers first witnessed them three centuries ago. Jacob Roggeveen,","Key answer: D wood"],"text":"Firstly, it was clear that they were immensely heavy, and there was no __________ around, which would have helped with their construction.","type":"matching-features","options":[["A","poverty"],["B","agriculture"],["C","boats"],["D","wood"]],"correct":"D"},{"number":28,"passage":3,"sourceParagraph":"Đoạn 2:","sourceTarget":"2","evidence":"Đoạn 2:\n“What was the mystery behind the statues? In the 1970s, the author Erich von Däniken suggested the statues were the work of extraterrestrial beings. It was hard to believe the stones were the work of humans who were more than 2,000 miles from the nearest mainland, so for a short period of time his theory appealed to those fascinated with space travel. But for serious academics, the puzzle of the statues has caused a deep divide. Some archaeologists see Easter Island as an example of what can happen when the lust for material splendour - ever bigger stone carvings in this case is satisfied at the expense of the environment. Others, meanwhile, take a different view. The island, these scholars argue, suffered at the hands of introduced diseases, notably smallpox, and a slave trade that stole a huge proportion of its indigenous population. At the heart of the debate is the issue of the island's deforestation. There is no doubt that the island was once covered in palm trees. There is also no doubt that something happened that caused the island to become completely denuded over a short period of time. But was it the islanders who triggered this environmental degradation or another event beyond their control, such as the introduction of rats? It is an indisputable fact that rats found their way to the island, although exactly how is a matter of debate.”","explanation":"Phần kết C boats — boats tạo thành câu hoàn chỉnh và khớp trực tiếp với thông tin trong passage.\nBẫy chính: kiểm tra cả nghĩa và ngữ pháp của câu sau khi ghép; một ending có từ khóa giống bài vẫn có thể sai quan hệ logic.","paraphrases":["Question: Another mystery was the poor quality of the local inhabitants' __________; Roggeveen wondered how the people had managed to survive long trips.","Passage: What was the mystery behind the statues? In the 1970s, the author Erich von Däniken suggested the statues were the work of extraterrestrial beings. It was hard to believe the stone","Key answer: C boats"],"text":"Another mystery was the poor quality of the local inhabitants' __________; Roggeveen wondered how the people had managed to survive long trips.","type":"matching-features","options":[["A","poverty"],["B","agriculture"],["C","boats"],["D","wood"]],"correct":"C"},{"number":29,"passage":3,"sourceParagraph":"Đoạn 3:","sourceTarget":"3","evidence":"Đoạn 3:\n“In 2005, the anthropologist Jared Diamond claimed the islanders started building ceremonial statues in an atmosphere of rivalry between the many clans. To move the statues from the island's quarry in the south-east, they needed to cut large logs for the construction of long 'canoe ladders' to carry them to the coast. For its transport alone, each statue would have required several trees to be cut down. As a result of the deforestation, Diamond believes food production fell dramatically. Consequently the population collapsed from perhaps as many as 15,000 to the few thousand that were eking out a living by the time Roggeveen arrived. Smallpox and slavery killed off those who remained, but the islanders were on the way to total collapse even without any European contact, says Diamond.”","explanation":"Phần kết A poverty — poverty tạo thành câu hoàn chỉnh và khớp trực tiếp với thông tin trong passage.\nBẫy chính: kiểm tra cả nghĩa và ngữ pháp của câu sau khi ghép; một ending có từ khóa giống bài vẫn có thể sai quan hệ logic.","paraphrases":["Question: At the time of Roggeveen's visit, he observed that the people were living in __________ and there was no evidence of successful 30__________ on the is","Passage: In 2005, the anthropologist Jared Diamond claimed the islanders started building ceremonial statues in an atmosphere of rivalry between the many clans. To move the statues from the","Key answer: A poverty"],"text":"At the time of Roggeveen's visit, he observed that the people were living in __________ and there was no evidence of successful 30__________ on the island.","type":"matching-features","options":[["A","poverty"],["B","agriculture"],["C","boats"],["D","wood"]],"correct":"A"},{"number":30,"passage":3,"sourceParagraph":"Đoạn 3:","sourceTarget":"3","evidence":"Đoạn 3:\n“In 2005, the anthropologist Jared Diamond claimed the islanders started building ceremonial statues in an atmosphere of rivalry between the many clans. To move the statues from the island's quarry in the south-east, they needed to cut large logs for the construction of long 'canoe ladders' to carry them to the coast. For its transport alone, each statue would have required several trees to be cut down. As a result of the deforestation, Diamond believes food production fell dramatically. Consequently the population collapsed from perhaps as many as 15,000 to the few thousand that were eking out a living by the time Roggeveen arrived. Smallpox and slavery killed off those who remained, but the islanders were on the way to total collapse even without any European contact, says Diamond.”","explanation":"Phần kết B agriculture — agriculture tạo thành câu hoàn chỉnh và khớp trực tiếp với thông tin trong passage.\nBẫy chính: kiểm tra cả nghĩa và ngữ pháp của câu sau khi ghép; một ending có từ khóa giống bài vẫn có thể sai quan hệ logic.","paraphrases":["Question: At the time of Roggeveen's visit, he observed that the people were living in 29__________ and there was no evidence of successful __________ on the is","Passage: In 2005, the anthropologist Jared Diamond claimed the islanders started building ceremonial statues in an atmosphere of rivalry between the many clans. To move the statues from the","Key answer: B agriculture"],"text":"At the time of Roggeveen's visit, he observed that the people were living in 29__________ and there was no evidence of successful __________ on the island.","type":"matching-features","options":[["A","poverty"],["B","agriculture"],["C","boats"],["D","wood"]],"correct":"B"},{"number":31,"passage":3,"sourceParagraph":"Đoạn 2:","sourceTarget":"2","evidence":"Đoạn 2:\n“What was the mystery behind the statues? In the 1970s, the author Erich von Däniken suggested the statues were the work of extraterrestrial beings. It was hard to believe the stones were the work of humans who were more than 2,000 miles from the nearest mainland, so for a short period of time his theory appealed to those fascinated with space travel. But for serious academics, the puzzle of the statues has caused a deep divide. Some archaeologists see Easter Island as an example of what can happen when the lust for material splendour - ever bigger stone carvings in this case is satisfied at the expense of the environment. Others, meanwhile, take a different view. The island, these scholars argue, suffered at the hands of introduced diseases, notably smallpox, and a slave trade that stole a huge proportion of its indigenous population. At the heart of the debate is the issue of the island's deforestation. There is no doubt that the island was once covered in palm trees. There is also no doubt that something happened that caused the island to become completely denuded over a short period of time. But was it the islanders who triggered this environmental degradation or another event beyond their control, such as the introduction of rats? It is an indisputable fact that rats found their way to the island, although exactly how is a matter of debate.”","explanation":"Thông tin trong câu hỏi được passage xác nhận theo cùng ý nghĩa.\nBẫy chính: phân biệt “không được nói” với “bị nói ngược”, và chú ý các từ tuyệt đối/so sánh như all, only, always, more, most.","paraphrases":["Question: Erich von Däniken's claims were briefly accepted by some sections of society.","Passage: What was the mystery behind the statues? In the 1970s, the author Erich von Däniken suggested the statues were the work of extraterrestrial beings. It was hard to believe the stone","Key answer: YES"],"text":"Erich von Däniken's claims were briefly accepted by some sections of society.","type":"multiple-choice","options":[["YES","YES"],["NO","NO"],["NOT GIVEN","NOT GIVEN"]],"correct":"YES"},{"number":32,"passage":3,"sourceParagraph":"Đoạn 1:","sourceTarget":"1","evidence":"Đoạn 1:\n“The giant stone statues of Easter Island in the Pacific Ocean have perplexed archaeologists ever since European explorers first witnessed them three centuries ago. Jacob Roggeveen, the Dutch seaman who gave the island its name in 1722, was amazed by the statues, each of which clearly weighed several tonnes. But as there were no forests on the island, he could not comprehend how people devoid of heavy timber could build and erect something that size. It was also remarkable considering the absence of metal objects for carving and cutting, and the reliance on mere human strength as no draught animals could be seen either. Roggeveen was equally amazed as to how the islanders could have come to colonise such a remote place. Their canoes were leaky and frail, not the sort of ocean-going craft that could survive a three-week sea journey. At the time of his visit, it seemed evident the islanders were living in extremely poor conditions and that there was no cultivation of crops.”","explanation":"Passage có đề cập chủ đề liên quan nhưng không cung cấp chi tiết đủ để xác nhận hoặc phủ định mệnh đề trong câu hỏi, nên phải chọn NOT GIVEN.\nBẫy chính: phân biệt “không được nói” với “bị nói ngược”, và chú ý các từ tuyệt đối/so sánh như all, only, always, more, most.","paraphrases":["Question: Archaeologists removed valuable artefacts from the island.","Passage: The giant stone statues of Easter Island in the Pacific Ocean have perplexed archaeologists ever since European explorers first witnessed them three centuries ago. Jacob Roggeveen,","Key answer: NOT GIVEN"],"text":"Archaeologists removed valuable artefacts from the island.","type":"multiple-choice","options":[["YES","YES"],["NO","NO"],["NOT GIVEN","NOT GIVEN"]],"correct":"NOT GIVEN"},{"number":33,"passage":3,"sourceParagraph":"Đoạn 2:","sourceTarget":"2","evidence":"Đoạn 2:\n“What was the mystery behind the statues? In the 1970s, the author Erich von Däniken suggested the statues were the work of extraterrestrial beings. It was hard to believe the stones were the work of humans who were more than 2,000 miles from the nearest mainland, so for a short period of time his theory appealed to those fascinated with space travel. But for serious academics, the puzzle of the statues has caused a deep divide. Some archaeologists see Easter Island as an example of what can happen when the lust for material splendour - ever bigger stone carvings in this case is satisfied at the expense of the environment. Others, meanwhile, take a different view. The island, these scholars argue, suffered at the hands of introduced diseases, notably smallpox, and a slave trade that stole a huge proportion of its indigenous population. At the heart of the debate is the issue of the island's deforestation. There is no doubt that the island was once covered in palm trees. There is also no doubt that something happened that caused the island to become completely denuded over a short period of time. But was it the islanders who triggered this environmental degradation or another event beyond their control, such as the introduction of rats? It is an indisputable fact that rats found their way to the island, although exactly how is a matter of debate.”","explanation":"Passage có đề cập chủ đề liên quan nhưng không cung cấp chi tiết đủ để xác nhận hoặc phủ định mệnh đề trong câu hỏi, nên phải chọn NOT GIVEN.\nBẫy chính: phân biệt “không được nói” với “bị nói ngược”, và chú ý các từ tuyệt đối/so sánh như all, only, always, more, most.","paraphrases":["Question: Smallpox continued to affect Easter Island's inhabitants for centuries.","Passage: What was the mystery behind the statues? In the 1970s, the author Erich von Däniken suggested the statues were the work of extraterrestrial beings. It was hard to believe the stone","Key answer: NOT GIVEN"],"text":"Smallpox continued to affect Easter Island's inhabitants for centuries.","type":"multiple-choice","options":[["YES","YES"],["NO","NO"],["NOT GIVEN","NOT GIVEN"]],"correct":"NOT GIVEN"},{"number":34,"passage":3,"sourceParagraph":"Đoạn 2:","sourceTarget":"2","evidence":"Đoạn 2:\n“What was the mystery behind the statues? In the 1970s, the author Erich von Däniken suggested the statues were the work of extraterrestrial beings. It was hard to believe the stones were the work of humans who were more than 2,000 miles from the nearest mainland, so for a short period of time his theory appealed to those fascinated with space travel. But for serious academics, the puzzle of the statues has caused a deep divide. Some archaeologists see Easter Island as an example of what can happen when the lust for material splendour - ever bigger stone carvings in this case is satisfied at the expense of the environment. Others, meanwhile, take a different view. The island, these scholars argue, suffered at the hands of introduced diseases, notably smallpox, and a slave trade that stole a huge proportion of its indigenous population. At the heart of the debate is the issue of the island's deforestation. There is no doubt that the island was once covered in palm trees. There is also no doubt that something happened that caused the island to become completely denuded over a short period of time. But was it the islanders who triggered this environmental degradation or another event beyond their control, such as the introduction of rats? It is an indisputable fact that rats found their way to the island, although exactly how is a matter of debate.”","explanation":"Câu hỏi đưa ra ý trái với thông tin trong passage; đây là mâu thuẫn trực tiếp chứ không phải thiếu thông tin.\nBẫy chính: phân biệt “không được nói” với “bị nói ngược”, và chú ý các từ tuyệt đối/so sánh như all, only, always, more, most.","paraphrases":["Question: It remains open to question whether Easter Island was once covered in forest.","Passage: What was the mystery behind the statues? In the 1970s, the author Erich von Däniken suggested the statues were the work of extraterrestrial beings. It was hard to believe the stone","Key answer: NO"],"text":"It remains open to question whether Easter Island was once covered in forest.","type":"multiple-choice","options":[["YES","YES"],["NO","NO"],["NOT GIVEN","NOT GIVEN"]],"correct":"NO"},{"number":35,"passage":3,"sourceParagraph":"Đoạn 2:","sourceTarget":"2","evidence":"Đoạn 2:\n“What was the mystery behind the statues? In the 1970s, the author Erich von Däniken suggested the statues were the work of extraterrestrial beings. It was hard to believe the stones were the work of humans who were more than 2,000 miles from the nearest mainland, so for a short period of time his theory appealed to those fascinated with space travel. But for serious academics, the puzzle of the statues has caused a deep divide. Some archaeologists see Easter Island as an example of what can happen when the lust for material splendour - ever bigger stone carvings in this case is satisfied at the expense of the environment. Others, meanwhile, take a different view. The island, these scholars argue, suffered at the hands of introduced diseases, notably smallpox, and a slave trade that stole a huge proportion of its indigenous population. At the heart of the debate is the issue of the island's deforestation. There is no doubt that the island was once covered in palm trees. There is also no doubt that something happened that caused the island to become completely denuded over a short period of time. But was it the islanders who triggered this environmental degradation or another event beyond their control, such as the introduction of rats? It is an indisputable fact that rats found their way to the island, although exactly how is a matter of debate.”","explanation":"Thông tin trong câu hỏi được passage xác nhận theo cùng ý nghĩa.\nBẫy chính: phân biệt “không được nói” với “bị nói ngược”, và chú ý các từ tuyệt đối/so sánh như all, only, always, more, most.","paraphrases":["Question: The way that rats arrived on Easter Island is still to be established.","Passage: What was the mystery behind the statues? In the 1970s, the author Erich von Däniken suggested the statues were the work of extraterrestrial beings. It was hard to believe the stone","Key answer: YES"],"text":"The way that rats arrived on Easter Island is still to be established.","type":"multiple-choice","options":[["YES","YES"],["NO","NO"],["NOT GIVEN","NOT GIVEN"]],"correct":"YES"},{"number":36,"passage":3,"sourceParagraph":"Đoạn 4:","sourceTarget":"4","evidence":"Đoạn 4:\n“But not everyone is convinced. Professor Terry Hunt, an anthropologist at the University of Hawaii, says: 'There is no evidence that a population collapse occurred before European contact.' He is supported by Professor Carl Lipo of California State University. They argue that Easter Island was colonised by the first Polynesian seafarers nowhere near as early as supposed. They say the first people to arrive came around AD1200, about 400 years later than other scientists have suggested from radio-carbon dating. This makes it implausible for the population to have reached the 15,000 figure that would have caused such a fast ecocide. They also believe the deforestation occurred over a longer period as a result of climate change, and rats probably also played a part. The islanders did not go through a population collapse until after the arrival of Europeans, they say.”","explanation":"Lựa chọn C — A method of transportation diễn đạt đúng ý của passage. Các lựa chọn còn lại hoặc quá tuyệt đối, thêm chi tiết không có, hoặc đổi quan hệ nguyên nhân–kết quả.\nBẫy chính: ưu tiên phương án paraphrase đúng toàn bộ ý, không chọn phương án chỉ trùng vài từ với bài.","paraphrases":["Question: What does Jared Diamond blame for the lack of vegetation on Easter Island?","Passage: But not everyone is convinced. Professor Terry Hunt, an anthropologist at the University of Hawaii, says: 'There is no evidence that a population collapse occurred before European","Key answer: C"],"text":"What does Jared Diamond blame for the lack of vegetation on Easter Island?","type":"multiple-choice","options":[["A","The construction of stone statues"],["B","Climate change over a long period"],["C","A method of transportation"],["D","The arrival of Europeans"]],"correct":"C"},{"number":37,"passage":3,"sourceParagraph":"Đoạn 4:","sourceTarget":"4","evidence":"Đoạn 4:\n“But not everyone is convinced. Professor Terry Hunt, an anthropologist at the University of Hawaii, says: 'There is no evidence that a population collapse occurred before European contact.' He is supported by Professor Carl Lipo of California State University. They argue that Easter Island was colonised by the first Polynesian seafarers nowhere near as early as supposed. They say the first people to arrive came around AD1200, about 400 years later than other scientists have suggested from radio-carbon dating. This makes it implausible for the population to have reached the 15,000 figure that would have caused such a fast ecocide. They also believe the deforestation occurred over a longer period as a result of climate change, and rats probably also played a part. The islanders did not go through a population collapse until after the arrival of Europeans, they say.”","explanation":"Lựa chọn B — The first settlers arrived much later than is widely accepted diễn đạt đúng ý của passage. Các lựa chọn còn lại hoặc quá tuyệt đối, thêm chi tiết không có, hoặc đổi quan hệ nguyên nhân–kết quả.\nBẫy chính: ưu tiên phương án paraphrase đúng toàn bộ ý, không chọn phương án chỉ trùng vài từ với bài.","paraphrases":["Question: What do Hunt and Lipo suggest about the population of Easter Island?","Passage: But not everyone is convinced. Professor Terry Hunt, an anthropologist at the University of Hawaii, says: 'There is no evidence that a population collapse occurred before European","Key answer: B"],"text":"What do Hunt and Lipo suggest about the population of Easter Island?","type":"multiple-choice","options":[["A","It collapsed before European contact"],["B","The first settlers arrived much later than is widely accepted"],["C","It never exceeded a few thousand inhabitants"],["D","It declined mainly because of disease"]],"correct":"B"},{"number":38,"passage":3,"sourceParagraph":"Đoạn 5:","sourceTarget":"5","evidence":"Đoạn 5:\n“Hunt has examined new data from the Hawaiian and other Pacific islands that shows that by early historic times the deforestation of Easter Island was already complete, or nearly so. A dense forest of palm trees and shrubs had mostly disappeared and as a result, as many as six land bird species had also become extinct. Crucially, much of the forest damage appears to have been done before evidence of fires on the island. However, almost all of the palm seed shells discovered on the island were found to have been gnawed by rats which would have made them unable to germinate. Evidence from other Pacific islands also confirms how destructive rats can be. However, John Flenley of New Zealand's Massey University, who carried out much of the radio-carbon work on Easter Island, says there is ample evidence for a much earlier arrival of Polynesian settlers. He refutes the arguments of the sceptics: whilst admitting that the Europeans did bring certain disasters, he maintains that Hunt and Lipo are ignoring archaeological, botanical and sedimentological evidence proving the island was transformed from a subtropical rainforest to a treeless landscape. The radio-carbon dating points to an initial colonisation before AD900, Flenley argues. This was ample time for the rapid deforestation, environmental collapse and a population crash, he insists.”","explanation":"Lựa chọn A — They were a likely cause of deforestation diễn đạt đúng ý của passage. Các lựa chọn còn lại hoặc quá tuyệt đối, thêm chi tiết không có, hoặc đổi quan hệ nguyên nhân–kết quả.\nBẫy chính: ưu tiên phương án paraphrase đúng toàn bộ ý, không chọn phương án chỉ trùng vài từ với bài.","paraphrases":["Question: What is suggested about rats on Easter Island in the fifth paragraph?","Passage: Hunt has examined new data from the Hawaiian and other Pacific islands that shows that by early historic times the deforestation of Easter Island was already complete, or nearly so","Key answer: A"],"text":"What is suggested about rats on Easter Island in the fifth paragraph?","type":"multiple-choice","options":[["A","They were a likely cause of deforestation"],["B","They arrived after the forests had disappeared"],["C","They had no effect on plant regeneration"],["D","They were introduced by Europeans"]],"correct":"A"},{"number":39,"passage":3,"sourceParagraph":"Đoạn 5:","sourceTarget":"5","evidence":"Đoạn 5:\n“Hunt has examined new data from the Hawaiian and other Pacific islands that shows that by early historic times the deforestation of Easter Island was already complete, or nearly so. A dense forest of palm trees and shrubs had mostly disappeared and as a result, as many as six land bird species had also become extinct. Crucially, much of the forest damage appears to have been done before evidence of fires on the island. However, almost all of the palm seed shells discovered on the island were found to have been gnawed by rats which would have made them unable to germinate. Evidence from other Pacific islands also confirms how destructive rats can be. However, John Flenley of New Zealand's Massey University, who carried out much of the radio-carbon work on Easter Island, says there is ample evidence for a much earlier arrival of Polynesian settlers. He refutes the arguments of the sceptics: whilst admitting that the Europeans did bring certain disasters, he maintains that Hunt and Lipo are ignoring archaeological, botanical and sedimentological evidence proving the island was transformed from a subtropical rainforest to a treeless landscape. The radio-carbon dating points to an initial colonisation before AD900, Flenley argues. This was ample time for the rapid deforestation, environmental collapse and a population crash, he insists.”","explanation":"Lựa chọn A — dismissing it diễn đạt đúng ý của passage. Các lựa chọn còn lại hoặc quá tuyệt đối, thêm chi tiết không có, hoặc đổi quan hệ nguyên nhân–kết quả.\nBẫy chính: ưu tiên phương án paraphrase đúng toàn bộ ý, không chọn phương án chỉ trùng vài từ với bài.","paraphrases":["Question: Flenley responds to Hunt and Lipo’s theory by","Passage: Hunt has examined new data from the Hawaiian and other Pacific islands that shows that by early historic times the deforestation of Easter Island was already complete, or nearly so","Key answer: A"],"text":"Flenley responds to Hunt and Lipo’s theory by","type":"multiple-choice","options":[["A","dismissing it"],["B","partially supporting it"],["C","expanding on their arguments"],["D","avoiding direct criticism"]],"correct":"A"},{"number":40,"passage":3,"sourceParagraph":"Đoạn 6:","sourceTarget":"6","evidence":"Đoạn 6:\n“Why all this is important today is not, of course, lost in the age of globalisation, climate change and a rapidly growing world population in the billions. As Diamond says: 'The parallels between Easter Island and the whole of the modern world are chillingly obvious.'”","explanation":"Lựa chọn B — provide an overview of a series of arguments diễn đạt đúng ý của passage. Các lựa chọn còn lại hoặc quá tuyệt đối, thêm chi tiết không có, hoặc đổi quan hệ nguyên nhân–kết quả.\nBẫy chính: ưu tiên phương án paraphrase đúng toàn bộ ý, không chọn phương án chỉ trùng vài từ với bài.","paraphrases":["Question: The writer’s purpose in this article is to","Passage: Why all this is important today is not, of course, lost in the age of globalisation, climate change and a rapidly growing world population in the billions. As Diamond says: 'The pa","Key answer: B"],"text":"The writer’s purpose in this article is to","type":"multiple-choice","options":[["A","argue in favour of Diamond’s interpretation"],["B","provide an overview of a series of arguments"],["C","prove that rats were the main cause of deforestation"],["D","criticise modern archaeological methods"]],"correct":"B"}];
+const PASSAGES = {"1":{"title":"Andrew Carnegie: industrialist and philanthropist","subtitle":"","paragraphs":[["1","The Scottish-born American industrialist and philanthropist Andrew Carnegie, who was the leader of the American steel industry from 1873 to 1901, donated large sums of his fortune to educational, cultural, and scientific institutions. He was born in 1835 in Scotland, the son of William Carnegie, a weaver, and Margaret Morrison Carnegie."],["2","With the invention of weaning machines, William Carnegie’s job disappeared, and eventually the family was forced into poverty. In 1848 the family left Scotland and settled in Pittsburgh, Pennsylvania, in the USA. William found a job in a cotton factory, but he soon quit to return to his home handloom, making linens and trying to sell them door-to-door. Andrew Carnegie also worked in the cotton factory, but after his father died in 1855, his strong desire to help take care of the family pushed him to educate himself. He became an avid reader, a theatergoer, and a lover of music."],["3","Andrew Carnegie became a messenger boy in a telegraph office and later became a telegraph operator. Thomas A. Scott, superintendent of the western division of the Pennsylvania Railroad, made the eighteen-year-old his secretary. Carnegie was soon earning enough to buy a house for his mother. During the Civil War in the United States (1861-65), he helped organize the military telegraph system, but soon returned to Pittsburgh to take Scott’s old job with the railroad."],["4","Between 1865 and 1870 Carnegie made money through investments in several small iron mills and factories. He also traveled throughout England, selling the bonds of small United States railroads and bridge companies. Carnegie began to see that steel was eventually going to replace iron for the manufacture of rails, structural shapes, pipe, and wire. In 1873 he organized a steel rail company and continued building by cutting prices, driving out competitors, shaking off weak partners, and putting earnings back into the company. He never went public (sold shares of his company in order to raise money). Instead he obtained capital from profit, and when necessary from banks, and he kept on growing, making heavy steel alone."],["5","In the 1880s Carnegie’s purchases included a majority stake in the H C Frick Company in Pennsylvania that had vast coal interests, and also the Homestead mills business. Frick became his partner and eventually chairman of the Carnegie Company. Carnegie had moved to New York City in 1867 to be close to the marketing centers for steel products, while Frick stayed in Pennsylvania as the general manager. They made a good team, Behind the scenes, Carnegie planned new projects and the improvement of existing plants; Frick was the working director who watched over the mass-production programs that helped keep price down."],["6","Carnegie spent his leisure time traveling. He also wrote several books, including Triumphant Democracy (1886), which pointed out what he thought were the advantages of life in the United States over the unequal societies of Britain and other European countries. To Carnegie, access to education was the key to America’s political stability and industrial accomplishments. In 1889 he published an article, ‘Wealth’, stating his belief that the rich had a duty to use their money to improve the welfare of the community. Carnegie remained a bachelor until his mother died in 1886. A year Inter he married Louise Whitfield and they had one child together. The couple began to spend six months each year in Scotland, though Carnegie kept an eye on business developments and problems."],["7","Carnegie’s absence from the United States was a factor in the Homestead mills strike of 1892. After acquiring Homestead, Carnegie had invested in new plants and equipment, increased production, and automated many of the mill’s operations, cutting down the number of workers that were needed. Carnegie believed that workers had a right to join unions and to bargain with management through their unions. He also recognized the right to strike, as long as the action was conducted peacefully. He viewed strikes as trials of strength, with peaceful discussion resolving the conflict. In contract talks during 1892, Frick wanted to lower the minimum wage because of the need for fewer workers. The union representing his workers would not accept this and organized a strike."],["8","Following a violent confrontation that resulted in the death of eight workers, soldiers were sent in to restore order and Carnegie was criticized for his lack of action. In the 1890s Carnegie also began to meet with tougher competition from newer, bigger companies who were interested in controlled prices and sharing the market. Companies that he had sold to for years threatened to cut down their purchases unless be agreed to cooperate. These threats made him decide to fight back. He refused to enter into any agreements with other companies. Moreover, he decided to invade their territories by making similar products and by expanding his sales activities into the west of the country. Eventually, though, he decided to sell his company to the newly formed U.S. Steel Corporation in 1901 for almost $500 million. Carnegie’s personal share was $225 million."],["9","In retirement, Carnegie began to set up trust funds ‘for the improvement of mankind’. He built some three thousand public libraries all over the English-speaking world and funded galleries, museums and concert halls in the US. He also built a group of technical schools, a research institute, and a foundation providing pensions for university professors. When Carnegie died in 1919, the continuation of his broad interests was put under the general charge of the Carnegie Corporation, with a donation of $125 million."]]},"2":{"title":"Translating: a key to international understanding?","subtitle":"","paragraphs":[["A","The term 'translation' is used for all cases where the meaning of expressions in one language (the 'source' language) is turned into the meaning in another (the target language), whether the medium is spoken, written, or signed. In specific professional contexts, however, a distinction is drawn between work with the spoken or signed language (interpreting), and work with the written language (translating), although certain tasks blur this distinction."],["B","It is sometimes said that there is no task more complex than translation a claim that can be readily believed when all the variables involved are taken into account. Translators not only need to know their source language well; they must also have a thorough understanding in the field of knowledge covered by the source text, and of any social, cultural, or emotional connotations that need to be specified in the target language if the intended effect is to be conveyed. The same special awareness needs to be present for the target language, so that points of special phrasing, contemporary fashions in expression, local expectations, and so on, can all be taken into account. On the whole, translators work into their mother tongue (or language of habitual use), to ensure a result that sounds as natural as possible though some translators have argued that, for certain types of text (e.g., scientific material) where translation accuracy is more crucial than naturalness, it makes more sense for the translators to be more fluent in the source language."],["C","The aim of translation is to provide semantic equivalence between source and target language. This is what makes translation different from other linguistic activities, such as adapting, precise writing, and abstracting. However, there are many problems hidden within this apparently simple statement, all to do with what standards of 'equivalence' should be expected and accepted."],["D","Exact equivalence is of course impossible: no translator could provide a translation that was a perfect parallel to the source text, in such respects as rhythm, puns and cultural allusions. Such a parallel is not even possible when paraphrasing within a single language: there is always some loss of information."],["E","On the other hand, there are many kinds of inexact equivalence, any of which can be successful at a certain level of practical functioning. It therefore follows that there is no such thing as a best translation. The success of translation depends on the purpose for which it was made, which in turn reflects the needs of the people for whom it was made. A rough and-ready translation of a letter can suffice to inform a firm of the nature of an enquiry. A translation of a scientific article requires careful attention to meaning but little attention to stylistic features. The provision of a dubbed film script will warrant scrupulous care over the synchronisation of lip movements, often at the expense of content. Literary work requires a sensitive consideration of form as well as content, and may prompt several translations, each of which emphasises a different aspect of the original. It is easy to see what might be 'best' for one set of circumstances may be entirely unsuitable for another."],["F","Several different kinds of translation have been proposed to allow for this range of possibilities. A pragmatic translation emphasises accuracy and knowledge of the subject, required for instruction manuals and much scientific research. In an aesthetic translation, important for literary material, the focus is on preserving the emotional as well as the cognitive content of the work, and on maintaining some level of stylistic equivalence. Ethnographic or sociolinguistic translations aim to pay full attention to the cultural backgrounds of the authors and the recipients, and take into account differences between source and target language, and the ways of life in which they are embedded. And there are various kinds of linguistic translation, where the aim is to convey the structural flavour of the original text, often in quite a literal manner, emphasising such features as archaisms, dialecticisms, and levels of formality. Most translations, of course, are mixtures of these theoretical types, reflecting the complex reality of language in use."],["G","At another level, in a word-for-word translation each word in the source language is translated by a word in the target language. The result often makes no sense, especially when idiomatic constructions are used. In a literal translation the linguistic structure of the source text is followed, but is normalised according to the rules of the target language. In a free translation the linguistic structure of the source language is ignored, and an equivalent is found based on the meaning it conveys."],["H","Translators aim to produce a text that is as faithful to the original as circumstances require or permit, and yet that reads as if it were written originally in the target language. They aim to be \"invisible people\" - transferring content without drawing attention to the considerable artistic and technical skills involved in the process. The complexity of the task is apparent, but its importance is often underestimated, and its practitioners' social status and legal rights undervalued. Some countries view translation as a menial, clerical task, and pay their translators accordingly, while others regard it as a major intellectual discipline in its own right. The question of status is currently much debated, particularly in Europe, where demand for translators is rocketing, especially in relation to the European Union."]]},"3":{"title":"The mystery of Easter Island","subtitle":"Which paragraph contains the following information?","paragraphs":[["1","Choose the correct letter, A-H, in boxes 14-15."],["2","14 the effect that a client's requirements have on the nature of a translation."],["3","15 contrasting attitudes towards translators."]]}};
+const CHOOSE_GROUPS = {"24-26":{"nums":[24,25,26],"correct":["B","D","E"],"max":3}};
+const NUM_TO_GROUP = {};
+Object.entries(CHOOSE_GROUPS).forEach(([gid,g])=>g.nums.forEach(n=>NUM_TO_GROUP[String(n)]=gid));
+let timerInterval=null, saveTimer=null, lastFocusBeforeModal=null;
+let storageOK=true;
+let state = {
+  studentName:"",started:false,submitted:false,startTime:null,endTime:null,submitTime:null,
+  answers:{},reviewMarks:{},passage:1,currentQuestion:1,notes:{1:"",2:"",3:""},
+  passageHtml:{},lastSaved:null,result:null,warnings:{}
+};
+
+function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));}
+function nl2br(s){return esc(s).replace(/\n/g,"<br>");}
+function normalizeText(s){
+  return String(s??"").trim().replace(/\s+/g," ").replace(/[‘’]/g,"'").replace(/\s*-\s*/g,"-").toLowerCase();
+}
+function safeGet(){
+  try{
+    const raw=localStorage.getItem(STORAGE_KEY);
+    if(!raw)return null;
+    const obj=JSON.parse(raw);
+    return obj && typeof obj==="object" ? obj : null;
+  }catch(e){storageOK=false;return null;}
+}
+function safeSet(){
+  state.lastSaved=Date.now();
+  try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state));}
+  catch(e){storageOK=false;}
+  updateSaveLine();
+}
+function safeRemove(){
+  try{localStorage.removeItem(STORAGE_KEY);}catch(e){storageOK=false;}
+}
+function debounceSave(){clearTimeout(saveTimer);saveTimer=setTimeout(safeSet,250);}
+function showToast(msg){const t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2200);}
+function formatClock(ms){ms=Math.max(0,ms);const sec=Math.floor(ms/1000),m=Math.floor(sec/60),s=sec%60;return String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");}
+function fmtTime(ts){if(!ts)return "—";return new Date(ts).toLocaleTimeString("vi-VN",{hour:"2-digit",minute:"2-digit",second:"2-digit"});}
+function fmtDate(ts){if(!ts)return "—";return new Date(ts).toLocaleDateString("vi-VN");}
+function durationText(ms){const sec=Math.max(0,Math.round(ms/1000));const h=Math.floor(sec/3600),m=Math.floor((sec%3600)/60),s=sec%60;return (h? h+" giờ ":"")+m+" phút "+s+" giây";}
+function currentRemaining(){return state.endTime ? Math.max(0,state.endTime-Date.now()) : TOTAL_MS;}
+
+function questionByNumber(n){return QUESTIONS.find(q=>q.number===Number(n));}
+function passageQuestions(p){return QUESTIONS.filter(q=>q.passage===Number(p));}
+function answerFor(n){
+  const gid=NUM_TO_GROUP[String(n)];
+  if(gid)return Array.isArray(state.answers[gid])?state.answers[gid]:[];
+  return state.answers[String(n)] ?? "";
+}
+function isAnswered(n){
+  const gid=NUM_TO_GROUP[String(n)];
+  if(gid){
+    const g=CHOOSE_GROUPS[gid],idx=g.nums.indexOf(Number(n));
+    return answerFor(n).length>=idx+1;
+  }
+  const a=answerFor(n);
+  return Array.isArray(a)?a.length>0:normalizeText(a)!=="";
+}
+function answeredCount(){let c=0;for(let n=1;n<=40;n++)if(isAnswered(n))c++;return c;}
+function unansweredNumbers(){const arr=[];for(let n=1;n<=40;n++)if(!isAnswered(n))arr.push(n);return arr;}
+function reviewCount(){return Object.values(state.reviewMarks).filter(Boolean).length;}
+function updateSaveLine(){
+  const el=document.getElementById("saveLine");
+  if(!el)return;
+  el.textContent=storageOK?(state.lastSaved?"Đã lưu lúc "+fmtTime(state.lastSaved):""):"Cảnh báo: localStorage không hoạt động; bài vẫn có thể tiếp tục trong phiên này.";
+}
+function updateStatus(){
+  const a=answeredCount(),u=40-a,r=reviewCount();
+  const top=document.getElementById("topAnswered");if(top)top.textContent=a+"/40";
+  const ss=document.getElementById("statusSummary");if(ss)ss.textContent=`Đã trả lời: ${a} · Chưa trả lời: ${u} · Xem lại: ${r}`;
+  updateNav();
+}
+
+function renderPassageHTML(p){
+  const data=PASSAGES[String(p)];
+  let h=`<article data-passage="${p}"><h2 class="passage-title">${esc(data.title)}</h2>`;
+  if(data.subtitle) h+=`<div class="passage-subtitle">${esc(data.subtitle)}</div>`;
+  for(const [label,text] of data.paragraphs){
+    const parts=String(text).split(/\n\s*\n/);
+    h+=`<section id="passage-${p}-par-${esc(label)}" class="passage-para passage-source" data-par="${esc(label)}"><span class="para-label">${esc(label)}</span>`;
+    parts.forEach((part,i)=>{h+=(i?`<br><br>`:"")+esc(part);});
+    h+=`</section>`;
+  }
+  h+=`</article>`;
+  return h;
+}
+function displayPassage(p){
+  const body=document.getElementById("passageBody");
+  const saved=state.passageHtml[String(p)];
+  body.innerHTML=saved || renderPassageHTML(p);
+}
+
+const GROUPS = {"1":[{"nums":[1,2,3,4,5,6,7],"title":"Questions 1–7","instruction":"Complete the notes below. Write ONE WORD ONLY from the passage for each answer. Carnegie’s Life"},{"nums":[8,9,10,11,12,13],"title":"Questions 8–13","instruction":"Choose TRUE if the statement agrees with the information given in the text, choose FALSE if the statement contradicts the information, or choose NOT GIVEN if there is no information on this."}],"2":[{"nums":[14,15],"title":"Questions 14–15","instruction":""}],"3":[{"nums":[16,17,18,19],"title":"Questions 16–19","instruction":"Complete the summary below. Write NO MORE THAN TWO WORDS from paragraphs C, D and E for each answer. The goal of translation"},{"nums":[20,21,22,23],"title":"Questions 20–23","instruction":"Look at the following features of translating (Questions 21-24) and the types of translation below. Match each feature with the correct type of translation, A-F. Choose the correct letter, A-F, in boxes 20-23."},{"nums":[24,25,26],"title":"Questions 24–26","instruction":"Choose THREE correct answers. 24-26 Which THREE of the following points are mentioned by the writer of the passage? The objectives of translating are always clearly different from those of interpreting. A translator may need to consider the culture of the target language. Translation is an activity which requires professional training. It is difficult to specify what constitutes a very good translation. The skill required for translation is increasingly gaining recognition. PASSAGE 3: The mystery of Easter Island What could possibly explain the lack of vegetation on Easter Island? Why all this is important today is not, of course, lost in the age of globalisation, climate change and a rapidly growing world population in the billions. As Diamond says: 'The parallels between Easter Island and the whole of the modern world are chillingly obvious.'","groupId":"24-26"},{"nums":[27,28,29,30],"title":"Questions 27–30","instruction":"Complete the summary using the list of words and phrases, A-D, below. Early European reaction to the discovery of Easter Island A poverty B agriculture C boats D wood"},{"nums":[31,32,33,34,35],"title":"Questions 31–35","instruction":"Choose YES if the statement agrees with the claims of the writer, choose NO if the statement contradicts the claims of the writer, or NOT GIVEN if it is impossible to say what the writer thinks about this."},{"nums":[36,37,38,39,40],"title":"Questions 36–40","instruction":"Choose the correct answer. The construction of stone statues Climate change over a long period A method of transportation The arrival of Europeans It collapsed before European contact The first settlers arrived much later than is widely accepted It never exceeded a few thousand inhabitants It declined mainly because of disease They were a likely cause of deforestation They arrived after the forests had disappeared They had no effect on plant regeneration They were introduced by Europeans dismissing it partially supporting it expanding on their arguments avoiding direct criticism argue in favour of Diamond’s interpretation provide an overview of a series of arguments prove that rats were the main cause of deforestation"}]};
+function selectHtml(q){
+  const val=String(answerFor(q.number)||"");
+  let out=`<select aria-label="Câu ${q.number}" data-answer="${q.number}"><option value="">— Chọn —</option>`;
+  for(const [v,label] of q.options)out+=`<option value="${esc(v)}"${val===v?" selected":""}>${esc(v)} — ${esc(label)}</option>`;
+  return out+`</select>`;
+}
+function radiosHtml(q){
+  const val=String(answerFor(q.number)||"");
+  return q.options.map(([v,label])=>`<label class="choice"><input type="radio" name="q${q.number}" value="${esc(v)}" data-answer="${q.number}" ${val===v?"checked":""}><span><b>${esc(v)}</b>${label===v?"":" — "+esc(label)}</span></label>`).join("");
+}
+function textInputHtml(q){
+  const val=String(answerFor(q.number)||"");
+  const rule=q.wordRule||"";
+  return `<input type="text" data-answer="${q.number}" value="${esc(val)}" aria-label="Câu ${q.number}, ${esc(rule)}" autocomplete="off"><div style="font-size:12px;color:#667085;margin-top:4px">${esc(rule)}</div><div class="word-warning" id="wordwarn-${q.number}"></div>`;
+}
+function renderQuestionSingle(q){
+  let ans="";
+  if(["matching-headings","matching-information","matching-features","word-list","sentence-ending"].includes(q.type))ans=selectHtml(q);
+  else if(["true-false-not-given","multiple-choice"].includes(q.type))ans=radiosHtml(q);
+  else if(["completion","short-answer"].includes(q.type))ans=textInputHtml(q);
+  const marked=!!state.reviewMarks[String(q.number)];
+  return `<div class="question-card" id="qcard-${q.number}" tabindex="-1" data-q="${q.number}">
+    <div class="qline"><span class="qnum">${q.number}</span><div class="qtext">${esc(q.text)}</div></div>
+    <div class="answer-area">${ans}</div>
+    <button class="review-btn ${marked?"marked":""}" data-review="${q.number}">${marked?"ĐÃ ĐÁNH DẤU XEM LẠI":"ĐÁNH DẤU XEM LẠI"}</button>
+  </div>`;
+}
+function renderChooseGroup(gid){
+  const g=CHOOSE_GROUPS[gid],q=questionByNumber(g.nums[0]),selected=answerFor(g.nums[0]);
+  const opts=q.options||[];
+  const choices=opts.map(([v,label])=>`<label class="choice"><input type="checkbox" data-choose-group="${gid}" value="${esc(v)}" ${selected.includes(v)?"checked":""}><span><b>${esc(v)}</b> — ${esc(label)}</span></label>`).join("");
+  const marked=g.nums.every(n=>!!state.reviewMarks[String(n)]);
+  return `<div class="question-card" id="qcard-${g.nums[0]}" tabindex="-1" data-q="${g.nums[0]}">
+    <div class="qline"><span class="qnum">${g.nums[0]}–${g.nums[g.nums.length-1]}</span><div class="qtext">${esc(q.text)}</div></div>
+    <div class="answer-area">${choices}<div id="groupwarn-${gid}" class="word-warning"></div></div>
+    <button class="review-btn ${marked?"marked":""}" data-review-group="${gid}">${marked?"ĐÃ ĐÁNH DẤU XEM LẠI":"ĐÁNH DẤU XEM LẠI"} (${g.nums[0]}–${g.nums[g.nums.length-1]})</button>
+  </div>`;
+}
+function renderQuestions(p){
+  let h="";
+  for(const g of GROUPS[p]){
+    h+=`<section class="qgroup"><div class="group-title">${esc(g.title)}</div><div class="group-instruction">${esc(g.instruction)}</div>`;
+    if(g.groupId)h+=renderChooseGroup(g.groupId);
+    else g.nums.forEach(n=>h+=renderQuestionSingle(questionByNumber(n)));
+    h+=`</section>`;
+  }
+  document.getElementById("questionBody").innerHTML=h;
+  bindQuestionEvents();
+}
+function bindQuestionEvents(){
+  document.querySelectorAll("[data-answer]").forEach(el=>{
+    const event=el.tagName==="INPUT"&&el.type==="text"?"input":"change";
+    el.addEventListener(event,()=>{
+      const n=Number(el.dataset.answer),q=questionByNumber(n);
+      state.answers[String(n)]=el.value;state.currentQuestion=n;
+      if(["completion","short-answer"].includes(q.type)){
+        const words=normalizeText(el.value).split(" ").filter(Boolean),limit=q.wordLimit||99;
+        const warn=document.getElementById("wordwarn-"+n);
+        if(warn)warn.textContent=words.length>limit?`Vượt quá giới hạn ${q.wordRule||limit+" từ"}.`:"";
+      }
+      debounceSave();updateStatus();updateNav();
+    });
+  });
+  document.querySelectorAll("[data-choose-group]").forEach(el=>el.addEventListener("change",()=>{
+    const gid=el.dataset.chooseGroup,g=CHOOSE_GROUPS[gid];
+    let selected=[...document.querySelectorAll(`[data-choose-group="${gid}"]:checked`)].map(x=>x.value);
+    if(selected.length>g.max){
+      el.checked=false;selected=selected.filter(x=>x!==el.value);
+      const w=document.getElementById("groupwarn-"+gid);if(w)w.textContent=`Chỉ được chọn tối đa ${g.max} đáp án.`;
+      setTimeout(()=>{const w=document.getElementById("groupwarn-"+gid);if(w)w.textContent="";},2200);
+    }
+    state.answers[gid]=selected;
+    state.currentQuestion=g.nums[Math.min(Math.max(selected.length,1),g.nums.length)-1];
+    debounceSave();updateStatus();updateNav();
+  }));
+  document.querySelectorAll("[data-review]").forEach(btn=>btn.addEventListener("click",()=>{
+    const n=btn.dataset.review;state.reviewMarks[n]=!state.reviewMarks[n];debounceSave();renderQuestions(state.passage);updateStatus();
+  }));
+  document.querySelectorAll("[data-review-group]").forEach(btn=>btn.addEventListener("click",()=>{
+    const gid=btn.dataset.reviewGroup,g=CHOOSE_GROUPS[gid],on=!g.nums.every(n=>state.reviewMarks[String(n)]);
+    g.nums.forEach(n=>state.reviewMarks[String(n)]=on);debounceSave();renderQuestions(state.passage);updateStatus();
+  }));
+}
+function renderNav(){
+  const nav=document.getElementById("questionNav");let h="";
+  for(let n=1;n<=40;n++)h+=`<button class="qnav" data-navq="${n}" aria-label="Câu ${n}">${n}</button>`;
+  nav.innerHTML=h;
+  nav.querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>gotoQuestion(Number(b.dataset.navq))));
+  updateNav();
+}
+function updateNav(){
+  const result=state.submitted?state.result:null;
+  document.querySelectorAll(".qnav").forEach(b=>{
+    const n=Number(b.dataset.navq);b.className="qnav";
+    if(result){
+      const r=result.perQuestion[String(n)];
+      if(r)b.classList.add(r.status);
+    }else{
+      if(isAnswered(n))b.classList.add("answered");
+      if(state.reviewMarks[String(n)])b.classList.add("review");
+      if(n===state.currentQuestion)b.classList.add("current");
+    }
+  });
+}
+function gotoQuestion(n){
+  const q=questionByNumber(n);switchPassage(q.passage,false);state.currentQuestion=n;debounceSave();updateNav();
+  setTimeout(()=>{
+    const gid=NUM_TO_GROUP[String(n)],id=gid?"qcard-"+CHOOSE_GROUPS[gid].nums[0]:"qcard-"+n;
+    const el=document.getElementById(id);if(el){el.scrollIntoView({behavior:"smooth",block:"center"});el.focus({preventScroll:true});}
+  },60);
+}
+function switchPassage(p,saveCurrent=true){
+  p=Number(p);
+  if(saveCurrent)persistPassageHTML();
+  state.passage=p;
+  document.getElementById("topPassage").textContent=p;
+  document.querySelectorAll(".passage-tab").forEach(b=>b.classList.toggle("active",Number(b.dataset.passage)===p));
+  displayPassage(p);renderQuestions(p);debounceSave();updateNav();
+}
+function persistPassageHTML(){
+  const body=document.getElementById("passageBody");
+  if(body && !document.getElementById("examScreen").classList.contains("hidden")) state.passageHtml[String(state.passage)]=body.innerHTML;
+}
+
+function startExam(){
+  const name=document.getElementById("studentName").value.trim(),ready=document.getElementById("readyCheck").checked;
+  const err=document.getElementById("startError");err.textContent="";
+  if(!name){err.textContent="Vui lòng nhập họ và tên học sinh.";document.getElementById("studentName").focus();return;}
+  if(!ready){err.textContent="Vui lòng tích xác nhận đã đọc hướng dẫn.";document.getElementById("readyCheck").focus();return;}
+  const now=Date.now();
+  state={studentName:name,started:true,submitted:false,startTime:now,endTime:now+TOTAL_MS,submitTime:null,answers:{},reviewMarks:{},passage:1,currentQuestion:1,notes:{1:"",2:"",3:""},passageHtml:{},lastSaved:now,result:null,warnings:{}};
+  safeSet();showExam();startTimer();
+}
+function showExam(){
+  document.getElementById("startScreen").classList.add("hidden");document.getElementById("resultsScreen").classList.add("hidden");document.getElementById("examScreen").classList.remove("hidden");
+  document.getElementById("topName").textContent=state.studentName;
+  renderNav();switchPassage(state.passage||1,false);updateStatus();updateSaveLine();
+}
+function startTimer(){
+  clearInterval(timerInterval);updateTimer();timerInterval=setInterval(updateTimer,1000);
+}
+function updateTimer(){
+  const rem=currentRemaining(),el=document.getElementById("timer");if(!el)return;
+  el.textContent=formatClock(rem);el.classList.toggle("warn",rem<=10*60*1000);
+  const mins=Math.ceil(rem/60000);
+  if(rem<=10*60*1000 && rem>9*60*1000 && !state.warnings.w10){state.warnings.w10=true;showToast("Bạn còn 10 phút.");safeSet();}
+  if(rem<=5*60*1000 && rem>4*60*1000 && !state.warnings.w5){state.warnings.w5=true;showToast("Bạn còn 5 phút. Hãy hoàn thành các câu còn lại.");safeSet();}
+  if(rem<=60*1000 && rem>0 && !state.warnings.w1){state.warnings.w1=true;showToast("Bạn còn 1 phút. Bài sẽ tự động nộp khi hết giờ.");safeSet();}
+  if(rem<=0){clearInterval(timerInterval);submitExam(true);}
+}
+function manualSave(){persistPassageHTML();safeSet();showToast(storageOK?"Đã lưu bài.":"Không thể lưu localStorage; bài vẫn còn trong phiên hiện tại.");}
+
+function openSubmitModal(){
+  const un=unansweredNumbers(),rem=currentRemaining();
+  document.getElementById("submitModalBody").innerHTML=`
+    <p><b>Thời gian còn lại:</b> ${formatClock(rem)}</p>
+    <p><b>Đã trả lời:</b> ${40-un.length}/40 &nbsp; · &nbsp; <b>Chưa trả lời:</b> ${un.length} &nbsp; · &nbsp; <b>Đánh dấu xem lại:</b> ${reviewCount()}</p>
+    <div><b>Câu chưa trả lời:</b><div class="unanswered-list">${un.length?un.join(", "):"Không có"}</div></div>
+    <p style="color:#b42318;font-weight:700">Sau khi nộp, bài sẽ bị khóa và không thể sửa đáp án.</p>`;
+  lastFocusBeforeModal=document.activeElement;
+  const bd=document.getElementById("submitModal");bd.classList.remove("hidden");document.getElementById("continueBtn").focus();
+}
+function closeSubmitModal(){
+  document.getElementById("submitModal").classList.add("hidden");if(lastFocusBeforeModal)lastFocusBeforeModal.focus();
+}
+function trapModal(e){
+  const modal=document.getElementById("submitModal");if(modal.classList.contains("hidden"))return;
+  if(e.key==="Escape"){e.preventDefault();closeSubmitModal();return;}
+  if(e.key==="Tab"){
+    const els=[...modal.querySelectorAll('button:not([disabled]),[href],input,select,textarea,[tabindex]:not([tabindex="-1"])')].filter(x=>x.offsetParent!==null);
+    if(!els.length)return;const first=els[0],last=els[els.length-1];
+    if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+    else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+  }
+}
+
+function groupScore(gid){
+  const g=CHOOSE_GROUPS[gid],sel=new Set(Array.isArray(state.answers[gid])?state.answers[gid]:[]);
+  let score=0;g.correct.forEach(x=>{if(sel.has(x))score++;});return score;
+}
+function grade(){
+  let correctCount=0;const perQuestion={};
+  for(let n=1;n<=40;n++){
+    const q=questionByNumber(n),gid=NUM_TO_GROUP[String(n)];let status="wrong",student="",ok=false,correctAnswer=q.correct;
+    if(gid){
+      const g=CHOOSE_GROUPS[gid],selected=answerFor(n),score=groupScore(gid),idx=g.nums.indexOf(n);
+      student=selected.join(", ");correctAnswer=g.correct.join(", ");
+      if(selected.length<idx+1)status="blank";
+      else{ok=score>=idx+1;status=ok?"correct":"wrong";}
+    }else{
+      student=String(answerFor(n)||"");
+      if(normalizeText(student)==="")status="blank";
+      else if(["completion","short-answer"].includes(q.type)){
+        const words=normalizeText(student).split(" ").filter(Boolean);
+        ok=words.length<=(q.wordLimit||99) && normalizeText(student)===normalizeText(q.correct);
+        status=ok?"correct":"wrong";
+      }else{
+        ok=normalizeText(student)===normalizeText(q.correct);status=ok?"correct":"wrong";
+      }
+    }
+    if(status==="correct")correctCount++;
+    perQuestion[String(n)]={status,studentAnswer:student,correctAnswer};
+  }
+  const byPassage={1:{correct:0,total:13},2:{correct:0,total:13},3:{correct:0,total:14}};
+  for(let n=1;n<=40;n++)if(perQuestion[String(n)].status==="correct")byPassage[questionByNumber(n).passage].correct++;
+  const blank=Object.values(perQuestion).filter(x=>x.status==="blank").length;
+  return {correct:correctCount,wrong:40-correctCount-blank,blank,percent:Math.round(correctCount/40*1000)/10,band:bandFor(correctCount),perQuestion,byPassage};
+}
+function bandFor(c){
+  if(c>=39)return 9.0;if(c>=37)return 8.5;if(c>=35)return 8.0;if(c>=33)return 7.5;if(c>=30)return 7.0;if(c>=27)return 6.5;if(c>=23)return 6.0;if(c>=19)return 5.5;if(c>=15)return 5.0;if(c>=13)return 4.5;if(c>=10)return 4.0;if(c>=8)return 3.5;if(c>=6)return 3.0;if(c>=4)return 2.5;if(c===3)return 2.0;if(c===2)return 1.5;if(c===1)return 1.0;return 0;
+}
+function submitExam(auto=false){
+  if(state.submitted)return;
+  persistPassageHTML();
+  if(!auto)closeSubmitModal();
+  clearInterval(timerInterval);
+  state.submitted=true;state.submitTime=Date.now();state.result=grade();safeSet();showResults();
+}
+function showResults(){
+  clearInterval(timerInterval);
+  document.getElementById("startScreen").classList.add("hidden");document.getElementById("examScreen").classList.add("hidden");document.getElementById("resultsScreen").classList.remove("hidden");
+  const r=state.result||grade();state.result=r;
+  const used=(state.submitTime||Date.now())-state.startTime;
+  document.getElementById("resultsHead").innerHTML=`
+    <div class="kicker">IELTS ACADEMIC READING TEST</div>
+    <h1>READING TEST 2 — KẾT QUẢ</h1>
+    <p><b>Họ và tên:</b> ${esc(state.studentName)}</p>
+    <div class="summary-grid">
+      <div class="metric">Ngày làm bài<b>${fmtDate(state.startTime)}</b></div>
+      <div class="metric">Bắt đầu<b>${fmtTime(state.startTime)}</b></div>
+      <div class="metric">Nộp bài<b>${fmtTime(state.submitTime)}</b></div>
+      <div class="metric">Thời lượng<b>${durationText(used)}</b></div>
+      <div class="metric">Số câu đúng<b>${r.correct}/40</b></div>
+      <div class="metric">Sai / Bỏ trống<b>${r.wrong} / ${r.blank}</b></div>
+      <div class="metric">Độ chính xác<b>${r.percent}%</b></div>
+      <div class="metric">Band ước lượng<b>${r.band.toFixed(1)}</b></div>
+    </div>
+    <p style="font-size:13px;color:#667085;margin-bottom:0">Band Reading là mức ước lượng. Bảng quy đổi trong kỳ thi thực tế có thể thay đổi nhẹ theo độ khó của đề.</p>`;
+  let ps="";
+  for(let p=1;p<=3;p++)ps+=`<div class="score-card card"><div>PASSAGE ${p}</div><b>${r.byPassage[p].correct}/${r.byPassage[p].total}</b></div>`;
+  document.getElementById("passageScores").innerHTML=ps;
+  renderResultCards("all");renderParaphraseSection();renderWeaknessSection();
+  safeSet();
+}
+function statusLabel(s){return s==="correct"?"ĐÚNG":s==="wrong"?"SAI":"BỎ TRỐNG";}
+function optionsText(q){
+  if(!q.options)return "";
+  return q.options.map(x=>x[0]+". "+x[1]).join("\n");
+}
+function resultQuestionHTML(n){
+  const q=questionByNumber(n),rr=state.result.perQuestion[String(n)],marked=!!state.reviewMarks[String(n)];
+  let qtext=q.text+(q.options&&q.type==="multiple-choice"?"\n"+optionsText(q):"");
+  return `<article class="result-card ${rr.status}" data-status="${rr.status}" data-review="${marked?"1":"0"}">
+    <div class="result-summary">
+      <div class="result-q">Câu ${n}</div>
+      <div class="result-main"><b>Passage ${q.passage} · ${esc(q.type)}</b><div style="white-space:pre-line;margin-top:4px">${esc(qtext)}</div>
+        <div class="answer-compare">
+          <div class="answer-box"><small>Câu trả lời của học sinh</small><br><b>${esc(rr.studentAnswer||"—")}</b></div>
+          <div class="answer-box"><small>Đáp án đúng</small><br><b>${esc(rr.correctAnswer)}</b></div>
+        </div>
+      </div>
+      <span class="status-badge ${rr.status}">${statusLabel(rr.status)}</span>
+    </div>
+    <details class="explain" ${rr.status!=="correct"?"open":""}>
+      <summary>GIẢI THÍCH CHI TIẾT</summary>
+      <div class="detail-block"><h4>Đoạn chứa câu trả lời</h4><div>${esc(q.sourceParagraph)}</div></div>
+      <div class="detail-block"><h4>Bằng chứng nguyên văn</h4><div class="quote">${esc(q.evidence)}</div></div>
+      <div class="detail-block"><h4>Giải thích tiếng Việt</h4><div class="explain-text">${esc(q.explanation)}</div></div>
+      <div class="detail-block"><h4>Cụm paraphrase</h4><ul class="para-list">${q.paraphrases.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>
+      <button class="location-btn" data-locate="${n}">XEM VỊ TRÍ TRONG BÀI ĐỌC</button>
+    </details>
+  </article>`;
+}
+function resultChooseGroupHTML(gid){
+  const g=CHOOSE_GROUPS[gid],score=groupScore(gid),selected=answerFor(g.nums[0]);
+  const status=score===g.correct.length?"correct":selected.length?"wrong":"blank";
+  const marked=g.nums.some(n=>!!state.reviewMarks[String(n)]),q=questionByNumber(g.nums[0]);
+  return `<article class="result-card ${status}" data-status="${status}" data-review="${marked?"1":"0"}">
+    <div class="result-summary">
+      <div class="result-q">Câu ${g.nums[0]}–${g.nums[g.nums.length-1]}</div><div class="result-main"><b>Passage ${q.passage} · choose-two</b><div>${esc(q.text)}</div>
+      <div class="answer-compare"><div class="answer-box"><small>Bộ đáp án học sinh đã chọn</small><br><b>${esc(selected.join(", ")||"—")}</b></div>
+      <div class="answer-box"><small>Bộ đáp án đúng</small><br><b>${esc(g.correct.join(", "))}</b></div></div><div style="margin-top:7px"><b>Điểm nhóm: ${score}/${g.correct.length}</b> — mỗi lựa chọn đúng được 1 điểm, thứ tự không ảnh hưởng.</div></div>
+      <span class="status-badge ${status}">${score===g.correct.length?`ĐÚNG ${score}/${g.correct.length}`:`${score}/${g.correct.length} ĐIỂM`}</span>
+    </div>
+    <details class="explain" ${score<g.correct.length?"open":""}><summary>GIẢI THÍCH CHI TIẾT</summary>
+      <div class="detail-block"><h4>Đoạn chứa câu trả lời</h4><div>${esc(q.sourceParagraph)}</div></div>
+      <div class="detail-block"><h4>Bằng chứng nguyên văn</h4><div class="quote">${esc(q.evidence)}</div></div>
+      <div class="detail-block"><h4>Giải thích tiếng Việt</h4><div class="explain-text">${esc(q.explanation)}</div></div>
+      <div class="detail-block"><h4>Cụm paraphrase</h4><ul class="para-list">${q.paraphrases.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>
+      <button class="location-btn" data-locate="${g.nums[0]}">XEM VỊ TRÍ TRONG BÀI ĐỌC</button>
+    </details>
+  </article>`;
+}
+function renderResultCards(filter){
+  let h="";
+  for(let n=1;n<=40;n++){
+    const gid=NUM_TO_GROUP[String(n)];
+    if(gid){
+      const g=CHOOSE_GROUPS[gid];
+      if(n===g.nums[0])h+=resultChooseGroupHTML(gid);
+      continue;
+    }
+    h+=resultQuestionHTML(n);
+  }
+  const box=document.getElementById("resultCards");box.innerHTML=h;
+  box.querySelectorAll("[data-locate]").forEach(b=>b.addEventListener("click",()=>showEvidence(Number(b.dataset.locate))));
+  applyResultFilter(filter);
+}
+function applyResultFilter(filter){
+  document.querySelectorAll(".result-filter").forEach(b=>b.classList.toggle("active",b.dataset.filter===filter));
+  document.querySelectorAll(".result-card").forEach(c=>{
+    let show=filter==="all"||c.dataset.status===filter||(filter==="review"&&c.dataset.review==="1");
+    c.classList.toggle("hidden",!show);
+  });
+}
+function showEvidence(n){
+  const q=questionByNumber(n),p=q.passage;
+  const panel=document.getElementById("reviewPassagePanel"),content=document.getElementById("reviewPassageContent");
+  panel.classList.remove("hidden");document.getElementById("reviewPassageTitle").textContent=`BÀI ĐỌC THAM CHIẾU — PASSAGE ${p}`;
+  content.innerHTML=renderPassageHTML(p);
+  const target=content.querySelector(`#passage-${p}-par-${CSS.escape(String(q.sourceTarget))}`);
+  if(target){target.classList.add("evidence-flash");setTimeout(()=>target.scrollIntoView({behavior:"smooth",block:"center"}),50);}
+  panel.scrollIntoView({behavior:"smooth",block:"start"});
+}
+function renderParaphraseSection(){
+  const seen=new Set();let items=[];
+  QUESTIONS.forEach(q=>{
+    const gid=NUM_TO_GROUP[String(q.number)];
+    if(gid && q.number!==CHOOSE_GROUPS[gid].nums[0])return;
+    q.paraphrases.forEach(pp=>{
+      const key=q.passage+"|"+pp;if(!seen.has(key)){seen.add(key);items.push({p:q.passage,q:q.number,text:pp});}
+    });
+  });
+  let h=`<h2>CỤM PARAPHRASE CẦN GHI NHỚ</h2><div class="filterbar">
+    <button class="para-filter active" data-pf="all">TẤT CẢ</button><button class="para-filter" data-pf="1">PASSAGE 1</button>
+    <button class="para-filter" data-pf="2">PASSAGE 2</button><button class="para-filter" data-pf="3">PASSAGE 3</button>
+    <button class="para-filter" data-pf="wrong">CHỈ CỤM TỪ Ở CÂU SAI</button></div><div id="paraItems">`;
+  items.forEach(it=>{const st=state.result.perQuestion[String(it.q)].status;h+=`<div class="para-item" data-p="${it.p}" data-wrong="${st==="correct"?"0":"1"}"><b>Câu ${it.q} · Passage ${it.p}</b><br>${esc(it.text)}</div>`;});
+  h+=`</div>`;
+  const box=document.getElementById("paraphraseSection");box.innerHTML=h;
+  box.querySelectorAll(".para-filter").forEach(b=>b.addEventListener("click",()=>{
+    box.querySelectorAll(".para-filter").forEach(x=>x.classList.toggle("active",x===b));const f=b.dataset.pf;
+    box.querySelectorAll(".para-item").forEach(it=>{it.style.display=(f==="all"||it.dataset.p===f||(f==="wrong"&&it.dataset.wrong==="1"))?"block":"none";});
+  }));
+}
+function typeStats(){
+  const stats={};
+  QUESTIONS.forEach(q=>{
+    const key=q.type;if(!stats[key])stats[key]={correct:0,total:0};
+    stats[key].total++;if(state.result.perQuestion[String(q.number)].status==="correct")stats[key].correct++;
+  });
+  return stats;
+}
+function renderWeaknessSection(){
+  const stats=typeStats();
+  let h=`<h2>ÔN LẠI CÁC CÂU CẦN CHÚ Ý</h2>`;
+  const attention=[];for(let n=1;n<=40;n++){const st=state.result.perQuestion[String(n)].status;if(st!=="correct"||state.reviewMarks[String(n)])attention.push(n);}
+  h+=`<p><b>Câu sai / bỏ trống / đã đánh dấu xem lại:</b> ${attention.length?attention.join(", "):"Không có"}</p><h3>Thống kê theo dạng bài</h3>`;
+  Object.entries(stats).forEach(([k,v])=>h+=`<div class="weak-stat"><span>${esc(k)}</span><b>${v.correct}/${v.total}</b></div>`);
+  const weakest=Object.entries(stats).map(([k,v])=>({k,...v,rate:v.correct/v.total})).sort((a,b)=>a.rate-b.rate)[0];
+  if(weakest && weakest.correct<weakest.total){
+    let advice=`Dạng ${weakest.k}: ${weakest.correct}/${weakest.total}.`;
+    if(weakest.k.includes("not-given")) advice+=" Cần phân biệt thông tin trái ngược với thông tin không được đề cập.";
+    else if(weakest.k.includes("matching")) advice+=" Cần định vị đúng đối tượng/đoạn và kiểm tra paraphrase thay vì chỉ dựa vào một từ khóa.";
+    else if(weakest.k.includes("completion")) advice+=" Cần giữ đúng giới hạn số từ của từng nhóm câu hỏi và kiểm tra dạng từ/ngữ pháp quanh chỗ trống.";
+    else if(weakest.k.includes("multiple-choice")) advice+=" Cần đối chiếu từng distractor với bằng chứng trong passage.";
+    h+=`<p><b>Dạng cần ưu tiên ôn:</b> ${esc(advice)}</p>`;
+  }
+  document.getElementById("weaknessSection").innerHTML=h;
+}
+
+function buildPlainReport(){
+  const r=state.result,used=(state.submitTime||Date.now())-state.startTime;
+  let lines=[
+    "IELTS ACADEMIC READING TEST","READING TEST 2",
+    "Họ và tên: "+state.studentName,"Ngày làm bài: "+fmtDate(state.startTime),
+    "Thời gian bắt đầu: "+fmtTime(state.startTime),"Thời gian nộp: "+fmtTime(state.submitTime),
+    "Thời lượng: "+durationText(used),"Tổng số câu: 40","Số câu đúng: "+r.correct,
+    "Số câu sai: "+r.wrong,"Số câu bỏ trống: "+r.blank,"Phần trăm chính xác: "+r.percent+"%",
+    "Band Reading ước lượng: "+r.band.toFixed(1),
+    "Passage 1: "+r.byPassage[1].correct+"/13","Passage 2: "+r.byPassage[2].correct+"/13","Passage 3: "+r.byPassage[3].correct+"/14",
+    "","CHI TIẾT TỪNG CÂU"
+  ];
+  for(let n=1;n<=40;n++){
+    const q=questionByNumber(n),rr=r.perQuestion[String(n)];
+    lines.push("",`Câu ${n} — Passage ${q.passage} — ${statusLabel(rr.status)}`,q.text,
+      "Câu trả lời học sinh: "+(rr.studentAnswer||"BỎ TRỐNG"),"Đáp án đúng: "+rr.correctAnswer,
+      "Đoạn chứa bằng chứng: "+q.sourceParagraph,"Bằng chứng: "+q.evidence,
+      "Giải thích: "+q.explanation,"Paraphrase: "+(q.paraphrases.join(" | ")||"—"));
+  }
+  const stats=typeStats();lines.push("","TỔNG HỢP DẠNG BÀI");
+  Object.entries(stats).forEach(([k,v])=>lines.push(`${k}: ${v.correct}/${v.total}`));
+  return lines.join("\n");
+}
+async function copyResults(){
+  const text=buildPlainReport();
+  try{
+    if(navigator.clipboard && navigator.clipboard.writeText){await navigator.clipboard.writeText(text);showToast("Đã sao chép toàn bộ kết quả.");return;}
+  }catch(e){}
+  const ta=document.createElement("textarea");ta.value=text;ta.style.position="fixed";ta.style.opacity="0";document.body.appendChild(ta);ta.select();
+  try{const ok=document.execCommand("copy");showToast(ok?"Đã sao chép toàn bộ kết quả.":"Không thể tự động sao chép. Vui lòng chọn và sao chép nội dung thủ công.");}
+  catch(e){showToast("Không thể tự động sao chép. Vui lòng chọn và sao chép nội dung thủ công.");}
+  ta.remove();
+}
+
+/* Minimal offline DOCX writer: Office Open XML in an uncompressed ZIP. */
+function crc32Table(){let t=[];for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=(c&1)?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0;}return t;}
+const CRC_TABLE=crc32Table();
+function crc32(bytes){let c=0xFFFFFFFF;for(const b of bytes)c=CRC_TABLE[(c^b)&255]^(c>>>8);return (c^0xFFFFFFFF)>>>0;}
+function u16(n){return new Uint8Array([n&255,(n>>>8)&255]);}
+function u32(n){return new Uint8Array([n&255,(n>>>8)&255,(n>>>16)&255,(n>>>24)&255]);}
+function concat(arrs){let len=arrs.reduce((s,a)=>s+a.length,0),o=new Uint8Array(len),p=0;for(const a of arrs){o.set(a,p);p+=a.length;}return o;}
+function zipStore(files){
+  const enc=new TextEncoder(),locals=[],centrals=[];let offset=0;
+  for(const f of files){
+    const name=enc.encode(f.name),data=typeof f.data==="string"?enc.encode(f.data):f.data,crc=crc32(data);
+    const local=concat([u32(0x04034b50),u16(20),u16(0),u16(0),u16(0),u16(0),u32(crc),u32(data.length),u32(data.length),u16(name.length),u16(0),name,data]);
+    locals.push(local);
+    const central=concat([u32(0x02014b50),u16(20),u16(20),u16(0),u16(0),u16(0),u16(0),u32(crc),u32(data.length),u32(data.length),u16(name.length),u16(0),u16(0),u16(0),u16(0),u32(0),u32(offset),name]);
+    centrals.push(central);offset+=local.length;
+  }
+  const centralBlob=concat(centrals),localBlob=concat(locals);
+  const end=concat([u32(0x06054b50),u16(0),u16(0),u16(files.length),u16(files.length),u32(centralBlob.length),u32(localBlob.length),u16(0)]);
+  return concat([localBlob,centralBlob,end]);
+}
+function xmlEsc(s){return String(s??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&apos;");}
+function docxParagraph(text,style){
+  const st=style?`<w:pPr><w:pStyle w:val="${style}"/></w:pPr>`:"";
+  return `<w:p>${st}<w:r><w:t xml:space="preserve">${xmlEsc(text)}</w:t></w:r></w:p>`;
+}
+function exportWord(){
+  const report=buildPlainReport().split("\n");
+  let paras="";report.forEach((line,i)=>{
+    let style="";
+    if(i===0||line==="CHI TIẾT TỪNG CÂU"||line==="TỔNG HỢP DẠNG BÀI")style="Heading1";
+    else if(/^Câu \d+/.test(line))style="Heading2";
+    paras+=docxParagraph(line||" ",style);
+  });
+  const documentXml=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body>${paras}<w:sectPr><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="1134" w:right="1134" w:bottom="1134" w:left="1134"/></w:sectPr></w:body></w:document>`;
+  const styles=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:styles xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:style w:type="paragraph" w:default="1" w:styleId="Normal"><w:name w:val="Normal"/><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman"/><w:sz w:val="24"/></w:rPr></w:style><w:style w:type="paragraph" w:styleId="Heading1"><w:name w:val="heading 1"/><w:basedOn w:val="Normal"/><w:rPr><w:b/><w:sz w:val="32"/></w:rPr></w:style><w:style w:type="paragraph" w:styleId="Heading2"><w:name w:val="heading 2"/><w:basedOn w:val="Normal"/><w:rPr><w:b/><w:sz w:val="27"/></w:rPr></w:style></w:styles>`;
+  const types=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/><Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/></Types>`;
+  const rels=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>`;
+  const docrels=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rIdStyles" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>`;
+  const zip=zipStore([{name:"[Content_Types].xml",data:types},{name:"_rels/.rels",data:rels},{name:"word/document.xml",data:documentXml},{name:"word/styles.xml",data:styles},{name:"word/_rels/document.xml.rels",data:docrels}]);
+  const blob=new Blob([zip],{type:"application/vnd.openxmlformats-officedocument.wordprocessingml.document"});
+  const safeName=(state.studentName||"HOC SINH").trim().replace(/[<>:"/\\|?*\x00-\x1F]/g,"_").replace(/\s+/g," ");
+  const filename=`${safeName} READING TEST ${TEST_NO}.docx`;
+  const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1200);
+  showToast("Đã tạo file Word kết quả: "+filename);
+}
+
+function highlightSelection(){
+  const body=document.getElementById("passageBody"),sel=window.getSelection();if(!sel||sel.rangeCount===0||sel.isCollapsed){showToast("Hãy bôi đen một đoạn văn trước.");return;}
+  const range=sel.getRangeAt(0);if(!body.contains(range.commonAncestorContainer)){showToast("Chỉ có thể highlight trong bài đọc.");return;}
+  let node=range.commonAncestorContainer.nodeType===1?range.commonAncestorContainer:range.commonAncestorContainer.parentElement;
+  const para=node.closest(".passage-source");if(!para || !para.contains(range.startContainer) || !para.contains(range.endContainer)){showToast("Vui lòng chỉ chọn văn bản trong cùng một đoạn.");return;}
+  try{const mark=document.createElement("mark");mark.className="student-highlight";range.surroundContents(mark);}
+  catch(e){const mark=document.createElement("mark");mark.className="student-highlight";mark.appendChild(range.extractContents());range.insertNode(mark);}
+  sel.removeAllRanges();persistPassageHTML();debounceSave();
+}
+function unhighlightSelection(){
+  const body=document.getElementById("passageBody"),sel=window.getSelection();let marks=[...body.querySelectorAll("mark.student-highlight")];
+  if(sel&&sel.rangeCount&&!sel.isCollapsed){const r=sel.getRangeAt(0);marks=marks.filter(m=>{try{return r.intersectsNode(m);}catch(e){return false;}});}
+  if(!marks.length){showToast("Không tìm thấy phần highlight để bỏ.");return;}
+  marks.forEach(m=>{const p=m.parentNode;while(m.firstChild)p.insertBefore(m.firstChild,m);p.removeChild(m);p.normalize();});
+  if(sel)sel.removeAllRanges();persistPassageHTML();debounceSave();
+}
+function retake(){
+  if(!confirm("Bạn có chắc chắn muốn xóa toàn bộ bài làm và kết quả để làm lại từ đầu không?"))return;
+  safeRemove();location.reload();
+}
+
+function init(){
+  const restored=safeGet();
+  if(restored){
+    state={...state,...restored,answers:restored.answers||{},reviewMarks:restored.reviewMarks||{},notes:restored.notes||{1:"",2:"",3:""},passageHtml:restored.passageHtml||{},warnings:restored.warnings||{}};
+  }
+  if(state.submitted && state.result){showResults();}
+  else if(state.started){
+    if(Date.now()>=state.endTime){state.submitted=true;state.submitTime=state.endTime;state.result=grade();safeSet();showResults();}
+    else{showExam();startTimer();}
+  }else{
+    document.getElementById("studentName").value=state.studentName||"";
+    if(!storageOK)document.getElementById("startError").textContent="Cảnh báo: trình duyệt đang chặn localStorage. Bạn vẫn có thể làm bài nhưng không nên refresh trang.";
+  }
+}
+document.getElementById("startBtn").addEventListener("click",startExam);
+document.getElementById("saveBtn").addEventListener("click",manualSave);
+document.getElementById("submitBtn").addEventListener("click",openSubmitModal);
+document.getElementById("continueBtn").addEventListener("click",closeSubmitModal);
+document.getElementById("confirmSubmitBtn").addEventListener("click",()=>submitExam(false));
+document.addEventListener("keydown",trapModal);
+document.querySelectorAll(".passage-tab").forEach(b=>b.addEventListener("click",()=>switchPassage(b.dataset.passage)));
+document.getElementById("highlightBtn").addEventListener("click",highlightSelection);
+document.getElementById("unhighlightBtn").addEventListener("click",unhighlightSelection);
+document.getElementById("copyResultsBtn").addEventListener("click",copyResults);
+document.getElementById("exportWordBtn").addEventListener("click",exportWord);
+document.getElementById("retakeBtn").addEventListener("click",retake);
+document.getElementById("closeReviewPassage").addEventListener("click",()=>document.getElementById("reviewPassagePanel").classList.add("hidden"));
+document.querySelectorAll(".result-filter").forEach(b=>b.addEventListener("click",()=>applyResultFilter(b.dataset.filter)));
+window.addEventListener("beforeunload",()=>{if(state.started&&!state.submitted){persistPassageHTML();safeSet();}});
+init();
+</script>
+
+<!-- IELTS_DUAL_PANE_PATCH_SCRIPT_START -->
+<script id="ielts-dual-pane-layout-runtime">
+(function(){
+  function visible(el){
+    if(!el) return false;
+    if(el.classList && el.classList.contains('hidden')) return false;
+    const s = window.getComputedStyle(el);
+    if(s.display === 'none' || s.visibility === 'hidden') return false;
+    return !!(el.offsetWidth || el.offsetHeight || el.getClientRects().length);
+  }
+
+  function syncExamLock(){
+    const candidates = Array.from(document.querySelectorAll('.exam,.practice,#exam-screen'));
+    const active = candidates.some(visible);
+    document.documentElement.classList.toggle('ielts-exam-active', active);
+    if(document.body) document.body.classList.toggle('ielts-exam-active', active);
+  }
+
+  function start(){
+    syncExamLock();
+    const obs = new MutationObserver(syncExamLock);
+    obs.observe(document.documentElement,{
+      subtree:true,
+      childList:true,
+      attributes:true,
+      attributeFilter:['class','style','hidden']
+    });
+    window.addEventListener('resize', syncExamLock, {passive:true});
+    window.addEventListener('orientationchange', syncExamLock, {passive:true});
+    document.addEventListener('click', function(){ setTimeout(syncExamLock,0); }, {passive:true});
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', start, {once:true});
+  }else{
+    start();
+  }
+})();
+</script>
+<!-- IELTS_DUAL_PANE_PATCH_SCRIPT_END -->
+
+</body>
+</html>
