@@ -1,107 +1,164 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>IELTS Reading Question Types · Hoàn Cầu</title>
-<style>
-:root{
-  --green:#00a85a;--green-dark:#087c43;--green-soft:#e8f7ef;
-  --yellow:#ffe51f;--navy:#133b56;--text:#17221c;--muted:#68766e;
-  --bg:#f4f7f5;--white:#fff;--line:#dbe6df;
-}
-*{box-sizing:border-box}
-html,body{margin:0;padding:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text)}
-a{text-decoration:none;color:inherit}
-.top{background:linear-gradient(135deg,#009b52,#00b764);color:#fff;padding:14px 16px 28px}
-.top-inner{max-width:1120px;margin:auto}
-.logo{background:#00aa5c;border:1px solid rgba(255,255,255,.28);border-radius:14px;padding:8px 12px}
-.logo img{display:block;width:100%;max-height:150px;object-fit:contain}
-.title{margin:16px 2px 0}
-.title h1{margin:0 0 5px;font-size:30px;line-height:1.15}
-.title p{margin:0;opacity:.94;line-height:1.5}
-main{max-width:1120px;margin:-15px auto 0;padding:0 14px 36px}
-.panel{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 17px;box-shadow:0 5px 18px rgba(20,60,35,.08);margin-bottom:16px}
-.breadcrumb{display:flex;gap:7px;align-items:center;flex-wrap:wrap;font-size:13px;color:var(--muted);margin-bottom:7px}
-.breadcrumb a{color:var(--green-dark);font-weight:800}
-.panel h2{margin:0 0 5px;color:var(--green-dark);font-size:22px}
-.panel p{margin:0;color:var(--muted);line-height:1.5}
-.section{margin-top:18px}
-.section-head{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:10px}
-.section-head h2{margin:0;font-size:20px;color:#174c32}
-.badge{font-size:11px;font-weight:900;background:#e2f7eb;color:#087c43;border-radius:999px;padding:5px 9px}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px;min-height:120px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 2px 8px rgba(20,60,35,.04)}
-.card.active{transition:.16s ease}
-.card.active:hover{transform:translateY(-2px);border-color:#89c9a8;box-shadow:0 7px 18px rgba(20,60,35,.1)}
-.card-top{display:flex;gap:11px;align-items:flex-start}
-.icon{width:44px;height:44px;border-radius:11px;background:var(--green-soft);display:grid;place-items:center;font-size:22px;flex:0 0 auto}
-.card h3{margin:1px 0 5px;color:#18412b;font-size:17px}
-.card p{margin:0;color:var(--muted);font-size:14px;line-height:1.42}
-.open{margin-top:13px;color:var(--green-dark);font-size:13px;font-weight:900;display:flex;justify-content:space-between}
-.disabled{opacity:.58}
-.disabled .open{color:#7f8d85}
-.list{display:grid;gap:9px}
-.item{background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 14px;display:grid;grid-template-columns:48px 1fr auto;gap:12px;align-items:center}
-.item.active:hover{border-color:#89c9a8}
-.num{height:42px;border-radius:9px;background:var(--green-soft);color:var(--green-dark);font-weight:900;display:grid;place-items:center}
-.item h3{margin:0 0 3px;font-size:16px;color:#18412b}
-.item p{margin:0;font-size:13px;color:var(--muted)}
-.action{font-size:12px;font-weight:900;color:var(--green-dark);white-space:nowrap}
-.item.disabled{opacity:.52}
-.backrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
-.btn{display:inline-block;background:#fff;border:1px solid #b8c9bf;color:#244a35;border-radius:8px;padding:8px 11px;font-weight:800;font-size:13px}
-footer{text-align:center;color:#7b8780;font-size:12px;padding:0 14px 22px}
-@media(max-width:720px){
-  .top{padding:8px 9px 24px}
-  .logo{padding:5px 7px;border-radius:10px}
-  .title{margin-top:12px}.title h1{font-size:25px}.title p{font-size:14px}
-  main{padding:0 9px 28px}.grid{grid-template-columns:1fr}
-  .item{grid-template-columns:42px 1fr}.action{grid-column:2}
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IELTS Reading Question Types - Hoàn Cầu</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f7f5;
+      color: #1f2937;
+    }
+    .topbar {
+      background: linear-gradient(135deg, #16a34a, #0f8a3e);
+      color: #fff;
+      padding: 28px 20px 36px;
+    }
+    .topbar-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    .nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      border: 1px solid rgba(255,255,255,.35);
+      border-radius: 10px;
+      padding: 10px 14px;
+      background: rgba(255,255,255,.08);
+    }
+    .nav a:hover { background: rgba(255,255,255,.16); }
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(30px, 5vw, 44px);
+    }
+    .subtitle {
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.55;
+      opacity: .95;
+    }
+    .wrap {
+      max-width: 1100px;
+      margin: -18px auto 0;
+      padding: 0 20px 60px;
+    }
+    .panel {
+      background: #fff;
+      border: 1px solid #e0e8e2;
+      border-radius: 20px;
+      box-shadow: 0 10px 28px rgba(20,80,45,.08);
+      padding: 26px;
+    }
+    .panel h2 {
+      margin: 0 0 8px;
+      color: #176b39;
+      font-size: 27px;
+    }
+    .panel > p {
+      margin: 0 0 22px;
+      color: #64748b;
+      line-height: 1.6;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      background: #f9fcfa;
+      border: 1px solid #dce9df;
+      border-radius: 16px;
+      padding: 18px;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+    .item:hover {
+      transform: translateY(-2px);
+      border-color: #74c98d;
+      box-shadow: 0 8px 20px rgba(15,100,55,.10);
+    }
+    .num {
+      min-width: 46px;
+      height: 46px;
+      border-radius: 13px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #eaf7ee;
+      color: #176b39;
+      font-weight: 800;
+    }
+    .item strong {
+      display: block;
+      color: #155f34;
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+    .item span {
+      color: #64748b;
+      font-size: 14px;
+    }
+    .footer {
+      text-align: center;
+      color: #74808a;
+      font-size: 14px;
+      margin-top: 28px;
+    }
+    @media (max-width: 700px) {
+      .grid { grid-template-columns: 1fr; }
+      .wrap { padding-left: 14px; padding-right: 14px; }
+    }
+  </style>
 </head>
 <body>
-<header class="top">
-  <div class="top-inner">
-    <div class="logo"><img src="../../../hoancau-logo.png" alt="Trung tâm Ngoại ngữ Quốc tế Hoàn Cầu"></div>
-    <div class="title"><h1>IELTS READING · QUESTION TYPES</h1><p>Luyện tập theo từng dạng câu hỏi.</p></div>
-  </div>
-</header>
-<main>
-<section class="panel">
-  <div class="breadcrumb"><a href="../../../index.html">Trang chủ</a><span>›</span><a href="../../index.html">IELTS</a><span>›</span><a href="../index.html">IELTS Reading</a><span>›</span><span>Question Types</span></div>
-  <h2>IELTS Reading · Question Types</h2>
-  <p>Chọn dạng bài cần luyện. Hiện 01 Multiple Choice và 05 Matching Information đã được liên kết.</p>
-</section>
-<section class="section"><div class="list"><a class="item active" href="01_MULTIPLE_CHOICE.html">
-          <div class="num">01</div><div><h3>Multiple Choice</h3><p>Bài luyện đã sẵn sàng.</p></div><div class="action">MỞ BÀI →</div>
-        </a><div class="item disabled">
-          <div class="num">02</div><div><h3>True / False / Not Given</h3><p>Nội dung sẽ được bổ sung sau.</p></div><div class="action">SẮP CẬP NHẬT</div>
-        </div><div class="item disabled">
-          <div class="num">03</div><div><h3>Yes / No / Not Given</h3><p>Nội dung sẽ được bổ sung sau.</p></div><div class="action">SẮP CẬP NHẬT</div>
-        </div><div class="item disabled">
-          <div class="num">04</div><div><h3>Matching Headings</h3><p>Nội dung sẽ được bổ sung sau.</p></div><div class="action">SẮP CẬP NHẬT</div>
-        </div><a class="item active" href="05_MATCHING_INFORMATION_.html">
-          <div class="num">05</div><div><h3>Matching Information</h3><p>Bài luyện đã sẵn sàng.</p></div><div class="action">MỞ BÀI →</div>
-        </a><div class="item disabled">
-          <div class="num">06</div><div><h3>Matching Features</h3><p>Nội dung sẽ được bổ sung sau.</p></div><div class="action">SẮP CẬP NHẬT</div>
-        </div><div class="item disabled">
-          <div class="num">07</div><div><h3>Matching Sentence Endings</h3><p>Nội dung sẽ được bổ sung sau.</p></div><div class="action">SẮP CẬP NHẬT</div>
-        </div><div class="item disabled">
-          <div class="num">08</div><div><h3>Sentence Completion</h3><p>Nội dung sẽ được bổ sung sau.</p></div><div class="action">SẮP CẬP NHẬT</div>
-        </div><div class="item disabled">
-          <div class="num">09</div><div><h3>Summary Completion</h3><p>Nội dung sẽ được bổ sung sau.</p></div><div class="action">SẮP CẬP NHẬT</div>
-        </div><div class="item disabled">
-          <div class="num">10</div><div><h3>Note Completion</h3><p>Nội dung sẽ được bổ sung sau.</p></div><div class="action">SẮP CẬP NHẬT</div>
-        </div><div class="item disabled">
-          <div class="num">11</div><div><h3>Table Completion</h3><p>Nội dung sẽ được bổ sung sau.</p></div><div class="action">SẮP CẬP NHẬT</div>
-        </div><div class="item disabled">
-          <div class="num">12</div><div><h3>Flow-chart Completion</h3><p>Nội dung sẽ được bổ sung sau.</p></div><div class="action">SẮP CẬP NHẬT</div>
-        </div><div class="item disabled">
-          <div class="num">13</div><div><h3>Diagram Label Completion</h3><p>Nội dung sẽ được bổ sung sau.</p></div><div class="action">SẮP CẬP NHẬT</div>
-        </div></div></section>
-</main>
-<footer>Trung tâm Ngoại ngữ Quốc tế Hoàn Cầu · Hoan Cau International Foreign Language Center</footer>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="nav">
+        <a href="https://hoancaumaterials-pl.github.io/IELTS-HOANCAU/">⌂ Trang chủ IELTS</a>
+        <a href="../index.html">← Quay lại Reading</a>
+      </div>
+      <h1>IELTS READING – QUESTION TYPES</h1>
+      <p class="subtitle">Luyện tập đầy đủ 14 dạng câu hỏi IELTS Reading.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="panel">
+      <h2>Chọn dạng bài cần luyện</h2>
+      <p>Tất cả các mục dưới đây đã được liên kết trực tiếp tới file HTML tương ứng trong thư mục question-types.</p>
+
+      <div class="grid">
+        <a class="item" href="01_MULTIPLE_CHOICE.html"><div class="num">01</div><div><strong>Multiple Choice</strong><span>Câu hỏi trắc nghiệm</span></div></a>
+        <a class="item" href="02_TRUE_FALSE_NOT_GIVEN.html"><div class="num">02</div><div><strong>True / False / Not Given</strong><span>Xác định thông tin đúng, sai hoặc không có</span></div></a>
+        <a class="item" href="03_YES_NO_NOT_GIVEN.html"><div class="num">03</div><div><strong>Yes / No / Not Given</strong><span>Xác định quan điểm của tác giả</span></div></a>
+        <a class="item" href="04_MATCHING_HEADINGS.html"><div class="num">04</div><div><strong>Matching Headings</strong><span>Ghép tiêu đề với đoạn văn</span></div></a>
+        <a class="item" href="05_MATCHING_INFORMATION_.html"><div class="num">05</div><div><strong>Matching Information</strong><span>Ghép thông tin với đoạn phù hợp</span></div></a>
+        <a class="item" href="06_MATCHING_FEATURES.html"><div class="num">06</div><div><strong>Matching Features</strong><span>Ghép đặc điểm với đối tượng</span></div></a>
+        <a class="item" href="07_MATCHING_SENTENCE.html"><div class="num">07</div><div><strong>Matching Sentence Endings</strong><span>Ghép phần đầu và phần cuối câu</span></div></a>
+        <a class="item" href="08_SENTENCE_COMPLETION.html"><div class="num">08</div><div><strong>Sentence Completion</strong><span>Hoàn thành câu</span></div></a>
+        <a class="item" href="09_SUMMARY_COMPLETION.html"><div class="num">09</div><div><strong>Summary Completion</strong><span>Hoàn thành bản tóm tắt</span></div></a>
+        <a class="item" href="10_NOTE_COMPLETION.html"><div class="num">10</div><div><strong>Note Completion</strong><span>Hoàn thành ghi chú</span></div></a>
+        <a class="item" href="11_TABLE_COMPLETION.html"><div class="num">11</div><div><strong>Table Completion</strong><span>Hoàn thành bảng</span></div></a>
+        <a class="item" href="12_FLOW_CHART_COMPLETION.html"><div class="num">12</div><div><strong>Flow-chart Completion</strong><span>Hoàn thành sơ đồ quy trình</span></div></a>
+        <a class="item" href="13_DIAGRAM_LABEL_COMPLETION.html"><div class="num">13</div><div><strong>Diagram Label Completion</strong><span>Điền nhãn vào sơ đồ</span></div></a>
+        <a class="item" href="14_SHORT_ANSWER.html"><div class="num">14</div><div><strong>Short Answer Questions</strong><span>Trả lời ngắn</span></div></a>
+      </div>
+    </section>
+
+    <div class="footer">IELTS Online Learning Hoàn Cầu</div>
+  </main>
 </body>
 </html>
