@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IELTS Online Learning Hoàn Cầu</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f7f5;
+      color: #1f2937;
+    }
+    .hero {
+      background: linear-gradient(135deg, #16a34a, #0f8a3e);
+      color: #fff;
+      padding: 30px 20px 44px;
+    }
+    .hero-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .brand img {
+      width: 92px;
+      max-height: 92px;
+      object-fit: contain;
+      background: rgba(255,255,255,.08);
+      border-radius: 16px;
+      padding: 8px;
+    }
+    .brand h1 {
+      margin: 0 0 8px;
+      font-size: clamp(30px, 5vw, 46px);
+    }
+    .brand p {
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.55;
+      opacity: .95;
+    }
+    .wrap {
+      max-width: 1120px;
+      margin: -22px auto 0;
+      padding: 0 20px 60px;
+    }
+    .intro, .section {
+      background: #fff;
+      border: 1px solid #e0e8e2;
+      border-radius: 20px;
+      box-shadow: 0 10px 28px rgba(20,80,45,.08);
+    }
+    .intro {
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .intro .eyebrow {
+      font-size: 13px;
+      font-weight: 700;
+      color: #6b7280;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .intro h2 {
+      margin: 0 0 8px;
+      color: #176b39;
+      font-size: 28px;
+    }
+    .intro p {
+      margin: 0;
+      color: #64748b;
+      line-height: 1.6;
+    }
+    .section {
+      padding: 26px;
+      margin-bottom: 24px;
+    }
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .icon {
+      width: 46px;
+      height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      background: #eaf7ee;
+      font-size: 24px;
+    }
+    .section h2 {
+      margin: 0;
+      color: #176b39;
+      font-size: 27px;
+    }
+    .section > p {
+      margin: 0 0 20px 58px;
+      color: #64748b;
+      line-height: 1.55;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .card {
+      display: block;
+      text-decoration: none;
+      background: #f9fcfa;
+      border: 1px solid #dce9df;
+      border-radius: 16px;
+      padding: 20px;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: #74c98d;
+      box-shadow: 0 10px 24px rgba(15,100,55,.11);
+    }
+    .card strong {
+      display: block;
+      color: #155f34;
+      font-size: 19px;
+      margin-bottom: 6px;
+    }
+    .card span {
+      color: #64748b;
+      line-height: 1.5;
+      font-size: 14px;
+    }
+    .disabled {
+      opacity: .6;
+      cursor: default;
+    }
+    .disabled:hover {
+      transform: none;
+      box-shadow: none;
+      border-color: #dce9df;
+    }
+    .footer {
+      text-align: center;
+      color: #74808a;
+      font-size: 14px;
+      line-height: 1.6;
+      margin-top: 30px;
+    }
+    @media (max-width: 820px) {
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .section > p { margin-left: 0; }
+    }
+    @media (max-width: 560px) {
+      .brand { align-items: flex-start; }
+      .brand img { width: 72px; }
+      .grid { grid-template-columns: 1fr; }
+      .wrap { padding-left: 14px; padding-right: 14px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="brand">
+        <img src="hoancau-logo.png" alt="Hoàn Cầu">
+        <div>
+          <h1>IELTS ONLINE LEARNING HOÀN CẦU</h1>
+          <p>Hệ thống học và luyện thi IELTS trực tuyến của Trung tâm Ngoại ngữ Quốc tế Hoàn Cầu.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="intro">
+      <div class="eyebrow">IELTS LEARNING PORTAL</div>
+      <h2>Chọn kỹ năng học</h2>
+      <p>Listening được liên kết sang các kho bài riêng để tải nhanh hơn. Reading, Writing và Speaking được quản lý theo cấu trúc thư mục trong hệ thống IELTS-HOANCAU.</p>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <div class="icon">🎧</div>
+        <h2>IELTS Listening</h2>
+      </div>
+      <p>Chọn Part hoặc Full Tests. Các liên kết dưới đây đã được xác nhận đang hoạt động.</p>
+
+      <div class="grid">
+        <a class="card" href="https://hoancaumaterials-pl.github.io/IELTS-LISTENING-PART-1/">
+          <strong>Listening Part 1</strong>
+          <span>Tests 1–30</span>
+        </a>
+
+        <a class="card" href="https://hoancaumaterials-pl.github.io/IELTS-LISTENING-PART-2/">
+          <strong>Listening Part 2</strong>
+          <span>Tests 1–40</span>
+        </a>
+
+        <a class="card" href="https://hoancaumaterials-pl.github.io/IELTS-LISTENING-PART-3/">
+          <strong>Listening Part 3</strong>
+          <span>Tests 1–30</span>
+        </a>
+
+        <a class="card" href="https://hoancaumaterials-pl.github.io/IELTS-LISTENING-PART-4/">
+          <strong>Listening Part 4</strong>
+          <span>Tests 1–40</span>
+        </a>
+
+        <a class="card" href="https://hoancaumaterials-pl.github.io/IELTS-LISTENING-FULL-TESTS/">
+          <strong>Listening Full Tests</strong>
+          <span>Volume 9 & Other Sources</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <div class="icon">📖</div>
+        <h2>IELTS Reading</h2>
+      </div>
+      <p>Đi vào cổng Reading hiện có, từ đó học sinh tiếp tục chọn Full Tests hoặc Question Types.</p>
+
+      <div class="grid">
+        <a class="card" href="IELTS/IELTS-READING/index.html">
+          <strong>Vào khu Reading</strong>
+          <span>Full Tests và 14 dạng câu hỏi Reading</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <div class="icon">✍️</div>
+        <h2>IELTS Writing</h2>
+      </div>
+      <p>Writing đã có dữ liệu ở Full Test và Latest Update Tests, nhưng chưa có index riêng ở thư mục IELTS-WRITING.</p>
+
+      <div class="grid">
+        <div class="card disabled">
+          <strong>Writing</strong>
+          <span>Sẽ kích hoạt sau khi tạo index Writing riêng</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <div class="icon">🗣️</div>
+        <h2>IELTS Speaking</h2>
+      </div>
+      <p>Hiện thư mục Speaking mới có README, chưa có bài HTML để học sinh truy cập.</p>
+
+      <div class="grid">
+        <div class="card disabled">
+          <strong>Speaking</strong>
+          <span>Sắp cập nhật</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      Trung tâm Ngoại ngữ Quốc tế Hoàn Cầu<br>
+      Hoàn Cầu International Foreign Language Center
+    </div>
+  </main>
+</body>
+</html>
