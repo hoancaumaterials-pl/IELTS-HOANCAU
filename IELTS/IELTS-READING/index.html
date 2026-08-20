@@ -1,92 +1,151 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>IELTS Reading · Hoàn Cầu</title>
-<style>
-:root{
-  --green:#00a85a;--green-dark:#087c43;--green-soft:#e8f7ef;
-  --yellow:#ffe51f;--navy:#133b56;--text:#17221c;--muted:#68766e;
-  --bg:#f4f7f5;--white:#fff;--line:#dbe6df;
-}
-*{box-sizing:border-box}
-html,body{margin:0;padding:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text)}
-a{text-decoration:none;color:inherit}
-.top{background:linear-gradient(135deg,#009b52,#00b764);color:#fff;padding:14px 16px 28px}
-.top-inner{max-width:1120px;margin:auto}
-.logo{background:#00aa5c;border:1px solid rgba(255,255,255,.28);border-radius:14px;padding:8px 12px}
-.logo img{display:block;width:100%;max-height:150px;object-fit:contain}
-.title{margin:16px 2px 0}
-.title h1{margin:0 0 5px;font-size:30px;line-height:1.15}
-.title p{margin:0;opacity:.94;line-height:1.5}
-main{max-width:1120px;margin:-15px auto 0;padding:0 14px 36px}
-.panel{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 17px;box-shadow:0 5px 18px rgba(20,60,35,.08);margin-bottom:16px}
-.breadcrumb{display:flex;gap:7px;align-items:center;flex-wrap:wrap;font-size:13px;color:var(--muted);margin-bottom:7px}
-.breadcrumb a{color:var(--green-dark);font-weight:800}
-.panel h2{margin:0 0 5px;color:var(--green-dark);font-size:22px}
-.panel p{margin:0;color:var(--muted);line-height:1.5}
-.section{margin-top:18px}
-.section-head{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:10px}
-.section-head h2{margin:0;font-size:20px;color:#174c32}
-.badge{font-size:11px;font-weight:900;background:#e2f7eb;color:#087c43;border-radius:999px;padding:5px 9px}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:15px;min-height:120px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 2px 8px rgba(20,60,35,.04)}
-.card.active{transition:.16s ease}
-.card.active:hover{transform:translateY(-2px);border-color:#89c9a8;box-shadow:0 7px 18px rgba(20,60,35,.1)}
-.card-top{display:flex;gap:11px;align-items:flex-start}
-.icon{width:44px;height:44px;border-radius:11px;background:var(--green-soft);display:grid;place-items:center;font-size:22px;flex:0 0 auto}
-.card h3{margin:1px 0 5px;color:#18412b;font-size:17px}
-.card p{margin:0;color:var(--muted);font-size:14px;line-height:1.42}
-.open{margin-top:13px;color:var(--green-dark);font-size:13px;font-weight:900;display:flex;justify-content:space-between}
-.disabled{opacity:.58}
-.disabled .open{color:#7f8d85}
-.list{display:grid;gap:9px}
-.item{background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px 14px;display:grid;grid-template-columns:48px 1fr auto;gap:12px;align-items:center}
-.item.active:hover{border-color:#89c9a8}
-.num{height:42px;border-radius:9px;background:var(--green-soft);color:var(--green-dark);font-weight:900;display:grid;place-items:center}
-.item h3{margin:0 0 3px;font-size:16px;color:#18412b}
-.item p{margin:0;font-size:13px;color:var(--muted)}
-.action{font-size:12px;font-weight:900;color:var(--green-dark);white-space:nowrap}
-.item.disabled{opacity:.52}
-.backrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
-.btn{display:inline-block;background:#fff;border:1px solid #b8c9bf;color:#244a35;border-radius:8px;padding:8px 11px;font-weight:800;font-size:13px}
-footer{text-align:center;color:#7b8780;font-size:12px;padding:0 14px 22px}
-@media(max-width:720px){
-  .top{padding:8px 9px 24px}
-  .logo{padding:5px 7px;border-radius:10px}
-  .title{margin-top:12px}.title h1{font-size:25px}.title p{font-size:14px}
-  main{padding:0 9px 28px}.grid{grid-template-columns:1fr}
-  .item{grid-template-columns:42px 1fr}.action{grid-column:2}
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IELTS Reading - Hoàn Cầu</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f7f5;
+      color: #1f2937;
+    }
+    .topbar {
+      background: linear-gradient(135deg, #16a34a, #0f8a3e);
+      color: #fff;
+      padding: 30px 20px 40px;
+    }
+    .inner {
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+    .nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+    .nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      border: 1px solid rgba(255,255,255,.35);
+      border-radius: 10px;
+      padding: 10px 14px;
+      background: rgba(255,255,255,.08);
+    }
+    .nav a:hover { background: rgba(255,255,255,.16); }
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(30px, 5vw, 44px);
+    }
+    .subtitle {
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.55;
+      opacity: .95;
+    }
+    .wrap {
+      max-width: 1050px;
+      margin: -18px auto 0;
+      padding: 0 20px 60px;
+    }
+    .panel {
+      background: #fff;
+      border: 1px solid #e0e8e2;
+      border-radius: 20px;
+      box-shadow: 0 10px 28px rgba(20,80,45,.08);
+      padding: 28px;
+    }
+    .panel h2 {
+      margin: 0 0 8px;
+      color: #176b39;
+      font-size: 28px;
+    }
+    .panel p {
+      margin: 0 0 24px;
+      color: #64748b;
+      line-height: 1.6;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 20px;
+    }
+    .card {
+      display: block;
+      text-decoration: none;
+      background: #f9fcfa;
+      border: 1px solid #dce9df;
+      border-radius: 18px;
+      padding: 26px;
+      transition: .18s ease;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: #74c98d;
+      box-shadow: 0 10px 24px rgba(15,100,55,.11);
+    }
+    .icon {
+      font-size: 34px;
+      margin-bottom: 12px;
+    }
+    .card strong {
+      display: block;
+      color: #155f34;
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+    .card span {
+      color: #64748b;
+      line-height: 1.55;
+    }
+    .footer {
+      text-align: center;
+      color: #74808a;
+      font-size: 14px;
+      margin-top: 28px;
+    }
+    @media (max-width: 700px) {
+      .grid { grid-template-columns: 1fr; }
+      .wrap { padding-left: 14px; padding-right: 14px; }
+    }
+  </style>
 </head>
 <body>
-<header class="top">
-  <div class="top-inner">
-    <div class="logo"><img src="../../hoancau-logo.png" alt="Trung tâm Ngoại ngữ Quốc tế Hoàn Cầu"></div>
-    <div class="title"><h1>IELTS READING</h1><p>Luyện theo dạng bài hoặc làm Full Reading Tests.</p></div>
-  </div>
-</header>
-<main>
-<section class="panel">
-  <div class="breadcrumb"><a href="../../index.html">Trang chủ</a><span>›</span><a href="../index.html">IELTS</a><span>›</span><span>IELTS Reading</span></div>
-  <h2>IELTS Reading</h2>
-  <p>Chọn luyện theo từng dạng câu hỏi hoặc làm bài Full Test.</p>
-</section>
-<section class="section">
-  <div class="grid">
-    <a class="card active" href="question-types/index.html">
-      <div class="card-top"><div class="icon">🧩</div><div><h3>Question Types</h3><p>Luyện chuyên sâu theo từng dạng câu hỏi IELTS Reading.</p></div></div>
-      <div class="open">XEM CÁC DẠNG BÀI <span>→</span></div>
-    </a>
-    <a class="card active" href="full-tests/index.html">
-      <div class="card-top"><div class="icon">📝</div><div><h3>Full Tests</h3><p>Luyện Reading hoàn chỉnh theo bộ đề Cambridge và các bộ đề khác.</p></div></div>
-      <div class="open">XEM FULL TESTS <span>→</span></div>
-    </a>
-  </div>
-</section>
-</main>
-<footer>Trung tâm Ngoại ngữ Quốc tế Hoàn Cầu · Hoan Cau International Foreign Language Center</footer>
+  <header class="topbar">
+    <div class="inner">
+      <div class="nav">
+        <a href="https://hoancaumaterials-pl.github.io/IELTS-HOANCAU/">⌂ Trang chủ IELTS</a>
+      </div>
+      <h1>IELTS READING</h1>
+      <p class="subtitle">Chọn hình thức luyện tập phù hợp.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="panel">
+      <h2>Chọn nội dung học</h2>
+      <p>Học sinh có thể luyện theo từng dạng câu hỏi hoặc làm đề Reading hoàn chỉnh.</p>
+
+      <div class="grid">
+        <a class="card" href="question-types/index.html">
+          <div class="icon">🧩</div>
+          <strong>Question Types</strong>
+          <span>Luyện đầy đủ 14 dạng câu hỏi IELTS Reading.</span>
+        </a>
+
+        <a class="card" href="full-tests/index.html">
+          <div class="icon">📘</div>
+          <strong>Full Tests</strong>
+          <span>Làm đề Reading hoàn chỉnh theo Volume và các nguồn khác.</span>
+        </a>
+      </div>
+    </section>
+
+    <div class="footer">IELTS Online Learning Hoàn Cầu</div>
+  </main>
 </body>
 </html>
